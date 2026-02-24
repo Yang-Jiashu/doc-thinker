@@ -20,6 +20,15 @@
             margin: 0;
             padding: 0;
         }
+
+        .w-10.h-10.rounded-xl.object-contain.flex-shrink-0 {
+            width: 160px !important;
+            height: 160px !important;
+            min-width: 160px !important;
+            min-height: 160px !important;
+            max-width: 160px !important;
+            max-height: 160px !important;
+        }
         
         /* 强制覆盖所有输入框颜色，防止暗黑模式干扰 */
         input, select, textarea {
@@ -771,7 +780,7 @@
         <div id="sidebar" class="d-flex flex-column flex-shrink-0 bg-white text-[#333333] position-relative" style="width: 280px; height: 100vh; border-right: 1px solid #e0e0e0; box-shadow: 2px 0 10px rgba(0,0,0,0.05);">
             <div class="p-3 border-b border-[#e0e0e0]" style="border-bottom: 1px solid #e0e0e0;">
                 <div class="d-flex align-items-center gap-2 mb-3">
-                    <img src="/static/longcatdoc.jpg" alt="whitecat logo" style="height: 48px; width: 48px; border-radius: 8px; object-fit: cover;" />
+                    <img src="/static/logo.png" alt="DocThinker logo" style="height: 72px; width: 72px; border-radius: 10px; object-fit: cover;" />
                     <span style="font-weight: 600; font-size: 1.3rem; color: #ff6b35;">whitecat</span>
                 </div>
                 <button class="w-full btn btn-primary mb-2" onclick="newConversation()" style="background-color: #ff6b35; border: none; color: white; border-radius: 8px; padding: 0.5rem 1rem; font-weight: 500; transition: all 0.2s ease;">
@@ -789,7 +798,7 @@
             </div>
             <div class="p-3 border-t border-[#e0e0e0] position-absolute bottom-0 w-100 bg-white" style="border-top: 1px solid #e0e0e0; padding: 0.75rem; bottom: 0;">
                 <div id="user-settings-area" class="d-flex align-items-center gap-2 cursor-pointer hover-effect p-2 rounded" style="cursor: pointer; transition: background-color 0.2s;">
-                    <img src="/static/longcatdoc.jpg" alt="User" style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover;" />
+                    <img src="/static/logo.png" alt="User" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;" />
                     <div>
                         <div class="text-sm font-medium" style="font-weight: 500; font-size: 0.85rem; color: #333333;">用户</div>
                         <div class="text-xs text-[#666666]" style="font-size: 0.75rem; color: #666666;">设置</div>

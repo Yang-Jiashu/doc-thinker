@@ -25,10 +25,11 @@ try:
     from raganything.api_config import api_config, api_routes
     from raganything.knowledge_graph import KnowledgeGraph
     
-    # 模板目录：固定为与本文件同目录下的 templates，避免从别处加载
+    # 模板目录与静态目录：固定为与本文件同目录
     _UI_DIR = os.path.abspath(os.path.dirname(__file__))
     template_dir = os.path.join(_UI_DIR, 'templates')
-    app = Flask(__name__, template_folder=template_dir)
+    static_dir = os.path.join(_UI_DIR, 'static')
+    app = Flask(__name__, template_folder=template_dir, static_folder=static_dir, static_url_path='/static')
     app.jinja_loader = FileSystemLoader(template_dir)
     print("[whitecat] 模板目录 templates =", template_dir)
     
@@ -42,6 +43,15 @@ try:
     # Configure app
     app.config['DEBUG'] = False
     app.config['SECRET_KEY'] = 'dev-secret-key'
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.jinja_env.auto_reload = True
+    
+    try:
+        _src, _fname, _ = app.jinja_loader.get_source(app.jinja_env, 'base_modern.html')
+        print("[whitecat] 加载的 base_modern.html 文件 =", _fname)
+        print("[whitecat] 模板包含 w-10 类 =", "w-10 h-10" in _src)
+    except Exception as _e:
+        print("[whitecat] 读取 base_modern.html 失败:", _e)
     
     # Simple in-memory storage for demo purposes
     # In production, this would be replaced with actual RAGAnything instance
@@ -74,10 +84,11 @@ except ImportError as e:
             self.vc_base = '/version-control'
             self.vc_snapshots = '/snapshots'
     
-    # 模板目录：固定为与本文件同目录下的 templates
+    # 模板目录与静态目录：固定为与本文件同目录
     _UI_DIR = os.path.abspath(os.path.dirname(__file__))
     template_dir = os.path.join(_UI_DIR, 'templates')
-    app = Flask(__name__, template_folder=template_dir)
+    static_dir = os.path.join(_UI_DIR, 'static')
+    app = Flask(__name__, template_folder=template_dir, static_folder=static_dir, static_url_path='/static')
     app.jinja_loader = FileSystemLoader(template_dir)
     print("[whitecat] 模板目录 templates =", template_dir)
     
@@ -88,6 +99,8 @@ except ImportError as e:
     
     # Enable CORS
     CORS(app, origins=['*'])
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.jinja_env.auto_reload = True
     
     # Configure app
     app.config['DEBUG'] = True
@@ -104,8 +117,38 @@ try:
 except ImportError as e:
     print(f"[whitecat] 知识图谱可视化路由注册失败: {e}")
 
-# Button injection disabled - using modern UI with built-in navigation
-# All navigation is now handled by base_modern.html template
+# 开发时禁止缓存页面，确保模板修改后刷新即生效
+@app.after_request
+def _no_cache_html(response):
+    if response.content_type and "text/html" in response.content_type:
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["X-Whitecat-Postprocess"] = "1"
+        try:
+            html = response.get_data(as_text=True)
+            if "</head>" in html and "logo-override-css" not in html:
+                inject = """
+<style id="logo-override-css">
+/* runtime override: enlarge sidebar logo */
+aside img.w-10.h-10.rounded-xl.object-contain.flex-shrink-0,
+aside img[src*="logo.png"],
+aside img[alt="DocThinker"] {
+    width: 140px !important;
+    height: 140px !important;
+    min-width: 140px !important;
+    min-height: 140px !important;
+    max-width: 140px !important;
+    max-height: 140px !important;
+    object-fit: contain !important;
+    border-radius: 14px !important;
+}
+</style>
+"""
+                html = html.replace("</head>", inject + "</head>")
+                response.set_data(html)
+        except Exception as _e:
+            pass
+    return response
 
 # Home route
 @app.route('/')
