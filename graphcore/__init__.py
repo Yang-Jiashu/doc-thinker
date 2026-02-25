@@ -14,10 +14,10 @@ from pkgutil import extend_path
 from typing import Any
 
 _THIS_DIR = Path(__file__).resolve().parent
-_INNER_PATH = _THIS_DIR / "graphcore.coregraph"
+_INNER_PATH = _THIS_DIR / "coregraph"
 
 # Ensure the real package directory is part of the package search path
-FORCE_LOCAL = os.getenv("LightragForceLocal") or os.getenv("LIGHYRAG_FORCE_LOCAL")
+FORCE_LOCAL = os.getenv("GraphcoreForceLocal")
 if FORCE_LOCAL and FORCE_LOCAL.lower() in {"1", "true", "yes"}:
     # Only use the inner source tree, avoid extending to site-packages.
     if _INNER_PATH.exists():
@@ -29,7 +29,7 @@ else:
         if inner_str not in __path__:
             __path__.append(inner_str)
 
-_inner = import_module(".graphcore.coregraph", __name__)
+_inner = import_module(".coregraph", __name__)
 
 GraphCore: Any = getattr(_inner, "GraphCore")
 QueryParam: Any = getattr(_inner, "QueryParam")

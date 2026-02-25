@@ -208,7 +208,7 @@ def validate_image_file(image_path: str, max_size_mb: int = 50) -> bool:
 
 
 async def insert_text_content(
-    graphcore.coregraph,
+    coregraph,
     input: str | list[str],
     split_by_character: str | None = None,
     split_by_character_only: bool = False,
@@ -219,7 +219,7 @@ async def insert_text_content(
     Insert pure text content into GraphCore
 
     Args:
-        graphcore.coregraph: GraphCore instance
+        coregraph: GraphCore instance
         input: Single document string or list of document strings
         split_by_character: if split_by_character is not None, split the string by character, if chunk longer than
         chunk_token_size, it will be split again by token size.
@@ -231,7 +231,7 @@ async def insert_text_content(
     logger.info("Starting text content insertion into GraphCore...")
 
     # Use GraphCore's insert method with all parameters
-    await graphcore.coregraph.ainsert(
+    await coregraph.ainsert(
         input=input,
         file_paths=file_paths,
         split_by_character=split_by_character,
@@ -243,7 +243,7 @@ async def insert_text_content(
 
 
 async def insert_text_content_with_multimodal_content(
-    graphcore.coregraph,
+    coregraph,
     input: str | list[str],
     multimodal_content: list[dict[str, any]] | None = None,
     split_by_character: str | None = None,
@@ -256,7 +256,7 @@ async def insert_text_content_with_multimodal_content(
     Insert pure text content into GraphCore
 
     Args:
-        graphcore.coregraph: GraphCore instance
+        coregraph: GraphCore instance
         input: Single document string or list of document strings
         multimodal_content: Multimodal content list (optional)
         split_by_character: if split_by_character is not None, split the string by character, if chunk longer than
@@ -271,7 +271,7 @@ async def insert_text_content_with_multimodal_content(
 
     # Use GraphCore's insert method with all parameters
     try:
-        await graphcore.coregraph.ainsert(
+        await coregraph.ainsert(
             input=input,
             multimodal_content=multimodal_content,
             file_paths=file_paths,
@@ -283,7 +283,7 @@ async def insert_text_content_with_multimodal_content(
     except Exception as e:
         logger.info(f"Error: {e}")
         logger.info(
-            "If the error is caused by the ainsert function not having a multimodal content parameter, please update the docthinker branch of graphcore.coregraph"
+            "If the error is caused by the ainsert function not having a multimodal content parameter, please update the docthinker branch of coregraph"
         )
 
     logger.info("Text content insertion complete")

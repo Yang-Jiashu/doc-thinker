@@ -842,39 +842,39 @@ class ProcessorMixin:
             f"Generated descriptions for {len(multimodal_data_list)}/{len(multimodal_items)} multimodal items using correct processors"
         )
 
-        # Stage 2: Convert to GraphCore chunks format
-        graphcore.coregraph_chunks = self._convert_to_graphcore.coregraph_chunks_type_aware(
+        # Stage 2: Convert to CoreGraph chunks format
+        coregraph_chunks = self._convert_to_coregraph_chunks_type_aware(
             multimodal_data_list, file_path, doc_id
         )
 
-        # Stage 3: Store chunks to GraphCore storage
-        await self._store_chunks_to_graphcore.coregraph_storage_type_aware(graphcore.coregraph_chunks)
+        # Stage 3: Store chunks to CoreGraph storage
+        await self._store_chunks_to_coregraph_storage_type_aware(coregraph_chunks)
 
         # Stage 3.5: Store multimodal main entities to entities_vdb and full_entities
         await self._store_multimodal_main_entities(
-            multimodal_data_list, graphcore.coregraph_chunks, file_path, doc_id
+            multimodal_data_list, coregraph_chunks, file_path, doc_id
         )
 
         # Track chunk IDs for doc_status update
-        chunk_ids = list(graphcore.coregraph_chunks.keys())
+        chunk_ids = list(coregraph_chunks.keys())
 
-        extraction_mode = (self.config.relation_extraction_mode or "graphcore").lower()
-        if extraction_mode not in {"graphcore", "hypergraph"}:
+        extraction_mode = (self.config.relation_extraction_mode or "coregraph").lower()
+        if extraction_mode not in {"coregraph", "hypergraph"}:
             self.logger.warning(
-                "Unknown relation_extraction_mode '%s', falling back to GraphCore.",
+                "Unknown relation_extraction_mode '%s', falling back to CoreGraph.",
                 extraction_mode,
             )
-            extraction_mode = "graphcore"
+            extraction_mode = "coregraph"
 
         chunk_results: List[Tuple] | None = None
         if extraction_mode == "hypergraph":
             await self._batch_extract_entities_hypergraph_prompt(
-                graphcore.coregraph_chunks, doc_id=doc_id, file_path=file_path
+                coregraph_chunks, doc_id=doc_id, file_path=file_path
             )
         else:
-            # Stage 4: Use GraphCore's batch entity relation extraction
-            chunk_results = await self._batch_extract_entities_graphcore.coregraph_style_type_aware(
-                graphcore.coregraph_chunks
+            # Stage 4: Use CoreGraph's batch entity relation extraction
+            chunk_results = await self._batch_extract_entities_coregraph_style_type_aware(
+                coregraph_chunks
             )
 
         if chunk_results is not None:
@@ -885,22 +885,22 @@ class ProcessorMixin:
                 )
             )
 
-            # Stage 6: Use GraphCore's batch merge
-            await self._batch_merge_graphcore.coregraph_style_type_aware(
+            # Stage 6: Use CoreGraph's batch merge
+            await self._batch_merge_coregraph_style_type_aware(
                 enhanced_chunk_results, file_path, doc_id
             )
         else:
             self.logger.info(
-                "HyperGraph prompt-based extraction selected; skipping GraphCore merge pipeline."
+                "HyperGraph prompt-based extraction selected; skipping CoreGraph merge pipeline."
             )
 
         # Stage 7: Update doc_status with integrated chunks_list
         await self._update_doc_status_with_chunks_type_aware(doc_id, chunk_ids)
 
-    def _convert_to_graphcore.coregraph_chunks_type_aware(
+    def _convert_to_coregraph_chunks_type_aware(
         self, multimodal_data_list: List[Dict[str, Any]], file_path: str, doc_id: str
     ) -> Dict[str, Any]:
-        """Convert multimodal data to GraphCore standard chunks format"""
+        """Convert multimodal data to CoreGraph standard chunks format"""
 
         chunks = {}
 
@@ -922,14 +922,14 @@ class ProcessorMixin:
             # Calculate tokens
             tokens = len(self.graphcore.tokenizer.encode(formatted_chunk_content))
 
-            # Build GraphCore standard chunk format
+            # Build CoreGraph standard chunk format
             chunks[chunk_id] = {
                 "content": formatted_chunk_content,  # Now uses the templated content
                 "tokens": tokens,
                 "full_doc_id": doc_id,
                 "chunk_order_index": chunk_order_index,
                 "file_path": os.path.basename(file_path),
-                "llm_cache_list": [],  # GraphCore will populate this field
+                "llm_cache_list": [],  # CoreGraph will populate this field
                 # Multimodal-specific metadata
                 "is_multimodal": True,
                 "modal_entity_name": entity_info["entity_name"],

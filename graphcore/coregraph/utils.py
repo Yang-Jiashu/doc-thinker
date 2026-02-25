@@ -96,7 +96,7 @@ def _patch_ascii_colors_console_handler() -> None:
     except ImportError:
         return
 
-    if getattr(ConsoleHandler, "_graphcore.coregraph_patched", False):
+    if getattr(ConsoleHandler, "_graphcore_patched", False):
         return
 
     original_handle_error = ConsoleHandler.handle_error
@@ -108,7 +108,7 @@ def _patch_ascii_colors_console_handler() -> None:
         original_handle_error(self, message)
 
     ConsoleHandler.handle_error = _safe_handle_error  # type: ignore[assignment]
-    ConsoleHandler._graphcore.coregraph_patched = True  # type: ignore[attr-defined]
+    ConsoleHandler._graphcore_patched = True  # type: ignore[attr-defined]
 
 
 _patch_ascii_colors_console_handler()
