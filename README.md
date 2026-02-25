@@ -129,11 +129,6 @@ python main.py
 python main.py --server
 ```
 
-**运行评测：**
-```bash
-python scripts/mmtest_bai.py
-```
-
 ---
 
 ## 📂 项目结构

@@ -6,7 +6,7 @@
 |--------|------|------|
 | **核心库目录** | AutoThink 核心库与后端 | 解析、入库、查询、知识图谱、自动思考、超图、cognitive、UI 等，被 server 与脚本直接使用。（目录名见仓库根下。） |
 | **neuro_memory/** | 类脑记忆引擎 | 与 AutoThink 核心对接，写入/巩固/类比检索；server 在 lifespan 中初始化并挂到 state.memory_engine。 |
-| **scripts/** | 入库与评测脚本 | 如 verify_neuro_memory、ingest_mineru_academic、run_qa_eval、mmtest_bai 等，README 中说明的入口。 |
+| **scripts/** | 入库与脚本 | 如 verify_neuro_memory、ingest_mineru_academic 等，README 中说明的入口。 |
 | **docs/** | 项目文档 | PROJECT_STRUCTURE、CODE_AND_DOCS_OVERVIEW、KG_OPTIMIZATIONS、FOLDERS 等。 |
 | **tests/** | 单元/集成测试 | 正式测试用例，与根目录零散的 test_*.py 不同。 |
 
@@ -17,7 +17,7 @@
 | 文件夹 | 用途 | 建议 |
 |--------|------|------|
 | **rag_storage_api/** | 会话与 RAG 存储 | `session_manager` 默认 `base_storage_path`，会话、索引、向量/图存储在此。**保留**，可加入 .gitignore 若不想提交运行时数据。 |
-| **data/** | 评测/解析用数据 | README 约定 data/raw、data/mineru_output 等，测评脚本会读。按需保留，通常 .gitignore 已忽略或只提交样例。 |
+| **data/** | 解析用数据 | README 约定 data/raw、data/mineru_output 等。按需保留，通常 .gitignore 已忽略或只提交样例。 |
 | **output/** | 解析/生成输出 | 解析结果、部分脚本输出。可 .gitignore，按需保留本地。 |
 | **neuro_memory_verify_data/** | 记忆验证脚本输出 | `scripts/verify_neuro_memory.py` 写入；可删除后重新跑脚本生成，建议加入 .gitignore。 |
 

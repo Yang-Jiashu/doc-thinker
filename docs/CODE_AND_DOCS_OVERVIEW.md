@@ -8,7 +8,7 @@
 
 | 文档 | 路径 | 内容概要 |
 |------|------|----------|
-| 主 README | `README.md` | 仓库定位、环境安装、测评脚本（mmtest_bai、run_qa_eval、run_batch_eval）、数据目录约定 |
+| 主 README | `README.md` | 仓库定位、环境安装、数据目录约定 |
 | 项目结构 | `docs/PROJECT_STRUCTURE.md` | UI/后端入口、模板目录、知识图谱入口、启动顺序 |
 | 知识图谱优化 | `docs/KG_OPTIMIZATIONS.md` | 主 KG 与记忆图的 UI/构建/变更/合并/查询/存储：已做与可做优化清单 |
 | 类脑记忆设计 | `neuro_memory/DESIGN.md` | 扩散激活、巩固重放、结构映射与类比、显著性、图式、区分；算法模块与数据结构 |

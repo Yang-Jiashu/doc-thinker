@@ -16,7 +16,7 @@ doc/
 ├── Autothink-RAG/        # 实验性子项目 (24MB)
 ├── 图存储目录/            # 本地图/向量实现 (4MB)
 ├── neuro_memory/        # 记忆系统 (50KB) ⭐ 核心
-├── scripts/             # 评测脚本
+├── scripts/             # 脚本
 ├── tests/               # 分散的测试
 └── ... (大量缓存/日志)
 

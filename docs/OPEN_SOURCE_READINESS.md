@@ -8,7 +8,7 @@
 
 | 项目 | 状态 |
 |------|------|
-| **README.md** | 有，结构清晰：安装、配置、测评流程、数据约定 |
+| **README.md** | 有，结构清晰：安装、配置、数据约定 |
 | **pyproject.toml** | 有，MIT、版本、依赖、classifiers、Repository/Issues URL |
 | **LICENSE** | 已补：根目录 `LICENSE`（MIT） |
 | **.gitignore** | 有，已修正：仅忽略根目录 `test_*.py`，保留 `tests/` |
