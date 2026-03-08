@@ -1,0 +1,44 @@
+{
+  "hybrid:keywords:b044872616b465d2796a1b91435b85ba": {
+    "return": "{\"high_level_keywords\": [\"\\u6587\\u4ef6\\u5206\\u6790\", \"\\u6570\\u636e\\u5206\\u6790\"], \"low_level_keywords\": [\"\\u4e0a\\u4f20\", \"\\u6587\\u4ef6\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "请分析上传的文件",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 30,
+      "max_entity_tokens": 15000,
+      "max_relation_tokens": 15000,
+      "max_total_tokens": 60000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1772871055,
+    "update_time": 1772871055,
+    "_id": "hybrid:keywords:b044872616b465d2796a1b91435b85ba"
+  },
+  "hybrid:query:02917771d2a53c3c34a0daeebf29741f": {
+    "return": "抱歉，我没有足够的信息来回答您的问题。请您提供更多具体的指示或问题内容。",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "请分析上传的文件",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 30,
+      "max_entity_tokens": 15000,
+      "max_relation_tokens": 15000,
+      "max_total_tokens": 60000,
+      "hl_keywords": "文件分析, 数据分析",
+      "ll_keywords": "上传, 文件",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1772871059,
+    "update_time": 1772871059,
+    "_id": "hybrid:query:02917771d2a53c3c34a0daeebf29741f"
+  }
+}

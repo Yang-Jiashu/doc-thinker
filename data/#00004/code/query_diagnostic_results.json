@@ -1,0 +1,161 @@
+{
+  "timestamp": "2026-03-07 04:11:59",
+  "results": [
+    {
+      "stage": "Stage1",
+      "test": "kg_file_exists",
+      "passed": true,
+      "detail": "C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00004\\knowledge\\knowledge_graph.json"
+    },
+    {
+      "stage": "Stage1",
+      "test": "entity_count",
+      "passed": true,
+      "detail": "12 entities"
+    },
+    {
+      "stage": "Stage1",
+      "test": "relationship_count",
+      "passed": true,
+      "detail": "10 relationships"
+    },
+    {
+      "stage": "Stage1",
+      "test": "mayun_entity_exists",
+      "passed": true,
+      "detail": "found=True"
+    },
+    {
+      "stage": "Stage1",
+      "test": "mayun_correct_ancestral_home",
+      "passed": true,
+      "detail": "成长背景=祖籍浙江省嵊州市，后父母移居杭州"
+    },
+    {
+      "stage": "Stage1",
+      "test": "zuji_relationship_exists",
+      "passed": true,
+      "detail": "found=True"
+    },
+    {
+      "stage": "Stage1",
+      "test": "zuji_evidence_correct",
+      "passed": true,
+      "detail": "evidence=马云祖籍浙江省嵊州市（原嵊县）谷来镇，后父母移居杭州。"
+    },
+    {
+      "stage": "Stage1",
+      "test": "correct_chunk_exists",
+      "passed": true,
+      "detail": "chunk_id=chunk-edd212a91e12d7f60e0a2e2e522d7d8a"
+    },
+    {
+      "stage": "Stage1",
+      "test": "poisoned_chunks_count",
+      "passed": true,
+      "detail": "found 1 chunks with WRONG info (安徽/合肥):\n  chunk-387d0462d3b3d2df5ccc68284d97f96f: User Question: 告诉我马云的祖籍是哪里\nAssistant Answer: 马云的祖籍是中国安徽省合肥市。若您需要更详细的信息，例如他的成长经历或事业发展，您可以进一步询问。..."
+    },
+    {
+      "stage": "Stage1",
+      "test": "graphml_exists",
+      "passed": true,
+      "detail": "size=39012 bytes"
+    },
+    {
+      "stage": "Stage2",
+      "test": "vdb_entities_format",
+      "passed": true,
+      "detail": "dict format with 3 keys"
+    },
+    {
+      "stage": "Stage2",
+      "test": "vdb_chunks_format",
+      "passed": true,
+      "detail": "dict format with 3 keys"
+    },
+    {
+      "stage": "Stage2",
+      "test": "vdb_relationships_format",
+      "passed": true,
+      "detail": "dict format with 3 keys"
+    },
+    {
+      "stage": "Stage3",
+      "test": "bm25_available",
+      "passed": false,
+      "detail": "BM25 import failed: No module named 'rank_bm25'"
+    },
+    {
+      "stage": "Stage4",
+      "test": "api_key_present",
+      "passed": true,
+      "detail": "key=***EYkE"
+    },
+    {
+      "stage": "Stage4",
+      "test": "embed_endpoint",
+      "passed": true,
+      "detail": "https://api.bltcy.ai/v1, model=text-embedding-3-large"
+    },
+    {
+      "stage": "Stage4",
+      "test": "embedding_test",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "stage": "Stage5",
+      "test": "entity_vector_query_has_try_except",
+      "passed": false,
+      "detail": "UNPROTECTED — embedding timeout will crash entire query!"
+    },
+    {
+      "stage": "Stage5",
+      "test": "chunk_vector_query_has_try_except",
+      "passed": false,
+      "detail": "UNPROTECTED"
+    },
+    {
+      "stage": "Stage5",
+      "test": "relation_vector_query_has_try_except",
+      "passed": false,
+      "detail": "UNPROTECTED — embedding timeout will crash entire query!"
+    },
+    {
+      "stage": "Stage5",
+      "test": "DIAGNOSIS",
+      "passed": false,
+      "detail": "When strategy='hybrid':\n1. BM25 runs first (SUCCESS — finds correct entities/chunks)\n2. Vector query also runs (TIMEOUT — embedding API fails)\n3. Without try/except, timeout EXCEPTION kills entire query\n4. BM25 results are DISCARDED despite being correct\n5. Query falls back to LLM general knowledge → WRONG ANSWER"
+    },
+    {
+      "stage": "Stage6",
+      "test": "total_chunks",
+      "passed": true,
+      "detail": "7"
+    },
+    {
+      "stage": "Stage6",
+      "test": "correct_chunks",
+      "passed": true,
+      "detail": "1 chunks with correct info (嵊州市谷来镇)"
+    },
+    {
+      "stage": "Stage6",
+      "test": "wrong_chunks",
+      "passed": false,
+      "detail": "1 chunks with WRONG info (安徽/合肥) — from LLM hallucination ingested back"
+    },
+    {
+      "stage": "Stage6",
+      "test": "noise_chunks",
+      "passed": true,
+      "detail": "2 chunks with noise (garbled text discussions)"
+    },
+    {
+      "stage": "Stage6",
+      "test": "POLLUTION_WARNING",
+      "passed": false,
+      "detail": "Chunks ['chunk-387d0462d3b3d2df5ccc68284d97f96f'] contain WRONG answer from first query hallucination!\nThese were ingested via _ingest_chat_turn() after the LLM gave wrong answer.\nEven if retrieval works, these poisoned chunks may surface wrong info."
+    }
+  ]
+}

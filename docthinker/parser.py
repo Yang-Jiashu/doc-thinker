@@ -15,6 +15,8 @@ from __future__ import annotations
 import json
 import argparse
 import base64
+import hashlib
+import os
 import subprocess
 import tempfile
 import logging
@@ -585,6 +587,21 @@ class MineruParser(Parser):
         super().__init__()
 
     @staticmethod
+    def _content_text_score(content_list: List[Dict[str, Any]]) -> int:
+        """Return a coarse text quality score for parser output."""
+        low_value_types = {"footer", "header", "page_number", "image", "figure"}
+        score = 0
+        for block in content_list or []:
+            text = str(block.get("text") or "").strip()
+            if not text:
+                continue
+            block_type = str(block.get("type") or "").strip().lower()
+            if block_type in low_value_types:
+                continue
+            score += len(text)
+        return score
+
+    @staticmethod
     def _run_mineru_command(
         input_path: Union[str, Path],
         output_dir: Union[str, Path],
@@ -811,6 +828,21 @@ class MineruParser(Parser):
             json_file = file_stem_subdir / method / f"{file_stem}_content_list.json"
             images_base_dir = file_stem_subdir / method
 
+            # MinerU may emit dynamic mode folders (e.g. "hybrid_auto", "vlm")
+            # even when requested method is "auto". Fall back to first matching
+            # content_list file under the stem directory.
+            if not json_file.exists():
+                fallback_json = list(
+                    file_stem_subdir.glob(f"*/{file_stem}_content_list.json")
+                )
+                if fallback_json:
+                    fallback_json.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+                    json_file = fallback_json[0]
+                    images_base_dir = json_file.parent
+                    md_candidate = images_base_dir / f"{file_stem}.md"
+                    if md_candidate.exists():
+                        md_file = md_candidate
+
         # Read markdown content
         md_content = ""
         if md_file.exists():
@@ -874,13 +906,32 @@ class MineruParser(Parser):
         Returns:
             List[Dict[str, Any]]: List of content blocks
         """
+        temp_dir_to_cleanup: Optional[Path] = None
         try:
             # Convert to Path object for easier handling
             pdf_path = Path(pdf_path)
             if not pdf_path.exists():
                 raise FileNotFoundError(f"PDF file does not exist: {pdf_path}")
 
+            parse_input_path = pdf_path
             name_without_suff = pdf_path.stem
+
+            # MinerU may mangle non-ASCII filenames on Windows; run with an ASCII temp copy.
+            if any(ord(ch) > 127 for ch in pdf_path.name):
+                import shutil
+
+                temp_dir_to_cleanup = Path(tempfile.mkdtemp(prefix="mineru_pdf_"))
+                safe_stem = (
+                    "pdf_"
+                    + hashlib.md5(str(pdf_path).encode("utf-8")).hexdigest()[:16]
+                )
+                parse_input_path = temp_dir_to_cleanup / f"{safe_stem}.pdf"
+                shutil.copy2(pdf_path, parse_input_path)
+                name_without_suff = parse_input_path.stem
+                logging.info(
+                    "Using ASCII-safe temp filename for MinerU: "
+                    f"{parse_input_path.name}"
+                )
 
             # Prepare output directory
             if output_dir:
@@ -889,11 +940,18 @@ class MineruParser(Parser):
                 base_output_dir = pdf_path.parent / "mineru_output"
 
             base_output_dir.mkdir(parents=True, exist_ok=True)
+            # Use an isolated run directory to avoid output collisions between files/runs.
+            run_output_dir = Path(
+                tempfile.mkdtemp(
+                    prefix=f"{name_without_suff}_",
+                    dir=str(base_output_dir),
+                )
+            )
 
             # Run mineru command
             self._run_mineru_command(
-                input_path=pdf_path,
-                output_dir=base_output_dir,
+                input_path=parse_input_path,
+                output_dir=run_output_dir,
                 method=method,
                 lang=lang,
                 **kwargs,
@@ -905,8 +963,43 @@ class MineruParser(Parser):
                 method = "vlm"
 
             content_list, _ = self._read_output_files(
-                base_output_dir, name_without_suff, method=method
+                run_output_dir, name_without_suff, method=method
             )
+            # Fallback: if AUTO yields only non-textual blocks, optionally retry
+            # with OCR.  When a GPT-Vision fallback is available downstream the
+            # OCR retry is usually redundant and wastes ~50s on low-GPU machines.
+            skip_ocr_retry = os.environ.get("SKIP_MINERU_OCR_RETRY", "1") == "1"
+            if method == "auto":
+                auto_score = self._content_text_score(content_list)
+                if auto_score == 0 and not skip_ocr_retry:
+                    logging.info(
+                        "MinerU auto parsing returned no usable text; retrying with OCR."
+                    )
+                    ocr_run_output_dir = Path(
+                        tempfile.mkdtemp(
+                            prefix=f"{name_without_suff}_ocr_",
+                            dir=str(base_output_dir),
+                        )
+                    )
+                    self._run_mineru_command(
+                        input_path=parse_input_path,
+                        output_dir=ocr_run_output_dir,
+                        method="ocr",
+                        lang=lang,
+                        **kwargs,
+                    )
+                    ocr_content_list, _ = self._read_output_files(
+                        ocr_run_output_dir, name_without_suff, method="ocr"
+                    )
+                    if self._content_text_score(ocr_content_list) > auto_score:
+                        logging.info("Using OCR fallback output for PDF parsing result.")
+                        content_list = ocr_content_list
+                elif auto_score == 0 and skip_ocr_retry:
+                    logging.info(
+                        "MinerU auto parsing returned no usable text; "
+                        "skipping OCR retry (SKIP_MINERU_OCR_RETRY=1, GPT Vision fallback available)."
+                    )
+
             return content_list
 
         except MineruExecutionError:
@@ -914,6 +1007,11 @@ class MineruParser(Parser):
         except Exception as e:
             logging.error(f"Error in parse_pdf: {str(e)}")
             raise
+        finally:
+            if temp_dir_to_cleanup and temp_dir_to_cleanup.exists():
+                import shutil
+
+                shutil.rmtree(temp_dir_to_cleanup, ignore_errors=True)
 
     def parse_image(
         self,
@@ -1032,12 +1130,18 @@ class MineruParser(Parser):
                 base_output_dir = image_path.parent / "mineru_output"
 
             base_output_dir.mkdir(parents=True, exist_ok=True)
+            run_output_dir = Path(
+                tempfile.mkdtemp(
+                    prefix=f"{name_without_suff}_",
+                    dir=str(base_output_dir),
+                )
+            )
 
             try:
                 # Run mineru command (images are processed with OCR method)
                 self._run_mineru_command(
                     input_path=actual_image_path,
-                    output_dir=base_output_dir,
+                    output_dir=run_output_dir,
                     method="ocr",  # Images require OCR method
                     lang=lang,
                     **kwargs,
@@ -1045,7 +1149,7 @@ class MineruParser(Parser):
 
                 # Read the generated output files
                 content_list, _ = self._read_output_files(
-                    base_output_dir, name_without_suff, method="ocr"
+                    run_output_dir, name_without_suff, method="ocr"
                 )
                 return content_list
 

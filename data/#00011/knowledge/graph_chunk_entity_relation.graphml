@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Vibrant Urban Street Scene (image)">
+      <data key="entity_id">Vibrant Urban Street Scene (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image depicts a lively urban street scene filled with colorful storefronts and a diverse group of pedestrians engaging in various activities, encapsulating the essence of city life.</data>
+      <data key="source_id">chunk-1cd8e36705776992d8417e137fd8d9d3</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772869416</data>
+    </node>
+    <node id="Empty Footer (footer)">
+      <data key="entity_id">Empty Footer (footer)</data>
+      <data key="entity_type">footer</data>
+      <data key="description">This footer contains no textual content or elements, resulting in a lack of navigational or informational value.</data>
+      <data key="source_id">chunk-7efd6068f9138c16a7c525a6d7d19545</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772869416</data>
+    </node>
+    <node id="Vibrant Urban Street Scene (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image depicts a lively urban street scene filled with colorful storefronts and a diverse group of pedestrians engaging in various activities, encapsulating the essence of city life.</data>
+      <data key="source_id">image_asset:img-22c6769043ba8a636ea9091f05c497c3</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00011\knowledge\multimodal\images\img-22c6769043ba8a636ea9091f05c497c3.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-2d647e50f80abfb0113142edaad8956c</data>
+      <data key="created_at">1772869418</data>
+    </node>
+    <edge source="Vibrant Urban Street Scene (image)" target="Vibrant Urban Street Scene (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Vibrant Urban Street Scene (image)</data>
+      <data key="source_id">image_asset:img-22c6769043ba8a636ea9091f05c497c3</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+    </edge>
+  </graph>
+</graphml>

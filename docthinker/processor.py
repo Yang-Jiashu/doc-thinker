@@ -8,11 +8,18 @@ import os
 import time
 import hashlib
 import json
+from datetime import datetime
 from typing import Dict, List, Any, Tuple, Optional
 from pathlib import Path
+import numpy as np
 
 from docthinker.base import DocStatus
 from docthinker.parser import MineruParser, DoclingParser, MineruExecutionError
+from docthinker.image_assets import (
+    ImageAssetTable,
+    build_image_asset_id,
+    is_image_node,
+)
 from docthinker.utils import (
     separate_content,
     insert_text_content,
@@ -20,7 +27,12 @@ from docthinker.utils import (
     get_processor_for_type,
 )
 import asyncio
+import base64
+import logging
+import tempfile
 from graphcore.coregraph.utils import compute_mdhash_id
+
+_pdf_fallback_logger = logging.getLogger(__name__ + ".pdf_vision_fallback")
 
 
 class ProcessorMixin:
@@ -286,6 +298,12 @@ class ProcessorMixin:
         # Use config defaults if not provided
         if output_dir is None:
             output_dir = self.config.parser_output_dir
+        output_dir_path = Path(str(output_dir))
+        if not output_dir_path.is_absolute():
+            # Keep parser outputs session-scoped to avoid cross-session collisions.
+            output_dir_path = Path(self.config.working_dir) / output_dir_path
+        output_dir_path.mkdir(parents=True, exist_ok=True)
+        output_dir = str(output_dir_path)
         if parse_method is None:
             parse_method = self.config.parse_method
         if display_stats is None:
@@ -521,30 +539,28 @@ class ProcessorMixin:
                 pipeline_status["latest_message"] = log_message
                 pipeline_status["history_messages"].append(log_message)
 
-        attempts = 3
-        for attempt in range(attempts):
+        try:
+            await self._ensure_graphcore_initialized()
+            await self._process_multimodal_content_batch_type_aware(
+                multimodal_items=multimodal_items, file_path=file_path, doc_id=doc_id
+            )
+            await self._mark_multimodal_processing_complete(doc_id)
+            log_message = "Multimodal content processing complete"
+            self.logger.info(log_message)
+            if pipeline_status_lock and pipeline_status:
+                async with pipeline_status_lock:
+                    pipeline_status["latest_message"] = log_message
+                    pipeline_status["history_messages"].append(log_message)
+        except Exception as e:
+            self.logger.error(f"Error in multimodal batch processing: {e}")
+            self.logger.info("Falling back to individual multimodal processing")
             try:
-                await self._ensure_graphcore_initialized()
-                await self._process_multimodal_content_batch_type_aware(
-                    multimodal_items=multimodal_items, file_path=file_path, doc_id=doc_id
-                )
-                await self._mark_multimodal_processing_complete(doc_id)
-                log_message = "Multimodal content processing complete"
-                self.logger.info(log_message)
-                if pipeline_status_lock and pipeline_status:
-                    async with pipeline_status_lock:
-                        pipeline_status["latest_message"] = log_message
-                        pipeline_status["history_messages"].append(log_message)
-                break
-            except Exception as e:
-                self.logger.error(f"Error in multimodal processing: {e}")
-                if attempt < attempts - 1:
-                    await asyncio.sleep(1 * (2 ** attempt))
-                    continue
-                self.logger.warning("Falling back to individual multimodal processing")
                 await self._process_multimodal_content_individual(
                     multimodal_items, file_path, doc_id
                 )
+                await self._mark_multimodal_processing_complete(doc_id)
+            except Exception as e2:
+                self.logger.error(f"Individual multimodal processing also failed: {e2}")
                 await self._mark_multimodal_processing_complete(doc_id)
 
     async def _process_multimodal_content_individual(
@@ -748,73 +764,54 @@ class ProcessorMixin:
         ):
             nonlocal completed_count
             async with semaphore:
-                attempts = 3
-                last_error = None
-                for attempt in range(attempts):
-                    try:
-                        content_type = item.get("type", "unknown")
-                        processor = get_processor_for_type(
-                            self.modal_processors, content_type
-                        )
-                        if not processor:
-                            self.logger.warning(
-                                f"No processor found for type: {content_type}"
-                            )
-                            return None
-                        item_info = {
-                            "page_idx": item.get("page_idx", 0),
-                            "index": index,
-                            "type": content_type,
-                        }
-                        (
-                            description,
-                            entity_info,
-                        ) = await processor.generate_description_only(
-                            modal_content=item,
-                            content_type=content_type,
-                            item_info=item_info,
-                            entity_name=None,
-                        )
-                        async with progress_lock:
-                            completed_count += 1
-                            if (
-                                completed_count % max(1, total_items // 10) == 0
-                                or completed_count == total_items
-                            ):
-                                progress_percent = (completed_count / total_items) * 100
-                                self.logger.info(
-                                    f"Multimodal chunk generation progress: {completed_count}/{total_items} ({progress_percent:.1f}%)"
-                                )
-                        return {
-                            "index": index,
-                            "content_type": content_type,
-                            "description": description,
-                            "entity_info": entity_info,
-                            "original_item": item,
-                            "item_info": item_info,
-                            "chunk_order_index": existing_chunks_count + index,
-                            "processor": processor,
-                            "file_path": file_path,
-                        }
-                    except Exception as e:
-                        last_error = e
-                        if attempt < attempts - 1:
-                            await asyncio.sleep(1 * (2 ** attempt))
-                            continue
-                        async with progress_lock:
-                            completed_count += 1
-                            if (
-                                completed_count % max(1, total_items // 10) == 0
-                                or completed_count == total_items
-                            ):
-                                progress_percent = (completed_count / total_items) * 100
-                                self.logger.info(
-                                    f"Multimodal chunk generation progress: {completed_count}/{total_items} ({progress_percent:.1f}%)"
-                                )
-                        self.logger.error(
-                            f"Error generating description for {item.get('type','unknown')} item {index}: {last_error}"
+                try:
+                    content_type = item.get("type", "unknown")
+                    processor = get_processor_for_type(
+                        self.modal_processors, content_type
+                    )
+                    if not processor:
+                        self.logger.warning(
+                            f"No processor found for type: {content_type}"
                         )
                         return None
+                    item_info = {
+                        "page_idx": item.get("page_idx", 0),
+                        "index": index,
+                        "type": content_type,
+                    }
+                    (
+                        description,
+                        entity_info,
+                    ) = await processor.generate_description_only(
+                        modal_content=item,
+                        content_type=content_type,
+                        item_info=item_info,
+                        entity_name=None,
+                    )
+                    async with progress_lock:
+                        completed_count += 1
+                        progress_percent = (completed_count / total_items) * 100
+                        self.logger.info(
+                            f"Multimodal chunk generation progress: {completed_count}/{total_items} ({progress_percent:.1f}%)"
+                        )
+                    return {
+                        "index": index,
+                        "content_type": content_type,
+                        "description": description,
+                        "entity_info": entity_info,
+                        "original_item": item,
+                        "item_info": item_info,
+                        "chunk_order_index": existing_chunks_count + index,
+                        "processor": processor,
+                        "file_path": file_path,
+                    }
+                except Exception as e:
+                    async with progress_lock:
+                        completed_count += 1
+                    self.logger.error(
+                        f"Error generating description for {item.get('type','unknown')} item {index}: {e}"
+                    )
+                    return None
 
         # Process all items concurrently with correct processors
         tasks = [
@@ -854,6 +851,13 @@ class ProcessorMixin:
         # Stage 3.5: Store multimodal main entities to entities_vdb and full_entities
         await self._store_multimodal_main_entities(
             multimodal_data_list, coregraph_chunks, file_path, doc_id
+        )
+
+        # Stage 3.6: Persist image assets table and create image asset graph nodes/edges
+        await self._persist_image_assets_and_nodes(
+            multimodal_data_list=multimodal_data_list,
+            file_path=file_path,
+            doc_id=doc_id,
         )
 
         # Track chunk IDs for doc_status update
@@ -1077,10 +1081,13 @@ class ProcessorMixin:
             entity_id = compute_mdhash_id(entity_name, prefix="ent-")
 
             # Create entity data in GraphCore format
+            raw_content = entity_info.get("summary") or description or entity_name
+            if not isinstance(raw_content, str):
+                raw_content = str(raw_content)
             entity_data = {
                 "entity_name": entity_name,
                 "entity_type": entity_info.get("entity_type", content_type),
-                "content": entity_info.get("summary", description),
+                "content": raw_content.strip() or entity_name,
                 "source_id": chunk_id,
                 "file_path": os.path.basename(file_path),
             }
@@ -1125,6 +1132,224 @@ class ProcessorMixin:
             except Exception as e:
                 self.logger.error(f"Error storing multimodal main entities: {e}")
                 raise
+
+    @staticmethod
+    def _vector_to_list(value: Any) -> Optional[List[float]]:
+        if value is None:
+            return None
+        if hasattr(value, "tolist"):
+            value = value.tolist()
+        if isinstance(value, list) and value and isinstance(value[0], list):
+            value = value[0]
+        if not isinstance(value, list) or not value:
+            return None
+        out: List[float] = []
+        for item in value:
+            try:
+                out.append(float(item))
+            except Exception:
+                return None
+        return out if out else None
+
+    @staticmethod
+    def _cosine_similarity(vec_a: List[float], vec_b: List[float]) -> float:
+        if not vec_a or not vec_b or len(vec_a) != len(vec_b):
+            return 0.0
+        a = np.asarray(vec_a, dtype=np.float32)
+        b = np.asarray(vec_b, dtype=np.float32)
+        denom = (np.linalg.norm(a) * np.linalg.norm(b)) + 1e-9
+        if denom <= 0.0:
+            return 0.0
+        return float(np.dot(a, b) / denom)
+
+    async def _persist_image_assets_and_nodes(
+        self,
+        *,
+        multimodal_data_list: List[Dict[str, Any]],
+        file_path: str,
+        doc_id: str,
+    ) -> None:
+        """Persist image assets under knowledge/multimodal and upsert image asset nodes."""
+        image_items = [
+            item
+            for item in multimodal_data_list
+            if str(item.get("content_type") or "").strip().lower() == "image"
+        ]
+        if not image_items:
+            return
+
+        if not self.graphcore:
+            return
+
+        table = ImageAssetTable(self.working_dir)
+        graph = self.graphcore.chunk_entity_relation_graph
+
+        session_id = Path(self.working_dir).parent.name
+        source_pdf = str(Path(file_path).name)
+        link_threshold = float(os.getenv("IMAGE_ASSET_LINK_THRESHOLD", "0.72"))
+        link_top_k = max(1, int(os.getenv("IMAGE_ASSET_LINK_TOP_K", "3")))
+        max_link_candidates = max(
+            10, int(os.getenv("IMAGE_ASSET_LINK_CANDIDATES", "120"))
+        )
+
+        existing_nodes = await graph.get_all_nodes()
+        candidate_nodes = []
+        candidate_texts = []
+        for node in existing_nodes:
+            node_id = str(node.get("id") or "").strip()
+            if not node_id:
+                continue
+            if is_image_node(node):
+                continue
+            desc = str(node.get("description") or "").strip()
+            candidate_nodes.append(node)
+            candidate_texts.append(f"{node_id}. {desc}".strip())
+            if len(candidate_nodes) >= max_link_candidates:
+                break
+
+        candidate_vectors: List[Optional[List[float]]] = []
+        if candidate_texts and self.embedding_func is not None:
+            try:
+                raw_vecs = await self.embedding_func(candidate_texts)
+                if hasattr(raw_vecs, "tolist"):
+                    raw_vecs = raw_vecs.tolist()
+                if isinstance(raw_vecs, list):
+                    for vec in raw_vecs:
+                        candidate_vectors.append(self._vector_to_list(vec))
+            except Exception as exc:
+                self.logger.warning(
+                    f"Failed to compute candidate embeddings for image links: {exc}"
+                )
+        if len(candidate_vectors) < len(candidate_nodes):
+            candidate_vectors.extend(
+                [None] * max(0, len(candidate_nodes) - len(candidate_vectors))
+            )
+
+        pending_records: List[Dict[str, Any]] = []
+        for index, entry in enumerate(image_items):
+            original_item = entry.get("original_item") or {}
+            source_image_path = str(original_item.get("img_path") or "").strip()
+            if not source_image_path:
+                continue
+
+            entity_info = entry.get("entity_info") or {}
+            entity_name = str(entity_info.get("entity_name") or "").strip()
+            if not entity_name:
+                entity_name = f"image_asset_{index + 1}"
+            description = str(entry.get("description") or "").strip()
+            summary = str(entity_info.get("summary") or "").strip() or description
+
+            page_idx_raw = (entry.get("item_info") or {}).get(
+                "page_idx", original_item.get("page_idx", 0)
+            )
+            try:
+                page_idx = int(page_idx_raw)
+            except Exception:
+                page_idx = 0
+
+            image_id = build_image_asset_id(
+                session_id=session_id,
+                doc_id=doc_id,
+                source_pdf=source_pdf,
+                page_idx=page_idx,
+                source_image_path=source_image_path,
+                index=index,
+            )
+            stored_path = table.copy_image_to_store(source_image_path, image_id)
+            image_node_id = f"{entity_name} [image_asset p{page_idx}]"
+
+            image_embedding: Optional[List[float]] = None
+            if self.embedding_func and summary:
+                try:
+                    vec = await self.embedding_func([summary])
+                    image_embedding = self._vector_to_list(vec)
+                except Exception:
+                    image_embedding = None
+
+            node_data = {
+                "entity_type": "image_asset",
+                "description": summary[:1200],
+                "source_id": f"image_asset:{image_id}",
+                "is_image_node": 1,
+                "img_path": stored_path,
+                "file_path": source_pdf,
+                "page_idx": page_idx,
+                "doc_id": doc_id,
+                "created_at": int(time.time()),
+            }
+            await graph.upsert_node(image_node_id, node_data)
+
+            # Link asset node to primary multimodal node extracted in main pipeline
+            if entity_name and entity_name != image_node_id:
+                if await graph.has_node(entity_name):
+                    await graph.upsert_edge(
+                        image_node_id,
+                        entity_name,
+                        {
+                            "keywords": "image_asset_of",
+                            "description": f"Image asset for {entity_name}",
+                            "source_id": f"image_asset:{image_id}",
+                            "weight": 1.0,
+                            "file_path": source_pdf,
+                        },
+                    )
+
+            if image_embedding is not None and candidate_nodes:
+                scored = []
+                for cand, cand_vec in zip(candidate_nodes, candidate_vectors):
+                    if cand_vec is None:
+                        continue
+                    cand_id = str(cand.get("id") or "").strip()
+                    if not cand_id or cand_id == image_node_id:
+                        continue
+                    score = self._cosine_similarity(image_embedding, cand_vec)
+                    if score >= link_threshold:
+                        scored.append((score, cand_id))
+
+                scored.sort(key=lambda x: x[0], reverse=True)
+                for score, cand_id in scored[:link_top_k]:
+                    await graph.upsert_edge(
+                        image_node_id,
+                        cand_id,
+                        {
+                            "keywords": "image_related_to",
+                            "description": f"Image semantically related to {cand_id}",
+                            "source_id": f"image_asset:{image_id}",
+                            "weight": float(score),
+                            "file_path": source_pdf,
+                        },
+                    )
+
+            pending_records.append(
+                {
+                    "image_id": image_id,
+                    "session_id": session_id,
+                    "doc_id": doc_id,
+                    "source_pdf": source_pdf,
+                    "source_image_path": source_image_path,
+                    "stored_path": stored_path,
+                    "page_idx": page_idx,
+                    "entity_name": entity_name,
+                    "graph_node_id": image_node_id,
+                    "summary": summary,
+                    "analysis": description,
+                    "captions": original_item.get("image_caption")
+                    or original_item.get("img_caption")
+                    or [],
+                    "footnotes": original_item.get("image_footnote")
+                    or original_item.get("img_footnote")
+                    or [],
+                    "embedding": image_embedding,
+                    "created_at": datetime.now().isoformat(),
+                }
+            )
+
+        if pending_records:
+            table.upsert_records(pending_records)
+            self.logger.info(
+                f"Persisted {len(pending_records)} image assets to "
+                f"{table.table_path}"
+            )
 
     async def _store_multimodal_entities_to_full_entities(
         self, entities_to_store: Dict[str, Any], doc_id: str
@@ -1212,55 +1437,56 @@ class ProcessorMixin:
         async def _extract_one(chunk_id: str, chunk: Dict[str, Any]) -> List[Tuple]:
             async with semaphore:
                 single_chunk = {chunk_id: chunk}
-                attempts = 3
-                last_error = None
-                for attempt in range(attempts):
-                    try:
-                        from graphcore.coregraph.llm.openai import openai_complete_if_cache
-                        # Build a dedicated 8B llm_model_func for extraction-only, without affecting other paths
-                        async def _llm_8b(prompt, system_prompt=None, history_messages=[], **kwargs):
-                            api_key = (
-                                getattr(self.config, "bltcy_api_key", None)
-                                or os.getenv("BLTCY_API_KEY")
-                                or os.getenv("LLM_BINDING_API_KEY")
-                            )
-                            base_url = (
-                                getattr(self.config, "bltcy_api_base", None)
-                                or os.getenv("BLTCY_API_BASE")
-                                or os.getenv("LLM_BINDING_HOST", "https://dashscope.aliyuncs.com/compatible-mode/v1")
-                            )
-                            return await openai_complete_if_cache(
-                                "qwen3-8b",
-                                prompt,
-                                system_prompt=system_prompt,
-                                history_messages=history_messages,
-                                api_key=api_key,
-                                base_url=base_url,
-                                timeout=360,
-                                extra_body={"enable_thinking": False},
-                                **kwargs,
-                            )
-                        # Use a shallow copy of GraphCore config and override only llm_model_func
-                        alt_global_cfg = dict(self.graphcore.__dict__)
-                        alt_global_cfg["llm_model_func"] = _llm_8b
-                        result = await extract_entities(
-                            chunks=single_chunk,
-                            global_config=alt_global_cfg,
-                            pipeline_status=pipeline_status,
-                            pipeline_status_lock=pipeline_status_lock,
-                            llm_response_cache=self.graphcore.llm_response_cache,
-                            text_chunks_storage=self.graphcore.text_chunks,
+                try:
+                    from graphcore.coregraph.llm.openai import (
+                        openai_complete_if_cache,
+                    )
+
+                    async def _llm_extract(
+                        prompt,
+                        system_prompt=None,
+                        history_messages=[],
+                        **kwargs,
+                    ):
+                        api_key = (
+                            os.getenv("LLM_BINDING_API_KEY")
+                            or os.getenv("OPENAI_API_KEY")
                         )
-                        return result or []
-                    except Exception as e:
-                        last_error = e
-                        if attempt < attempts - 1:
-                            await asyncio.sleep(1 * (2 ** attempt))
-                            continue
-                        self.logger.error(
-                            f"Extraction failed for chunk {chunk_id}: {last_error}"
+                        base_url = (
+                            os.getenv("LLM_BINDING_HOST")
+                            or os.getenv("OPENAI_BASE_URL")
+                            or "https://api.openai.com/v1"
                         )
-                        return []
+                        model_name = (
+                            os.getenv("EXTRACTION_LLM_MODEL")
+                            or os.getenv("LLM_MODEL")
+                            or "gpt-4o-mini"
+                        )
+                        kwargs.pop("extra_body", None)
+                        return await openai_complete_if_cache(
+                            model_name,
+                            prompt,
+                            system_prompt=system_prompt,
+                            history_messages=history_messages,
+                            api_key=api_key,
+                            base_url=base_url,
+                            timeout=360,
+                            **kwargs,
+                        )
+                    alt_global_cfg = dict(self.graphcore.__dict__)
+                    alt_global_cfg["llm_model_func"] = _llm_extract
+                    result = await extract_entities(
+                        chunks=single_chunk,
+                        global_config=alt_global_cfg,
+                        pipeline_status=pipeline_status,
+                        pipeline_status_lock=pipeline_status_lock,
+                        llm_response_cache=self.graphcore.llm_response_cache,
+                        text_chunks_storage=self.graphcore.text_chunks,
+                    )
+                    return result or []
+                except Exception as e:
+                    self.logger.error(f"Extraction failed for chunk {chunk_id}: {e}")
+                    return []
 
         tasks = [
             asyncio.create_task(_extract_one(chunk_id, chunk))
@@ -1278,91 +1504,25 @@ class ProcessorMixin:
             f"Extracted entities from {len(all_results)} results across {len(coregraph_chunks)} multimodal chunks"
         )
         
-        # Add entities and relationships to knowledge base
-        if hasattr(self, 'add_knowledge_entry'):
-            for result in all_results:
-                # Each result is a tuple containing entities and relationships
-                chunk_id = result[0] if result else None
-                if chunk_id and chunk_id in coregraph_chunks:
-                    chunk = coregraph_chunks[chunk_id]
-                    doc_id = chunk.get('full_doc_id')
-                    content = chunk.get('content', '')
-                    
-                    # Add chunk content to knowledge base
-                    chunk_entry_id = self.add_knowledge_entry(
-                        content=content,
+        # Optionally mirror extracted chunks into the knowledge base (best-effort).
+        # extract_entities returns [(maybe_nodes_dict, maybe_edges_dict), ...],
+        # so result[0] is a dict, not a chunk_id string.
+        try:
+            if hasattr(self, 'add_knowledge_entry'):
+                for chunk_id, chunk in coregraph_chunks.items():
+                    self.add_knowledge_entry(
+                        content=chunk.get('content', ''),
                         entry_type='chunk',
-                        metadata={'chunk_id': chunk_id, 'doc_id': doc_id, 'is_multimodal': chunk.get('is_multimodal', False)},
-                        kb_name=f'doc_{doc_id}' if doc_id else 'global'
+                        metadata={
+                            'chunk_id': chunk_id,
+                            'doc_id': chunk.get('full_doc_id'),
+                            'file_path': chunk.get('file_path'),
+                            'is_multimodal': chunk.get('is_multimodal', False),
+                        },
                     )
-                    
-                    # If entities were extracted, add them to knowledge base and link to chunk
-                    if len(result) > 1 and result[1]:
-                        entities = result[1]
-                        for entity in entities:
-                            entity_name = entity.get('entity_name', '')
-                            entity_type = entity.get('entity_type', 'unknown')
-                            entity_content = entity.get('content', '')
-                            
-                            # Add entity to knowledge base
-                            entity_entry_id = self.add_knowledge_entry(
-                                content=entity_content,
-                                entry_type='entity',
-                                metadata={'entity_name': entity_name, 'entity_type': entity_type, 'chunk_id': chunk_id, 'doc_id': doc_id},
-                                kb_name=f'doc_{doc_id}' if doc_id else 'global'
-                            )
-                            
-                            # Link entity to chunk entry
-                            if hasattr(self, 'knowledge_base_manager') and self.knowledge_base_manager:
-                                kb_name = f'doc_{doc_id}' if doc_id else 'global'
-                                # Add relation between chunk and entity
-                                chunk_entry = self.knowledge_base_manager.get_knowledge_base(kb_name).get_entry(chunk_entry_id)
-                                if chunk_entry:
-                                    chunk_entry.add_relation('contains_entity', entity_entry_id)
-                                
-                                entity_entry = self.knowledge_base_manager.get_knowledge_base(kb_name).get_entry(entity_entry_id)
-                                if entity_entry:
-                                    entity_entry.add_relation('contained_in', chunk_entry_id)
-                                
-                                # Save changes to knowledge base
-                                self.knowledge_base_manager.get_knowledge_base(kb_name).save(str(Path(self.working_dir) / 'knowledge_bases' / f'{kb_name}.json'))
-                    
-                    # If relationships were extracted, add them to knowledge base and link to entities
-                    if len(result) > 2 and result[2]:
-                        relationships = result[2]
-                        for relation in relationships:
-                            source_entity = relation.get('source_entity', '')
-                            target_entity = relation.get('target_entity', '')
-                            relation_type = relation.get('relation_type', '')
-                            relation_content = relation.get('content', '')
-                            
-                            # Add relationship to knowledge base
-                            relation_entry_id = self.add_knowledge_entry(
-                                content=relation_content,
-                                entry_type='relationship',
-                                metadata={'source_entity': source_entity, 'target_entity': target_entity, 'relation_type': relation_type, 'chunk_id': chunk_id, 'doc_id': doc_id},
-                                kb_name=f'doc_{doc_id}' if doc_id else 'global'
-                            )
-        
-        # Add entities and relationships to knowledge base
-        if hasattr(self, 'add_knowledge_entry'):
-            for result in all_results:
-                if result and len(result) > 0:
-                    chunk_id = result[0] if isinstance(result[0], str) else None
-                    if chunk_id and chunk_id in coregraph_chunks:
-                        chunk = coregraph_chunks[chunk_id]
-                        # Add chunk content to knowledge base
-                        self.add_knowledge_entry(
-                            content=chunk['content'],
-                            entry_type='chunk',
-                            metadata={
-                                'chunk_id': chunk_id,
-                                'doc_id': chunk['full_doc_id'],
-                                'file_path': chunk['file_path'],
-                                'is_multimodal': chunk.get('is_multimodal', False)
-                            }
-                        )
-        
+        except Exception as e:
+            self.logger.debug(f"Knowledge base mirroring skipped: {e}")
+
         return all_results
 
     async def _batch_extract_entities_hypergraph_prompt(
@@ -1704,6 +1864,125 @@ class ProcessorMixin:
         except Exception as exc:  # noqa: BLE001
             self.logger.warning(f"hyper_chunk_sink failed for {doc_id}: {exc}")
 
+    async def _gpt_vision_pdf_text_extraction(
+        self,
+        file_path: str,
+        content_list: List[Dict[str, Any]],
+    ) -> List[Dict[str, Any]]:
+        """Use GPT-4 Vision to extract text from PDF page images.
+
+        Also saves page images to the knowledge directory so they remain
+        available for VLM-enhanced queries later.
+
+        Returns augmented content_list with extracted text blocks and image
+        blocks prepended.
+        """
+        vision_func = getattr(self, "vision_model_func", None)
+        if not vision_func:
+            _pdf_fallback_logger.warning("No vision_model_func available; skipping GPT Vision PDF fallback")
+            return content_list
+
+        try:
+            import fitz  # PyMuPDF
+        except ImportError:
+            _pdf_fallback_logger.warning("PyMuPDF not installed; skipping GPT Vision PDF fallback")
+            return content_list
+
+        pdf_path = Path(file_path)
+        if not pdf_path.exists() or pdf_path.suffix.lower() != ".pdf":
+            return content_list
+
+        _pdf_fallback_logger.info(f"GPT Vision PDF extraction: converting pages to images for {pdf_path.name}")
+
+        try:
+            doc = fitz.open(str(pdf_path))
+        except Exception as e:
+            _pdf_fallback_logger.error(f"Failed to open PDF with PyMuPDF: {e}")
+            return content_list
+
+        # Determine image output directory (same structure MinerU would use)
+        working_dir = getattr(self, "working_dir", None) or getattr(
+            getattr(self, "config", None), "working_dir", None
+        )
+        if working_dir:
+            img_output_dir = Path(working_dir) / "vision_pages"
+        else:
+            img_output_dir = pdf_path.parent / "vision_pages"
+        img_output_dir.mkdir(parents=True, exist_ok=True)
+
+        new_blocks: List[Dict[str, Any]] = []
+        semaphore = asyncio.Semaphore(4)
+
+        async def _extract_page(page_num: int) -> Optional[List[Dict[str, Any]]]:
+            """Return [text_block, image_block] for one page — single attempt."""
+            async with semaphore:
+                try:
+                    page = doc[page_num]
+                    pix = page.get_pixmap(dpi=200)
+                    img_bytes = pix.tobytes("png")
+
+                    # Save page image permanently for later VLM queries
+                    page_img_name = f"page_{page_num + 1}.png"
+                    page_img_path = img_output_dir / page_img_name
+                    page_img_path.write_bytes(img_bytes)
+
+                    # Write temp file for VLM call
+                    temp_img = Path(tempfile.mktemp(suffix=".png"))
+                    temp_img.write_bytes(img_bytes)
+                    try:
+                        prompt = (
+                            f"这是一个PDF文档的第{page_num + 1}页的截图。"
+                            "请将图片中所有的文字内容完整、准确地提取出来。"
+                            "保持原文的段落和层次结构。只输出提取到的文字内容，不要添加解释。"
+                        )
+                        answer = await vision_func(prompt, image_data=str(temp_img))
+                    finally:
+                        temp_img.unlink(missing_ok=True)
+
+                    blocks: List[Dict[str, Any]] = []
+                    if answer and answer.strip():
+                        _pdf_fallback_logger.info(
+                            f"  Page {page_num + 1}: extracted {len(answer)} chars"
+                        )
+                        blocks.append({
+                            "type": "text",
+                            "text": answer.strip(),
+                            "page_idx": page_num,
+                        })
+
+                    # Always add the image block so multimodal pipeline can use it
+                    blocks.append({
+                        "type": "image",
+                        "img_path": str(page_img_path),
+                        "page_idx": page_num,
+                    })
+                    return blocks
+                except Exception as e:
+                    _pdf_fallback_logger.warning(f"  Page {page_num + 1} extraction failed: {e}")
+                return None
+
+        tasks = [_extract_page(i) for i in range(len(doc))]
+        results = await asyncio.gather(*tasks)
+        doc.close()
+
+        for result in results:
+            if result:
+                new_blocks.extend(result)
+
+        text_count = sum(1 for b in new_blocks if b.get("type") == "text")
+        img_count = sum(1 for b in new_blocks if b.get("type") == "image")
+        total_chars = sum(len(b.get("text", "")) for b in new_blocks if b.get("type") == "text")
+
+        if new_blocks:
+            _pdf_fallback_logger.info(
+                f"GPT Vision extracted {total_chars} chars from {text_count} text blocks, "
+                f"saved {img_count} page images"
+            )
+            return new_blocks + content_list
+
+        _pdf_fallback_logger.warning("GPT Vision extraction produced no blocks")
+        return content_list
+
     async def process_document_complete(
         self,
         file_path: str,
@@ -1716,22 +1995,14 @@ class ProcessorMixin:
         **kwargs,
     ):
         """
-        Complete document processing workflow
+        Complete document processing workflow.
 
-        Args:
-            file_path: Path to the file to process
-            output_dir: output directory (defaults to config.parser_output_dir)
-            parse_method: Parse method (defaults to config.parse_method)
-            display_stats: Whether to display content statistics (defaults to config.display_content_stats)
-            split_by_character: Optional character to split the text by
-            split_by_character_only: If True, split only by the specified character
-            doc_id: Optional document ID, if not provided will be generated from content
-            **kwargs: Additional parameters for parser (e.g., lang, device, start_page, end_page, formula, table, backend, source)
+        For PDF files the new dual-path pipeline is used (controlled by
+        ``PDF_PARSE_MODE`` env: ``full`` / ``fast`` / ``vision_only``).
+        Non-PDF files fall through to the legacy single-path parser.
         """
-        # Ensure GraphCore is initialized
         await self._ensure_graphcore_initialized()
 
-        # Use config defaults if not provided
         if output_dir is None:
             output_dir = self.config.parser_output_dir
         if parse_method is None:
@@ -1740,20 +2011,26 @@ class ProcessorMixin:
             display_stats = self.config.display_content_stats
 
         self.logger.info(f"Starting complete document processing: {file_path}")
+        _t_start = time.time()
 
-        # Step 1: Parse document
-        content_list, content_based_doc_id = await self.parse_document(
-            file_path, output_dir, parse_method, display_stats, **kwargs
-        )
+        is_pdf = str(file_path).lower().endswith(".pdf")
 
-        # Use provided doc_id or fall back to content-based doc_id
+        if is_pdf:
+            text_content, multimodal_items, content_based_doc_id = (
+                await self._process_pdf_dual_path(file_path, output_dir, parse_method, **kwargs)
+            )
+        else:
+            _t1 = time.time()
+            content_list, content_based_doc_id = await self.parse_document(
+                file_path, output_dir, parse_method, display_stats, **kwargs
+            )
+            self.logger.info(f"[TIMING] Step 1 parsing: {time.time() - _t1:.1f}s")
+            text_content, multimodal_items = separate_content(content_list)
+
         if doc_id is None:
             doc_id = content_based_doc_id
 
-        # Step 2: Separate text and multimodal content
-        text_content, multimodal_items = separate_content(content_list)
-
-        # Notify auto-thinking orchestrator if HyperGraph extraction is enabled
+        # Notify auto-thinking orchestrator
         if getattr(self.config, "enable_hyper_entity_extraction", True):
             await self._emit_hyper_chunks(
                 doc_id,
@@ -1762,16 +2039,16 @@ class ProcessorMixin:
                 multimodal_items=multimodal_items,
             )
 
-        # Step 2.5: Set content source for context extraction in multimodal processing
+        # Set content source for context-aware multimodal processing
         if hasattr(self, "set_content_source_for_context") and multimodal_items:
-            self.logger.info(
-                "Setting content source for context-aware multimodal processing..."
-            )
-            self.set_content_source_for_context(
-                content_list, self.config.content_format
-            )
+            self.logger.info("Setting content source for context-aware multimodal processing...")
+            combined = (
+                [{"type": "text", "text": text_content}] if text_content.strip() else []
+            ) + multimodal_items
+            self.set_content_source_for_context(combined, self.config.content_format)
 
-        # Step 3: Insert pure text content with all parameters
+        # Step 3: Insert text into GraphCore (entity / relation extraction)
+        _t3 = time.time()
         if text_content.strip():
             file_name = os.path.basename(file_path)
             await insert_text_content(
@@ -1782,19 +2059,99 @@ class ProcessorMixin:
                 split_by_character_only=split_by_character_only,
                 ids=doc_id,
             )
+            self.logger.info(f"[TIMING] Step 3 text insertion: {time.time() - _t3:.1f}s ({len(text_content)} chars)")
+        else:
+            self.logger.info("[TIMING] Step 3 text insertion: skipped (0 text)")
 
-        # Step 4: Process multimodal content (using specialized processors)
+        # Step 4: Multimodal processing
+        _t4 = time.time()
         if multimodal_items:
             await self._process_multimodal_content(multimodal_items, file_path, doc_id)
+            self.logger.info(f"[TIMING] Step 4 multimodal processing: {time.time() - _t4:.1f}s ({len(multimodal_items)} items)")
         else:
-            # If no multimodal content, mark multimodal processing as complete
-            # This ensures the document status properly reflects completion of all processing
             await self._mark_multimodal_processing_complete(doc_id)
-            self.logger.debug(
-                f"No multimodal content found in document {doc_id}, marked multimodal processing as complete"
-            )
+            self.logger.debug(f"No multimodal content for {doc_id}")
 
-        self.logger.info(f"Document {file_path} processing complete!")
+        self.logger.info(
+            f"[TIMING] Total document processing: {time.time() - _t_start:.1f}s — {file_path}"
+        )
+
+    # ------------------------------------------------------------------
+    # PDF dual-path processing (MinerU + GPT Vision)
+    # ------------------------------------------------------------------
+    async def _process_pdf_dual_path(
+        self,
+        file_path: str,
+        output_dir: str,
+        parse_method: str,
+        **kwargs,
+    ) -> tuple:
+        """Run the modular PDF pipeline and return (text_content, multimodal_items, doc_id).
+
+        Uses ``PDFPipelineOrchestrator`` from ``docthinker.pdf_pipeline``.
+        """
+        from docthinker.pdf_pipeline import PDFPipelineOrchestrator
+        from docthinker.pdf_pipeline.mineru_extractor import MineruExtractor
+        from docthinker.pdf_pipeline.vision_extractor import VisionExtractor
+
+        pdf_mode = os.environ.get("PDF_PARSE_MODE", "full")
+        vision_func = getattr(self, "vision_model_func", None)
+
+        output_dir_path = Path(str(output_dir))
+        if not output_dir_path.is_absolute():
+            output_dir_path = Path(self.config.working_dir) / output_dir_path
+        output_dir_path.mkdir(parents=True, exist_ok=True)
+        mineru_output = str(output_dir_path)
+
+        working_dir = getattr(self, "working_dir", None) or getattr(
+            getattr(self, "config", None), "working_dir", None
+        )
+        vision_img_dir = str(Path(working_dir) / "vision_pages") if working_dir else None
+
+        mineru_ext = MineruExtractor(
+            parse_method=parse_method,
+            output_dir=mineru_output,
+            skip_ocr_retry=os.environ.get("SKIP_MINERU_OCR_RETRY", "1") == "1",
+            **{k: v for k, v in kwargs.items() if k in (
+                "lang", "device", "start_page", "end_page",
+                "formula", "table", "backend", "source",
+            )},
+        )
+        vision_ext = VisionExtractor(vision_model_func=vision_func)
+
+        if not vision_func and pdf_mode in ("full", "vision_only"):
+            self.logger.warning("No vision_model_func — falling back to 'fast' (MinerU only)")
+            pdf_mode = "fast"
+
+        orchestrator = PDFPipelineOrchestrator(
+            mode=pdf_mode,
+            mineru_extractor=mineru_ext,
+            vision_extractor=vision_ext,
+        )
+
+        self.logger.info(f"[PDFPipeline] mode={pdf_mode} for {Path(file_path).name}")
+        result = await orchestrator.process(
+            pdf_path=file_path,
+            mineru_output_dir=mineru_output,
+            vision_image_dir=vision_img_dir,
+        )
+
+        self.logger.info(
+            f"[TIMING] Step 1 PDF pipeline ({pdf_mode}): {result.elapsed_seconds:.1f}s"
+        )
+
+        text_content = result.text_content
+        multimodal_items = result.multimodal_blocks
+
+        content_based_doc_id = hashlib.md5(
+            json.dumps(
+                [b.get("text", "") for b in result.text_blocks],
+                ensure_ascii=False,
+            ).encode()
+        ).hexdigest()
+        content_based_doc_id = f"doc-{content_based_doc_id}"
+
+        return text_content, multimodal_items, content_based_doc_id
 
     async def process_document_complete_coregraph_api(
         self,
@@ -1910,12 +2267,19 @@ class ProcessorMixin:
 
             content_list = []
             content_based_doc_id = ""
+            is_pdf = str(file_path).lower().endswith(".pdf")
 
             try:
-                # Step 1: Parse document
-                content_list, content_based_doc_id = await self.parse_document(
-                    file_path, output_dir, parse_method, display_stats, **kwargs
-                )
+                if is_pdf:
+                    text_content, multimodal_items, content_based_doc_id = (
+                        await self._process_pdf_dual_path(
+                            file_path, output_dir, parse_method, **kwargs
+                        )
+                    )
+                else:
+                    content_list, content_based_doc_id = await self.parse_document(
+                        file_path, output_dir, parse_method, display_stats, **kwargs
+                    )
             except MineruExecutionError as e:
                 error_message = e.error_msg
                 if isinstance(e.error_msg, list):
@@ -1946,23 +2310,23 @@ class ProcessorMixin:
                 self.logger.info(f"Error processing document {file_path}: {str(e)}")
                 return False
 
-            # Use provided doc_id or fall back to content-based doc_id
             if doc_id is None:
                 doc_id = content_based_doc_id
 
-            # Step 2: Separate text and multimodal content
-            text_content, multimodal_items = separate_content(content_list)
+            if not is_pdf:
+                text_content, multimodal_items = separate_content(content_list)
 
-            # Step 2.5: Set content source for context extraction in multimodal processing
             if hasattr(self, "set_content_source_for_context") and multimodal_items:
                 self.logger.info(
                     "Setting content source for context-aware multimodal processing..."
                 )
+                combined = (
+                    [{"type": "text", "text": text_content}] if text_content.strip() else []
+                ) + multimodal_items
                 self.set_content_source_for_context(
-                    content_list, self.config.content_format
+                    combined, self.config.content_format
                 )
 
-            # Step 3: Insert pure text content and multimodal content with all parameters
             if text_content.strip():
                 await insert_text_content_with_multimodal_content(
                     self.graphcore,

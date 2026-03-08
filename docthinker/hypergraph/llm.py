@@ -45,6 +45,10 @@ else:
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
+def _use_max_completion_tokens(model_name: str) -> bool:
+    return str(model_name or "").lower().startswith("gpt-5")
+
+
 @retry(
     stop=stop_after_attempt(3),
     wait=wait_exponential(multiplier=1, min=4, max=10),
@@ -72,6 +76,20 @@ async def openai_complete_if_cache(
     )
     kwargs.pop("hashing_kv", None)
     kwargs.pop("keyword_extraction", None)
+    if _use_max_completion_tokens(str(model)):
+        if "max_completion_tokens" not in kwargs and "max_tokens" in kwargs:
+            raw_budget = kwargs.pop("max_tokens")
+            try:
+                kwargs["max_completion_tokens"] = max(int(raw_budget), 600)
+            except Exception:
+                kwargs["max_completion_tokens"] = 600
+        elif "max_completion_tokens" in kwargs:
+            try:
+                kwargs["max_completion_tokens"] = max(
+                    int(kwargs["max_completion_tokens"]), 600
+                )
+            except Exception:
+                kwargs["max_completion_tokens"] = 600
     messages = []
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
@@ -144,6 +162,20 @@ async def azure_openai_complete_if_cache(
         api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
     )
     kwargs.pop("hashing_kv", None)
+    if _use_max_completion_tokens(str(model)):
+        if "max_completion_tokens" not in kwargs and "max_tokens" in kwargs:
+            raw_budget = kwargs.pop("max_tokens")
+            try:
+                kwargs["max_completion_tokens"] = max(int(raw_budget), 600)
+            except Exception:
+                kwargs["max_completion_tokens"] = 600
+        elif "max_completion_tokens" in kwargs:
+            try:
+                kwargs["max_completion_tokens"] = max(
+                    int(kwargs["max_completion_tokens"]), 600
+                )
+            except Exception:
+                kwargs["max_completion_tokens"] = 600
     messages = []
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
@@ -802,11 +834,11 @@ async def openai_embedding(
     return np.array([dp.embedding for dp in response.data])
 
 
-@wrap_embedding_func_with_attrs(embedding_dim=1024, max_token_size=8192)
-async def qwen3_embedding(
+@wrap_embedding_func_with_attrs(embedding_dim=3072, max_token_size=8192)
+async def openai_compatible_embedding(
     texts: list[str],
     *,
-    model: str = "Qwen/Qwen3-Embedding-8B",
+    model: str = "text-embedding-3-large",
     base_url: str | None = None,
     api_key: str | None = None,
     normalized: bool = True,
@@ -814,46 +846,41 @@ async def qwen3_embedding(
     timeout: int = 120,
 ) -> np.ndarray:
     """
-    Call BLTCY's Qwen3-Embedding-8B endpoint following the same schema as test11.py.
+    Call an OpenAI-compatible embedding endpoint.
     """
-    # Throttle to avoid hitting provider RPM limits: sleep 0.2s every 10 requests.
     import asyncio
 
-    counter = getattr(qwen3_embedding, "_throttle_counter", 0) + 1
-    qwen3_embedding._throttle_counter = counter
+    counter = getattr(openai_compatible_embedding, "_throttle_counter", 0) + 1
+    openai_compatible_embedding._throttle_counter = counter
     if counter % 2 == 0:
         await asyncio.sleep(0.2)
     resolved_api_key = (
         api_key
-        or os.getenv("QWEN_EMBEDDING_API_KEY")
-        or os.getenv("BLTCY_API_KEY")
+        or os.getenv("EMBEDDING_BINDING_API_KEY")
         or os.getenv("LLM_BINDING_API_KEY")
         or os.getenv("OPENAI_API_KEY")
     )
     if not resolved_api_key:
-        raise ValueError("Missing API key for Qwen embedding request.")
+        raise ValueError("Missing API key for embedding request.")
 
     resolved_base = (
         base_url
-        or os.getenv("QWEN_EMBEDDING_BASE")
-        or os.getenv("BLTCY_EMBEDDING_BASE")
-        or "https://api.bltcy.ai/v1/embeddings"
+        or os.getenv("EMBEDDING_BINDING_HOST")
+        or os.getenv("OPENAI_BASE_URL")
+        or "https://api.openai.com/v1/embeddings"
     )
+    resolved_base = resolved_base.rstrip("/")
+    if not resolved_base.endswith("/embeddings"):
+        resolved_base = resolved_base + "/embeddings"
 
-    # Force-use local model name if default is still present
-    if model in (None, "", "Qwen/Qwen3-Embedding-8B"):
-        model = os.getenv("EMBEDDING_MODEL", "/home/yjs/robot/VLM/8Bembedding")
+    if model in (None, ""):
+        model = os.getenv("EMBEDDING_MODEL", "text-embedding-3-large")
 
-    # SiliconFlow 兼容 OpenAI 样式：input 可以是字符串或字符串数组
-    payload: Dict[str, Any] = {"model": model}
-    if len(texts) == 1:
-        payload["input"] = texts[0]
-    else:
-        payload["input"] = texts
-    if normalized is not None:
-        payload["normalized"] = normalized
-    if embedding_type:
-        payload["embedding_type"] = embedding_type
+    payload: Dict[str, Any] = {
+        "model": model,
+        "input": texts if len(texts) > 1 else texts[0],
+        "encoding_format": "float",
+    }
     headers = {
         "Authorization": f"Bearer {resolved_api_key}",
         "Content-Type": "application/json",
@@ -865,12 +892,14 @@ async def qwen3_embedding(
             body = await resp.text()
             if resp.status >= 400:
                 raise RuntimeError(
-                    f"Qwen embedding request failed ({resp.status}): {body}"
+                    f"Embedding request failed ({resp.status}): {body}"
                 )
             try:
                 response_json = json.loads(body)
             except json.JSONDecodeError as exc:
-                raise ValueError(f"Invalid JSON from Qwen embedding endpoint: {body}") from exc
+                raise ValueError(
+                    f"Invalid JSON from embedding endpoint: {body}"
+                ) from exc
 
     data_items = response_json.get("data")
     if not isinstance(data_items, list):
@@ -888,7 +917,7 @@ async def qwen3_embedding(
 
     if num_embeddings != num_texts and num_texts > 0:
         logger.warning(
-            "Qwen embedding count mismatch: expected %s vectors (one per text), got %s vectors",
+            "Embedding count mismatch: expected %s vectors (one per text), got %s vectors",
             num_texts,
             num_embeddings,
         )

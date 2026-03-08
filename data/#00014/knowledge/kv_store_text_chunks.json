@@ -1,0 +1,32 @@
+{
+  "chunk-bb8266c50b6bd017b9ed34bbb1699e36": {
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00014\\knowledge\\output\\pdf_6826c4a760f6c564_uh9zkpua\\pdf_6826c4a760f6c564\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image presents a meticulously organized workspace featuring a modern desk setup. Prominently displayed is a sleek laptop computer situated at the center of the arrangement, accompanied by an external monitor positioned slightly to the right. The laptop screen is illuminated, showcasing an open application interface. Surrounding the laptop are various office supplies, including a neatly placed notepad, a set of colorful pens, and a smartphone, all contributing to the functional aesthetic. To the left of the laptop, a small potted plant adds a touch of greenery to the workspace, contrasting against the predominantly neutral color scheme of the desk. The lighting is soft and natural, likely stemming from a nearby window, creating a warm and inviting atmosphere. The overall visual style is minimalist, emphasizing organization and modernity. There are no charts or diagrams present, and the focus is primarily on everyday workspace items and their arrangement. No individuals are depicted in the image, creating a serene work environment that invites productivity.",
+    "tokens": 312,
+    "full_doc_id": "doc-f55c8136c8a807a803f062a0a6323a66",
+    "chunk_order_index": 0,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "is_multimodal": true,
+    "modal_entity_name": "Modern Workspace Setup (image)",
+    "original_type": "image",
+    "page_idx": 0,
+    "create_time": 1772869930,
+    "update_time": 1772869930,
+    "_id": "chunk-bb8266c50b6bd017b9ed34bbb1699e36"
+  },
+  "chunk-4b1ef1a5f07b9f552daa0ec8b304d0dd": {
+    "content": "Footer Content Analysis:\nContent: {'type': 'footer', 'text': '', 'bbox': [466, 986, 531, 992], 'page_idx': 0}\n\nAnalysis: The footer content analyzed appears to be largely empty, lacking any textual information or links that typically characterize footer elements. A well-structured footer generally includes organization details such as company information, contact details, social media links, and privacy policies, among other key resources. In this case, the absence of such elements limits the footer's utility and significance for users. The box model (bbox) indicates the spatial placement on the webpage but does not contribute content-wise. The lack of visible information suggests a need for content enhancement for effective knowledge retrieval.",
+    "tokens": 147,
+    "full_doc_id": "doc-f55c8136c8a807a803f062a0a6323a66",
+    "chunk_order_index": 1,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "is_multimodal": true,
+    "modal_entity_name": "Empty Footer (footer)",
+    "original_type": "footer",
+    "page_idx": 0,
+    "create_time": 1772869930,
+    "update_time": 1772869930,
+    "_id": "chunk-4b1ef1a5f07b9f552daa0ec8b304d0dd"
+  }
+}

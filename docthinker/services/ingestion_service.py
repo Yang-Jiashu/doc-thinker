@@ -16,11 +16,11 @@ class IngestionService:
         if not getattr(rag, "graphcore", None):
             await rag._ensure_graphcore_initialized()
 
-    async def _insert_text(self, rag: Any, text: str) -> None:
+    async def _insert_text(self, rag: Any, text: str, file_path: str | None = None) -> None:
         await self._ensure_ready(rag)
         graphcore = rag.graphcore
         if hasattr(graphcore, "ainsert"):
-            await graphcore.ainsert(text)
+            await graphcore.ainsert(text, file_paths=file_path)
         else:
             await graphcore.insert(text)
 
@@ -35,6 +35,7 @@ class IngestionService:
             session_rag = self.session_manager.get_session_rag(session_id, config)
         session_rag.llm_model_func = await self.get_llm_model_func()
         session_rag.embedding_func = await self.get_embedding_func()
+        session_rag.vision_model_func = getattr(self.rag_global, "vision_model_func", None)
         await session_rag._ensure_graphcore_initialized()
         return session_rag
 
@@ -43,10 +44,12 @@ class IngestionService:
             raise ValueError("session_id is required")
         return await self._get_session_rag(session_id)
 
-    async def ingest_text(self, text: str, session_id: Optional[str] = None) -> None:
+    async def ingest_text(
+        self, text: str, session_id: Optional[str] = None, file_path: str | None = None,
+    ) -> None:
         """Ingest text into a session graph."""
         target_rag = await self._resolve_target_rag(session_id)
-        await self._insert_text(target_rag, text)
+        await self._insert_text(target_rag, text, file_path=file_path)
 
     async def ingest_folder(self, folder_path: str, session_id: Optional[str] = None) -> None:
         """Ingest folder into a session graph."""

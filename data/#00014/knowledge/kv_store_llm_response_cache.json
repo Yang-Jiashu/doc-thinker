@@ -1,0 +1,44 @@
+{
+  "hybrid:keywords:b044872616b465d2796a1b91435b85ba": {
+    "return": "{\"high_level_keywords\": [\"\\u6587\\u4ef6\\u5206\\u6790\", \"\\u6570\\u636e\\u5206\\u6790\"], \"low_level_keywords\": [\"\\u4e0a\\u4f20\", \"\\u5185\\u5bb9\", \"\\u4fe1\\u606f\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "请分析上传的文件",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 30,
+      "max_entity_tokens": 15000,
+      "max_relation_tokens": 15000,
+      "max_total_tokens": 60000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1772869940,
+    "update_time": 1772869940,
+    "_id": "hybrid:keywords:b044872616b465d2796a1b91435b85ba"
+  },
+  "hybrid:query:549047a423d71ea880eadd02146c730e": {
+    "return": "根据提供的上下文，文件分析主要涵盖两个部分：图像内容分析和页脚内容分析。\n\n### 图像内容分析\n图像展示了一个精心组织的现代化工作空间。针对该图像的主要特点包括：\n\n- **设备布局**：中央放置了一台时尚的笔记本电脑，旁边有一个外接显示器，电脑屏幕亮起，显示有一个打开的应用界面。\n- **办公用品**：周围有各种办公用品，包括一个整齐放置的记事本、一套彩色钢笔以及一部智能手机，这些物品共同营造了一个实用的美学。\n- **绿植装饰**：在笔记本电脑的左侧放置了一盆小绿植，增添了工作空间的生气，与桌子的中性配色形成对比。\n- **自然采光**：图像光线柔和自然，可能来自附近的窗户，营造出一个温暖宜人的氛围。\n- **整体风格**：视觉风格简约，强调了组织性和现代感，没有图表或图解，主要聚焦于日常办公物品及其摆放。\n\n### 页脚内容分析\n页脚的内容分析显示其**几乎为空**，缺乏任何文本信息或链接。通常，一个结构良好的页脚应包括：\n\n- 公司信息\n- 联系方式\n- 社交媒体链接\n- 隐私政策等重要资源\n\n在此情况下，缺少上述内容，限制了页脚的实用性和重要性。由于内容的缺失，建议对页脚进行内容增强，以提升有效的信息检索能力。\n\n### 结论\n该文件主要描绘了现代工作环境的视觉与结构特点，同时指出了网页设计中的一个重要缺陷——页脚几乎没有提供有效信息。建议在设计和内容创建中关注整体的功能性与美观性，以提升用户体验。\n\n### References\n- [1] Chap1 计算机系统概述.pdf",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "请分析上传的文件",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 30,
+      "max_entity_tokens": 15000,
+      "max_relation_tokens": 15000,
+      "max_total_tokens": 60000,
+      "hl_keywords": "文件分析, 数据分析",
+      "ll_keywords": "上传, 内容, 信息",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1772869956,
+    "update_time": 1772869956,
+    "_id": "hybrid:query:549047a423d71ea880eadd02146c730e"
+  }
+}

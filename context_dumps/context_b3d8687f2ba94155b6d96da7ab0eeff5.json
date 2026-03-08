@@ -1,0 +1,580 @@
+{
+  "id": "b3d8687f2ba94155b6d96da7ab0eeff5",
+  "query": "说一下系统结构",
+  "context": "\nKnowledge Graph Data (Entity):\n\n```json\n{\"entity\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"type\": \"image\", \"description\": \"The image shows a technical photograph labeled as '图5 机器人履带模式爬斜坡' (Figure 5: Robot in Track Mode Cli\"}\n{\"entity\": \"unknown_entity (unknown)\", \"type\": \"unknown\", \"description\": \"\"}\n{\"entity\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"type\": \"artifact\", \"description\": \"The Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot is an innovative, unmanned ground reconnaissance robot capable of transforming between wheel and track modes for fast movement, strong obstacle-crossing capabilities, and adaptability to complex terrains. It is lightweight, portable, remote-controlled, and supports multi-machine collaboration.\"}\n{\"entity\": \"Section 2: 成果原理与特点(Principles and Features Of The Results)\", \"type\": \"content\", \"description\": \"Section 2: 成果原理与特点(Principles and Features Of The Results) is the second section, featuring subtopics on main principles, technical features, and advantages.\"}\n{\"entity\": \"Police and Counter-Terrorism Robot\", \"type\": \"artifact\", \"description\": \"Police and Counter-Terrorism Robot refers to robots developed for police and counter-terrorism applications, including reconnaissance, bomb disposal, firefighting, and attack functions.\"}\n{\"entity\": \"Section 3: 成果转化应用设想(Application Prospects Of The Results)\", \"type\": \"content\", \"description\": \"Section 3: 成果转化应用设想(Application Prospects Of The Results) is the third listed section detailing suggested application fields, overall application goals, and research content and plans for application.\"}\n{\"entity\": \"Modular Friction Drive Wheel-Track Platform\", \"type\": \"artifact\", \"description\": \"The Modular Friction Drive Wheel-Track Platform is a platform using friction drive and modular design, allowing seamless transition between wheel and track configurations in reconnaissance and search-rescue robots.\"}\n{\"entity\": \"Table Of Contents Page\", \"type\": \"content\", \"description\": \"The Table Of Contents Page is a section of a technical or academic document, written in simplified Chinese, that outlines the primary sections and subtopics of the report related to a wheel-track transformable reconnaissance and rescue robot.\"}\n{\"entity\": \"Crank-Rocker Mechanism\", \"type\": \"concept\", \"description\": \"Crank-Rocker Mechanism is a mechanical structure used in the robot to enable transformation between wheel and track modes.\"}\n{\"entity\": \"Wheel-Track Transformable Reconnaissance And Rescue Robot\", \"type\": \"artifact\", \"description\": \"Wheel-Track Transformable Reconnaissance And Rescue Robot is a novel robotic system designed for flexible mobility and intended for reconnaissance and rescue missions, which is the main topic addressed in the document.\"}\n{\"entity\": \"Elasticity\", \"type\": \"concept\", \"description\": \"Elasticity refers to the physical property employed in the robot’s structure to facilitate wheel-track switching.\"}\n{\"entity\": \"Support Rod Mechanism\", \"type\": \"artifact\", \"description\": \"Support Rod Mechanism is a component that allows the robot to overcome obstacles up to a maximum height of 15 cm.\"}\n{\"entity\": \"Unmanned Patrol\", \"type\": \"concept\", \"description\": \"Unmanned Patrol is a demonstrated application scenario wherein the robot autonomously performs inspection and monitoring tasks.\"}\n{\"entity\": \"Police Robot Industry in China\", \"type\": \"other\", \"description\": \"Police Robot Industry in China refers to the sector developing robotic systems for police and security use, which has developed rapidly in recent decades.\"}\n{\"entity\": \"International Research on Police Robot\", \"type\": \"other\", \"description\": \"International Research on Police Robot represents foreign advancements by countries including the United States, United Kingdom, France, Germany, Israel, Canada, and Japan, in police robotics research and development.\"}\n{\"entity\": \"4G Network\", \"type\": \"concept\", \"description\": \"4G Network refers to the network standard enabling remote robot control over wide areas.\"}\n{\"entity\": \"Vehicular Body\", \"type\": \"artifact\", \"description\": \"Vehicular Body is the physical chassis of the robot, incorporating all essential hardware.\"}\n{\"entity\": \"Communication Equipment\", \"type\": \"artifact\", \"description\": \"Communication Equipment refers to the devices enabling data transmission between the robot and operators or other robots.\"}\n{\"entity\": \"Camera\", \"type\": \"artifact\", \"description\": \"Camera is an onboard imaging device that allows real-time visual feedback from the robot.\"}\n{\"entity\": \"Battery Power Supply\", \"type\": \"concept\", \"description\": \"Battery Power Supply refers to the use of batteries as the robot’s main energy source.\"}\n{\"entity\": \"National 863 Project\", \"type\": \"event\", \"description\": \"National “863” Project is a government-supported research program that has enabled significant progress in China’s police robot technology.\"}\n{\"entity\": \"Manual and Autonomous Mode\", \"type\": \"concept\", \"description\": \"Manual and Autonomous Mode refers to the robot's capability for both remote manual steering and fully autonomous operation.\"}\n{\"entity\": \"Disaster Relief\", \"type\": \"event\", \"description\": \"Disaster Relief involves the use of robots to assist in search, rescue, and information gathering after natural or man-made disasters.\"}\n{\"entity\": \"Detection Speed 0.5m/s\", \"type\": \"data\", \"description\": \"The robot achieves a detection speed of 0.5 meters per second.\"}\n{\"entity\": \"Military Reconnaissance\", \"type\": \"concept\", \"description\": \"Military Reconnaissance is one of the main application scenarios for the transformation robot, involving information gathering for defense purposes.<SEP>Military Reconnaissance is a field where the robot platform can be deployed for gathering intelligence.\"}\n{\"entity\": \"Detection Distance 200m\", \"type\": \"data\", \"description\": \"The robot is capable of detecting and transmitting data up to 200 meters from its location.\"}\n{\"entity\": \"Community Surveillance\", \"type\": \"concept\", \"description\": \"Community Surveillance is a suggested civilian application for the transformation robot, providing monitoring capabilities in local urban environments.\"}\n{\"entity\": \"Control Distance: 4G Network Coverage Area\", \"type\": \"data\", \"description\": \"The robot can be controlled remotely as long as it remains within an area covered by the 4G network.\"}\n{\"entity\": \"Factory Surveillance\", \"type\": \"event\", \"description\": \"Factory Surveillance is the use of the robot to monitor industrial environments for security or operational purposes.\"}\n{\"entity\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"type\": \"artifact\", \"description\": \"The Friction-Driven Reconnaissance And Search And Rescue Robot is a platform based on friction drive, featuring an elastic wheel/track transformation mechanism, designed for high obstacle-crossing capabilities and adaptation to highly structured search and rescue environments.<SEP>The Friction-Driven Reconnaissance And Search And Rescue Robot is a robot platform based on a friction-driven mechanism designed for reconnaissance and search and rescue missions.\"}\n{\"entity\": \"Wheeled/Tracked Switching Mobile Platform\", \"type\": \"artifact\", \"description\": \"The Wheeled/Tracked Switching Mobile Platform is a modular robot platform capable of switching between wheel mode and track mode for enhanced obstacle-crossing ability and mobility in structured and unstructured environments.\"}\n{\"entity\": \"Dimensions 0.4m x 0.4m x 0.3m\", \"type\": \"data\", \"description\": \"The robot’s physical dimensions are 0.4 meters by 0.4 meters by 0.3 meters.\"}\n{\"entity\": \"Police Robot\", \"type\": \"artifact\", \"description\": \"Police Robot refers to a category of robots developed for law enforcement purposes, including reconnaissance, explosive ordnance disposal, firefighting, attack, and multiple functions, and has seen significant development and achievements in China over the past 30 years.\"}\n{\"entity\": \"China National \\\"863\\\" Program\", \"type\": \"event\", \"description\": \"The China National \\\"863\\\" Program is a research and development initiative that has supported the progress of police robots in China and resulted in advanced technology levels.\"}\n{\"entity\": \"Obstacle Crossing Height 15cm\", \"type\": \"data\", \"description\": \"The robot can overcome obstacles up to 15 centimeters in height.<SEP>Obstacle Crossing Height 15cm is the maximum height the robot can overcome using its mechanisms.\"}\n{\"entity\": \"Crank Linkage Mechanism\", \"type\": \"artifact\", \"description\": \"The Crank Linkage Mechanism is a structure used within the wheel/track robot to achieve switching between wheel and track modes.<SEP>The Crank Linkage Mechanism is a component that enables the wheels or tracks of the robot to switch modes by leveraging the elasticity of the components and a crank linkage structure.\"}\n{\"entity\": \"无人巡查\", \"type\": \"event\", \"description\": \"无人巡查(\\\"Unmanned Patrol\\\") has been one of the robot's practical application scenarios.\"}\n{\"entity\": \"Stanchion Mechanism\", \"type\": \"artifact\", \"description\": \"The Stanchion Mechanism is an auxiliary device equipped on the transformation robot, enhancing its maximum obstacle-crossing height to 15 cm.\"}\n{\"entity\": \"Guo Gongkongwang\", \"type\": \"organization\", \"description\": \"Guo Gongkongwang is the publisher of the article \\\"Status and Development Trends of Police and Counter-Terrorism Robots\\\" referenced as a key research source.\"}\n{\"entity\": \"Remote Control\", \"type\": \"method\", \"description\": \"Remote Control allows human operators to control the robot in real-time via transmitted data and images.<SEP>Remote Control is a usage mode supported by the transformation robot, allowing it to be operated from a distance, including over 4G networks.\"}\n{\"entity\": \"9·11 Incident\", \"type\": \"event\", \"description\": \"The “9·11” Incident refers to the September 11 terrorist attacks which significantly increased global interest in police and bomb disposal robots.\"}\n{\"entity\": \"Autonomous Control\", \"type\": \"method\", \"description\": \"Autonomous Control is a usage mode wherein the robot operates independently without direct human commands.\"}\n{\"entity\": \"Multi-Robot Collaboration\", \"type\": \"method\", \"description\": \"Multi-Robot Collaboration refers to the robot's capability to work alongside multiple units for enhanced coordinated tasks.\"}\n{\"entity\": \"Factory Monitoring\", \"type\": \"concept\", \"description\": \"Factory Monitoring is an industrial application area for robot-based surveillance and operation control.<SEP>Factory Monitoring refers to the industrial application of the transformation robot, supporting surveillance and operational oversight in factory settings.\"}\n{\"entity\": \"Disaster Rescue\", \"type\": \"concept\", \"description\": \"Disaster Rescue is an application direction for the robot, supporting search and rescue operations, particularly in dangerous or post-disaster areas.\"}\n{\"entity\": \"Detection Distance\", \"type\": \"data\", \"description\": \"Detection Distance refers to the operational sensing range of the robot, which is up to 200 meters.\"}\n{\"entity\": \"Control Distance\", \"type\": \"data\", \"description\": \"Control Distance describes the remote control coverage of the robot, spanning areas within the range of a 4G network.\"}\n{\"entity\": \"Modular Friction Drive\", \"type\": \"method\", \"description\": \"Modular Friction Drive is a technology employed by the transformation robot to drive wheels or tracks through modular friction-based mechanisms.\"}\n{\"entity\": \"Elastic Wheel/Track Integrated Part\", \"type\": \"artifact\", \"description\": \"The Elastic Wheel/Track Integrated Part is a single component that implements both wheel and crawler functions, enabling rapid switching based on terrain requirements.\"}\n{\"entity\": \"Obstacle Crossing Test\", \"type\": \"event\", \"description\": \"Obstacle Crossing Test is the performance evaluation where two prototypes of the transformation robot have completed obstacle-crossing tasks to verify their mobility.\"}\n{\"entity\": \"Stabilization Pole\", \"type\": \"artifact\", \"description\": \"The Stabilization Pole is an auxiliary mechanism that assists the robot in achieving a greater obstacle-crossing capability, specifically up to 15cm.\"}\n{\"entity\": \"Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform\", \"type\": \"artifact\", \"description\": \"The Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform is a robot platform capable of switching between wheel and track modes using a friction-driven module, designed to improve terrain adaptability, obstacle-surmounting ability, flexibility, and mobility in both structured and unstructured environments.\"}\n{\"entity\": \"Friction-Driven Module\", \"type\": \"method\", \"description\": \"The Friction-Driven Module is a modular drive system that enables wheels and tracks to switch modes by utilizing elastic components and a crank-connecting rod mechanism.\"}\n```\n\nKnowledge Graph Data (Relationship):\n\n```json\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Wheeled/Tracked Switching Mobile Platform\", \"description\": \"The Friction-Driven Reconnaissance And Search And Rescue Robot is based on the Wheeled/Tracked Switching Mobile Platform which enables flexible mobility via wheel/track mode switching.\"}\n{\"entity1\": \"unknown_entity (unknown)\", \"entity2\": \"Section 2: 成果原理与特点(Principles and Features Of The Results)\", \"description\": \"Entity Section 2: 成果原理与特点(Principles and Features Of The Results) belongs to unknown_entity (unknown)<SEP>Entity Section 2: 成果原理与特点(Principles and Features Of The Results) belongs to unknown_entity (unknown)\"}\n{\"entity1\": \"Robot In Track Mode\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Robot In Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Robot In Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"unknown_entity (unknown)\", \"entity2\": \"Section 3: 成果转化应用设想(Application Prospects Of The Results)\", \"description\": \"Entity Section 3: 成果转化应用设想(Application Prospects Of The Results) belongs to unknown_entity (unknown)<SEP>Entity Section 3: 成果转化应用设想(Application Prospects Of The Results) belongs to unknown_entity (unknown)\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Military Reconnaissance\", \"description\": \"The robot is suited for military reconnaissance tasks, gathering intelligence for military purposes.\"}\n{\"entity1\": \"Table Of Contents Page\", \"entity2\": \"Section 2: 成果原理与特点(Principles and Features Of The Results)\", \"description\": \"The Table Of Contents Page includes Section 2: 成果原理与特点(Principles and Features Of The Results) in the document's structure.\"}\n{\"entity1\": \"Military Reconnaissance\", \"entity2\": \"Wheeled/Tracked Switching Mobile Platform\", \"description\": \"The Wheeled/Tracked Switching Mobile Platform is intended for Military Reconnaissance missions.\"}\n{\"entity1\": \"Table Of Contents Page\", \"entity2\": \"Section 3: 成果转化应用设想(Application Prospects Of The Results)\", \"description\": \"Section 3: 成果转化应用设想(Application Prospects Of The Results) is listed as a primary section on the Table Of Contents Page.\"}\n{\"entity1\": \"Crank Linkage Mechanism\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The Friction-Driven Reconnaissance And Search And Rescue Robot employs the Crank Linkage Mechanism to enable wheel-track switching.\"}\n{\"entity1\": \"Section 2: 成果原理与特点(Principles and Features Of The Results)\", \"entity2\": \"Wheel-Track Transformable Reconnaissance And Rescue Robot\", \"description\": \"Section 2: 成果原理与特点(Principles and Features Of The Results) discusses the main principles, technical features, and advantages of the Wheel-Track Transformable Reconnaissance And Rescue Robot.\"}\n{\"entity1\": \"Factory Monitoring\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The robot is recommended for use in factory monitoring, providing surveillance in industrial environments.\"}\n{\"entity1\": \"Section 3: 成果转化应用设想(Application Prospects Of The Results)\", \"entity2\": \"Wheel-Track Transformable Reconnaissance And Rescue Robot\", \"description\": \"Section 3: 成果转化应用设想(Application Prospects Of The Results) outlines suggested application fields, goals, and research plans for employing the Wheel-Track Transformable Reconnaissance And Rescue Robot.\"}\n{\"entity1\": \"Crank Linkage Mechanism\", \"entity2\": \"Wheeled/Tracked Switching Mobile Platform\", \"description\": \"The Wheeled/Tracked Switching Mobile Platform uses the Crank Linkage Mechanism for switching between wheel and track modes.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Modular Friction Drive Wheel-Track Platform\", \"description\": \"The Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot is built on a Modular Friction Drive Wheel-Track Platform.\"}\n{\"entity1\": \"Factory Monitoring\", \"entity2\": \"Wheeled/Tracked Switching Mobile Platform\", \"description\": \"The Wheeled/Tracked Switching Mobile Platform is also applied to Factory Monitoring.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Crank-Rocker Mechanism\", \"description\": \"The robot utilizes a Crank-Rocker Mechanism to achieve wheel-track switching.\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Unmanned Patrol\", \"description\": \"The robot has been applied in unmanned patrol scenarios.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Elasticity\", \"description\": \"Elasticity in the robot’s construction aids in smooth wheel-track switching.\"}\n{\"entity1\": \"Community Surveillance\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The robot is proposed for community surveillance in civilian security use cases.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Support Rod Mechanism\", \"description\": \"The Support Rod Mechanism enables the robot to cross obstacles up to 15 cm in height.\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Stanchion Mechanism\", \"description\": \"The Friction-Driven Reconnaissance And Search And Rescue Robot is equipped with the Stanchion Mechanism, enhancing its ability to surmount obstacles.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Vehicular Body\", \"description\": \"The Vehicular Body forms the main skeleton of the robot.\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Remote Control\", \"description\": \"The robot can be controlled remotely, including over long distances enabled by 4G networks.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Communication Equipment\", \"description\": \"Communication Equipment allows for remote operation and data transmission.\"}\n{\"entity1\": \"Autonomous Control\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The robot supports autonomous operation, functioning independently without continuous human input.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Camera\", \"description\": \"The Camera on the robot provides live visual monitoring.\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Multi-Robot Collaboration\", \"description\": \"The robot is capable of multi-robot collaboration for improved task execution and coverage.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Battery Power Supply\", \"description\": \"Battery Power Supply ensures the robot's independent energy source.\"}\n{\"entity1\": \"Disaster Rescue\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The robot is designed to assist in disaster rescue, especially in dangerous or post-disaster environments.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Manual and Autonomous Mode\", \"description\": \"The robot supports both manual remote control and autonomous operation.\"}\n{\"entity1\": \"Detection Distance\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The robot has a detection distance of up to 200 meters.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Detection Speed 0.5m/s\", \"description\": \"The robot operates at a typical detection speed of 0.5 meters per second.\"}\n{\"entity1\": \"Control Distance\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The robot can be controlled within the range of 4G network coverage.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Detection Distance 200m\", \"description\": \"The robot can detect and transmit information from up to 200 meters.\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Modular Friction Drive\", \"description\": \"The robot uses Modular Friction Drive to power its wheels or tracks.\"}\n{\"entity1\": \"Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot\", \"entity2\": \"Control Distance: 4G Network Coverage Area\", \"description\": \"Robot control is available throughout any 4G Network-covered area.\"}\n{\"entity1\": \"Elastic Wheel/Track Integrated Part\", \"entity2\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"description\": \"The robot features an integrated part combining wheel and track for rapid terrain-based transformation.\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Obstacle Crossing Test\", \"description\": \"Two prototypes of the robot have completed obstacle crossing tests to validate their capabilities.\"}\n{\"entity1\": \"Friction-Driven Reconnaissance And Search And Rescue Robot\", \"entity2\": \"Stabilization Pole\", \"description\": \"The Stabilization Pole assists the robot in achieving a maximum obstacle height of 15 cm.\"}\n{\"entity1\": \"Track Mode\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Obstacle-Crossing Ability\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Obstacle-Crossing Ability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Obstacle-Crossing Ability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Police Robot\", \"entity2\": \"China National \\\"863\\\" Program\", \"description\": \"The China National \\\"863\\\" Program has contributed to and supported technological advancement in police robot development in China.\"}\n{\"entity1\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"entity2\": \"Wooden Ramp\", \"description\": \"Entity Wooden Ramp belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Wooden Ramp belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Sloped Terrain\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Sloped Terrain belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Sloped Terrain belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Reconnaissance Application\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Reconnaissance Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Reconnaissance Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Search And Rescue Application\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Search And Rescue Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Search And Rescue Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Disaster Response Application\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Disaster Response Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Disaster Response Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"entity2\": \"Unstructured Environment Adaptability\", \"description\": \"Entity Unstructured Environment Adaptability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Unstructured Environment Adaptability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Technical Demonstration\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Technical Demonstration belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Technical Demonstration belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Continuous Rubber Tracks\", \"entity2\": \"Tracked Reconnaissance Robot Climbing Demonstration (image)\", \"description\": \"Entity Continuous Rubber Tracks belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Continuous Rubber Tracks belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)\"}\n{\"entity1\": \"Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform\", \"entity2\": \"Friction-Driven Module\", \"description\": \"The Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform utilizes the Friction-Driven Module for mode switching between wheels and tracks.\"}\n```\n\nDocument Chunks (Each entry has a reference_id refer to the `Reference Document List`):\n\n```json\n{\"reference_id\": \"1\", \"content\": \"\\nImage Content Analysis:\\nImage Path: C:\\\\Users\\\\lqx94\\\\Documents\\\\GitHub\\\\doc\\\\data\\\\#00026\\\\knowledge\\\\vision_pages\\\\page_9.png\\nCaptions: None\\nFootnotes: None\\n\\nVisual Analysis: {\\n    \\\"detailed_description\\\": \\\"The image is a black-and-white technical diagram illustrating the system architecture of a wheel/track switching mobile robot, as referenced in the surrounding context. The diagram is centrally placed on the page, surrounded by explanatory Chinese text above and a caption below. The diagram is organized in a hierarchical block structure, with labeled rectangles representing system components and lines indicating connections and data flows. At the top, a large box labeled '环境' (environment) encloses the main robot system. Inside, there are four primary motor modules: '左轮电机' (left wheel motor), '右轮电机' (right wheel motor), '左履带带' (left track), and '右履带带' (right track), each paired with corresponding drive modules. A central block labeled 'MCU+电源' (MCU + power supply) connects to these drive modules, indicating centralized control and power distribution. To the right, a block labeled '摄像头设备' (camera equipment) is connected, representing the robot's vision system. Below, additional modules include '操作手驱动' (joystick drive), '操作手电机' (joystick motor), 'DTU' (data transmission unit), and two '天线' (antennas), showing communication and control interfaces. At the bottom, a separate section represents the remote server platform, wireless transmission, and remote control terminal, indicating the robot's capacity for remote operation and monitoring. The diagram uses solid lines for direct connections and dashed lines for wireless or logical connections. The visual style is clean and schematic, with monochrome lines and Chinese text. The caption below the diagram reads '图6 轮/履\"}\n{\"reference_id\": \"1\", \"content\": \"[page_idx:0] 一种轮履变换移动式侦察搜救机器人\\n\\n总体介绍\\n\\n本项目研发的轮履变换移动机器人，是一款具有创新性和广泛应用前景的无人陆地侦察机器人。\\n\\n从研究背景来看，随着国内外对警用及反恐机器人需求的不断增加，我国在该领域虽起步较晚但发展迅速。在轮履复合式机器人中，常见的是轮子和履带为两个零件，需根据地形形状或升降更换，而本项目的轮履变换移动机器人实现了轮/履带整合为一个零件，通过轮子内部机构变换即可实现轮履切换，针对户外复杂场景等应用，具备平地移动速度快、越障能力强、轻巧便携的特点。\\n\\n该机器人作为国内首创的轮履一体、轮履可切换变形的机器人，采用摩擦驱动模式，轮/履带为独立零件，借助自身弹性及曲柄连杆机构实现轮履切换，同时配备撑杆机构，最大越障高度达15cm，在非结构化环境下地形适应能力和智能自主搜救能力突出，且整体体积小、重量轻、可单人背负、能远程控制，支持多机协作。\\n\\n目前已有两台样机完成各项越障测试，其系统由车体、通信设备、摄像头等构成，探测距离200m，控制距离覆盖4G网络区，可自主或遥控使用，已在无人巡查中得到应用。\\n\\n[page_idx:1] 目录\\n\\n1、绪论………………………………………………………………………………\\n  1.1、背景及意义……………………………………………………………………\\n  1.2、课题研究现状…………………………………………………………………\\n  1.3、建议应用领域…………………………………………………………………\\n\\n2、成果原理与特点…………………………………………………………………\\n  2.1、主要原理………………………………………………………………………\\n  2.2、技术特点及优势………………………………………………………………\\n\\n3、成果转化应用设想……………………………………………………………\\n  3.1、成果转化应用总体目标………………………………………………………\\n  3.2、成果转化应用研究内容及方案………………………………………………\\n\\n[page_idx:2] 1、绪论\\n\\n1.1 背景及意义\\n\\n    国工控网《警用反恐机器人 的现状与发展趋势》一文中获悉，60年代初，发达国家就开展了警用机器人的研究，研制出多种型号机器人。“9·11”事件以后，各国加强了反恐和排爆机器人的研究，其中，美国、英国、法国、德国、以色列、加拿大、日本等国家处于领先地位。像跋涉机器人、排爆机器人都是非常有特色的，我国在研制警用机器人方面起步较晚，在国家“863”等研究项目的支持下，有了长足的发展，某些技术已经达到国际先进水平。目前国内恐怖形势严峻，涉爆案件增多，严重影响着国家经济建设、安全稳定和人民生命财产的安全。因此，对警用机器人的需求量不断增大。\\n\\n    我国警用机器人经过近30年的研究取得了丰硕的成果，发挥了重要的作用。目前，国内警用机器人除侦查小型车辆和水下机器人外，按照移动载体主要分为履带式、轮式和轮履复合式三种。按照功能主要分为侦察、排爆燃烬物及危险品、消防、攻击机器人和多功能机器人等。\\n\\n    其中轮履复合形式，当前一种是轮子和履带为两个零件，因地形需要拆装更换；一种仍是两个零件，回随车携带，通过升降方式更换使用，这两种是当前最常见的；\\n\\n[page_idx:3] 探测速度：0.5m/s\\n\\n控制距离：4G 网络覆盖区\\n\\n安装方式：免安装\\n\\n供电方式：蓄电池\\n\\n设备尺寸：0.4m*0.4m*0.3m\\n\\n使用模式：自主或遥控\\n\\n应用案例：无人巡查\\n\\n1.3、建议应用领域\\n\\n本项目成果向军事侦察、社区监控以及工厂监控等军、民用领域推广，同时向产业化转移，推动机器人产业发展，增加传统产业的附加价值。\\n\\n本项目成果同时也向抗震救灾，在危险区域寻人、搜救、增援方向推广，协助救援人员获取灾后救援的第一手信息，为生命安全提供希望的通道。\\n\\n2、成果原理与特点\\n\\n2.1、主要原理\\n\\n本项目轮/履变换移动平台是国内首创的轮履一体、轮履可切换变形的机器人，如图1所示。\\n\\nIV\\n\\n[page_idx:4] 图1 轮/履变换移动平台\\n\\n各种侦查搜救现场其共性表现为现场立即变为非常结构化环境，要求机器人平台具有很好的通过性、灵活性，即机器人平台具有很好的越障能力。正是基于这一点，研制一种基于摩擦驱动的侦察搜救机器人——弹性轮/履变换移动平台。\\n\\n轮/履带变换移动平台是采用摩擦驱动模块式驱动轮/履带，轮/履带为一个独立的\"}\n{\"reference_id\": \"1\", \"content\": \"性表现为现场立即变为非常结构化环境，要求机器人平台具有很好的通过性、灵活性，即机器人平台具有很好的越障能力。正是基于这一点，研制一种基于摩擦驱动的侦察搜救机器人——弹性轮/履变换移动平台。\\n\\n轮/履带变换移动平台是采用摩擦驱动模块式驱动轮/履带，轮/履带为一个独立的零件，并且通过轮/履带自身的弹性以及曲柄连杆机构使轮子在轮/履带之间进行切换，以便完成轮式运行和履带运行的两种运行模式。同时，为了提高机器人快速通行效率以及越障能力，采用履带加摆杆方式，增加摆杆机构，使机器人越障时能够轻松快速越过障碍物，最大越障障高度达到15cm。\\n\\n当机器人在平坦地面行驶时，轮/履带变换机构早向轮收缩，轮/履带在内圈弹性作用下回弹成轮子并以轮子模式行走，如图2所示；当机器人在非常结构化环境下行驶时，轮/履带被导向轮撑开而形成履带并以履带模式行走，如图3所示；当机器人平台遇到较大障碍物以及台阶时，在履带和摆杆双重作用下越过障碍物，如图4所示。\\n\\n图2 轮式驱动\\n\\n[page_idx:5] 图4 跨越障碍\\n\\n2.2. 技术特点及优势\\n\\n本项目轮/履变换移动平台在侦察搜救任务中优势突出，在非结构化环境下具有很强的地形适应能力和智能侦查搜救能力。根据特种需求进一步装备拓展，可以实现抵近侦察、索打—体，可进可退的武生设备。具有优越的越障能力，速度快、整体体积小、重量轻、可单人背负使用，远程控制，多机协作完成任务的优势。结合以上优势，我们可以设想如下场景中的应用。\\n\\n在距离目标位置几公里处，大型运输无人机抵达并投放下若干数量的轮履变换移动机器人，落地后观察并进入伪装潜伏阶段，当前要侦察时，统一激活，各轮履变换移动机器人之间协同配合，共同完成陌生环境下的侦察任务。\\n\\n当抵达建筑物，需要进行室内秘密侦察时，找准时机，通过崎岖的路面、杂草泥泞的院子，越过斜坡或台阶（如图5所示），通过撬杆加转向末打开门进入，或者通过破洞或缝隙等进入，因为噪声小，体型小的特点不易被察觉，首先原地藏匿监视，然后采取蠕或或者继续前进侦查方案，室内场景通过实时监控摄像头传输，当需要爬\\n\\n[page_idx:6] 图5 机器人履带模式爬斜坡\\n\\n或者当抵达建筑物、需要进行人机协作开灭敌人时，轮履变换移动机器人相同的操作，重点是能够实时将敌人隐匿的之处呈现给我方，做到快速发现敌人，准确打击，减少损失的目的。\\n\\n当面对地震、塌方、火灾等危险情况，本项目的轮履变换移动机器人因具有的越障能力、机动性、远程监控能力等优势对生命财产的抢救提供第一手资料，也在与救援人员、消防员、武警的人机配合中减少进一步损失。\\n\\n本项目可以考虑防水性能，在涉水方面可以获得进一步潜力开发，充分发挥其优势，为适应全地形侦查搜救而努力。\\n\\n3、成果转化应用设想\\n\\n3.1、成果转化应用总体目标\\n\\n通过本项目研究，所设计的侦察搜救机器人轮/履带变换移动平台在结构化环境下具有快速而灵活的通过性，同时在非结构化环境下的越障越险能力；并将本项目成果向军事侦察、社区监控以及工厂监控等军、民用领域推广，向产业化转移，推动机器人产业发展，同时也向抗震救灾，在狭小危险区域寻人搜救增援方向推广，为拯救更多生命提供援助。\\n\\n为满足在复杂环境下，例如废墟、台阶、凸台、凹坑、沙地、管\\n\\n[page_idx:7] 为满足车轮/履带变换模式概念用于社区监控、工厂监控、军事侦察等领域机器人移动平台的设计。增加 4G 数传模块与图传模块，实现监控图像实时传输与保存，根据实时图像远程实时控制移动平台完成监控/侦察任务，并且由于使用小型优质电机，整体体积小重量轻，满足随身携带、满足侦察速度等多项侦察要求。\\n\\n3.2、成果转化应用研究内容\\n\\n本项目的侦查搜救机器人—轮/履带变换移动平台包括 MCU 中央处理单元、电机驱动\"}\n{\"reference_id\": \"1\", \"content\": \"\\nImage Content Analysis:\\nImage Path: C:\\\\Users\\\\lqx94\\\\Documents\\\\GitHub\\\\doc\\\\data\\\\#00026\\\\knowledge\\\\vision_pages\\\\page_2.png\\nCaptions: None\\nFootnotes: None\\n\\nVisual Analysis: This image is a scanned or digitally generated page from a technical or academic document, specifically a table of contents page written in simplified Chinese. The layout is clean and minimalist, with a single horizontal line near the top separating the header from the main content. The main body of the page is dominated by a structured list, organized into three primary sections, each with sub-sections. The sections are: 1. 绪论 (Introduction), 2. 成果原理与特点 (Principles and Features of the Results), and 3. 成果转化应用设想 (Application Prospects of the Results). Each section is further divided into subtopics, such as research background, current research status, suggested application fields, main principles, technical features and advantages, overall application goals, and research content and plans for application. The text is left-aligned, and each section and subsection is followed by a series of evenly spaced dots leading to the right margin, a common formatting style for tables of contents. The font is a standard, sans-serif typeface, black on a white background, providing high contrast and readability. There are no images, diagrams, or decorative elements. The only other visual element is a small Roman numeral 'II' centered at the bottom of the page, indicating the page number. The visual style is formal and professional, suitable for a technical report or academic thesis. The content directly relates to the surrounding context, which discusses the development and application of a novel wheel-track transformable reconnaissance and rescue robot, and this table of contents outlines the structure of the document that details its background, principles, features, and application strategies.\"}\n{\"reference_id\": \"1\", \"content\": \"\\nImage Content Analysis:\\nImage Path: C:\\\\Users\\\\lqx94\\\\Documents\\\\GitHub\\\\doc\\\\data\\\\#00026\\\\knowledge\\\\vision_pages\\\\page_5.png\\nCaptions: None\\nFootnotes: None\\n\\nVisual Analysis: {\\n    \\\"detailed_description\\\": \\\"The image consists of a technical document page featuring both text and two photographs. The overall composition is vertically structured, with a title at the top, followed by a block of explanatory text, and two labeled images at the bottom. The title, centered at the top, reads '图1 轮/履变换移动平台' (Figure 1: Wheel/Track Switching Mobile Platform). The main text describes the principles, mechanisms, and advantages of a novel reconnaissance and rescue robot platform capable of switching between wheel and track modes for enhanced mobility in various terrains. The text is in simplified Chinese and provides context for the images below, explaining the robot's modular friction-driven mechanism and its adaptability for both military and civilian applications. \\\\n\\\\nBelow the text, two photographs are presented side by side, each with a caption. The left image, labeled '图2 轮式驱动状态' (Figure 2: Wheel Drive State), shows the robot in its wheel mode, positioned on a paved surface. The robot features two large white wheels with a central hub, a rectangular metallic chassis, and a protruding metallic arm or lever on top. The lighting is natural daylight, casting clear shadows and highlighting the robot's contours. The right image, labeled '图3 履带驱动状态' (Figure 3: Track Drive State), shows the same robot in track mode, now situated on grass. In this configuration, the wheels are partially enveloped by red tracks, demonstrating the transformation capability described in the text. The robot's chassis and arm remain visible, and the lighting conditions are similar, ensuring consistency between the two images. \\\\n\\\\nThe relationship between the images and the surrounding context is\"}\n{\"reference_id\": \"1\", \"content\": \"\\nImage Content Analysis:\\nImage Path: C:\\\\Users\\\\lqx94\\\\Documents\\\\GitHub\\\\doc\\\\data\\\\#00026\\\\knowledge\\\\vision_pages\\\\page_7.png\\nCaptions: None\\nFootnotes: None\\n\\nVisual Analysis: The image shows a technical photograph labeled as '图5 机器人履带模式爬斜坡' (Figure 5: Robot in Track Mode Climbing a Slope). The main visual element is a compact, box-shaped mobile robot positioned on a wooden ramp or sloped surface, demonstrating its ability to climb inclines. The robot features a robust, rectangular chassis with rounded sides, and is equipped with continuous rubber tracks (caterpillar tracks) on both sides, which are clearly visible and wrap around large, circular end wheels. The tracks and wheels are designed for enhanced traction and stability on uneven or sloped terrain. The robot's body is predominantly light gray or white, with some metallic and dark accents, suggesting a functional, industrial design. The lighting is natural, likely daylight, casting soft shadows and highlighting the robot's contours and mechanical details. The background is out of focus but appears to be an outdoor setting, possibly a test area or demonstration site, with the ramp constructed from reddish-brown wooden planks. No people are present in the image. The composition centers the robot, emphasizing its technical features and the action of climbing. The visual style is documentary and utilitarian, intended to showcase the robot's terrain adaptability. This image directly supports the surrounding context, which discusses the robot's superior obstacle-crossing ability, adaptability to unstructured environments, and its application in reconnaissance, search and rescue, and disaster response scenarios. The technical demonstration in the image visually reinforces the text's claims about the robot's mobility and practical advantages.\"}\n```\n\nReference Document List (Each entry starts with a [reference_id] that corresponds to entries in the Document Chunks):\n\n```\n[1] 产品说明书.pdf\n```\n\n",
+  "entities": [
+    {
+      "entity": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "type": "image",
+      "description": "The image shows a technical photograph labeled as '图5 机器人履带模式爬斜坡' (Figure 5: Robot in Track Mode Cli"
+    },
+    {
+      "entity": "unknown_entity (unknown)",
+      "type": "unknown",
+      "description": ""
+    },
+    {
+      "entity": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "type": "artifact",
+      "description": "The Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot is an innovative, unmanned ground reconnaissance robot capable of transforming between wheel and track modes for fast movement, strong obstacle-crossing capabilities, and adaptability to complex terrains. It is lightweight, portable, remote-controlled, and supports multi-machine collaboration."
+    },
+    {
+      "entity": "Section 2: 成果原理与特点(Principles and Features Of The Results)",
+      "type": "content",
+      "description": "Section 2: 成果原理与特点(Principles and Features Of The Results) is the second section, featuring subtopics on main principles, technical features, and advantages."
+    },
+    {
+      "entity": "Police and Counter-Terrorism Robot",
+      "type": "artifact",
+      "description": "Police and Counter-Terrorism Robot refers to robots developed for police and counter-terrorism applications, including reconnaissance, bomb disposal, firefighting, and attack functions."
+    },
+    {
+      "entity": "Section 3: 成果转化应用设想(Application Prospects Of The Results)",
+      "type": "content",
+      "description": "Section 3: 成果转化应用设想(Application Prospects Of The Results) is the third listed section detailing suggested application fields, overall application goals, and research content and plans for application."
+    },
+    {
+      "entity": "Modular Friction Drive Wheel-Track Platform",
+      "type": "artifact",
+      "description": "The Modular Friction Drive Wheel-Track Platform is a platform using friction drive and modular design, allowing seamless transition between wheel and track configurations in reconnaissance and search-rescue robots."
+    },
+    {
+      "entity": "Table Of Contents Page",
+      "type": "content",
+      "description": "The Table Of Contents Page is a section of a technical or academic document, written in simplified Chinese, that outlines the primary sections and subtopics of the report related to a wheel-track transformable reconnaissance and rescue robot."
+    },
+    {
+      "entity": "Crank-Rocker Mechanism",
+      "type": "concept",
+      "description": "Crank-Rocker Mechanism is a mechanical structure used in the robot to enable transformation between wheel and track modes."
+    },
+    {
+      "entity": "Wheel-Track Transformable Reconnaissance And Rescue Robot",
+      "type": "artifact",
+      "description": "Wheel-Track Transformable Reconnaissance And Rescue Robot is a novel robotic system designed for flexible mobility and intended for reconnaissance and rescue missions, which is the main topic addressed in the document."
+    },
+    {
+      "entity": "Elasticity",
+      "type": "concept",
+      "description": "Elasticity refers to the physical property employed in the robot’s structure to facilitate wheel-track switching."
+    },
+    {
+      "entity": "Support Rod Mechanism",
+      "type": "artifact",
+      "description": "Support Rod Mechanism is a component that allows the robot to overcome obstacles up to a maximum height of 15 cm."
+    },
+    {
+      "entity": "Unmanned Patrol",
+      "type": "concept",
+      "description": "Unmanned Patrol is a demonstrated application scenario wherein the robot autonomously performs inspection and monitoring tasks."
+    },
+    {
+      "entity": "Police Robot Industry in China",
+      "type": "other",
+      "description": "Police Robot Industry in China refers to the sector developing robotic systems for police and security use, which has developed rapidly in recent decades."
+    },
+    {
+      "entity": "International Research on Police Robot",
+      "type": "other",
+      "description": "International Research on Police Robot represents foreign advancements by countries including the United States, United Kingdom, France, Germany, Israel, Canada, and Japan, in police robotics research and development."
+    },
+    {
+      "entity": "4G Network",
+      "type": "concept",
+      "description": "4G Network refers to the network standard enabling remote robot control over wide areas."
+    },
+    {
+      "entity": "Vehicular Body",
+      "type": "artifact",
+      "description": "Vehicular Body is the physical chassis of the robot, incorporating all essential hardware."
+    },
+    {
+      "entity": "Communication Equipment",
+      "type": "artifact",
+      "description": "Communication Equipment refers to the devices enabling data transmission between the robot and operators or other robots."
+    },
+    {
+      "entity": "Camera",
+      "type": "artifact",
+      "description": "Camera is an onboard imaging device that allows real-time visual feedback from the robot."
+    },
+    {
+      "entity": "Battery Power Supply",
+      "type": "concept",
+      "description": "Battery Power Supply refers to the use of batteries as the robot’s main energy source."
+    },
+    {
+      "entity": "National 863 Project",
+      "type": "event",
+      "description": "National “863” Project is a government-supported research program that has enabled significant progress in China’s police robot technology."
+    },
+    {
+      "entity": "Manual and Autonomous Mode",
+      "type": "concept",
+      "description": "Manual and Autonomous Mode refers to the robot's capability for both remote manual steering and fully autonomous operation."
+    },
+    {
+      "entity": "Disaster Relief",
+      "type": "event",
+      "description": "Disaster Relief involves the use of robots to assist in search, rescue, and information gathering after natural or man-made disasters."
+    },
+    {
+      "entity": "Detection Speed 0.5m/s",
+      "type": "data",
+      "description": "The robot achieves a detection speed of 0.5 meters per second."
+    },
+    {
+      "entity": "Military Reconnaissance",
+      "type": "concept",
+      "description": "Military Reconnaissance is one of the main application scenarios for the transformation robot, involving information gathering for defense purposes.<SEP>Military Reconnaissance is a field where the robot platform can be deployed for gathering intelligence."
+    },
+    {
+      "entity": "Detection Distance 200m",
+      "type": "data",
+      "description": "The robot is capable of detecting and transmitting data up to 200 meters from its location."
+    },
+    {
+      "entity": "Community Surveillance",
+      "type": "concept",
+      "description": "Community Surveillance is a suggested civilian application for the transformation robot, providing monitoring capabilities in local urban environments."
+    },
+    {
+      "entity": "Control Distance: 4G Network Coverage Area",
+      "type": "data",
+      "description": "The robot can be controlled remotely as long as it remains within an area covered by the 4G network."
+    },
+    {
+      "entity": "Factory Surveillance",
+      "type": "event",
+      "description": "Factory Surveillance is the use of the robot to monitor industrial environments for security or operational purposes."
+    },
+    {
+      "entity": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "type": "artifact",
+      "description": "The Friction-Driven Reconnaissance And Search And Rescue Robot is a platform based on friction drive, featuring an elastic wheel/track transformation mechanism, designed for high obstacle-crossing capabilities and adaptation to highly structured search and rescue environments.<SEP>The Friction-Driven Reconnaissance And Search And Rescue Robot is a robot platform based on a friction-driven mechanism designed for reconnaissance and search and rescue missions."
+    },
+    {
+      "entity": "Wheeled/Tracked Switching Mobile Platform",
+      "type": "artifact",
+      "description": "The Wheeled/Tracked Switching Mobile Platform is a modular robot platform capable of switching between wheel mode and track mode for enhanced obstacle-crossing ability and mobility in structured and unstructured environments."
+    },
+    {
+      "entity": "Dimensions 0.4m x 0.4m x 0.3m",
+      "type": "data",
+      "description": "The robot’s physical dimensions are 0.4 meters by 0.4 meters by 0.3 meters."
+    },
+    {
+      "entity": "Police Robot",
+      "type": "artifact",
+      "description": "Police Robot refers to a category of robots developed for law enforcement purposes, including reconnaissance, explosive ordnance disposal, firefighting, attack, and multiple functions, and has seen significant development and achievements in China over the past 30 years."
+    },
+    {
+      "entity": "China National \"863\" Program",
+      "type": "event",
+      "description": "The China National \"863\" Program is a research and development initiative that has supported the progress of police robots in China and resulted in advanced technology levels."
+    },
+    {
+      "entity": "Obstacle Crossing Height 15cm",
+      "type": "data",
+      "description": "The robot can overcome obstacles up to 15 centimeters in height.<SEP>Obstacle Crossing Height 15cm is the maximum height the robot can overcome using its mechanisms."
+    },
+    {
+      "entity": "Crank Linkage Mechanism",
+      "type": "artifact",
+      "description": "The Crank Linkage Mechanism is a structure used within the wheel/track robot to achieve switching between wheel and track modes.<SEP>The Crank Linkage Mechanism is a component that enables the wheels or tracks of the robot to switch modes by leveraging the elasticity of the components and a crank linkage structure."
+    },
+    {
+      "entity": "无人巡查",
+      "type": "event",
+      "description": "无人巡查(\"Unmanned Patrol\") has been one of the robot's practical application scenarios."
+    },
+    {
+      "entity": "Stanchion Mechanism",
+      "type": "artifact",
+      "description": "The Stanchion Mechanism is an auxiliary device equipped on the transformation robot, enhancing its maximum obstacle-crossing height to 15 cm."
+    },
+    {
+      "entity": "Guo Gongkongwang",
+      "type": "organization",
+      "description": "Guo Gongkongwang is the publisher of the article \"Status and Development Trends of Police and Counter-Terrorism Robots\" referenced as a key research source."
+    },
+    {
+      "entity": "Remote Control",
+      "type": "method",
+      "description": "Remote Control allows human operators to control the robot in real-time via transmitted data and images.<SEP>Remote Control is a usage mode supported by the transformation robot, allowing it to be operated from a distance, including over 4G networks."
+    },
+    {
+      "entity": "9·11 Incident",
+      "type": "event",
+      "description": "The “9·11” Incident refers to the September 11 terrorist attacks which significantly increased global interest in police and bomb disposal robots."
+    },
+    {
+      "entity": "Autonomous Control",
+      "type": "method",
+      "description": "Autonomous Control is a usage mode wherein the robot operates independently without direct human commands."
+    },
+    {
+      "entity": "Multi-Robot Collaboration",
+      "type": "method",
+      "description": "Multi-Robot Collaboration refers to the robot's capability to work alongside multiple units for enhanced coordinated tasks."
+    },
+    {
+      "entity": "Factory Monitoring",
+      "type": "concept",
+      "description": "Factory Monitoring is an industrial application area for robot-based surveillance and operation control.<SEP>Factory Monitoring refers to the industrial application of the transformation robot, supporting surveillance and operational oversight in factory settings."
+    },
+    {
+      "entity": "Disaster Rescue",
+      "type": "concept",
+      "description": "Disaster Rescue is an application direction for the robot, supporting search and rescue operations, particularly in dangerous or post-disaster areas."
+    },
+    {
+      "entity": "Detection Distance",
+      "type": "data",
+      "description": "Detection Distance refers to the operational sensing range of the robot, which is up to 200 meters."
+    },
+    {
+      "entity": "Control Distance",
+      "type": "data",
+      "description": "Control Distance describes the remote control coverage of the robot, spanning areas within the range of a 4G network."
+    },
+    {
+      "entity": "Modular Friction Drive",
+      "type": "method",
+      "description": "Modular Friction Drive is a technology employed by the transformation robot to drive wheels or tracks through modular friction-based mechanisms."
+    },
+    {
+      "entity": "Elastic Wheel/Track Integrated Part",
+      "type": "artifact",
+      "description": "The Elastic Wheel/Track Integrated Part is a single component that implements both wheel and crawler functions, enabling rapid switching based on terrain requirements."
+    },
+    {
+      "entity": "Obstacle Crossing Test",
+      "type": "event",
+      "description": "Obstacle Crossing Test is the performance evaluation where two prototypes of the transformation robot have completed obstacle-crossing tasks to verify their mobility."
+    },
+    {
+      "entity": "Stabilization Pole",
+      "type": "artifact",
+      "description": "The Stabilization Pole is an auxiliary mechanism that assists the robot in achieving a greater obstacle-crossing capability, specifically up to 15cm."
+    },
+    {
+      "entity": "Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform",
+      "type": "artifact",
+      "description": "The Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform is a robot platform capable of switching between wheel and track modes using a friction-driven module, designed to improve terrain adaptability, obstacle-surmounting ability, flexibility, and mobility in both structured and unstructured environments."
+    },
+    {
+      "entity": "Friction-Driven Module",
+      "type": "method",
+      "description": "The Friction-Driven Module is a modular drive system that enables wheels and tracks to switch modes by utilizing elastic components and a crank-connecting rod mechanism."
+    }
+  ],
+  "relations": [
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Wheeled/Tracked Switching Mobile Platform",
+      "description": "The Friction-Driven Reconnaissance And Search And Rescue Robot is based on the Wheeled/Tracked Switching Mobile Platform which enables flexible mobility via wheel/track mode switching."
+    },
+    {
+      "entity1": "unknown_entity (unknown)",
+      "entity2": "Section 2: 成果原理与特点(Principles and Features Of The Results)",
+      "description": "Entity Section 2: 成果原理与特点(Principles and Features Of The Results) belongs to unknown_entity (unknown)<SEP>Entity Section 2: 成果原理与特点(Principles and Features Of The Results) belongs to unknown_entity (unknown)"
+    },
+    {
+      "entity1": "Robot In Track Mode",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Robot In Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Robot In Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "unknown_entity (unknown)",
+      "entity2": "Section 3: 成果转化应用设想(Application Prospects Of The Results)",
+      "description": "Entity Section 3: 成果转化应用设想(Application Prospects Of The Results) belongs to unknown_entity (unknown)<SEP>Entity Section 3: 成果转化应用设想(Application Prospects Of The Results) belongs to unknown_entity (unknown)"
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Military Reconnaissance",
+      "description": "The robot is suited for military reconnaissance tasks, gathering intelligence for military purposes."
+    },
+    {
+      "entity1": "Table Of Contents Page",
+      "entity2": "Section 2: 成果原理与特点(Principles and Features Of The Results)",
+      "description": "The Table Of Contents Page includes Section 2: 成果原理与特点(Principles and Features Of The Results) in the document's structure."
+    },
+    {
+      "entity1": "Military Reconnaissance",
+      "entity2": "Wheeled/Tracked Switching Mobile Platform",
+      "description": "The Wheeled/Tracked Switching Mobile Platform is intended for Military Reconnaissance missions."
+    },
+    {
+      "entity1": "Table Of Contents Page",
+      "entity2": "Section 3: 成果转化应用设想(Application Prospects Of The Results)",
+      "description": "Section 3: 成果转化应用设想(Application Prospects Of The Results) is listed as a primary section on the Table Of Contents Page."
+    },
+    {
+      "entity1": "Crank Linkage Mechanism",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The Friction-Driven Reconnaissance And Search And Rescue Robot employs the Crank Linkage Mechanism to enable wheel-track switching."
+    },
+    {
+      "entity1": "Section 2: 成果原理与特点(Principles and Features Of The Results)",
+      "entity2": "Wheel-Track Transformable Reconnaissance And Rescue Robot",
+      "description": "Section 2: 成果原理与特点(Principles and Features Of The Results) discusses the main principles, technical features, and advantages of the Wheel-Track Transformable Reconnaissance And Rescue Robot."
+    },
+    {
+      "entity1": "Factory Monitoring",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The robot is recommended for use in factory monitoring, providing surveillance in industrial environments."
+    },
+    {
+      "entity1": "Section 3: 成果转化应用设想(Application Prospects Of The Results)",
+      "entity2": "Wheel-Track Transformable Reconnaissance And Rescue Robot",
+      "description": "Section 3: 成果转化应用设想(Application Prospects Of The Results) outlines suggested application fields, goals, and research plans for employing the Wheel-Track Transformable Reconnaissance And Rescue Robot."
+    },
+    {
+      "entity1": "Crank Linkage Mechanism",
+      "entity2": "Wheeled/Tracked Switching Mobile Platform",
+      "description": "The Wheeled/Tracked Switching Mobile Platform uses the Crank Linkage Mechanism for switching between wheel and track modes."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Modular Friction Drive Wheel-Track Platform",
+      "description": "The Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot is built on a Modular Friction Drive Wheel-Track Platform."
+    },
+    {
+      "entity1": "Factory Monitoring",
+      "entity2": "Wheeled/Tracked Switching Mobile Platform",
+      "description": "The Wheeled/Tracked Switching Mobile Platform is also applied to Factory Monitoring."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Crank-Rocker Mechanism",
+      "description": "The robot utilizes a Crank-Rocker Mechanism to achieve wheel-track switching."
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Unmanned Patrol",
+      "description": "The robot has been applied in unmanned patrol scenarios."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Elasticity",
+      "description": "Elasticity in the robot’s construction aids in smooth wheel-track switching."
+    },
+    {
+      "entity1": "Community Surveillance",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The robot is proposed for community surveillance in civilian security use cases."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Support Rod Mechanism",
+      "description": "The Support Rod Mechanism enables the robot to cross obstacles up to 15 cm in height."
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Stanchion Mechanism",
+      "description": "The Friction-Driven Reconnaissance And Search And Rescue Robot is equipped with the Stanchion Mechanism, enhancing its ability to surmount obstacles."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Vehicular Body",
+      "description": "The Vehicular Body forms the main skeleton of the robot."
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Remote Control",
+      "description": "The robot can be controlled remotely, including over long distances enabled by 4G networks."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Communication Equipment",
+      "description": "Communication Equipment allows for remote operation and data transmission."
+    },
+    {
+      "entity1": "Autonomous Control",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The robot supports autonomous operation, functioning independently without continuous human input."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Camera",
+      "description": "The Camera on the robot provides live visual monitoring."
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Multi-Robot Collaboration",
+      "description": "The robot is capable of multi-robot collaboration for improved task execution and coverage."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Battery Power Supply",
+      "description": "Battery Power Supply ensures the robot's independent energy source."
+    },
+    {
+      "entity1": "Disaster Rescue",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The robot is designed to assist in disaster rescue, especially in dangerous or post-disaster environments."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Manual and Autonomous Mode",
+      "description": "The robot supports both manual remote control and autonomous operation."
+    },
+    {
+      "entity1": "Detection Distance",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The robot has a detection distance of up to 200 meters."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Detection Speed 0.5m/s",
+      "description": "The robot operates at a typical detection speed of 0.5 meters per second."
+    },
+    {
+      "entity1": "Control Distance",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The robot can be controlled within the range of 4G network coverage."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Detection Distance 200m",
+      "description": "The robot can detect and transmit information from up to 200 meters."
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Modular Friction Drive",
+      "description": "The robot uses Modular Friction Drive to power its wheels or tracks."
+    },
+    {
+      "entity1": "Wheel-Track Transformable Mobile Reconnaissance and Search-Rescue Robot",
+      "entity2": "Control Distance: 4G Network Coverage Area",
+      "description": "Robot control is available throughout any 4G Network-covered area."
+    },
+    {
+      "entity1": "Elastic Wheel/Track Integrated Part",
+      "entity2": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "description": "The robot features an integrated part combining wheel and track for rapid terrain-based transformation."
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Obstacle Crossing Test",
+      "description": "Two prototypes of the robot have completed obstacle crossing tests to validate their capabilities."
+    },
+    {
+      "entity1": "Friction-Driven Reconnaissance And Search And Rescue Robot",
+      "entity2": "Stabilization Pole",
+      "description": "The Stabilization Pole assists the robot in achieving a maximum obstacle height of 15 cm."
+    },
+    {
+      "entity1": "Track Mode",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Track Mode belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Obstacle-Crossing Ability",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Obstacle-Crossing Ability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Obstacle-Crossing Ability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Police Robot",
+      "entity2": "China National \"863\" Program",
+      "description": "The China National \"863\" Program has contributed to and supported technological advancement in police robot development in China."
+    },
+    {
+      "entity1": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "entity2": "Wooden Ramp",
+      "description": "Entity Wooden Ramp belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Wooden Ramp belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Sloped Terrain",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Sloped Terrain belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Sloped Terrain belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Reconnaissance Application",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Reconnaissance Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Reconnaissance Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Search And Rescue Application",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Search And Rescue Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Search And Rescue Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Disaster Response Application",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Disaster Response Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Disaster Response Application belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "entity2": "Unstructured Environment Adaptability",
+      "description": "Entity Unstructured Environment Adaptability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Unstructured Environment Adaptability belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Technical Demonstration",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Technical Demonstration belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Technical Demonstration belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Continuous Rubber Tracks",
+      "entity2": "Tracked Reconnaissance Robot Climbing Demonstration (image)",
+      "description": "Entity Continuous Rubber Tracks belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)<SEP>Entity Continuous Rubber Tracks belongs to Tracked Reconnaissance Robot Climbing Demonstration (image)"
+    },
+    {
+      "entity1": "Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform",
+      "entity2": "Friction-Driven Module",
+      "description": "The Reconnaissance And Search And Rescue Robot Wheel/Track Switching Mobile Platform utilizes the Friction-Driven Module for mode switching between wheels and tracks."
+    }
+  ],
+  "chunks": [
+    {
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00026\\knowledge\\vision_pages\\page_9.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: {\n    \"detailed_description\": \"The image is a black-and-white technical diagram illustrating the system architecture of a wheel/track switching mobile robot, as referenced in the surrounding context. The diagram is centrally placed on the page, surrounded by explanatory Chinese text above and a caption below. The diagram is organized in a hierarchical block structure, with labeled rectangles representing system components and lines indicating connections and data flows. At the top, a large box labeled '环境' (environment) encloses the main robot system. Inside, there are four primary motor modules: '左轮电机' (left wheel motor), '右轮电机' (right wheel motor), '左履带带' (left track), and '右履带带' (right track), each paired with corresponding drive modules. A central block labeled 'MCU+电源' (MCU + power supply) connects to these drive modules, indicating centralized control and power distribution. To the right, a block labeled '摄像头设备' (camera equipment) is connected, representing the robot's vision system. Below, additional modules include '操作手驱动' (joystick drive), '操作手电机' (joystick motor), 'DTU' (data transmission unit), and two '天线' (antennas), showing communication and control interfaces. At the bottom, a separate section represents the remote server platform, wireless transmission, and remote control terminal, indicating the robot's capacity for remote operation and monitoring. The diagram uses solid lines for direct connections and dashed lines for wireless or logical connections. The visual style is clean and schematic, with monochrome lines and Chinese text. The caption below the diagram reads '图6 轮/履",
+      "file_path": "产品说明书.pdf",
+      "chunk_id": "chunk-dbbaa91461292737265f71fbdc3eb3ae",
+      "id": "DC1",
+      "reference_id": "1"
+    },
+    {
+      "content": "[page_idx:0] 一种轮履变换移动式侦察搜救机器人\n\n总体介绍\n\n本项目研发的轮履变换移动机器人，是一款具有创新性和广泛应用前景的无人陆地侦察机器人。\n\n从研究背景来看，随着国内外对警用及反恐机器人需求的不断增加，我国在该领域虽起步较晚但发展迅速。在轮履复合式机器人中，常见的是轮子和履带为两个零件，需根据地形形状或升降更换，而本项目的轮履变换移动机器人实现了轮/履带整合为一个零件，通过轮子内部机构变换即可实现轮履切换，针对户外复杂场景等应用，具备平地移动速度快、越障能力强、轻巧便携的特点。\n\n该机器人作为国内首创的轮履一体、轮履可切换变形的机器人，采用摩擦驱动模式，轮/履带为独立零件，借助自身弹性及曲柄连杆机构实现轮履切换，同时配备撑杆机构，最大越障高度达15cm，在非结构化环境下地形适应能力和智能自主搜救能力突出，且整体体积小、重量轻、可单人背负、能远程控制，支持多机协作。\n\n目前已有两台样机完成各项越障测试，其系统由车体、通信设备、摄像头等构成，探测距离200m，控制距离覆盖4G网络区，可自主或遥控使用，已在无人巡查中得到应用。\n\n[page_idx:1] 目录\n\n1、绪论………………………………………………………………………………\n  1.1、背景及意义……………………………………………………………………\n  1.2、课题研究现状…………………………………………………………………\n  1.3、建议应用领域…………………………………………………………………\n\n2、成果原理与特点…………………………………………………………………\n  2.1、主要原理………………………………………………………………………\n  2.2、技术特点及优势………………………………………………………………\n\n3、成果转化应用设想……………………………………………………………\n  3.1、成果转化应用总体目标………………………………………………………\n  3.2、成果转化应用研究内容及方案………………………………………………\n\n[page_idx:2] 1、绪论\n\n1.1 背景及意义\n\n    国工控网《警用反恐机器人 的现状与发展趋势》一文中获悉，60年代初，发达国家就开展了警用机器人的研究，研制出多种型号机器人。“9·11”事件以后，各国加强了反恐和排爆机器人的研究，其中，美国、英国、法国、德国、以色列、加拿大、日本等国家处于领先地位。像跋涉机器人、排爆机器人都是非常有特色的，我国在研制警用机器人方面起步较晚，在国家“863”等研究项目的支持下，有了长足的发展，某些技术已经达到国际先进水平。目前国内恐怖形势严峻，涉爆案件增多，严重影响着国家经济建设、安全稳定和人民生命财产的安全。因此，对警用机器人的需求量不断增大。\n\n    我国警用机器人经过近30年的研究取得了丰硕的成果，发挥了重要的作用。目前，国内警用机器人除侦查小型车辆和水下机器人外，按照移动载体主要分为履带式、轮式和轮履复合式三种。按照功能主要分为侦察、排爆燃烬物及危险品、消防、攻击机器人和多功能机器人等。\n\n    其中轮履复合形式，当前一种是轮子和履带为两个零件，因地形需要拆装更换；一种仍是两个零件，回随车携带，通过升降方式更换使用，这两种是当前最常见的；\n\n[page_idx:3] 探测速度：0.5m/s\n\n控制距离：4G 网络覆盖区\n\n安装方式：免安装\n\n供电方式：蓄电池\n\n设备尺寸：0.4m*0.4m*0.3m\n\n使用模式：自主或遥控\n\n应用案例：无人巡查\n\n1.3、建议应用领域\n\n本项目成果向军事侦察、社区监控以及工厂监控等军、民用领域推广，同时向产业化转移，推动机器人产业发展，增加传统产业的附加价值。\n\n本项目成果同时也向抗震救灾，在危险区域寻人、搜救、增援方向推广，协助救援人员获取灾后救援的第一手信息，为生命安全提供希望的通道。\n\n2、成果原理与特点\n\n2.1、主要原理\n\n本项目轮/履变换移动平台是国内首创的轮履一体、轮履可切换变形的机器人，如图1所示。\n\nIV\n\n[page_idx:4] 图1 轮/履变换移动平台\n\n各种侦查搜救现场其共性表现为现场立即变为非常结构化环境，要求机器人平台具有很好的通过性、灵活性，即机器人平台具有很好的越障能力。正是基于这一点，研制一种基于摩擦驱动的侦察搜救机器人——弹性轮/履变换移动平台。\n\n轮/履带变换移动平台是采用摩擦驱动模块式驱动轮/履带，轮/履带为一个独立的",
+      "file_path": "产品说明书.pdf",
+      "chunk_id": "chunk-9f4adf47acbf868d88c085f774e292ca",
+      "id": "DC2",
+      "reference_id": "1"
+    },
+    {
+      "content": "性表现为现场立即变为非常结构化环境，要求机器人平台具有很好的通过性、灵活性，即机器人平台具有很好的越障能力。正是基于这一点，研制一种基于摩擦驱动的侦察搜救机器人——弹性轮/履变换移动平台。\n\n轮/履带变换移动平台是采用摩擦驱动模块式驱动轮/履带，轮/履带为一个独立的零件，并且通过轮/履带自身的弹性以及曲柄连杆机构使轮子在轮/履带之间进行切换，以便完成轮式运行和履带运行的两种运行模式。同时，为了提高机器人快速通行效率以及越障能力，采用履带加摆杆方式，增加摆杆机构，使机器人越障时能够轻松快速越过障碍物，最大越障障高度达到15cm。\n\n当机器人在平坦地面行驶时，轮/履带变换机构早向轮收缩，轮/履带在内圈弹性作用下回弹成轮子并以轮子模式行走，如图2所示；当机器人在非常结构化环境下行驶时，轮/履带被导向轮撑开而形成履带并以履带模式行走，如图3所示；当机器人平台遇到较大障碍物以及台阶时，在履带和摆杆双重作用下越过障碍物，如图4所示。\n\n图2 轮式驱动\n\n[page_idx:5] 图4 跨越障碍\n\n2.2. 技术特点及优势\n\n本项目轮/履变换移动平台在侦察搜救任务中优势突出，在非结构化环境下具有很强的地形适应能力和智能侦查搜救能力。根据特种需求进一步装备拓展，可以实现抵近侦察、索打—体，可进可退的武生设备。具有优越的越障能力，速度快、整体体积小、重量轻、可单人背负使用，远程控制，多机协作完成任务的优势。结合以上优势，我们可以设想如下场景中的应用。\n\n在距离目标位置几公里处，大型运输无人机抵达并投放下若干数量的轮履变换移动机器人，落地后观察并进入伪装潜伏阶段，当前要侦察时，统一激活，各轮履变换移动机器人之间协同配合，共同完成陌生环境下的侦察任务。\n\n当抵达建筑物，需要进行室内秘密侦察时，找准时机，通过崎岖的路面、杂草泥泞的院子，越过斜坡或台阶（如图5所示），通过撬杆加转向末打开门进入，或者通过破洞或缝隙等进入，因为噪声小，体型小的特点不易被察觉，首先原地藏匿监视，然后采取蠕或或者继续前进侦查方案，室内场景通过实时监控摄像头传输，当需要爬\n\n[page_idx:6] 图5 机器人履带模式爬斜坡\n\n或者当抵达建筑物、需要进行人机协作开灭敌人时，轮履变换移动机器人相同的操作，重点是能够实时将敌人隐匿的之处呈现给我方，做到快速发现敌人，准确打击，减少损失的目的。\n\n当面对地震、塌方、火灾等危险情况，本项目的轮履变换移动机器人因具有的越障能力、机动性、远程监控能力等优势对生命财产的抢救提供第一手资料，也在与救援人员、消防员、武警的人机配合中减少进一步损失。\n\n本项目可以考虑防水性能，在涉水方面可以获得进一步潜力开发，充分发挥其优势，为适应全地形侦查搜救而努力。\n\n3、成果转化应用设想\n\n3.1、成果转化应用总体目标\n\n通过本项目研究，所设计的侦察搜救机器人轮/履带变换移动平台在结构化环境下具有快速而灵活的通过性，同时在非结构化环境下的越障越险能力；并将本项目成果向军事侦察、社区监控以及工厂监控等军、民用领域推广，向产业化转移，推动机器人产业发展，同时也向抗震救灾，在狭小危险区域寻人搜救增援方向推广，为拯救更多生命提供援助。\n\n为满足在复杂环境下，例如废墟、台阶、凸台、凹坑、沙地、管\n\n[page_idx:7] 为满足车轮/履带变换模式概念用于社区监控、工厂监控、军事侦察等领域机器人移动平台的设计。增加 4G 数传模块与图传模块，实现监控图像实时传输与保存，根据实时图像远程实时控制移动平台完成监控/侦察任务，并且由于使用小型优质电机，整体体积小重量轻，满足随身携带、满足侦察速度等多项侦察要求。\n\n3.2、成果转化应用研究内容\n\n本项目的侦查搜救机器人—轮/履带变换移动平台包括 MCU 中央处理单元、电机驱动",
+      "file_path": "产品说明书.pdf",
+      "chunk_id": "chunk-0c1095ee0cd81abde001bbc79696e301",
+      "id": "DC3",
+      "reference_id": "1"
+    },
+    {
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00026\\knowledge\\vision_pages\\page_2.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: This image is a scanned or digitally generated page from a technical or academic document, specifically a table of contents page written in simplified Chinese. The layout is clean and minimalist, with a single horizontal line near the top separating the header from the main content. The main body of the page is dominated by a structured list, organized into three primary sections, each with sub-sections. The sections are: 1. 绪论 (Introduction), 2. 成果原理与特点 (Principles and Features of the Results), and 3. 成果转化应用设想 (Application Prospects of the Results). Each section is further divided into subtopics, such as research background, current research status, suggested application fields, main principles, technical features and advantages, overall application goals, and research content and plans for application. The text is left-aligned, and each section and subsection is followed by a series of evenly spaced dots leading to the right margin, a common formatting style for tables of contents. The font is a standard, sans-serif typeface, black on a white background, providing high contrast and readability. There are no images, diagrams, or decorative elements. The only other visual element is a small Roman numeral 'II' centered at the bottom of the page, indicating the page number. The visual style is formal and professional, suitable for a technical report or academic thesis. The content directly relates to the surrounding context, which discusses the development and application of a novel wheel-track transformable reconnaissance and rescue robot, and this table of contents outlines the structure of the document that details its background, principles, features, and application strategies.",
+      "file_path": "产品说明书.pdf",
+      "chunk_id": "chunk-d104064e95c6a3ce334e3ff68fa8ef78",
+      "id": "DC4",
+      "reference_id": "1"
+    },
+    {
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00026\\knowledge\\vision_pages\\page_5.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: {\n    \"detailed_description\": \"The image consists of a technical document page featuring both text and two photographs. The overall composition is vertically structured, with a title at the top, followed by a block of explanatory text, and two labeled images at the bottom. The title, centered at the top, reads '图1 轮/履变换移动平台' (Figure 1: Wheel/Track Switching Mobile Platform). The main text describes the principles, mechanisms, and advantages of a novel reconnaissance and rescue robot platform capable of switching between wheel and track modes for enhanced mobility in various terrains. The text is in simplified Chinese and provides context for the images below, explaining the robot's modular friction-driven mechanism and its adaptability for both military and civilian applications. \\n\\nBelow the text, two photographs are presented side by side, each with a caption. The left image, labeled '图2 轮式驱动状态' (Figure 2: Wheel Drive State), shows the robot in its wheel mode, positioned on a paved surface. The robot features two large white wheels with a central hub, a rectangular metallic chassis, and a protruding metallic arm or lever on top. The lighting is natural daylight, casting clear shadows and highlighting the robot's contours. The right image, labeled '图3 履带驱动状态' (Figure 3: Track Drive State), shows the same robot in track mode, now situated on grass. In this configuration, the wheels are partially enveloped by red tracks, demonstrating the transformation capability described in the text. The robot's chassis and arm remain visible, and the lighting conditions are similar, ensuring consistency between the two images. \\n\\nThe relationship between the images and the surrounding context is",
+      "file_path": "产品说明书.pdf",
+      "chunk_id": "chunk-bcca7adfe7fe894e42c916a30eb0231a",
+      "id": "DC5",
+      "reference_id": "1"
+    },
+    {
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00026\\knowledge\\vision_pages\\page_7.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image shows a technical photograph labeled as '图5 机器人履带模式爬斜坡' (Figure 5: Robot in Track Mode Climbing a Slope). The main visual element is a compact, box-shaped mobile robot positioned on a wooden ramp or sloped surface, demonstrating its ability to climb inclines. The robot features a robust, rectangular chassis with rounded sides, and is equipped with continuous rubber tracks (caterpillar tracks) on both sides, which are clearly visible and wrap around large, circular end wheels. The tracks and wheels are designed for enhanced traction and stability on uneven or sloped terrain. The robot's body is predominantly light gray or white, with some metallic and dark accents, suggesting a functional, industrial design. The lighting is natural, likely daylight, casting soft shadows and highlighting the robot's contours and mechanical details. The background is out of focus but appears to be an outdoor setting, possibly a test area or demonstration site, with the ramp constructed from reddish-brown wooden planks. No people are present in the image. The composition centers the robot, emphasizing its technical features and the action of climbing. The visual style is documentary and utilitarian, intended to showcase the robot's terrain adaptability. This image directly supports the surrounding context, which discusses the robot's superior obstacle-crossing ability, adaptability to unstructured environments, and its application in reconnaissance, search and rescue, and disaster response scenarios. The technical demonstration in the image visually reinforces the text's claims about the robot's mobility and practical advantages.",
+      "file_path": "产品说明书.pdf",
+      "chunk_id": "chunk-269141640c81652dcc1b6c351898fd9d",
+      "id": "DC6",
+      "reference_id": "1"
+    }
+  ],
+  "token_stats": {
+    "entities_tokens": 2713,
+    "relations_tokens": 3037,
+    "chunks_tokens": 4120,
+    "total_tokens": 9952,
+    "max_total_tokens": 60000
+  }
+}

@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="User">
+      <data key="entity_id">User</data>
+      <data key="entity_type">person</data>
+      <data key="description">User is a person posing a question but whose details are unspecified in the text.&lt;SEP&gt;User is an individual requesting assistance and clarification on a specific question.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-7b306462f19a5387357a573fda2de387&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772868230</data>
+      <data key="truncate" />
+    </node>
+    <node id="Assistant">
+      <data key="entity_id">Assistant</data>
+      <data key="entity_type">person</data>
+      <data key="description">Assistant is a person providing a response, indicating an inability to answer without more information.&lt;SEP&gt;The Assistant is a responsive entity providing guidance and soliciting more information to offer accurate answers.</data>
+      <data key="source_id">chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-7b306462f19a5387357a573fda2de387&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772868230</data>
+      <data key="truncate" />
+    </node>
+    <node id="Question">
+      <data key="entity_id">Question</data>
+      <data key="entity_type">concept</data>
+      <data key="description">The question is unspecified and lacks detail, which prevents providing a clear answer.&lt;SEP&gt;The question is an inquiry made by the User seeking clarification or information.</data>
+      <data key="source_id">chunk-7b306462f19a5387357a573fda2de387&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772868230</data>
+      <data key="truncate" />
+    </node>
+    <node id="Response">
+      <data key="entity_id">Response</data>
+      <data key="entity_type">concept</data>
+      <data key="description">The response emphasizes the need for more information to assist effectively.&lt;SEP&gt;The response is the Assistant's reply encouraging the User to provide more specific details for accurate assistance.</data>
+      <data key="source_id">chunk-7b306462f19a5387357a573fda2de387&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772868230</data>
+      <data key="truncate" />
+    </node>
+    <node id="Vibrant Urban Street Scene (image)">
+      <data key="entity_id">Vibrant Urban Street Scene (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image captures a lively urban street environment, showcasing pedestrians, vehicles, and a street vendor cart, all against a backdrop of modern architecture under clear blue skies.</data>
+      <data key="source_id">chunk-a04ef0bbe868112b6c23a7c0b4df55e6</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772868069</data>
+    </node>
+    <node id="Empty Footer Placeholder (footer)">
+      <data key="entity_id">Empty Footer Placeholder (footer)</data>
+      <data key="entity_type">footer</data>
+      <data key="description">This footer is devoid of any content, limiting its utility for providing users with essential information and navigation options.</data>
+      <data key="source_id">chunk-5ce03fc87300098588eeee60c8a77bc4</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772868069</data>
+    </node>
+    <node id="Vibrant Urban Street Scene (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image captures a lively urban street environment, showcasing pedestrians, vehicles, and a street vendor cart, all against a backdrop of modern architecture under clear blue skies.</data>
+      <data key="source_id">image_asset:img-b6f10b383f3d4ddecace3bfc46debaa2</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00007\knowledge\multimodal\images\img-b6f10b383f3d4ddecace3bfc46debaa2.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-482cbdc4b54d3cf552602e0fcd479653</data>
+      <data key="created_at">1772868071</data>
+    </node>
+    <node id="User Question">
+      <data key="entity_id">User Question</data>
+      <data key="entity_type">concept</data>
+      <data key="description">User Question refers to the inquiry posed by the user, seeking specific information or clarification.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-4e18056c867fc71a13bcdcd46d3ffdbc&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772868230</data>
+      <data key="truncate" />
+    </node>
+    <node id="Assistant Answer">
+      <data key="entity_id">Assistant Answer</data>
+      <data key="entity_type">content</data>
+      <data key="description">Assistant Answer is the response provided by the assistant, aimed at guiding the user to formulate a more specific question.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-4e18056c867fc71a13bcdcd46d3ffdbc&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772868230</data>
+      <data key="truncate" />
+    </node>
+    <edge source="User" target="Question">
+      <data key="weight">1.0</data>
+      <data key="description">User's inquiry prompts a response from the Assistant.</data>
+      <data key="keywords">inquiry,interaction</data>
+      <data key="source_id">chunk-7b306462f19a5387357a573fda2de387</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867905</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Assistant" target="Response">
+      <data key="weight">1.0</data>
+      <data key="description">Assistant provides a response indicating the need for further details to generate a useful answer.</data>
+      <data key="keywords">answering,information request</data>
+      <data key="source_id">chunk-7b306462f19a5387357a573fda2de387</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867905</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Vibrant Urban Street Scene (image)" target="Vibrant Urban Street Scene (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Vibrant Urban Street Scene (image)</data>
+      <data key="source_id">image_asset:img-b6f10b383f3d4ddecace3bfc46debaa2</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+    </edge>
+  </graph>
+</graphml>

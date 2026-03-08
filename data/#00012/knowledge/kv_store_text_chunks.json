@@ -1,0 +1,32 @@
+{
+  "chunk-ebbd04f9ee1f0a302bc287cd88bbbf29": {
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00012\\knowledge\\output\\pdf_5f484d020c7c165f_ytk9ukgw\\pdf_5f484d020c7c165f\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image presents a dynamic urban scene captured during the daytime. The composition showcases a busy street intersection filled with various vehicles including cars, buses, and bicycles. Pedestrians are seen navigating the crosswalk while others are engaged in conversation on the sidewalks. The buildings lining the street are modern with large glass windows reflecting the sunlight, creating a bright atmosphere. Visible advertisements on the sides of buildings include vibrant colors such as red, yellow, and blue, contributing to the energetic vibe of the scene. The sky is a clear blue, indicating pleasant weather. Shadows cast by the buildings suggest a mid-afternoon time, enhancing the lively context. No text or specific labels are present in the image. The overall visual style can be described as realistic, emphasizing the hustle and bustle of urban life, highlighting the interaction between people and their environment.",
+    "tokens": 286,
+    "full_doc_id": "doc-456e034fba83e91f78f52eaf3be54c90",
+    "chunk_order_index": 0,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "is_multimodal": true,
+    "modal_entity_name": "Urban Street Intersection Activity (image)",
+    "original_type": "image",
+    "page_idx": 0,
+    "create_time": 1772869592,
+    "update_time": 1772869592,
+    "_id": "chunk-ebbd04f9ee1f0a302bc287cd88bbbf29"
+  },
+  "chunk-0176d00f541c70289ae941e2e640fdb9": {
+    "content": "Footer Content Analysis:\nContent: {'type': 'footer', 'text': '', 'bbox': [466, 986, 531, 992], 'page_idx': 0}\n\nAnalysis: The footer content is currently devoid of textual information, resulting in a blank state that lacks any structural or organizational attributes. This absence of content inhibits the identification of key components or relationships that may exist within a typical footer, such as navigation links, contact information, copyright details, or social media icons. The empty state indicates a potential oversight or a design placeholder rather than providing any contextual significance. For knowledge retrieval, no relevant details can be extracted from the existing footer content.",
+    "tokens": 133,
+    "full_doc_id": "doc-456e034fba83e91f78f52eaf3be54c90",
+    "chunk_order_index": 1,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "is_multimodal": true,
+    "modal_entity_name": "Empty Footer Placeholder (footer)",
+    "original_type": "footer",
+    "page_idx": 0,
+    "create_time": 1772869592,
+    "update_time": 1772869592,
+    "_id": "chunk-0176d00f541c70289ae941e2e640fdb9"
+  }
+}

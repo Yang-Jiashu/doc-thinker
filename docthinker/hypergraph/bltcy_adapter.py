@@ -1,4 +1,4 @@
-"""Adapter helpers for the BLTCY GPT-4o-mini API."""
+"""Adapter helpers for OpenAI-compatible chat completion APIs."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from typing import Iterable, Optional, Sequence
 import asyncio
 import aiohttp
 
-DEFAULT_API_BASE = "https://api.siliconflow.cn/v1/chat/completions"
+DEFAULT_API_BASE = "https://api.openai.com/v1/chat/completions"
 
 
 async def bltcy_gpt4o_mini_complete(
@@ -34,11 +34,16 @@ async def bltcy_gpt4o_mini_complete(
     if not api_key:
         raise ValueError("BLTCY_API_KEY (or OPENAI_API_KEY) must be provided.")
 
-    api_base = api_base or os.environ.get("BLTCY_API_BASE", DEFAULT_API_BASE)
+    api_base = (
+        api_base
+        or os.environ.get("BLTCY_API_BASE")
+        or os.environ.get("OPENAI_BASE_URL")
+        or DEFAULT_API_BASE
+    )
     api_base = api_base.rstrip("/")
     if not api_base.endswith("chat/completions"):
         api_base = api_base + "/chat/completions"
-    model = model or os.environ.get("BLTCY_MODEL", "qwen3-8b")
+    model = model or os.environ.get("BLTCY_MODEL", "gpt-4o-mini")
 
     messages = []
     if system_prompt:
@@ -75,14 +80,19 @@ async def bltcy_gpt4o_mini_complete(
         except Exception:
             pass
     stream = kwargs.get("stream", False)
-    if not stream:
-        # DashScope requires enable_thinking to be explicitly false for non-streaming
+    if not stream and "api.openai.com" not in api_base.lower():
+        # Some OpenAI-compatible providers require this flag for non-streaming.
         payload["enable_thinking"] = False
+    is_openai_gpt5 = "api.openai.com" in api_base.lower() and str(model or "").lower().startswith("gpt-5")
     if max_tokens is not None:
         try:
-            payload["max_tokens"] = int(max_tokens)
+            token_value = int(max_tokens)
         except Exception:
-            payload["max_tokens"] = 1024
+            token_value = 1024
+        if is_openai_gpt5:
+            payload["max_completion_tokens"] = max(token_value, 600)
+        else:
+            payload["max_tokens"] = token_value
     if temperature is not None:
         try:
             payload["temperature"] = float(temperature)
@@ -96,7 +106,9 @@ async def bltcy_gpt4o_mini_complete(
 
     timeout_cfg = aiohttp.ClientTimeout(total=180)
     last_error = None
-    alt_base = os.environ.get("BLTCY_FALLBACK_API_BASE", "https://api.siliconflow.cn/v1/chat/completions")
+    alt_base = os.environ.get(
+        "BLTCY_FALLBACK_API_BASE", "https://api.openai.com/v1/chat/completions"
+    )
     used_alt = False
     for attempt in range(3):
         try:

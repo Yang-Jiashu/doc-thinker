@@ -59,12 +59,25 @@ class SessionManager:
                 return int(sid[1:])
             except Exception:
                 return None
+        if sid.startswith("#") and sid[1:].isdigit():
+            try:
+                return int(sid[1:])
+            except Exception:
+                return None
         if sid.isdigit():
             try:
                 return int(sid)
             except Exception:
                 return None
         return None
+
+    @classmethod
+    def _canonical_session_id(cls, session_id: str) -> str:
+        sid = str(session_id or "").strip()
+        n = cls._parse_session_number(sid)
+        if n is None:
+            return sid
+        return cls._format_session_id(n)
 
     @staticmethod
     def _extract_session_id_from_name(name: str) -> str:
@@ -492,6 +505,7 @@ class SessionManager:
         talk_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
     def get_session_content_dir(self, session_id: str) -> Path:
+        session_id = self._canonical_session_id(session_id)
         session = self.get_session(session_id)
         if not session:
             raise ValueError(f"Session {session_id} not found")
@@ -501,6 +515,7 @@ class SessionManager:
         return content_dir
 
     def get_session_code_dir(self, session_id: str) -> Path:
+        session_id = self._canonical_session_id(session_id)
         session = self.get_session(session_id)
         if not session:
             raise ValueError(f"Session {session_id} not found")
@@ -510,6 +525,7 @@ class SessionManager:
         return code_dir
 
     def get_session_talk_dir(self, session_id: str) -> Path:
+        session_id = self._canonical_session_id(session_id)
         session = self.get_session(session_id)
         if not session:
             raise ValueError(f"Session {session_id} not found")
@@ -519,6 +535,7 @@ class SessionManager:
         return talk_dir
 
     def allocate_session_file_path(self, session_id: str, filename: str) -> Path:
+        session_id = self._canonical_session_id(session_id)
         content_dir = self.get_session_content_dir(session_id)
         base = Path(filename).name or "upload.bin"
         stem = Path(base).stem
@@ -596,13 +613,16 @@ class SessionManager:
 
     def get_session(self, session_id: str) -> Optional[Dict[str, Any]]:
         """Get session details."""
-        name = f"session_{session_id}"
+        canonical_id = self._canonical_session_id(session_id)
+        name = f"session_{canonical_id}"
         kb = self.kb_storage.get_knowledge_base(name)
+        if not kb and canonical_id != str(session_id).strip():
+            kb = self.kb_storage.get_knowledge_base(f"session_{str(session_id).strip()}")
         if not kb:
             return None
 
         metadata = kb.metadata or {}
-        sid = str(metadata.get("session_id", session_id))
+        sid = str(metadata.get("session_id", canonical_id))
         defaults = self._build_default_paths(sid)
         merged = {**defaults, **metadata}
         self._ensure_session_dirs(merged)
@@ -623,6 +643,7 @@ class SessionManager:
 
     def update_session(self, session_id: str, title: str) -> bool:
         """Update session title."""
+        session_id = self._canonical_session_id(session_id)
         name = f"session_{session_id}"
         kb = self.kb_storage.get_knowledge_base(name)
         if not kb:
@@ -635,6 +656,7 @@ class SessionManager:
 
     def delete_session(self, session_id: str) -> bool:
         """Delete a session and its local files."""
+        session_id = self._canonical_session_id(session_id)
         name = f"session_{session_id}"
         kb = self.kb_storage.get_knowledge_base(name)
         if not kb:
@@ -663,6 +685,7 @@ class SessionManager:
         timestamp: Optional[datetime] = None,
     ) -> str:
         """Add a chat message to session history with timestamp."""
+        session_id = self._canonical_session_id(session_id)
         name = f"session_{session_id}"
         entry_id = str(uuid.uuid4())
         ts = timestamp or datetime.now()
@@ -685,6 +708,7 @@ class SessionManager:
 
     def get_history(self, session_id: str) -> List[Dict[str, Any]]:
         """Get chat history for a session."""
+        session_id = self._canonical_session_id(session_id)
         name = f"session_{session_id}"
         entries = self.kb_storage.query_entries(name, "")
 
@@ -706,6 +730,7 @@ class SessionManager:
 
     def get_files(self, session_id: str) -> List[Dict[str, Any]]:
         """Get files uploaded in a session with processing status."""
+        session_id = self._canonical_session_id(session_id)
         name = f"session_{session_id}"
         entries = self.kb_storage.query_entries(name, "")
 
@@ -728,7 +753,9 @@ class SessionManager:
         for entry in entries:
             if entry.entry_type == "document":
                 filename = entry.metadata.get("filename", "unknown")
-                status = doc_status_map.get(filename, "pending")
+                status = doc_status_map.get(filename) or str(
+                    entry.metadata.get("status") or "pending"
+                )
                 files.append(
                     {
                         "id": entry.id,
@@ -745,6 +772,36 @@ class SessionManager:
         files.sort(key=lambda x: x["created_at"], reverse=True)
         return files
 
+    def set_document_status(
+        self,
+        session_id: str,
+        filename: str,
+        status: str,
+        message: Optional[str] = None,
+    ) -> bool:
+        """Update latest uploaded document status for a session by filename."""
+        session_id = self._canonical_session_id(session_id)
+        name = f"session_{session_id}"
+        entries = self.kb_storage.query_entries(name, "")
+        candidates = [
+            e
+            for e in entries
+            if e.entry_type == "document"
+            and str((e.metadata or {}).get("filename") or "") == str(filename or "")
+        ]
+        if not candidates:
+            return False
+        candidates.sort(key=lambda e: e.created_at or datetime.min, reverse=True)
+        entry = candidates[0]
+        meta = dict(entry.metadata or {})
+        meta["status"] = str(status or "pending")
+        if message is not None:
+            meta["status_message"] = str(message)
+        entry.metadata = meta
+        entry.updated_at = datetime.now()
+        self.kb_storage.update_entry(name, entry)
+        return True
+
     def add_document_record(
         self,
         session_id: str,
@@ -755,12 +812,14 @@ class SessionManager:
         file_ext: Optional[str] = None,
     ):
         """Record a file upload in session history."""
+        session_id = self._canonical_session_id(session_id)
         name = f"session_{session_id}"
         entry_id = str(uuid.uuid4())
 
         metadata = {
             "filename": filename,
             "summary": content_summary,
+            "status": "pending",
         }
         if file_path:
             metadata["file_path"] = file_path
@@ -785,6 +844,7 @@ class SessionManager:
         graphcore_kwargs: Optional[Dict[str, Any]] = None,
     ) -> DocThinker:
         """Get a DocThinker instance for a specific session."""
+        session_id = self._canonical_session_id(session_id)
         with self._session_rag_lock:
             cached = self._session_rag_cache.get(session_id)
             if cached is not None:

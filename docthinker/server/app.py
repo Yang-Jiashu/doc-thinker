@@ -1,3 +1,4 @@
+import asyncio
 import numpy as np
 from contextlib import asynccontextmanager
 from typing import Any, List
@@ -23,6 +24,86 @@ from docthinker.hypergraph import HyperGraphRAG
 from .state import state
 from .memory import save_all_memory_engines
 from .routers import health_router, sessions_router, ingest_router, query_router, graph_router
+
+
+class AsyncModelRouter:
+    """Round-robin model router with bounded concurrency and fallback."""
+
+    def __init__(self, client: Any, models: List[str], max_concurrency: int = 32):
+        self.client = client
+        self.models = [m for m in models if m]
+        self.max_concurrency = max(1, int(max_concurrency))
+        self._cursor = 0
+        self._cursor_lock = asyncio.Lock()
+        self._semaphore = asyncio.Semaphore(self.max_concurrency)
+
+    async def _next_start_index(self) -> int:
+        async with self._cursor_lock:
+            if not self.models:
+                return 0
+            idx = self._cursor % len(self.models)
+            self._cursor += 1
+            return idx
+
+    async def chat_completion(self, *, messages: List[dict], max_tokens: int = 2048, stream: bool = False) -> Any:
+        if not self.models:
+            raise ValueError("No LLM models configured for routing")
+
+        start = await self._next_start_index()
+        last_err: Exception | None = None
+        async with self._semaphore:
+            for offset in range(len(self.models)):
+                model = self.models[(start + offset) % len(self.models)]
+                try:
+                    is_gpt5 = str(model or "").lower().startswith("gpt-5")
+                    completion_budget = max(int(max_tokens), 600) if is_gpt5 else int(max_tokens)
+                    token_kwargs = (
+                        {"max_completion_tokens": completion_budget}
+                        if is_gpt5
+                        else {"max_tokens": completion_budget}
+                    )
+                    return await self.client.chat.completions.create(
+                        model=model,
+                        messages=messages,
+                        **token_kwargs,
+                        stream=stream,
+                    )
+                except Exception as e:
+                    last_err = e
+                    continue
+        if last_err:
+            raise last_err
+        raise RuntimeError("Model router failed without explicit exception")
+
+
+def _make_vision_model_func(vlm_client: Any):
+    """Build a vision model adapter that supports both image_data and OpenAI-style messages."""
+
+    async def vision_model_func(
+        prompt: str,
+        *,
+        system_prompt: str | None = None,
+        image_data: Any = None,
+        messages: List[dict] | None = None,
+        **kwargs: Any,
+    ) -> str:
+        images = None
+        if image_data:
+            if isinstance(image_data, (list, tuple)):
+                images = list(image_data)
+            else:
+                images = [image_data]
+
+        return await vlm_client.generate(
+            prompt or "",
+            images=images,
+            system_prompt=system_prompt,
+            max_tokens=int(kwargs.get("max_tokens", 4096)),
+            temperature=float(kwargs.get("temperature", 0.2)),
+            extra_messages=messages,
+        )
+
+    return vision_model_func
 
 
 def _cleanup_global_graphcore_artifacts(workdir: str) -> None:
@@ -82,6 +163,12 @@ async def _get_embedding_func() -> Any:
 
 async def _get_llm_model_func() -> Any:
     vlm_client = get_vlm_client(state.settings)
+    models = state.settings.llm_models or [state.settings.llm_model]
+    model_router = AsyncModelRouter(
+        client=vlm_client,
+        models=models,
+        max_concurrency=state.settings.llm_router_max_concurrency,
+    )
 
     async def chat_complete(prompt: str, system_prompt: str | None = None, **_: Any) -> str:
         messages = []
@@ -89,12 +176,7 @@ async def _get_llm_model_func() -> Any:
             messages.append({"role": "system", "content": system_prompt})
         messages.append({"role": "user", "content": prompt})
 
-        resp = await vlm_client.chat.completions.create(
-            model=state.settings.llm_model,
-            messages=messages,
-            max_tokens=2048,
-            stream=False,
-        )
+        resp = await model_router.chat_completion(messages=messages, max_tokens=2048, stream=False)
         if not hasattr(resp, "choices") or not resp.choices:
             return str(resp)
         return resp.choices[0].message.content
@@ -116,29 +198,14 @@ async def _initialize_rag() -> DocThinker:
         api_base=state.settings.vlm_base_url,
         model=state.settings.vlm_model,
     )
+    state.vision_vlm_client = vlm_client
+    vision_model_func = _make_vision_model_func(vlm_client)
 
-    async def vision_model_func(
-        prompt: str,
-        *,
-        system_prompt: str | None = None,
-        image_data: Any = None,
-        **kwargs: Any,
-    ) -> str:
-        images = None
-        if image_data:
-            if isinstance(image_data, (list, tuple)):
-                images = list(image_data)
-            else:
-                images = [image_data]
-        return await vlm_client.generate(
-            prompt or "",
-            images=images,
-            system_prompt=system_prompt,
-            max_tokens=int(kwargs.get("max_tokens", 350)),
-            temperature=float(kwargs.get("temperature", 0.2)),
-        )
-
-    graphcore_kwargs = {}
+    graphcore_kwargs = {
+        "llm_model_max_async": state.settings.graphcore_llm_max_async,
+        "embedding_func_max_async": state.settings.graphcore_embedding_max_async,
+        "max_parallel_insert": state.settings.graphcore_max_parallel_insert,
+    }
     if rerank_func:
         graphcore_kwargs["rerank_model_func"] = rerank_func
 
@@ -222,6 +289,7 @@ async def lifespan(app: FastAPI):
             api_base=state.settings.vlm_base_url,
             model=state.settings.vlm_model,
         )
+        state.auto_thinking_vlm_client = at_client
         classifier = ComplexityClassifier(vlm_client=at_client)
         decomposer = QuestionDecomposer(vlm_client=at_client)
 
@@ -251,6 +319,13 @@ async def lifespan(app: FastAPI):
     yield
 
     save_all_memory_engines()
+    for client_attr in ("auto_thinking_vlm_client", "vision_vlm_client"):
+        client = getattr(state, client_attr, None)
+        if client is not None and hasattr(client, "close"):
+            try:
+                await client.close()
+            except Exception:
+                pass
     if state.rag_instance:
         await state.rag_instance.finalize_storages()
 

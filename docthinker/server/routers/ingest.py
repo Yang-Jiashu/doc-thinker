@@ -834,6 +834,15 @@ async def ingest_files(
 
         async def _background_file_processing(file_paths: List[str], sid: str):
             try:
+                for path_str in file_paths:
+                    try:
+                        if state.session_manager:
+                            state.session_manager.set_document_status(
+                                sid, Path(path_str).name, "processing"
+                            )
+                    except Exception:
+                        pass
+
                 image_exts = {".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".tif", ".gif", ".webp"}
                 text_exts = {".txt", ".md"}
 
@@ -904,6 +913,14 @@ async def ingest_files(
                             processed_text=processed_text,
                             metadata=metadata,
                         )
+                    for p in content_list_paths:
+                        try:
+                            if state.session_manager:
+                                state.session_manager.set_document_status(
+                                    sid, p.name, "processed"
+                                )
+                        except Exception:
+                            pass
 
                 # 2) Images
                 for img_path in image_paths:
@@ -926,15 +943,24 @@ async def ingest_files(
                             processed_text=processed_text,
                             metadata=metadata,
                         )
+                        if state.session_manager:
+                            state.session_manager.set_document_status(
+                                sid, img_path.name, "processed"
+                            )
                     except Exception:
-                        pass
+                        if state.session_manager:
+                            state.session_manager.set_document_status(
+                                sid, img_path.name, "failed"
+                            )
 
-                # 3) Plain text files
+                # 3) Plain text files — send raw text to GraphCore (no Cognitive pre-processing)
                 for txt_path in text_paths:
                     try:
                         content = txt_path.read_text(encoding="utf-8", errors="ignore")
                         processed_text, metadata = await _process_text_for_ingest(content, "file")
-                        await state.ingestion_service.ingest_text(processed_text, session_id=sid)
+                        await state.ingestion_service.ingest_text(
+                            content, session_id=sid, file_path=txt_path.name,
+                        )
                         await _update_local_knowledge_graph(processed_text, metadata, session_id=sid)
                         await _update_local_knowledge_base(
                             content,
@@ -950,46 +976,56 @@ async def ingest_files(
                             processed_text=processed_text,
                             metadata=metadata,
                         )
+                        if state.session_manager:
+                            state.session_manager.set_document_status(
+                                sid, txt_path.name, "processed"
+                            )
                     except Exception:
-                        pass
+                        if state.session_manager:
+                            state.session_manager.set_document_status(
+                                sid, txt_path.name, "failed"
+                            )
 
-                # 4) Complex files (PDF/Doc)
-                if complex_paths and state.rag_instance:
-                    for p in complex_paths:
-                        try:
-                            content_list, _ = await state.rag_instance.parse_document(str(p))
-                            text_content, _ = separate_content(content_list)
-                            if text_content.strip():
-                                processed_text, metadata = await _process_text_for_ingest(text_content, "file")
-                                await _update_local_knowledge_graph(processed_text, metadata, session_id=sid)
-                                await _update_local_knowledge_base(
-                                    text_content,
-                                    metadata,
-                                    source_type="file",
-                                    session_id=sid,
+                # 4) Complex files (PDF/Doc): delegate to session-scoped ingestion pipeline once.
+                if complex_paths:
+                    try:
+                        await state.ingestion_service.ingest_files(
+                            [str(p) for p in complex_paths],
+                            session_id=sid,
+                        )
+                        for p in complex_paths:
+                            if state.session_manager:
+                                state.session_manager.set_document_status(
+                                    sid, p.name, "processed"
                                 )
-                                await _write_session_code_snapshot(
-                                    session_id=sid,
-                                    source_type="file",
-                                    source_name=p.name,
-                                    original_text=text_content,
-                                    processed_text=processed_text,
-                                    metadata=metadata,
+                    except Exception:
+                        for p in complex_paths:
+                            if state.session_manager:
+                                state.session_manager.set_document_status(
+                                    sid, p.name, "failed"
                                 )
-                        except Exception as e:
-                            print(f"PDF KG update failed for {p}: {e}")
-                    await state.ingestion_service.ingest_files([str(p) for p in complex_paths], session_id=sid)
+                        raise
 
             except Exception as e:
                 print(f"Background processing error: {e}")
+                for path_str in file_paths:
+                    try:
+                        if state.session_manager:
+                            state.session_manager.set_document_status(
+                                sid, Path(path_str).name, "failed"
+                            )
+                    except Exception:
+                        pass
 
         background_tasks.add_task(_background_file_processing, uploaded_files, session_id)
 
         return {
-            "status": "success",
-            "message": f"Successfully processed {len(uploaded_files)} files",
+            "success": True,
+            "status": "processing",
+            "message": f"Uploaded {len(uploaded_files)} file(s), background processing started",
             "files": [{"name": Path(f).name} for f in uploaded_files],
             "session_id": session_id,
+            "background_processing": True,
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -74,6 +74,10 @@ class InvalidResponseError(Exception):
     pass
 
 
+def _use_max_completion_tokens(model_name: str) -> bool:
+    return str(model_name or "").lower().startswith("gpt-5")
+
+
 def create_openai_async_client(
     api_key: str | None = None,
     base_url: str | None = None,
@@ -302,6 +306,22 @@ async def openai_complete_if_cache(
     # Some providers/models (e.g., Qwen on SiliconFlow) do not support response_format/json mode
     if "response_format" in kwargs and "qwen" in str(api_model).lower():
         kwargs.pop("response_format", None)
+
+    # GPT-5 models on OpenAI Chat Completions expect max_completion_tokens.
+    if _use_max_completion_tokens(str(api_model)):
+        if "max_completion_tokens" not in kwargs and "max_tokens" in kwargs:
+            raw_budget = kwargs.pop("max_tokens")
+            try:
+                kwargs["max_completion_tokens"] = max(int(raw_budget), 600)
+            except Exception:
+                kwargs["max_completion_tokens"] = 600
+        elif "max_completion_tokens" in kwargs:
+            try:
+                kwargs["max_completion_tokens"] = max(
+                    int(kwargs["max_completion_tokens"]), 600
+                )
+            except Exception:
+                kwargs["max_completion_tokens"] = 600
 
     try:
         # Don't use async with context manager, use client directly

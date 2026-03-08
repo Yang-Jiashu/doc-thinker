@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="User Question">
+      <data key="entity_id">User Question</data>
+      <data key="entity_type">other</data>
+      <data key="description">User Question refers to the inquiry made by a user, seeking analysis of an uploaded file.&lt;SEP&gt;User Question refers to the initial query about analyzing an uploaded file, indicating a request for assistance.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-4e18056c867fc71a13bcdcd46d3ffdbc&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648&lt;SEP&gt;chunk-22b31ba41eb97c78813c437353b13a75&lt;SEP&gt;chunk-9cabb8d2be6953af1b24fe829a81ed75&lt;SEP&gt;chunk-9c90042d05161a647e9fa62a15bc5a83&lt;SEP&gt;chunk-2edffb89d16eee0b6e65f79a07cca4b6</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870357</data>
+      <data key="truncate" />
+    </node>
+    <node id="Assistant Answer">
+      <data key="entity_id">Assistant Answer</data>
+      <data key="entity_type">other</data>
+      <data key="description">Assistant Answer indicates the response provided by an assistant regarding the user's request for file analysis.&lt;SEP&gt;Assistant Answer denotes the response given, which states the inability to access or analyze uploaded files but offers help if details are provided.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-4e18056c867fc71a13bcdcd46d3ffdbc&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648&lt;SEP&gt;chunk-22b31ba41eb97c78813c437353b13a75&lt;SEP&gt;chunk-9cabb8d2be6953af1b24fe829a81ed75&lt;SEP&gt;chunk-9c90042d05161a647e9fa62a15bc5a83&lt;SEP&gt;chunk-2edffb89d16eee0b6e65f79a07cca4b6</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870357</data>
+      <data key="truncate" />
+    </node>
+    <node id="File">
+      <data key="entity_id">File</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">File represents the document or material the user is inquiring about for analysis.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-22b31ba41eb97c78813c437353b13a75&lt;SEP&gt;chunk-9c90042d05161a647e9fa62a15bc5a83</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870110</data>
+      <data key="truncate" />
+    </node>
+    <node id="User">
+      <data key="entity_id">User</data>
+      <data key="entity_type">person</data>
+      <data key="description">User is the individual asking a question and seeking analysis on an uploaded file.&lt;SEP&gt;User is the individual posing a question requesting analysis of an uploaded file.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-7b306462f19a5387357a573fda2de387&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648&lt;SEP&gt;chunk-9c90042d05161a647e9fa62a15bc5a83&lt;SEP&gt;chunk-2edffb89d16eee0b6e65f79a07cca4b6</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870357</data>
+      <data key="truncate" />
+    </node>
+    <node id="Assistant">
+      <data key="entity_id">Assistant</data>
+      <data key="entity_type">person</data>
+      <data key="description">Assistant is the character responding to the user's inquiry, indicating its inability to process files directly.&lt;SEP&gt;Assistant is the entity responding to the User's question, offering to provide help if specific content or details are shared.</data>
+      <data key="source_id">chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-7b306462f19a5387357a573fda2de387&lt;SEP&gt;chunk-c97c298ff0c6d37a45347233853c5648&lt;SEP&gt;chunk-9c90042d05161a647e9fa62a15bc5a83&lt;SEP&gt;chunk-2edffb89d16eee0b6e65f79a07cca4b6</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870357</data>
+      <data key="truncate" />
+    </node>
+    <node id="Serene Sunset Landscape (image)">
+      <data key="entity_id">Serene Sunset Landscape (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image captures a tranquil lakeside view during sunset, showcasing vibrant colors and natural landscapes that evoke peace and serenity.</data>
+      <data key="source_id">chunk-97731cd61dee11b1d6f87e60ccb4f721</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772870272</data>
+    </node>
+    <node id="Empty Footer (footer)">
+      <data key="entity_id">Empty Footer (footer)</data>
+      <data key="entity_type">footer</data>
+      <data key="description">This footer is empty and does not contain any textual information or functional links, rendering it ineffective for providing additional context or resources.</data>
+      <data key="source_id">chunk-51fc4055bc8928850223174490844f8f</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772870272</data>
+    </node>
+    <node id="Serene Sunset Landscape (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image captures a tranquil lakeside view during sunset, showcasing vibrant colors and natural landscapes that evoke peace and serenity.</data>
+      <data key="source_id">image_asset:img-fc9a21221f5a2aa0b0f658339347caf2</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00015\knowledge\multimodal\images\img-fc9a21221f5a2aa0b0f658339347caf2.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-3434874590d715528f4f50433cc1f3d3</data>
+      <data key="created_at">1772870275</data>
+    </node>
+    <node id="Uploaded File">
+      <data key="entity_id">Uploaded File</data>
+      <data key="entity_type">data</data>
+      <data key="description">The Uploaded File is a document referenced by the User but not examined directly by the Assistant.</data>
+      <data key="source_id">chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-2edffb89d16eee0b6e65f79a07cca4b6</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870357</data>
+      <data key="truncate" />
+    </node>
+    <edge source="User Question" target="Assistant Answer">
+      <data key="weight">1.0</data>
+      <data key="description">User Question is connected to Assistant Answer as the inquiry leads to the response provided by the assistant regarding file analysis.</data>
+      <data key="keywords">inquiry response</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-22b31ba41eb97c78813c437353b13a75&lt;SEP&gt;chunk-9c90042d05161a647e9fa62a15bc5a83</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870112</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="User" target="Assistant">
+      <data key="weight">2.0</data>
+      <data key="description">User asks a question and Assistant provides an answer related to file analysis.&lt;SEP&gt;User requests assistance from Assistant regarding the analysis of the uploaded file.</data>
+      <data key="keywords">assistance,inquiry,query,response</data>
+      <data key="source_id">chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b&lt;SEP&gt;chunk-9c90042d05161a647e9fa62a15bc5a83&lt;SEP&gt;chunk-2edffb89d16eee0b6e65f79a07cca4b6</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772870358</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Serene Sunset Landscape (image)" target="Serene Sunset Landscape (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Serene Sunset Landscape (image)</data>
+      <data key="source_id">image_asset:img-fc9a21221f5a2aa0b0f658339347caf2</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+    </edge>
+  </graph>
+</graphml>

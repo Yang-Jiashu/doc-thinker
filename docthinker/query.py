@@ -14,6 +14,7 @@ from pathlib import Path
 from graphcore.coregraph import QueryParam
 from graphcore.coregraph.utils import always_get_an_event_loop
 from docthinker.prompt import PROMPTS
+from docthinker.image_assets import ImageAssetTable
 from docthinker.utils import (
     get_processor_for_type,
     encode_image_to_base64,
@@ -124,6 +125,30 @@ class QueryMixin:
         # Reset evidence tracker
         self._last_query_evidence = None
 
+        # Query-time image activation controls (consume custom args before QueryParam)
+        enable_image_asset_activation = kwargs.pop(
+            "enable_image_asset_activation", True
+        )
+        try:
+            image_activation_threshold = float(
+                kwargs.pop(
+                    "image_activation_threshold",
+                    os.getenv("IMAGE_ACTIVATION_THRESHOLD", "0.62"),
+                )
+            )
+        except Exception:
+            image_activation_threshold = 0.62
+        try:
+            image_activation_top_k = int(
+                kwargs.pop(
+                    "image_activation_top_k",
+                    os.getenv("IMAGE_ACTIVATION_TOP_K", "3"),
+                )
+            )
+        except Exception:
+            image_activation_top_k = 3
+        image_activation_top_k = max(1, image_activation_top_k)
+
         # Check if VLM enhanced query should be used
         vlm_enhanced = kwargs.pop("vlm_enhanced", None)
 
@@ -140,7 +165,14 @@ class QueryMixin:
             and hasattr(self, "vision_model_func")
             and self.vision_model_func
         ):
-            result = await self.aquery_vlm_enhanced(query, mode=mode, **kwargs)
+            result = await self.aquery_vlm_enhanced(
+                query,
+                mode=mode,
+                enable_image_asset_activation=enable_image_asset_activation,
+                image_activation_threshold=image_activation_threshold,
+                image_activation_top_k=image_activation_top_k,
+                **kwargs,
+            )
         elif vlm_enhanced and (
             not hasattr(self, "vision_model_func") or not self.vision_model_func
         ):
@@ -338,7 +370,16 @@ class QueryMixin:
         """Expose metadata from the most recent query execution."""
         return getattr(self, "_last_query_evidence", None)
 
-    async def aquery_vlm_enhanced(self, query: str, mode: str = "mix", **kwargs) -> str:
+    async def aquery_vlm_enhanced(
+        self,
+        query: str,
+        mode: str = "mix",
+        *,
+        enable_image_asset_activation: bool = True,
+        image_activation_threshold: float = 0.62,
+        image_activation_top_k: int = 3,
+        **kwargs,
+    ) -> str:
         """
         VLM enhanced query - replaces image paths in retrieved context with base64 encoded images for VLM processing
 
@@ -372,6 +413,24 @@ class QueryMixin:
 
         self.logger.debug("Retrieved raw prompt from GraphCore")
 
+        activated_assets: List[Dict[str, Any]] = []
+        if enable_image_asset_activation:
+            activated_assets = await self._activate_image_assets_for_query(
+                query=query,
+                threshold=image_activation_threshold,
+                top_k=max(1, image_activation_top_k),
+            )
+            if activated_assets:
+                raw_prompt = (
+                    f"{raw_prompt}\n\n"
+                    f"[Activated image assets]\n"
+                    f"{self._build_activated_image_paths_block(activated_assets)}"
+                )
+                self.logger.info(
+                    "Activated %s image assets for query-time multimodal fusion",
+                    len(activated_assets),
+                )
+
         # 2. Extract and process image paths
         enhanced_prompt, images_found, image_paths = await self._process_image_paths_for_vlm(
             raw_prompt
@@ -382,7 +441,11 @@ class QueryMixin:
             # Fallback to normal query
             query_param = QueryParam(mode=mode, **kwargs)
             fallback = await self.graphcore.aquery(query, param=query_param)
-            self._last_query_evidence = {"raw_prompt": raw_prompt, "image_paths": []}
+            self._last_query_evidence = {
+                "raw_prompt": raw_prompt,
+                "image_paths": [],
+                "activated_image_assets": activated_assets,
+            }
             return fallback
 
         self.logger.info(f"Processed {images_found} images for VLM")
@@ -408,10 +471,57 @@ class QueryMixin:
         self._last_query_evidence = {
             "raw_prompt": raw_prompt,
             "image_paths": image_paths,
+            "activated_image_assets": activated_assets,
         }
 
         self.logger.info("VLM enhanced query completed")
         return result
+
+    async def _activate_image_assets_for_query(
+        self,
+        *,
+        query: str,
+        threshold: float,
+        top_k: int,
+    ) -> List[Dict[str, Any]]:
+        if not query or not hasattr(self, "embedding_func") or self.embedding_func is None:
+            return []
+
+        table = ImageAssetTable(self.working_dir)
+        if not table.load():
+            return []
+
+        try:
+            query_vec = await self.embedding_func([query])
+            selected = table.select_activated_by_embedding(
+                query_embedding=query_vec,
+                threshold=float(threshold),
+                top_k=max(1, int(top_k)),
+            )
+        except Exception as exc:
+            self.logger.warning(f"Image asset activation failed: {exc}")
+            return []
+
+        activated: List[Dict[str, Any]] = []
+        for item in selected:
+            path = str(item.get("stored_path") or "").strip()
+            if not path:
+                continue
+            if not Path(path).exists():
+                continue
+            activated.append(item)
+        return activated
+
+    @staticmethod
+    def _build_activated_image_paths_block(records: List[Dict[str, Any]]) -> str:
+        if not records:
+            return ""
+        lines = ["Image Paths:"]
+        for rec in records:
+            path = str(rec.get("stored_path") or "").strip()
+            if path:
+                lines.append(path)
+        return "\n".join(lines)
 
     async def _process_multimodal_query_content(
         self, base_query: str, multimodal_content: List[Dict[str, Any]]
@@ -1006,15 +1116,14 @@ Please provide a comprehensive answer that integrates information from all relev
             system_prompt = messages[0]["content"]
 
             if isinstance(content, str):
-                # Pure text mode
                 result = await self.vision_model_func(
-                    content, system_prompt=system_prompt
+                    content, system_prompt=system_prompt, max_tokens=8192,
                 )
             else:
-                # Multimodal mode - pass complete messages directly to VLM
                 result = await self.vision_model_func(
-                    "",  # Empty prompt since we're using messages format
+                    "",
                     messages=messages,
+                    max_tokens=8192,
                 )
 
             return result

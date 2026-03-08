@@ -1,0 +1,80 @@
+{
+  "0dbcaa02ce6fe536621289deb9714340": {
+    "content_list": [
+      {
+        "type": "image",
+        "img_path": "C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00014\\knowledge\\output\\pdf_6826c4a760f6c564_uh9zkpua\\pdf_6826c4a760f6c564\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+          19,
+          10,
+          981,
+          968
+        ],
+        "page_idx": 0
+      },
+      {
+        "type": "footer",
+        "text": "",
+        "bbox": [
+          466,
+          986,
+          531,
+          992
+        ],
+        "page_idx": 0
+      }
+    ],
+    "doc_id": "doc-f55c8136c8a807a803f062a0a6323a66",
+    "mtime": 1772869843.818606,
+    "parse_config": {
+      "parser": "mineru",
+      "parse_method": "auto"
+    },
+    "cached_at": 1772869922.6103673,
+    "cache_version": "1.0",
+    "create_time": 1772869922,
+    "update_time": 1772869922,
+    "_id": "0dbcaa02ce6fe536621289deb9714340"
+  },
+  "0c312f88769c23825aca867fbecb9562": {
+    "content_list": [
+      {
+        "type": "image",
+        "img_path": "C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00016\\knowledge\\output\\pdf_3ffe1c5bd37d9804_me9jlqy0\\pdf_3ffe1c5bd37d9804\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+          19,
+          10,
+          981,
+          968
+        ],
+        "page_idx": 0
+      },
+      {
+        "type": "footer",
+        "text": "",
+        "bbox": [
+          466,
+          986,
+          531,
+          992
+        ],
+        "page_idx": 0
+      }
+    ],
+    "doc_id": "doc-0be4d575a79fc5fd342a3117b746f0ee",
+    "mtime": 1772870390.323991,
+    "parse_config": {
+      "parser": "mineru",
+      "parse_method": "auto"
+    },
+    "cached_at": 1772870469.659741,
+    "cache_version": "1.0",
+    "create_time": 1772870469,
+    "update_time": 1772870469,
+    "_id": "0c312f88769c23825aca867fbecb9562"
+  }
+}

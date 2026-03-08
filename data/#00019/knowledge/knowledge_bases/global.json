@@ -1,0 +1,71 @@
+{
+  "name": "global",
+  "type": "global",
+  "entries": {
+    "5b96933b-1c27-4f5e-a40c-e496e3063058": {
+      "id": "5b96933b-1c27-4f5e-a40c-e496e3063058",
+      "content": "请分析上传的文件",
+      "type": "question",
+      "metadata": {
+        "query_mode": "hybrid",
+        "vlm_enhanced": false,
+        "timestamp": "2026-03-07 16:19:22.014651"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T16:19:22.014651",
+      "updated_at": "2026-03-07T16:19:22.014651"
+    },
+    "cbef9c12-93e1-4f24-8f9d-c84c53ce1df1": {
+      "id": "cbef9c12-93e1-4f24-8f9d-c84c53ce1df1",
+      "content": "我没有足够的信息来回答这个问题。请提供更多关于您希望分析的文件的具体内容或特定方面。",
+      "type": "answer",
+      "metadata": {
+        "question_id": "5b96933b-1c27-4f5e-a40c-e496e3063058",
+        "timestamp": "2026-03-07 16:19:22.015782"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T16:19:22.015782",
+      "updated_at": "2026-03-07T16:19:22.015782"
+    },
+    "ce93816f-8a5c-43cd-84e3-803c1cb78710": {
+      "id": "ce93816f-8a5c-43cd-84e3-803c1cb78710",
+      "content": "说一下你对计算机的概述",
+      "type": "question",
+      "metadata": {
+        "query_mode": "hybrid",
+        "vlm_enhanced": false,
+        "timestamp": "2026-03-07 17:31:29.081887"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T17:31:29.081887",
+      "updated_at": "2026-03-07T17:31:29.081887"
+    },
+    "3a7c8fae-39dd-4c10-b01a-c61fa8ec83b6": {
+      "id": "3a7c8fae-39dd-4c10-b01a-c61fa8ec83b6",
+      "content": "很抱歉，我没有足够的信息来回答关于计算机概述的问题。",
+      "type": "answer",
+      "metadata": {
+        "question_id": "ce93816f-8a5c-43cd-84e3-803c1cb78710",
+        "timestamp": "2026-03-07 17:31:29.083047"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T17:31:29.083047",
+      "updated_at": "2026-03-07T17:31:29.083047"
+    }
+  },
+  "metadata": {},
+  "created_at": "2026-03-07T16:16:41.017728",
+  "updated_at": "2026-03-07T17:31:29.083047"
+}

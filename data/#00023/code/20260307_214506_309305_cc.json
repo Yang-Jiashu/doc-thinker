@@ -1,0 +1,243 @@
+{
+  "session_id": "#00023",
+  "source_type": "file",
+  "source_name": "cc.txt",
+  "created_at": "2026-03-07T21:45:06.309305",
+  "raw_text_length": 128,
+  "processed_text_length": 988,
+  "chunks": [
+    {
+      "chunk_id": "chunk-ccab72c6530160d3335b16207b953310",
+      "index": 0,
+      "start": 0,
+      "end": 128,
+      "text": "李飞飞于1999年从普林斯顿大学本科毕业后赴西藏研究一年藏药；2000年进入加州理工学院；2005年获得加州理工学院博士学位；2005年至2006年担任伊利诺伊大学厄巴纳-香槟分校电机系助理教授；2007年至2009年担任普林斯顿大学计算机科学系助理教授；"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node-757e73e36683cf9a76a79ea5913815ee",
+      "label": "李飞飞",
+      "entity_type": "Person",
+      "description": "一位拥有跨学科背景的华裔美籍计算机科学家，主要领域为人工智能和计算机视觉，具有医学和工程等多重学科研究经历。",
+      "confidence": 0.98,
+      "aliases": [
+        "Fei-Fei Li"
+      ],
+      "attributes": {
+        "跨学科背景": [
+          "藏药研究",
+          "计算机科学"
+        ],
+        "高等教育经历": [
+          {
+            "degree": "本科",
+            "institution": "普林斯顿大学",
+            "completion_year": 1999
+          },
+          {
+            "degree": "博士",
+            "institution": "加州理工学院",
+            "completion_year": 2005
+          }
+        ],
+        "学术职位变迁": [
+          {
+            "institution": "伊利诺伊大学厄巴纳-香槟分校",
+            "department": "电机工程系",
+            "position": "助理教授",
+            "start_year": 2005,
+            "end_year": 2006
+          },
+          {
+            "institution": "普林斯顿大学",
+            "department": "计算机科学系",
+            "position": "助理教授",
+            "start_year": 2007,
+            "end_year": 2009
+          }
+        ],
+        "藏药研究经历": {
+          "location": "西藏",
+          "duration": "1999-2000"
+        }
+      }
+    },
+    {
+      "id": "node-4398c71100c963531b6c0a0174f6a62e",
+      "label": "普林斯顿大学",
+      "entity_type": "Organization",
+      "description": "美国一所著名的常春藤盟校，位于新泽西州。",
+      "confidence": 0.95,
+      "aliases": [
+        "Princeton University"
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "node-f3f8b198c86a4fa57644cbb80172a011",
+      "label": "加州理工学院",
+      "entity_type": "Organization",
+      "description": "美国一流的理工科大学，专注于科学与技术研究，位于加利福尼亚州帕萨迪纳。",
+      "confidence": 0.95,
+      "aliases": [
+        "California Institute of Technology",
+        "Caltech"
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "node-7320a6a9e28b2ba5de4e3c6ab3472ebc",
+      "label": "伊利诺伊大学厄巴纳-香槟分校",
+      "entity_type": "Organization",
+      "description": "美国伊利诺伊州的一所著名公立大学，以工程学科著称。",
+      "confidence": 0.95,
+      "aliases": [
+        "UIUC",
+        "University of Illinois at Urbana-Champaign"
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "node-da33ac3888c59353f65b73fddca793d7",
+      "label": "藏药",
+      "entity_type": "Field",
+      "description": "藏族传统医学体系，主要流行于中国西藏地区，以草药等自然疗法为主。",
+      "confidence": 0.9,
+      "aliases": [
+        "藏族医学",
+        "Tibetan medicine"
+      ],
+      "attributes": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "edge-918d0b0ed528cc521ff9d36efa9789f4",
+      "source": "李飞飞",
+      "target": "普林斯顿大学",
+      "relation": "本科毕业",
+      "description": "李飞飞于1999年从普林斯顿大学本科毕业。",
+      "confidence": 1.0,
+      "inferred": false
+    },
+    {
+      "id": "edge-f8f8dc1dc9e253366d3e7bb62ab3a294",
+      "source": "李飞飞",
+      "target": "加州理工学院",
+      "relation": "入学",
+      "description": "李飞飞2000年进入加州理工学院学习。",
+      "confidence": 1.0,
+      "inferred": false
+    },
+    {
+      "id": "edge-af132338af66f77dc99af4ba9d2937de",
+      "source": "李飞飞",
+      "target": "加州理工学院",
+      "relation": "获得博士学位",
+      "description": "李飞飞于2005年获得加州理工学院博士学位。",
+      "confidence": 1.0,
+      "inferred": false
+    },
+    {
+      "id": "edge-2cc0d843bfa33e4452836391d972a756",
+      "source": "李飞飞",
+      "target": "伊利诺伊大学厄巴纳-香槟分校",
+      "relation": "担任助理教授",
+      "description": "李飞飞2005年至2006年担任伊利诺伊大学厄巴纳-香槟分校电机系助理教授。",
+      "confidence": 1.0,
+      "inferred": false
+    },
+    {
+      "id": "edge-1f1650923e3ae98a3a42decf53ece4e6",
+      "source": "李飞飞",
+      "target": "普林斯顿大学",
+      "relation": "担任助理教授",
+      "description": "李飞飞2007年至2009年担任普林斯顿大学计算机科学系助理教授。",
+      "confidence": 1.0,
+      "inferred": false
+    },
+    {
+      "id": "edge-8a7450deec2209c554481a5fedce4521",
+      "source": "李飞飞",
+      "target": "藏药",
+      "relation": "研究",
+      "description": "李飞飞本科毕业后赴西藏研究一年藏药。",
+      "confidence": 1.0,
+      "inferred": false
+    },
+    {
+      "id": "edge-4fe58da7439fc87c326260dbdef5f52b",
+      "source": "李飞飞",
+      "target": "跨学科背景",
+      "relation": "具备",
+      "description": "李飞飞在本科后从理工科转向对藏药的研究，显示了其跨学科的研究能力和兴趣。",
+      "confidence": 0.85,
+      "inferred": true
+    },
+    {
+      "id": "edge-48deed71e8d9101d95ffb2ff45f6a28e",
+      "source": "李飞飞",
+      "target": "高等教育经历",
+      "relation": "丰富",
+      "description": "李飞飞先后在普林斯顿和加州理工接受高水平的本科及博士训练，体现了多层次的高等教育背景。",
+      "confidence": 0.9,
+      "inferred": true
+    },
+    {
+      "id": "edge-18688fa0ee10a3175d87d2e5995b9c23",
+      "source": "李飞飞",
+      "target": "学术职位变迁",
+      "relation": "历经不同学府",
+      "description": "在两所顶尖大学担任助理教授，显现其在学术界受认可度及流动性。",
+      "confidence": 0.85,
+      "inferred": true
+    },
+    {
+      "id": "edge-eff52113e0df3f967ab9441eb75ef3a2",
+      "source": "藏药研究",
+      "target": "跨学科能力",
+      "relation": "反映",
+      "description": "参加藏药研究需要结合生物学、医学和人文知识，反映李飞飞具备跨学科能力。",
+      "confidence": 0.8,
+      "inferred": true
+    },
+    {
+      "id": "edge-c7b910d213abdb172205fed165998bd6",
+      "source": "李飞飞",
+      "target": "学术视野",
+      "relation": "广阔",
+      "description": "跨界研究和不同学术机构的经历促使李飞飞形成广阔的学术视野。",
+      "confidence": 0.8,
+      "inferred": true
+    }
+  ],
+  "metadata": {
+    "summary": "李飞飞在普林斯顿大学本科毕业后，经历了西藏藏药研究，加州理工学院深造并获得博士学位，其后在伊利诺伊大学与普林斯顿大学担任助理教授职位，学术轨迹清晰并富有跨界经历。",
+    "reasoning": "此段描述了李飞飞的教育及职业发展，展现出其从本科到博士、再到助理教授的学术成长路径，并强调了其学科与地域的多元化经历，对后续学术和研究具有深远影响。",
+    "key_points": [
+      "1999年普林斯顿大学本科毕业",
+      "赴西藏研究藏药一年",
+      "2000年进入加州理工学院",
+      "2005年获得加州理工学院博士学位",
+      "2005-2006年伊利诺伊大学电机系助理教授",
+      "2007-2009年普林斯顿大学计算机系助理教授"
+    ],
+    "concepts": [
+      "跨学科背景",
+      "高等教育经历",
+      "学术职位变迁"
+    ],
+    "hypotheses": [
+      "李飞飞的跨界经历可能对其后续人工智能等领域的创新产生积极影响。",
+      "她在藏药领域的研究经历，可能对后续科研形成了独特、综合的方法论视角。",
+      "多次在不同顶尖高校工作，或表示其在国际学术界具备较强的合作与交流能力。",
+      "丰富的跨学科背景可能提升了其在团队领导和多元项目管理中的表现。",
+      "其学术路径为后来进入工业界或创业奠定了认知和资源基础。"
+    ],
+    "action_items": [
+      "梳理补充2006-2007年经历以完善简历",
+      "继续追踪其后续学术发展与成就"
+    ]
+  }
+}

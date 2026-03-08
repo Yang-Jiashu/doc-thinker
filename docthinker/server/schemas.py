@@ -9,17 +9,23 @@ class CreateSessionRequest(BaseModel):
 class QueryRequest(BaseModel):
     question: str
     mode: str = "hybrid"
-    enable_rerank: bool = True
+    enable_rerank: bool = False
     session_id: Optional[str] = None
     memory_mode: str = "session"
     retrieval_instruction: Optional[str] = None
     enable_thinking: bool = False
+    enable_expanded_matching: bool = True
+    expanded_top_k: int = 2
+    expanded_min_score: float = 0.2
+    enable_image_asset_activation: bool = True
+    image_activation_threshold: float = 0.62
+    image_activation_top_k: int = 3
 
 
 class MultiDocumentQueryRequest(BaseModel):
     question: str
     mode: str = "hybrid"
-    enable_rerank: bool = True
+    enable_rerank: bool = False
     session_id: Optional[str] = None
 
 

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Vibrant Urban Street Scene (image)">
+      <data key="entity_id">Vibrant Urban Street Scene (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image captures a lively urban street scene featuring people engaging in everyday activities amid a backdrop of diverse storefronts and modern buildings, highlighting the dynamic essence of city life.</data>
+      <data key="source_id">chunk-45ddc04fd26595f53bb62164e683b76e</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772882131</data>
+    </node>
+    <node id="Empty Footer (footer)">
+      <data key="entity_id">Empty Footer (footer)</data>
+      <data key="entity_type">footer</data>
+      <data key="description">This footer is devoid of content, lacking key information or navigational elements typically found in footer sections.</data>
+      <data key="source_id">chunk-78880e097fa1f3d8fed7f147b8542424</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_195753_1.pdf</data>
+      <data key="created_at">1772884818</data>
+    </node>
+    <node id="Vibrant Urban Street Scene (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image captures a lively urban street scene featuring people engaging in everyday activities amid a backdrop of diverse storefronts and modern buildings, highlighting the dynamic essence of city life.</data>
+      <data key="source_id">image_asset:img-95136cca3532ba3c8be9e59e588620a3</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00020\knowledge\multimodal\images\img-95136cca3532ba3c8be9e59e588620a3.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-48355a1c7ad691e4be8697cef5ef7e19</data>
+      <data key="created_at">1772882134</data>
+    </node>
+    <node id="Tranquil Mountain Lake Landscape (image)">
+      <data key="entity_id">Tranquil Mountain Lake Landscape (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image captures a peaceful landscape featuring a mountain range and a reflecting lake during either dawn or dusk, highlighting the beauty of nature and evoking a sense of tranquility.</data>
+      <data key="source_id">chunk-4865258585882d09a1f1791f4fe2ccd8</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_195753_1.pdf</data>
+      <data key="created_at">1772884818</data>
+    </node>
+    <node id="Tranquil Mountain Lake Landscape (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image captures a peaceful landscape featuring a mountain range and a reflecting lake during either dawn or dusk, highlighting the beauty of nature and evoking a sense of tranquility.</data>
+      <data key="source_id">image_asset:img-520310f8a2f01f91046f693c1954cf04</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00020\knowledge\multimodal\images\img-520310f8a2f01f91046f693c1954cf04.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_195753_1.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-a3e464e7abc60e641cb7bc587a5c5d18</data>
+      <data key="created_at">1772884821</data>
+    </node>
+    <edge source="Vibrant Urban Street Scene (image)" target="Vibrant Urban Street Scene (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Vibrant Urban Street Scene (image)</data>
+      <data key="source_id">image_asset:img-95136cca3532ba3c8be9e59e588620a3</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+    </edge>
+    <edge source="Tranquil Mountain Lake Landscape (image)" target="Tranquil Mountain Lake Landscape (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Tranquil Mountain Lake Landscape (image)</data>
+      <data key="source_id">image_asset:img-520310f8a2f01f91046f693c1954cf04</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_195753_1.pdf</data>
+    </edge>
+  </graph>
+</graphml>

@@ -1,0 +1,135 @@
+{
+  "name": "global",
+  "type": "global",
+  "entries": {
+    "91b80d1b-88ef-4500-9c12-7929961176a8": {
+      "id": "91b80d1b-88ef-4500-9c12-7929961176a8",
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00023\\knowledge\\vision_pages\\page_1.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image is a detailed mind map diagram titled 'Chap7 I/O系统' (Chapter 7 I/O System), visually organizing the key concepts and structure of an I/O system in computer architecture. The layout is radial, with the central node labeled 'Chap7 I/O系统' in a dark blue box, from which several main branches extend outward. Each branch represents a major topic, such as 'I/O系统基本概念' (Basic Concepts of I/O System), 'I/O设备' (I/O Devices), 'I/O接口' (I/O Interfaces), 'I/O端口' (I/O Ports), 'I/O控制器' (I/O Controllers), 'I/O通道' (I/O Channels), and 'I/O方式' (I/O Methods). Sub-branches further break down these topics into detailed subtopics, such as device classification, interface functions, port types, controller structure, and data transfer methods (programmed I/O, interrupt-driven I/O, DMA). The mind map includes small embedded diagrams, tables, and flowcharts illustrating technical details like data paths, interface types, and controller logic. The color scheme uses yellow for the left-side branches and red for the right-side branches, with text in black or dark gray. The background is white, and the overall visual style is clean and schematic, aiding in knowledge organization and retrieval. No people are present; all elements are textual or diagrammatic. The mind map directly reflects and organizes the surrounding textual context, visually summarizing the chapter's structure and key points.",
+      "type": "chunk",
+      "metadata": {
+        "chunk_id": "chunk-672f461a21cd2f086b04b07ff60921d7",
+        "doc_id": "doc-94a95824a4e11a9b9e97746880c10e49",
+        "file_path": "Chap1 计算机系统概述.pdf",
+        "is_multimodal": true
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T21:34:00.245765",
+      "updated_at": "2026-03-07T21:34:00.245765"
+    },
+    "4567cd6a-a744-44a1-94b2-c9bdc5c53e2e": {
+      "id": "4567cd6a-a744-44a1-94b2-c9bdc5c53e2e",
+      "content": "请分析上传的文件",
+      "type": "question",
+      "metadata": {
+        "query_mode": "hybrid",
+        "vlm_enhanced": true,
+        "timestamp": "2026-03-07 21:41:56.309618"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T21:41:56.309618",
+      "updated_at": "2026-03-07T21:41:56.309618"
+    },
+    "1fac6471-9ce5-4159-b9bc-f60d77af2ca5": {
+      "id": "1fac6471-9ce5-4159-b9bc-f60d77af2ca5",
+      "content": "# 文件分析：Chap7 I/O系统\n\n上传的文件内容为《Chap7 I/O系统》的知识结构图（思维导图），系统梳理了计算机体系结构中I/O系统的核心概念、组成部分、分类方法及数据传输方式。以下为详细分析：\n\n## 1. I/O系统基本概念\n- I/O系统涵盖了所有负责输入和输出操作的硬件与逻辑，是计算机与外部环境进行数据交换的桥梁。\n- 主要包括I/O设备、I/O接口、I/O端口、I/O控制器、I/O通道等组成部分。\n\n## 2. I/O设备分类\n- **按信息交换方式**：分为输入设备、输出设备、输入/输出设备。\n- **按工作方式**：分为块设备（以固定大小块为单位进行数据管理，支持随机访问）、字符设备（以字符流方式顺序处理数据）。\n- **按数据传送速率**：分为低速设备、中速设备、高速设备。\n\n## 3. I/O接口\n- **功能**：包括缓冲（适配设备与系统速度差异）、控制、状态检测、地址识别、数据格式转换等。\n- **组成**：数据通路、状态/控制通路、地址通路。\n- **类型**：并行接口（多位数据同时传输）、串行接口（数据逐位顺序传输）。\n\n## 4. I/O端口\n- **作用**：作为数据和控制信号与I/O设备之间的传递通道。\n- **分类",
+      "type": "answer",
+      "metadata": {
+        "question_id": "4567cd6a-a744-44a1-94b2-c9bdc5c53e2e",
+        "timestamp": "2026-03-07 21:41:56.311278"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T21:41:56.311278",
+      "updated_at": "2026-03-07T21:41:56.311278"
+    },
+    "5fd16c69-0556-49bc-b2d9-2ec4da564d02": {
+      "id": "5fd16c69-0556-49bc-b2d9-2ec4da564d02",
+      "content": "介绍一下DMA",
+      "type": "question",
+      "metadata": {
+        "query_mode": "hybrid",
+        "vlm_enhanced": true,
+        "timestamp": "2026-03-07 21:43:01.256061"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T21:43:01.256636",
+      "updated_at": "2026-03-07T21:43:01.256636"
+    },
+    "e7877e63-798f-4908-b37f-f23262d95a83": {
+      "id": "e7877e63-798f-4908-b37f-f23262d95a83",
+      "content": "## DMA简介\n\nDMA（Direct Memory Access，直接存储器访问）是一种数据传送方式，其核心特点是通过专门的DMA控制器，允许数据在内存与I/O设备之间直接传送，而无需CPU的持续参与。CPU只需在传送开始时启动DMA操作，之后DMA控制器便能独立完成数据的搬运任务。这种方式极大地减少了CPU的负担，使CPU能够与I/O设备并行工作，从而显著提高了系统的整体效率。\n\n### 主要特点\n\n- **独立性强**：DMA控制器负责数据传送，CPU只需发出启动命令，无需参与具体的数据搬运过程。\n- **高效性**：由于CPU与I/O设备可以并行工作，系统资源利用率更高，尤其适用于大量数据的高速传输场景。\n- **适用范围**：DMA方式常用于高速设备的数据传送，如磁盘、网络接口等。\n\n### 与其他I/O方式的对比\n\n- **程序查询方式**：CPU主动查询I/O设备状态并完成数据传送，CPU利用率低，适合低速设备。\n- **中断方式**：I/O设备准备好后向CPU发出中断请求，CPU响应后进行数据传送，适合中速设备，CPU利用率较高。\n- **DMA方式**：DMA控制器直接管理数据传送，CPU与I/O设备可并行工作，适合高速设备，效率最高。\n\n综上，DMA是一种高效的数据传送机制，广泛应用于需要大量数据交换的计算",
+      "type": "answer",
+      "metadata": {
+        "question_id": "5fd16c69-0556-49bc-b2d9-2ec4da564d02",
+        "timestamp": "2026-03-07 21:43:01.257776"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T21:43:01.258336",
+      "updated_at": "2026-03-07T21:43:01.258336"
+    },
+    "79c7a0db-3adf-4d46-b1e1-203b9ddfa71b": {
+      "id": "79c7a0db-3adf-4d46-b1e1-203b9ddfa71b",
+      "content": "李飞飞在普林斯顿大学本科毕业后，经历了西藏藏药研究，加州理工学院深造并获得博士学位，其后在伊利诺伊大学与普林斯顿大学担任助理教授职位，学术轨迹清晰并富有跨界经历。",
+      "type": "memory",
+      "metadata": {
+        "source_type": "file",
+        "session_id": "#00023",
+        "summary": "李飞飞在普林斯顿大学本科毕业后，经历了西藏藏药研究，加州理工学院深造并获得博士学位，其后在伊利诺伊大学与普林斯顿大学担任助理教授职位，学术轨迹清晰并富有跨界经历。",
+        "reasoning": "此段描述了李飞飞的教育及职业发展，展现出其从本科到博士、再到助理教授的学术成长路径，并强调了其学科与地域的多元化经历，对后续学术和研究具有深远影响。",
+        "key_points": [
+          "1999年普林斯顿大学本科毕业",
+          "赴西藏研究藏药一年",
+          "2000年进入加州理工学院",
+          "2005年获得加州理工学院博士学位",
+          "2005-2006年伊利诺伊大学电机系助理教授",
+          "2007-2009年普林斯顿大学计算机系助理教授"
+        ],
+        "concepts": [
+          "跨学科背景",
+          "高等教育经历",
+          "学术职位变迁"
+        ],
+        "hypotheses": [
+          "李飞飞的跨界经历可能对其后续人工智能等领域的创新产生积极影响。",
+          "她在藏药领域的研究经历，可能对后续科研形成了独特、综合的方法论视角。",
+          "多次在不同顶尖高校工作，或表示其在国际学术界具备较强的合作与交流能力。",
+          "丰富的跨学科背景可能提升了其在团队领导和多元项目管理中的表现。",
+          "其学术路径为后来进入工业界或创业奠定了认知和资源基础。"
+        ],
+        "action_items": [
+          "梳理补充2006-2007年经历以完善简历",
+          "继续追踪其后续学术发展与成就"
+        ]
+      },
+      "relations": [],
+      "entity_links": [
+        "ec34e5fa-63ae-4b3b-b552-167ee59e6070",
+        "44e5b223-3c99-42e8-a438-95af8756edcb",
+        "7f357441-7073-4f9e-96eb-c98631c6ad94",
+        "2b178dd7-bc78-4e05-8646-02137ef1dfeb",
+        "b11eeb56-5d6b-4ec3-9e7e-848eff5d5792"
+      ],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T21:45:06.291401",
+      "updated_at": "2026-03-07T21:45:06.302786"
+    }
+  },
+  "metadata": {},
+  "created_at": "2026-03-07T21:32:16.233898",
+  "updated_at": "2026-03-07T21:45:06.291401"
+}

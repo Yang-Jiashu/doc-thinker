@@ -314,7 +314,7 @@ class GraphCore:
     llm_model_func: Callable[..., object] | None = field(default=None)
     """Function for interacting with the large language model (LLM). Must be set before use."""
 
-    llm_model_name: str = field(default="Qwen/Qwen2.5-VL-72B-Instruct")
+    llm_model_name: str = field(default="gpt-4.1")
     """Name of the LLM model used for generating responses."""
 
     summary_max_tokens: int = field(

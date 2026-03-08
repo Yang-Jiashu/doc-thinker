@@ -1,0 +1,32 @@
+[
+    [
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg"
+                },
+                "image_caption": [],
+                "image_footnote": []
+            },
+            "bbox": [
+                19,
+                10,
+                981,
+                968
+            ]
+        },
+        {
+            "type": "page_footer",
+            "content": {
+                "page_footer_content": []
+            },
+            "bbox": [
+                466,
+                986,
+                531,
+                992
+            ]
+        }
+    ]
+]

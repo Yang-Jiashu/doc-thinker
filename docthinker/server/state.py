@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+﻿from dataclasses import dataclass, field
 from threading import RLock
 from typing import Optional, Any, Set, Dict, Callable
 
@@ -22,7 +22,10 @@ class AppState:
     memory_engine_factory: Optional[Callable[[str], Any]] = None
     memory_engines: Dict[str, Any] = field(default_factory=dict)
     memory_engine_lock: Any = field(default_factory=RLock)
-    kg_entity_ids: Set[str] = field(default_factory=set)  # 主 KG 实体 ID 集合，供记忆桥接边判断
+    kg_entity_ids: Set[str] = field(default_factory=set)
+
+    expanded_node_managers: Dict[str, Any] = field(default_factory=dict)
+    expanded_node_lock: Any = field(default_factory=RLock)
 
 
 state = AppState()

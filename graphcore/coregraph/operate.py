@@ -4394,11 +4394,16 @@ async def _get_node_data(
     use_vector = strategy != "bm25"
     vector_candidates: list[dict] = []
     if use_vector:
-        vector_candidates = await entities_vdb.query(query, top_k=query_param.top_k)
+        try:
+            vector_candidates = await entities_vdb.query(query, top_k=query_param.top_k)
+        except Exception as e:
+            logger.warning(f"Entity vector query failed (BM25 results preserved): {e}")
     elif len(bm25_candidates) < query_param.top_k:
-        # BM25 not enough, fallback to embeddings
-        vector_candidates = await entities_vdb.query(query, top_k=query_param.top_k)
-        use_vector = True
+        try:
+            vector_candidates = await entities_vdb.query(query, top_k=query_param.top_k)
+            use_vector = True
+        except Exception as e:
+            logger.warning(f"Entity vector fallback failed: {e}")
 
     combined_candidates = _merge_candidates_by_key(
         bm25_candidates,
@@ -4695,14 +4700,20 @@ async def _get_edge_data(
     use_vector = strategy != "bm25"
     vector_candidates: list[dict] = []
     if use_vector:
-        vector_candidates = await relationships_vdb.query(
-            keywords, top_k=query_param.top_k
-        )
+        try:
+            vector_candidates = await relationships_vdb.query(
+                keywords, top_k=query_param.top_k
+            )
+        except Exception as e:
+            logger.warning(f"Relation vector query failed (BM25 results preserved): {e}")
     elif len(bm25_candidates) < query_param.top_k:
-        vector_candidates = await relationships_vdb.query(
-            keywords, top_k=query_param.top_k
-        )
-        use_vector = True
+        try:
+            vector_candidates = await relationships_vdb.query(
+                keywords, top_k=query_param.top_k
+            )
+            use_vector = True
+        except Exception as e:
+            logger.warning(f"Relation vector fallback failed: {e}")
 
     def _relation_key(item: dict) -> str:
         if "relation_key" in item:

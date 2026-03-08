@@ -1,0 +1,41 @@
+{
+  "fd2154c89ca2d8f8e79fd289b4fcd27e": {
+    "content_list": [
+      {
+        "type": "image",
+        "img_path": "C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00011\\knowledge\\output\\pdf_7b90a03a12c9342a_otwm11oq\\pdf_7b90a03a12c9342a\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+          19,
+          10,
+          981,
+          968
+        ],
+        "page_idx": 0
+      },
+      {
+        "type": "footer",
+        "text": "",
+        "bbox": [
+          466,
+          986,
+          531,
+          992
+        ],
+        "page_idx": 0
+      }
+    ],
+    "doc_id": "doc-2d647e50f80abfb0113142edaad8956c",
+    "mtime": 1772869320.724306,
+    "parse_config": {
+      "parser": "mineru",
+      "parse_method": "auto"
+    },
+    "cached_at": 1772869405.4162855,
+    "cache_version": "1.0",
+    "create_time": 1772869405,
+    "update_time": 1772869405,
+    "_id": "fd2154c89ca2d8f8e79fd289b4fcd27e"
+  }
+}

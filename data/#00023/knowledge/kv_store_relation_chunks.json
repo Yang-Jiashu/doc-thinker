@@ -1,0 +1,380 @@
+{
+  "I/O Device<SEP>I/O System": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "I/O Device<SEP>I/O System"
+  },
+  "I/O Interface<SEP>Parallel Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "I/O Interface<SEP>Parallel Interface"
+  },
+  "Host Interface<SEP>I/O Controller": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "Host Interface<SEP>I/O Controller"
+  },
+  "I/O Port<SEP>Status Port": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "I/O Port<SEP>Status Port"
+  },
+  "I/O Channel<SEP>I/O System": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "I/O Channel<SEP>I/O System"
+  },
+  "I/O Device<SEP>Input Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "I/O Device<SEP>Input Device"
+  },
+  "I/O Interface<SEP>Serial Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "I/O Interface<SEP>Serial Interface"
+  },
+  "Device Interface<SEP>I/O Controller": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890397,
+    "update_time": 1772890397,
+    "_id": "Device Interface<SEP>I/O Controller"
+  },
+  "I/O Channel<SEP>Selector Channel": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890398,
+    "update_time": 1772890398,
+    "_id": "I/O Channel<SEP>Selector Channel"
+  },
+  "Control Logic<SEP>I/O Controller": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890398,
+    "update_time": 1772890398,
+    "_id": "Control Logic<SEP>I/O Controller"
+  },
+  "Data Port<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890398,
+    "update_time": 1772890398,
+    "_id": "Data Port<SEP>I/O Interface"
+  },
+  "I/O Channel<SEP>Multiplexer Channel": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890398,
+    "update_time": 1772890398,
+    "_id": "I/O Channel<SEP>Multiplexer Channel"
+  },
+  "I/O Device<SEP>Output Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890398,
+    "update_time": 1772890398,
+    "_id": "I/O Device<SEP>Output Device"
+  },
+  "I/O Interface<SEP>Status Port": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890398,
+    "update_time": 1772890398,
+    "_id": "I/O Interface<SEP>Status Port"
+  },
+  "Data Port<SEP>I/O Port": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890398,
+    "update_time": 1772890398,
+    "_id": "Data Port<SEP>I/O Port"
+  },
+  "Control Port<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890399,
+    "update_time": 1772890399,
+    "_id": "Control Port<SEP>I/O Interface"
+  },
+  "I/O Device<SEP>Input/Output Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890399,
+    "update_time": 1772890399,
+    "_id": "I/O Device<SEP>Input/Output Device"
+  },
+  "Buffered Operation<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890400,
+    "update_time": 1772890400,
+    "_id": "Buffered Operation<SEP>I/O Interface"
+  },
+  "Control Port<SEP>I/O Port": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890400,
+    "update_time": 1772890400,
+    "_id": "Control Port<SEP>I/O Port"
+  },
+  "Block Device<SEP>I/O Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890400,
+    "update_time": 1772890400,
+    "_id": "Block Device<SEP>I/O Device"
+  },
+  "I/O Interface<SEP>Status Detection": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890400,
+    "update_time": 1772890400,
+    "_id": "I/O Interface<SEP>Status Detection"
+  },
+  "Character Device<SEP>I/O Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890400,
+    "update_time": 1772890400,
+    "_id": "Character Device<SEP>I/O Device"
+  },
+  "Address Recognition<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890401,
+    "update_time": 1772890401,
+    "_id": "Address Recognition<SEP>I/O Interface"
+  },
+  "I/O Device<SEP>Low-Speed Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890401,
+    "update_time": 1772890401,
+    "_id": "I/O Device<SEP>Low-Speed Device"
+  },
+  "Data Format Conversion<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890401,
+    "update_time": 1772890401,
+    "_id": "Data Format Conversion<SEP>I/O Interface"
+  },
+  "I/O Device<SEP>Medium-Speed Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890401,
+    "update_time": 1772890401,
+    "_id": "I/O Device<SEP>Medium-Speed Device"
+  },
+  "Data Path<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890402,
+    "update_time": 1772890402,
+    "_id": "Data Path<SEP>I/O Interface"
+  },
+  "High-Speed Device<SEP>I/O Device": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890402,
+    "update_time": 1772890402,
+    "_id": "High-Speed Device<SEP>I/O Device"
+  },
+  "I/O Interface<SEP>Status/Control Path": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890402,
+    "update_time": 1772890402,
+    "_id": "I/O Interface<SEP>Status/Control Path"
+  },
+  "Address Path<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890403,
+    "update_time": 1772890403,
+    "_id": "Address Path<SEP>I/O Interface"
+  },
+  "I/O Device<SEP>I/O Interface": {
+    "chunk_ids": [
+      "chunk-2d5940b782faab253cf406e6cc9b0068"
+    ],
+    "count": 1,
+    "create_time": 1772890403,
+    "update_time": 1772890403,
+    "_id": "I/O Device<SEP>I/O Interface"
+  },
+  "普林斯顿大学<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891100,
+    "update_time": 1772891100,
+    "_id": "普林斯顿大学<SEP>李飞飞"
+  },
+  "藏药<SEP>跨学科背景": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891100,
+    "update_time": 1772891100,
+    "_id": "藏药<SEP>跨学科背景"
+  },
+  "Li Feifei<SEP>Tibet": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891100,
+    "update_time": 1772891100,
+    "_id": "Li Feifei<SEP>Tibet"
+  },
+  "加州理工学院<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891101,
+    "update_time": 1772891101,
+    "_id": "加州理工学院<SEP>李飞飞"
+  },
+  "伊利诺伊大学厄巴纳-香槟分校<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891101,
+    "update_time": 1772891101,
+    "_id": "伊利诺伊大学厄巴纳-香槟分校<SEP>李飞飞"
+  },
+  "Li Feifei<SEP>Traditional Tibetan Medicine": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891101,
+    "update_time": 1772891101,
+    "_id": "Li Feifei<SEP>Traditional Tibetan Medicine"
+  },
+  "李飞飞<SEP>西藏": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891102,
+    "update_time": 1772891102,
+    "_id": "李飞飞<SEP>西藏"
+  },
+  "李飞飞<SEP>藏药": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891102,
+    "update_time": 1772891102,
+    "_id": "李飞飞<SEP>藏药"
+  },
+  "李飞飞<SEP>跨学科背景": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891103,
+    "update_time": 1772891103,
+    "_id": "李飞飞<SEP>跨学科背景"
+  },
+  "李飞飞<SEP>高等教育经历": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891103,
+    "update_time": 1772891103,
+    "_id": "李飞飞<SEP>高等教育经历"
+  },
+  "学术职位变迁<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-72c361243b29c7576d2f61fcdddadad2"
+    ],
+    "count": 1,
+    "create_time": 1772891104,
+    "update_time": 1772891104,
+    "_id": "学术职位变迁<SEP>李飞飞"
+  }
+}

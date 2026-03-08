@@ -1,0 +1,452 @@
+{
+  "I/O System": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O System"
+  },
+  "I/O Device": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Device"
+  },
+  "I/O Interface": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Interface"
+  },
+  "I/O Controller": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Controller"
+  },
+  "I/O Channel": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Channel"
+  },
+  "I/O Port": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Port"
+  },
+  "I/O Buffer": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Buffer"
+  },
+  "I/O Instruction": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Instruction"
+  },
+  "I/O Operation": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Operation"
+  },
+  "I/O Mode": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "I/O Mode"
+  },
+  "Parallel Interface": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Parallel Interface"
+  },
+  "Serial Interface": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Serial Interface"
+  },
+  "Data Register": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Data Register"
+  },
+  "Status Register": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Status Register"
+  },
+  "Control Register": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Control Register"
+  },
+  "Data Buffer Register": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Data Buffer Register"
+  },
+  "General Controller": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "General Controller"
+  },
+  "Dedicated Controller": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Dedicated Controller"
+  },
+  "Selector Channel": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Selector Channel"
+  },
+  "Multiplexer Channel": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Multiplexer Channel"
+  },
+  "Input Port": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Input Port"
+  },
+  "Output Port": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Output Port"
+  },
+  "Bidirectional Port": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Bidirectional Port"
+  },
+  "Input Buffer": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Input Buffer"
+  },
+  "Output Buffer": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Output Buffer"
+  },
+  "Bidirectional Buffer": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Bidirectional Buffer"
+  },
+  "Input Instruction": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Input Instruction"
+  },
+  "Output Instruction": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Output Instruction"
+  },
+  "Status Instruction": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Status Instruction"
+  },
+  "Control Instruction": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Control Instruction"
+  },
+  "Program Polling Mode": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Program Polling Mode"
+  },
+  "Interrupt Mode": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889445,
+    "update_time": 1772889445,
+    "_id": "Interrupt Mode"
+  },
+  "DMA Mode": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889446,
+    "update_time": 1772889446,
+    "_id": "DMA Mode"
+  },
+  "Channel Mode": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Channel Mode"
+  },
+  "Input Device": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Input Device"
+  },
+  "Output Device": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Output Device"
+  },
+  "Keyboard": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Keyboard"
+  },
+  "Mouse": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Mouse"
+  },
+  "Scanner": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Scanner"
+  },
+  "Camera": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Camera"
+  },
+  "Monitor": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Monitor"
+  },
+  "Printer": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Printer"
+  },
+  "Plotter": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Plotter"
+  },
+  "Input/Output Device": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Input/Output Device"
+  },
+  "General Purpose Controller": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "General Purpose Controller"
+  },
+  "Special Purpose Controller": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Special Purpose Controller"
+  },
+  "Selection Channel": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Selection Channel"
+  },
+  "Multiplex Channel": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Multiplex Channel"
+  },
+  "Programmed I/O Mode": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Programmed I/O Mode"
+  },
+  "Interrupt I/O Mode": {
+    "chunk_ids": [
+      "chunk-d8545ba2c852169e269183de89d6c5bf"
+    ],
+    "count": 1,
+    "create_time": 1772889447,
+    "update_time": 1772889447,
+    "_id": "Interrupt I/O Mode"
+  }
+}

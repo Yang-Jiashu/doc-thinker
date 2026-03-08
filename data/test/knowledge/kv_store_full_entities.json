@@ -1,0 +1,55 @@
+{
+  "doc-edd212a91e12d7f60e0a2e2e522d7d8a": {
+    "entity_names": [
+      "Foreign Affairs Office",
+      "浙江省嵊州市",
+      "马云",
+      "杭州",
+      "杭州电子工业学院",
+      "党政办公室",
+      "Hangzhou Normal University",
+      "Ma Yun",
+      "杭州师范学院",
+      "英语教学",
+      "Zhejiang Province",
+      "高考",
+      "Shengzhou",
+      "Hangzhou Electronic Industry College",
+      "Hangzhou"
+    ],
+    "count": 15,
+    "create_time": 1772820343,
+    "update_time": 1772820343,
+    "_id": "doc-edd212a91e12d7f60e0a2e2e522d7d8a"
+  },
+  "doc-387d0462d3b3d2df5ccc68284d97f96f": {
+    "entity_names": [
+      "China",
+      "Jack Ma",
+      "Hefei",
+      "Anhui Province",
+      "Hefei City"
+    ],
+    "count": 5,
+    "create_time": 1772820358,
+    "update_time": 1772820358,
+    "_id": "doc-387d0462d3b3d2df5ccc68284d97f96f"
+  },
+  "doc-56b4ae22b980586a294dd6f90fb464e3": {
+    "entity_names": [
+      "杭州师范大学",
+      "浙江省嵊州市",
+      "马云",
+      "1995",
+      "Ma Yun",
+      "杭州师范学院",
+      "Zhejiang Province",
+      "Hangzhou Normal College",
+      "外语系"
+    ],
+    "count": 9,
+    "create_time": 1772820381,
+    "update_time": 1772820381,
+    "_id": "doc-56b4ae22b980586a294dd6f90fb464e3"
+  }
+}

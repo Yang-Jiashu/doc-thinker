@@ -36,12 +36,12 @@
     }
 
     aside img.w-10.h-10.rounded-xl.object-contain.flex-shrink-0 {
-        width: 140px !important;
-        height: 140px !important;
-        min-width: 140px !important;
-        min-height: 140px !important;
-        max-width: 140px !important;
-        max-height: 140px !important;
+        width: 96px !important;
+        height: 96px !important;
+        min-width: 96px !important;
+        min-height: 96px !important;
+        max-width: 96px !important;
+        max-height: 96px !important;
     }
 
     .processing-ring {
@@ -487,6 +487,27 @@ function checkProcessingList() {
     }
 }
 
+async function waitForFileProcessed(sessionId, filename, timeoutMs = 5 * 60 * 1000, intervalMs = 2000) {
+    const doneStatuses = new Set(['processed', 'completed', 'complete', 'done', 'success', 'ready', 'finished']);
+    const start = Date.now();
+    while (Date.now() - start < timeoutMs) {
+        try {
+            const resp = await fetch(`/api/v1/sessions/${encodeURIComponent(sessionId)}/files`);
+            const data = await resp.json();
+            const files = Array.isArray(data.files) ? data.files : [];
+            const target = files.find((f) => String(f.filename || '') === String(filename || ''));
+            if (target) {
+                const status = String(target.status || '').toLowerCase();
+                if (doneStatuses.has(status)) {
+                    return { ok: true, status };
+                }
+            }
+        } catch (_) {}
+        await new Promise((resolve) => setTimeout(resolve, intervalMs));
+    }
+    return { ok: false, status: 'timeout' };
+}
+
 function uploadFileWithProgress(file, fileId, onStatusChange) {
     const formData = new FormData();
     formData.append('files', file);
@@ -687,6 +708,74 @@ async function clearChat() {
         await refreshSessionSelector(currentSessionId);
         await loadHistory(currentSessionId);
     }
+}
+
+// Override upload behavior: keep file in "processing" until backend document status is done.
+function uploadFileWithProgress(file, fileId, onStatusChange) {
+    const formData = new FormData();
+    formData.append('files', file);
+    if (currentSessionId) {
+        formData.append('session_id', currentSessionId);
+    }
+
+    let uploadProgress = 0;
+    const uploadInterval = setInterval(() => {
+        uploadProgress += Math.random() * 20;
+        if (uploadProgress > 90) {
+            uploadProgress = 90;
+            clearInterval(uploadInterval);
+        }
+        updateProcessingStatus(fileId, 'processing', 'Uploading...', uploadProgress);
+    }, 200);
+
+    fetch('/api/v1/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        return { ok: res.ok, data };
+    })
+    .then(({ ok, data }) => {
+        clearInterval(uploadInterval);
+
+        let success = false;
+        if (data && typeof data === 'object') {
+            success = data.success === true || data.status === 'success' || data.status === 'processing';
+        }
+        if (!success && ok && (!data || (!('success' in data) && !('status' in data)))) {
+            success = true;
+        }
+
+        if (!success) {
+            updateProcessingStatus(fileId, 'error', (data && data.message) || 'Upload failed');
+            onStatusChange('error', data || { message: 'Upload failed' });
+            return;
+        }
+
+        const backgroundProcessing = !!(data && (data.background_processing === true || data.status === 'processing'));
+        if (backgroundProcessing && currentSessionId) {
+            updateProcessingStatus(fileId, 'processing', 'Background parsing...', 95);
+            waitForFileProcessed(currentSessionId, file.name).then((result) => {
+                if (result.ok) {
+                    updateProcessingStatus(fileId, 'done', 'Processing completed', 100);
+                    onStatusChange('success', data || {});
+                } else {
+                    updateProcessingStatus(fileId, 'error', 'Parsing timed out, refresh session files');
+                    onStatusChange('error', { message: 'background processing timeout' });
+                }
+            });
+            return;
+        }
+
+        updateProcessingStatus(fileId, 'done', 'Processing completed', 100);
+        onStatusChange('success', data || {});
+    })
+    .catch((err) => {
+        clearInterval(uploadInterval);
+        updateProcessingStatus(fileId, 'error', 'Network error: ' + err.message);
+        onStatusChange('error', { message: err.message });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

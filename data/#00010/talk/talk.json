@@ -1,0 +1,20 @@
+{
+  "session_id": "#00010",
+  "title": "pipeline-debug",
+  "created_at": "2026-03-07T15:36:55.042645",
+  "updated_at": "2026-03-07T15:41:00.487140",
+  "messages": [
+    {
+      "id": "320f07e5-3409-4a1f-9332-edde7d3256e9",
+      "role": "user",
+      "content": "请分析上传的文件",
+      "timestamp": "2026-03-07T15:37:00.200823"
+    },
+    {
+      "id": "2ff2f9cc-346f-4a64-8820-ff18cd81858f",
+      "role": "user",
+      "content": "请分析上传的文件",
+      "timestamp": "2026-03-07T15:41:00.487140"
+    }
+  ]
+}

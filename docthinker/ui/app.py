@@ -93,12 +93,12 @@ def _no_cache_html(response):
 aside img.w-10.h-10.rounded-xl.object-contain.flex-shrink-0,
 aside img[src*="logo.png"],
 aside img[alt="DocThinker"] {
-    width: 140px !important;
-    height: 140px !important;
-    min-width: 140px !important;
-    min-height: 140px !important;
-    max-width: 140px !important;
-    max-height: 140px !important;
+    width: 96px !important;
+    height: 96px !important;
+    min-width: 96px !important;
+    min-height: 96px !important;
+    max-width: 96px !important;
+    max-height: 96px !important;
     object-fit: contain !important;
     border-radius: 14px !important;
 }

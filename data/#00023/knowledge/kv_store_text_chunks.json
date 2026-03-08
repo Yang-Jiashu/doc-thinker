@@ -1,0 +1,48 @@
+{
+  "chunk-2d5940b782faab253cf406e6cc9b0068": {
+    "tokens": 356,
+    "content": "[page_idx:0] Chap7 I/O系统\n\nI/O系统基本概念\nI/O系统\nI/O设备\nI/O接口\nI/O端口\nI/O控制器\nI/O通道\nI/O设备分类\n按信息交换方式\n输入设备\n输出设备\n输入/输出设备\n按工作方式\n块设备\n字符设备\n按数据传送速率\n低速设备\n中速设备\n高速设备\nI/O接口\nI/O接口的功能\n缓冲、控制、状态检测、地址识别、数据格式转换\nI/O接口的组成\n数据通路、状态/控制通路、地址通路\nI/O接口的类型\n并行接口、串行接口\nI/O端口\nI/O端口的作用\nI/O端口的分类\n数据端口、状态端口、控制端口\nI/O控制器\nI/O控制器的作用\nI/O控制器的组成\n主机接口、设备接口、控制逻辑\nI/O通道\nI/O通道的作用\nI/O通道的类型\n选择通道、多路通道\n\nI/O方式\n程序查询方式\nCPU主动查询I/O设备状态，数据传送由CPU完成\n特点：CPU利用率低，适用于低速设备\n中断方式\nI/O设备准备好后，向CPU发中断请求，CPU响应中断后进行数据传送\n特点：提高CPU利用率，适用于中速设备\nDMA方式\nDMA控制器直接控制内存与I/O设备之间的数据传送，CPU只需启动DMA\n特点：CPU与I/O设备并行工作，提高",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-94a95824a4e11a9b9e97746880c10e49",
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:96a2143a8206ce0839ab37b3cdba0ad8",
+      "default:extract:6d0ac4d1360416222343a59076ed1d44"
+    ],
+    "create_time": 1772890355,
+    "update_time": 1772890394,
+    "_id": "chunk-2d5940b782faab253cf406e6cc9b0068"
+  },
+  "chunk-672f461a21cd2f086b04b07ff60921d7": {
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00023\\knowledge\\vision_pages\\page_1.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image is a detailed mind map diagram titled 'Chap7 I/O系统' (Chapter 7 I/O System), visually organizing the key concepts and structure of an I/O system in computer architecture. The layout is radial, with the central node labeled 'Chap7 I/O系统' in a dark blue box, from which several main branches extend outward. Each branch represents a major topic, such as 'I/O系统基本概念' (Basic Concepts of I/O System), 'I/O设备' (I/O Devices), 'I/O接口' (I/O Interfaces), 'I/O端口' (I/O Ports), 'I/O控制器' (I/O Controllers), 'I/O通道' (I/O Channels), and 'I/O方式' (I/O Methods). Sub-branches further break down these topics into detailed subtopics, such as device classification, interface functions, port types, controller structure, and data transfer methods (programmed I/O, interrupt-driven I/O, DMA). The mind map includes small embedded diagrams, tables, and flowcharts illustrating technical details like data paths, interface types, and controller logic. The color scheme uses yellow for the left-side branches and red for the right-side branches, with text in black or dark gray. The background is white, and the overall visual style is clean and schematic, aiding in knowledge organization and retrieval. No people are present; all elements are textual or diagrammatic. The mind map directly reflects and organizes the surrounding textual context, visually summarizing the chapter's structure and key points.",
+    "tokens": 366,
+    "full_doc_id": "doc-94a95824a4e11a9b9e97746880c10e49",
+    "chunk_order_index": 1,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:e8f9a04745ecb1aecbb81c34d354db1a",
+      "default:extract:0198d360a01736c258200179ecf46520"
+    ],
+    "is_multimodal": true,
+    "modal_entity_name": "Chap7_IO_System_Mind_Map (unknown)",
+    "original_type": "image",
+    "page_idx": 0,
+    "create_time": 1772890412,
+    "update_time": 1772890440,
+    "_id": "chunk-672f461a21cd2f086b04b07ff60921d7"
+  },
+  "chunk-72c361243b29c7576d2f61fcdddadad2": {
+    "tokens": 672,
+    "content": "Source: file\nContent:\n李飞飞于1999年从普林斯顿大学本科毕业后赴西藏研究一年藏药；2000年进入加州理工学院；2005年获得加州理工学院博士学位；2005年至2006年担任伊利诺伊大学厄巴纳-香槟分校电机系助理教授；2007年至2009年担任普林斯顿大学计算机科学系助理教授；\n\n[Cognitive Analysis]:\nSummary: 李飞飞在普林斯顿大学本科毕业后，经历了西藏藏药研究，加州理工学院深造并获得博士学位，其后在伊利诺伊大学与普林斯顿大学担任助理教授职位，学术轨迹清晰并富有跨界经历。\nReasoning: 此段描述了李飞飞的教育及职业发展，展现出其从本科到博士、再到助理教授的学术成长路径，并强调了其学科与地域的多元化经历，对后续学术和研究具有深远影响。\nKey Points: 1999年普林斯顿大学本科毕业, 赴西藏研究藏药一年, 2000年进入加州理工学院, 2005年获得加州理工学院博士学位, 2005-2006年伊利诺伊大学电机系助理教授, 2007-2009年普林斯顿大学计算机系助理教授\nConcepts: 跨学科背景, 高等教育经历, 学术职位变迁\nEntities: 李飞飞, 普林斯顿大学, 加州理工学院, 伊利诺伊大学厄巴纳-香槟分校, 藏药\nRelations: 李飞飞->本科毕业->普林斯顿大学, 李飞飞->入学->加州理工学院, 李飞飞->获得博士学位->加州理工学院, 李飞飞->担任助理教授->伊利诺伊大学厄巴纳-香槟分校, 李飞飞->担任助理教授->普林斯顿大学, 李飞飞->研究->藏药\nInferred Relations: 李飞飞->具备->跨学科背景, 李飞飞->丰富->高等教育经历, 李飞飞->历经不同学府->学术职位变迁, 藏药研究->反映->跨学科能力, 李飞飞->广阔->学术视野\nHypotheses: 李飞飞的跨界经历可能对其后续人工智能等领域的创新产生积极影响。, 她在藏药领域的研究经历，可能对后续科研形成了独特、综合的方法论视角。, 多次在不同顶尖高校工作，或表示其在国际学术界具备较强的合作与交流能力。, 丰富的跨学科背景可能提升了其在团队领导和多元项目管理中的表现。, 其学术路径为后来进入工业界或创业奠定了认知和资源基础。\nPotential Links:",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-72c361243b29c7576d2f61fcdddadad2",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:0ea82c53abd9a3849f5445b521e7a665",
+      "default:extract:66301e5d68235ba86e2f485404052146"
+    ],
+    "create_time": 1772891085,
+    "update_time": 1772891098,
+    "_id": "chunk-72c361243b29c7576d2f61fcdddadad2"
+  }
+}

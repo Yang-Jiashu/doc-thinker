@@ -10,7 +10,7 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 from rank_bm25 import BM25Okapi
 
 
-_TOKEN_PATTERN = re.compile(r"[A-Za-z0-9]+")
+_TOKEN_PATTERN = re.compile(r"[A-Za-z0-9]+|[\u4e00-\u9fff]")
 
 
 def _tokenize(text: str) -> List[str]:

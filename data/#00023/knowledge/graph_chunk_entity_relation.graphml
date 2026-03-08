@@ -1,0 +1,1264 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="I/O System">
+      <data key="entity_id">I/O System</data>
+      <data key="entity_type">concept</data>
+      <data key="description">The I/O System encompasses all hardware and logic responsible for input and output operations in a computer system.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Device">
+      <data key="entity_id">I/O Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Devices are peripheral hardware components that facilitate input, output, or both between the computer and the external environment.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Interface">
+      <data key="entity_id">I/O Interface</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The I/O Interface is a hardware and protocol mechanism that connects I/O devices to the computer system, managing communication and data exchange.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Port">
+      <data key="entity_id">I/O Port</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Port is a specific terminal or access point through which data and control signals are sent to or received from an I/O device.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Controller">
+      <data key="entity_id">I/O Controller</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The I/O Controller is a component that manages and coordinates data exchange between the computer and its I/O devices.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Channel">
+      <data key="entity_id">I/O Channel</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The I/O Channel is a dedicated data path or protocol that manages communication between the CPU, memory, and I/O devices.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Input Device">
+      <data key="entity_id">Input Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">An Input Device is a category of I/O devices designed to capture data from the external world and transmit it to the computer.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Output Device">
+      <data key="entity_id">Output Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">An Output Device is a type of I/O device that presents or sends processed data from the computer to the external environment.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Input/Output Device">
+      <data key="entity_id">Input/Output Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">An Input/Output Device supports both input and output functionalities, enabling two-way data exchange with the computer.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Block Device">
+      <data key="entity_id">Block Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">A Block Device is an I/O device that manages data in fixed-size blocks, allowing random access and storage operations.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Character Device">
+      <data key="entity_id">Character Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">A Character Device is an I/O device that manages data as a stream of characters, typically handling data sequentially.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Low-Speed Device">
+      <data key="entity_id">Low-Speed Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">A Low-Speed Device is a classification of I/O devices that operate at a relatively slow data transfer rate.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Medium-Speed Device">
+      <data key="entity_id">Medium-Speed Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">A Medium-Speed Device is an I/O device category characterized by moderate data transfer rates.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="High-Speed Device">
+      <data key="entity_id">High-Speed Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">A High-Speed Device is a type of I/O device that supports fast data transfer rates.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Parallel Interface">
+      <data key="entity_id">Parallel Interface</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The Parallel Interface is a type of I/O interface where multiple data bits are transmitted simultaneously over several channels.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Serial Interface">
+      <data key="entity_id">Serial Interface</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The Serial Interface is an I/O interface that transmits data sequentially, one bit at a time, over a single channel.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Data Port">
+      <data key="entity_id">Data Port</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">A Data Port is a type of I/O port specifically used for the transmission of data between the computer and I/O devices.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Status Port">
+      <data key="entity_id">Status Port</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">A Status Port is an I/O port designed for communicating the current status or condition of an I/O device to the computer system.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Control Port">
+      <data key="entity_id">Control Port</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Control port is a type of I/O port used for sending commands or control signals to I/O devices.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Host Interface">
+      <data key="entity_id">Host Interface</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The Host Interface is a component within the I/O controller that connects and coordinates communication with the main computer.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Device Interface">
+      <data key="entity_id">Device Interface</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Device interface is a component of the I/O controller used for communication with the I/O device.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Control Logic">
+      <data key="entity_id">Control Logic</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Control Logic refers to the circuitry or mechanism within the I/O controller that manages device control operations.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Select Channel">
+      <data key="entity_id">Select Channel</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Select Channel is a type of I/O channel optimized for managing communications with a single device at a time.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Multiplex Channel">
+      <data key="entity_id">Multiplex Channel</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Multiplex Channel is a type of I/O channel capable of managing communication with multiple devices simultaneously.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Programmed I/O">
+      <data key="entity_id">Programmed I/O</data>
+      <data key="entity_type">method</data>
+      <data key="description">Programmed I/O is a data transfer method where the CPU actively checks I/O device status and handles all data transmissions.&lt;SEP&gt;Programmed I/O is a method where the CPU is directly responsible for data transfer to and from I/O devices, requiring constant software polling.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068&lt;SEP&gt;chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="Interrupt-Driven I/O">
+      <data key="entity_id">Interrupt-Driven I/O</data>
+      <data key="entity_type">method</data>
+      <data key="description">Interrupt-Driven I/O is a transfer method where I/O devices notify the CPU via interrupts when ready, prompting the CPU to perform data transfer only upon request.&lt;SEP&gt;Interrupt-Driven I/O is a data transfer method where I/O devices signal the CPU via interrupts when ready for communication, reducing CPU involvement.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068&lt;SEP&gt;chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="DMA">
+      <data key="entity_id">DMA</data>
+      <data key="entity_type">method</data>
+      <data key="description">DMA (Direct Memory Access) is a method that allows a controller to directly manage data transfers between memory and I/O devices, minimizing CPU involvement.&lt;SEP&gt;DMA (Direct Memory Access) is an I/O method where data can be transferred between memory and I/O devices independently of the CPU, managed by a dedicated controller.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068&lt;SEP&gt;chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="DMA Controller">
+      <data key="entity_id">DMA Controller</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">DMA Controller is the hardware component responsible for conducting direct memory access transfers between system memory and I/O devices.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Buffered Operation">
+      <data key="entity_id">Buffered Operation</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Buffered operation refers to the process in I/O interfaces that temporarily stores data to accommodate differences in speed between I/O devices and other system components.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Status Detection">
+      <data key="entity_id">Status Detection</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Status detection is a function of I/O interfaces that monitors the operational state of I/O devices.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Address Recognition">
+      <data key="entity_id">Address Recognition</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Address recognition is a feature of I/O interfaces used to identify and select the correct hardware address for data transfers.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Data Format Conversion">
+      <data key="entity_id">Data Format Conversion</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Data format conversion is a function of the I/O interface that translates data between different formats required by devices and the host system.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890394</data>
+      <data key="truncate" />
+    </node>
+    <node id="Data Path">
+      <data key="entity_id">Data Path</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Data path is a component of I/O interface responsible for the transmission of data signals.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890395</data>
+      <data key="truncate" />
+    </node>
+    <node id="Status/Control Path">
+      <data key="entity_id">Status/Control Path</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Status/control path is a component of I/O interface used to transmit status and control signals between the CPU and I/O devices.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890395</data>
+      <data key="truncate" />
+    </node>
+    <node id="Address Path">
+      <data key="entity_id">Address Path</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Address path is a part of the I/O interface that carries address signals for identifying device or memory locations.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890396</data>
+      <data key="truncate" />
+    </node>
+    <node id="Selector Channel">
+      <data key="entity_id">Selector Channel</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Selector channel is a type of I/O channel dedicated to handling data transfers for a single device at a time.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890396</data>
+      <data key="truncate" />
+    </node>
+    <node id="Multiplexer Channel">
+      <data key="entity_id">Multiplexer Channel</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Multiplexer channel is a type of I/O channel that can control multiple devices concurrently by interleaving their data transfers.</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890396</data>
+      <data key="truncate" />
+    </node>
+    <node id="Chap7_IO_System_Mind_Map (unknown)">
+      <data key="entity_id">Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="entity_type">unknown</data>
+      <data key="description">The image is a detailed mind map diagram titled 'Chap7 I/O系统' (Chapter 7 I/O System), visually organ</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890414</data>
+    </node>
+    <node id="Chap7_IO_System_Mind_Map (unknown) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">The image is a detailed mind map diagram titled 'Chap7 I/O系统' (Chapter 7 I/O System), visually organ</data>
+      <data key="source_id">image_asset:img-1a56a6bf2c03521ef8f139a9fa509600</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\knowledge\multimodal\images\img-1a56a6bf2c03521ef8f139a9fa509600.png</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-94a95824a4e11a9b9e97746880c10e49</data>
+      <data key="created_at">1772890417</data>
+    </node>
+    <node id="Chap7 I/O System">
+      <data key="entity_id">Chap7 I/O System</data>
+      <data key="entity_type">content</data>
+      <data key="description">Chap7 I/O System is a mind map diagram visually organizing the major concepts and structural elements of the I/O system as described in Chapter 7 of a computer architecture context.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O System Basic Concepts">
+      <data key="entity_id">I/O System Basic Concepts</data>
+      <data key="entity_type">concept</data>
+      <data key="description">I/O System Basic Concepts covers the foundational ideas and general principles underlying input/output systems within the context of computer architecture.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Devices">
+      <data key="entity_id">I/O Devices</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Devices are components of a computer system responsible for input and output operations, categorized and discussed as part of the mind map structure.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Interfaces">
+      <data key="entity_id">I/O Interfaces</data>
+      <data key="entity_type">concept</data>
+      <data key="description">I/O Interfaces refer to the mechanisms and connective elements that allow communication between I/O devices and the rest of the computer system, including topics such as interface functions and types.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Ports">
+      <data key="entity_id">I/O Ports</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Ports are hardware access points for connecting I/O devices to a computer, described in various types and technical details within the mind map.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Controllers">
+      <data key="entity_id">I/O Controllers</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Controllers are dedicated hardware components that manage the operation of I/O devices, including structure and internal logic as illustrated in the diagram.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Channels">
+      <data key="entity_id">I/O Channels</data>
+      <data key="entity_type">concept</data>
+      <data key="description">I/O Channels represent dedicated communication pathways or subsystems used for data transfer between the CPU and I/O devices.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Methods">
+      <data key="entity_id">I/O Methods</data>
+      <data key="entity_type">method</data>
+      <data key="description">I/O Methods include the techniques for implementing data transfer between the computer and I/O devices, such as programmed I/O, interrupt-driven I/O, and direct memory access (DMA).</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="Device Classification">
+      <data key="entity_id">Device Classification</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Device Classification refers to the categorization of I/O devices into different types based on their characteristics or usage, depicted as a subtopic in the mind map.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="Interface Functions">
+      <data key="entity_id">Interface Functions</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Interface Functions describe the specific roles and operations performed by I/O interfaces in facilitating communication between devices and the computer system.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="Port Types">
+      <data key="entity_id">Port Types</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Port Types represent the various forms or standards of I/O ports considered in the mind map, outlining technical distinctions between implementations.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="Controller Structure">
+      <data key="entity_id">Controller Structure</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Controller Structure entails the design and architecture of I/O controllers, including their internal components and logical organization.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="Data Transfer Methods">
+      <data key="entity_id">Data Transfer Methods</data>
+      <data key="entity_type">method</data>
+      <data key="description">Data Transfer Methods refers to specific approaches used to move data between computers and I/O devices, exemplified by programmed I/O, interrupt-driven I/O, and DMA.</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890440</data>
+      <data key="truncate" />
+    </node>
+    <node id="李飞飞">
+      <data key="entity_id">李飞飞</data>
+      <data key="entity_type">person</data>
+      <data key="description">李飞飞is an individual who graduated from Princeton University in 1999, studied Tibetan medicine in Tibet for a year, earned a PhD from California Institute of Technology in 2005, and held assistant professor positions at University of Illinois at Urbana-Champaign and Princeton University.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="普林斯顿大学">
+      <data key="entity_id">普林斯顿大学</data>
+      <data key="entity_type">organization</data>
+      <data key="description">普林斯顿大学is a higher education institution from which李飞飞obtained her undergraduate degree and later served as an assistant professor in the Department of Computer Science.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="加州理工学院">
+      <data key="entity_id">加州理工学院</data>
+      <data key="entity_type">organization</data>
+      <data key="description">加州理工学院is a research university where李飞飞was a graduate student from 2000 and received a PhD in 2005.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="伊利诺伊大学厄巴纳-香槟分校">
+      <data key="entity_id">伊利诺伊大学厄巴纳-香槟分校</data>
+      <data key="entity_type">organization</data>
+      <data key="description">伊利诺伊大学厄巴纳-香槟分校is a university where李飞飞served as an assistant professor in the Department of Electrical and Computer Engineering from 2005 to 2006.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="西藏">
+      <data key="entity_id">西藏</data>
+      <data key="entity_type">location</data>
+      <data key="description">西藏is a region where李飞飞spent a year conducting research on Tibetan medicine after her undergraduate graduation.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="藏药">
+      <data key="entity_id">藏药</data>
+      <data key="entity_type">concept</data>
+      <data key="description">藏药refers to Tibetan medicine, a traditional system that was the subject of a year-long research project by李飞飞in Tibet after her undergraduate studies.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="跨学科背景">
+      <data key="entity_id">跨学科背景</data>
+      <data key="entity_type">concept</data>
+      <data key="description">跨学科背景, or interdisciplinary background, refers to the diverse academic and research experiences acquired by李飞飞through her educational and professional path.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="高等教育经历">
+      <data key="entity_id">高等教育经历</data>
+      <data key="entity_type">concept</data>
+      <data key="description">高等教育经历refers to李飞飞's progression through multiple stages of higher education at prestigious institutions.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="学术职位变迁">
+      <data key="entity_id">学术职位变迁</data>
+      <data key="entity_type">concept</data>
+      <data key="description">学术职位变迁describes the changes in academic positions held by李飞飞throughout her career at several top universities.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="Tibet">
+      <data key="entity_id">Tibet</data>
+      <data key="entity_type">location</data>
+      <data key="description">Tibet is the region where Li Feifei conducted research on traditional Tibetan medicine for one year after graduating from Princeton University.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="Traditional Tibetan Medicine">
+      <data key="entity_id">Traditional Tibetan Medicine</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Traditional Tibetan Medicine is the medicinal practice and research topic that Li Feifei studied during her year in Tibet.</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891098</data>
+      <data key="truncate" />
+    </node>
+    <node id="Li Feifei">
+      <data key="entity_id">Li Feifei</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="description">Li Feifei traveled to Tibet to conduct research on traditional Tibetan medicine for one year after her undergraduate graduation.</data>
+      <data key="entity_type">UNKNOWN</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891100</data>
+      <data key="truncate" />
+    </node>
+    <edge source="I/O System" target="I/O Device">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Devices are integral components managed by the I/O System for data exchange.</data>
+      <data key="keywords">hardware,system organization</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Channel">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Channels are used within the I</data>
+      <data key="keywords">architecture,subsystem</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Input Device">
+      <data key="weight">1.0</data>
+      <data key="description">Input Devices are a subtype of I/O Devices designed for data input.</data>
+      <data key="keywords">category,device classification</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Output Device">
+      <data key="weight">1.0</data>
+      <data key="description">Output Devices are a subtype of I/O Devices used for data output.</data>
+      <data key="keywords">category,device classification</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890398</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Input/Output Device">
+      <data key="weight">1.0</data>
+      <data key="description">Input/Output Devices are a subtype of I/O Devices capable of both input and output functions.</data>
+      <data key="keywords">category,device classification</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890399</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Block Device">
+      <data key="weight">1.0</data>
+      <data key="description">Block Devices represent one method of data management by I/O Devices.</data>
+      <data key="keywords">classification,operational mode</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890400</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Character Device">
+      <data key="weight">1.0</data>
+      <data key="description">Character Devices offer data handling as a sequential stream, distinguishing them from block devices.</data>
+      <data key="keywords">classification,operational mode</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890400</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Low-Speed Device">
+      <data key="weight">1.0</data>
+      <data key="description">Low-Speed Devices are categorized based on their slower data transfer rate.</data>
+      <data key="keywords">classification,data rate</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890401</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Medium-Speed Device">
+      <data key="weight">1.0</data>
+      <data key="description">Medium-Speed Devices are categorized by moderate data transfer rate among I/O devices.</data>
+      <data key="keywords">classification,data rate</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890401</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="High-Speed Device">
+      <data key="weight">1.0</data>
+      <data key="description">High-Speed Devices are those I/O devices supporting rapid data transfer.</data>
+      <data key="keywords">classification,data rate</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890402</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="I/O Interface">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Devices connect with the system via I/O Interfaces for information exchange.</data>
+      <data key="keywords">communication,connectivity</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890403</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Parallel Interface">
+      <data key="weight">2.0</data>
+      <data key="description">Parallel Interface is a type of I/O Interface facilitating multi-bit simultaneous data transfer.&lt;SEP&gt;Parallel interface is a type of I/O interface for simultaneous transmission of multiple bits.</data>
+      <data key="keywords">data transfer,interface method,interface type,type</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Serial Interface">
+      <data key="weight">2.0</data>
+      <data key="description">Serial Interface is a type of I/O Interface facilitating sequential, bit-by-bit communication.&lt;SEP&gt;Serial interface is a type of I/O interface for sequential transmission of data.</data>
+      <data key="keywords">data transfer,interface method,interface type,type</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Data Port">
+      <data key="weight">1.0</data>
+      <data key="description">Data Port serves as a part of the I/O Interface for sending or receiving data.</data>
+      <data key="keywords">component,connection</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890398</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Status Port">
+      <data key="weight">1.0</data>
+      <data key="description">Status Port is included in the I/O Interface for device status reporting.</data>
+      <data key="keywords">component,connection</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890398</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Control Port">
+      <data key="weight">1.0</data>
+      <data key="description">Control Port is a functional part of the I/O Interface for command and control signals.</data>
+      <data key="keywords">component,connection</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890399</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Buffered Operation">
+      <data key="weight">1.0</data>
+      <data key="description">Buffered operation is a function performed by I/O interfaces to match device and system speeds.</data>
+      <data key="keywords">data handling,functionality</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890400</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Status Detection">
+      <data key="weight">1.0</data>
+      <data key="description">Status detection is a monitoring function provided by I/O interfaces.</data>
+      <data key="keywords">functionality,monitoring</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890400</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Address Recognition">
+      <data key="weight">1.0</data>
+      <data key="description">Address recognition is used by I/O interfaces to identify correct devices or locations for data transfer.</data>
+      <data key="keywords">addressing,functionality</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890401</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Data Format Conversion">
+      <data key="weight">1.0</data>
+      <data key="description">Data format conversion is a function that enables I/O interfaces to bridge different data formats between devices and the system.</data>
+      <data key="keywords">data conversion,functionality</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890401</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Data Path">
+      <data key="weight">1.0</data>
+      <data key="description">Data path is a structural component of the I/O interface for data transfer.</data>
+      <data key="keywords">component,structure</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890402</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Status/Control Path">
+      <data key="weight">1.0</data>
+      <data key="description">Status/control path is a component of the I/O interface handling status and control signals.</data>
+      <data key="keywords">component,signals</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890402</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Address Path">
+      <data key="weight">1.0</data>
+      <data key="description">Address path is a component of I/O interface used for addressing in data transactions.</data>
+      <data key="keywords">addressing,component</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890403</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Port" target="Status Port">
+      <data key="weight">1.0</data>
+      <data key="description">Status port is a category of I/O port for status monitoring.</data>
+      <data key="keywords">category,device status</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Port" target="Data Port">
+      <data key="weight">1.0</data>
+      <data key="description">Data port is a category of I/O port designated for the transmission of data.</data>
+      <data key="keywords">category,data transfer</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890398</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Port" target="Control Port">
+      <data key="weight">1.0</data>
+      <data key="description">Control port is a category of I/O port used to transmit control commands.</data>
+      <data key="keywords">category,device control</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890400</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Controller" target="Host Interface">
+      <data key="weight">2.0</data>
+      <data key="description">Host Interface is a core component of the I/O Controller for interfacing with the central system.&lt;SEP&gt;Host interface is a part of the I/O controller connecting to the system or CPU.</data>
+      <data key="keywords">component,composition,connection,controller part</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Controller" target="Device Interface">
+      <data key="weight">2.0</data>
+      <data key="description">Device Interface is a subcomponent of the I/O Controller for connecting to I/O devices.&lt;SEP&gt;Device interface is a part of the I/O controller connecting to the I/O device.</data>
+      <data key="keywords">component,composition,controller part,device connection</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890397</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Controller" target="Control Logic">
+      <data key="weight">2.0</data>
+      <data key="description">Control Logic is implemented within the I/O Controller to manage its operations.&lt;SEP&gt;Control logic in the I/O controller manages and coordinates all operations of the controller's interfaces.</data>
+      <data key="keywords">component,composition,control function,operation management</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890398</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Channel" target="Selector Channel">
+      <data key="weight">1.0</data>
+      <data key="description">Selector channel is a type of I/O channel dedicated to a single device.</data>
+      <data key="keywords">data transfer,type</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890398</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Channel" target="Multiplexer Channel">
+      <data key="weight">1.0</data>
+      <data key="description">Multiplexer channel is a type of I/O channel capable of handling multiple devices.</data>
+      <data key="keywords">data transfer,type</data>
+      <data key="source_id">chunk-2d5940b782faab253cf406e6cc9b0068</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890398</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Programmed I/O" target="Data Transfer Methods">
+      <data key="weight">1.0</data>
+      <data key="description">Programmed I/O is a specific method under Data Transfer Methods.</data>
+      <data key="keywords">method inclusion,specific technique</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890444</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Programmed I/O" target="Chap7_IO_System_Mind_Map (unknown)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Programmed I/O belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890451</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Interrupt-Driven I/O" target="Data Transfer Methods">
+      <data key="weight">1.0</data>
+      <data key="description">Interrupt-Driven I/O is a method described as part of Data Transfer Methods.</data>
+      <data key="keywords">method inclusion,specific technique</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890444</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Interrupt-Driven I/O" target="Chap7_IO_System_Mind_Map (unknown)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Interrupt-Driven I/O belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890451</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DMA" target="Data Transfer Methods">
+      <data key="weight">1.0</data>
+      <data key="description">DMA is listed as a particular data transfer method under Data Transfer Methods.</data>
+      <data key="keywords">method inclusion,specific technique</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890445</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DMA" target="Chap7_IO_System_Mind_Map (unknown)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity DMA belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890452</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="Chap7_IO_System_Mind_Map (unknown) [image_asset p0]">
+      <data key="keywords">image_related_to</data>
+      <data key="description">Image semantically related to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="source_id">image_asset:img-1a56a6bf2c03521ef8f139a9fa509600</data>
+      <data key="weight">0.9244705438613892</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="I/O System Basic Concepts">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O System Basic Concepts belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890444</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="I/O Devices">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Devices belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890444</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="I/O Interfaces">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Interfaces belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890445</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="I/O Ports">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Ports belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890445</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="I/O Controllers">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Controllers belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890446</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="I/O Channels">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Channels belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890446</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="I/O Methods">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Methods belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890447</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="Device Classification">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Device Classification belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890447</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="Interface Functions">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Interface Functions belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890448</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="Port Types">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Port Types belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890449</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="Controller Structure">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Controller Structure belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890449</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="Data Transfer Methods">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Data Transfer Methods belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890450</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7_IO_System_Mind_Map (unknown)" target="Chap7 I/O System">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Chap7 I/O System belongs to Chap7_IO_System_Mind_Map (unknown)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00023\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890452</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7 I/O System" target="I/O System Basic Concepts">
+      <data key="weight">1.0</data>
+      <data key="description">In the mind map, I/O System Basic Concepts is a main branch under Chap7 I/O System.</data>
+      <data key="keywords">content structure,knowledge organization</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890443</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7 I/O System" target="I/O Devices">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Devices are a primary topic and branch under Chap7 I/O System in the diagram.</data>
+      <data key="keywords">hierarchical structure,system components</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890444</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7 I/O System" target="I/O Interfaces">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Interfaces forms a major branch of Chap7 I/O System.</data>
+      <data key="keywords">knowledge structure,system components</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890444</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7 I/O System" target="I/O Ports">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Ports is a major component and topic in the Chap7 I/O System mind map.</data>
+      <data key="keywords">diagram component,hardware structure</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890445</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7 I/O System" target="I/O Controllers">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Controllers is listed as a key element directly related to Chap7 I/O System.</data>
+      <data key="keywords">diagram structure,hardware component</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890445</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7 I/O System" target="I/O Channels">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Channels appear as a core concept branching from Chap7 I/O System.</data>
+      <data key="keywords">communication component,diagram structure</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890446</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Chap7 I/O System" target="I/O Methods">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Methods is a main branch under Chap7 I/O System encompassing specific data transfer techniques.</data>
+      <data key="keywords">concept hierarchy,method classification</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890446</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Devices" target="Device Classification">
+      <data key="weight">1.0</data>
+      <data key="description">Device Classification is a subtopic under I/O Devices, categorizing them by type.</data>
+      <data key="keywords">categorization,structural relationship</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890443</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interfaces" target="Interface Functions">
+      <data key="weight">1.0</data>
+      <data key="description">Interface Functions are subtopics under I/O Interfaces, specifying their roles.</data>
+      <data key="keywords">specification,technical detail</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890443</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Ports" target="Port Types">
+      <data key="weight">1.0</data>
+      <data key="description">Port Types is a subtopic of I/O Ports, detailing various port standards or categories.</data>
+      <data key="keywords">diagram detail,technical classification</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890443</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Controllers" target="Controller Structure">
+      <data key="weight">1.0</data>
+      <data key="description">Controller Structure is a subtopic under I/O Controllers, describing their internal architecture.</data>
+      <data key="keywords">component organization,internal design</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890443</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Methods" target="Data Transfer Methods">
+      <data key="weight">1.0</data>
+      <data key="description">Data Transfer Methods is a detailed area within I/O Methods, highlighting approaches to data movement.</data>
+      <data key="keywords">methodology,principle classification</data>
+      <data key="source_id">chunk-672f461a21cd2f086b04b07ff60921d7</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772890443</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="普林斯顿大学">
+      <data key="weight">1.0</data>
+      <data key="description">李飞飞graduated from Princeton University with an undergraduate degree in 1999 and later served as an assistant professor in the Computer Science Department.</data>
+      <data key="keywords">education,employment</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891100</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="加州理工学院">
+      <data key="weight">1.0</data>
+      <data key="description">李飞飞attended California Institute of Technology in 2000 and obtained her PhD there in 2005.</data>
+      <data key="keywords">academic achievement,education</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891101</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="伊利诺伊大学厄巴纳-香槟分校">
+      <data key="weight">1.0</data>
+      <data key="description">李飞飞was an assistant professor in the Department of Electrical and Computer Engineering at University of Illinois at Urbana-Champaign from 2005 to 2006.</data>
+      <data key="keywords">academic position,employment</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891101</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="西藏">
+      <data key="weight">1.0</data>
+      <data key="description">李飞飞conducted research on Tibetan medicine in Tibet for one year after graduating from Princeton University.</data>
+      <data key="keywords">location,research</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891102</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="藏药">
+      <data key="weight">1.0</data>
+      <data key="description">李飞飞spent a year researching Tibetan medicine after her undergraduate graduation.</data>
+      <data key="keywords">expertise,research</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891102</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="跨学科背景">
+      <data key="weight">1.0</data>
+      <data key="description">The diverse educational and research experiences of李飞飞demonstrate her interdisciplinary background.</data>
+      <data key="keywords">academic background,interdisciplinary</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891103</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="高等教育经历">
+      <data key="weight">1.0</data>
+      <data key="description">李飞飞has pursued an extensive path through higher education at multiple prestigious institutions.</data>
+      <data key="keywords">academic journey,education</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891103</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="学术职位变迁">
+      <data key="weight">1.0</data>
+      <data key="description">李飞飞's academic positions at several leading universities illustrate her progression through different faculty roles.</data>
+      <data key="keywords">academia,career progression</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891104</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="藏药" target="跨学科背景">
+      <data key="weight">1.0</data>
+      <data key="description">Research on Tibetan medicine reflects李飞飞's interdisciplinary background.</data>
+      <data key="keywords">interdisciplinary,research</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891100</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Tibet" target="Li Feifei">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei traveled to Tibet to conduct research on traditional Tibetan medicine for one year after her undergraduate graduation.</data>
+      <data key="keywords">academic journey,research location</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891101</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Traditional Tibetan Medicine" target="Li Feifei">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei conducted research in the field of traditional Tibetan medicine after graduating from Princeton University.</data>
+      <data key="keywords">interdisciplinary experience,research</data>
+      <data key="source_id">chunk-72c361243b29c7576d2f61fcdddadad2</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772891101</data>
+      <data key="truncate" />
+    </edge>
+  </graph>
+</graphml>

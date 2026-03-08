@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="User">
+      <data key="entity_id">User</data>
+      <data key="entity_type">person</data>
+      <data key="description">The User is an individual seeking assistance with analyzing an uploaded file.&lt;SEP&gt;User is a person inquiring about the analysis of an uploaded file.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867684</data>
+      <data key="truncate" />
+    </node>
+    <node id="Assistant">
+      <data key="entity_id">Assistant</data>
+      <data key="entity_type">person</data>
+      <data key="description">The Assistant is a virtual entity providing help and analysis to the User's queries.&lt;SEP&gt;Assistant is a person representing an AI or virtual assistant responding to the user's question.</data>
+      <data key="source_id">chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867684</data>
+      <data key="truncate" />
+    </node>
+    <node id="File">
+      <data key="entity_id">File</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The File is a digital document that the User is attempting to upload for analysis.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772866422</data>
+      <data key="truncate" />
+    </node>
+    <node id="Serene Sunset Landscape (image)">
+      <data key="entity_id">Serene Sunset Landscape (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image captures a serene sunset landscape, showcasing vibrant colors reflected in calm water, with silhouettes of natural elements, evoking tranquility and peace.</data>
+      <data key="source_id">chunk-d27167032531d6007a9572ccfd47da55</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772866583</data>
+    </node>
+    <node id="Empty Footer Placeholder (footer)">
+      <data key="entity_id">Empty Footer Placeholder (footer)</data>
+      <data key="entity_type">footer</data>
+      <data key="description">This footer currently serves as a placeholder with no content, which limits its purpose for providing important links and organizational information.</data>
+      <data key="source_id">chunk-951e73b7cdcda1581006fe37e86b8925</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_151414_1.pdf</data>
+      <data key="created_at">1772867835</data>
+    </node>
+    <node id="Serene Sunset Landscape (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image captures a serene sunset landscape, showcasing vibrant colors reflected in calm water, with silhouettes of natural elements, evoking tranquility and peace.</data>
+      <data key="source_id">image_asset:img-fc26f9d4beb769fa5dc42d2f7da35774</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00006\knowledge\multimodal\images\img-fc26f9d4beb769fa5dc42d2f7da35774.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-70ceee93988ad112e18a8ffb3d02638e</data>
+      <data key="created_at">1772866585</data>
+    </node>
+    <node id="Uploaded File">
+      <data key="entity_id">Uploaded File</data>
+      <data key="entity_type">other</data>
+      <data key="description">Uploaded File refers to the document or content that the user is asking to be analyzed.</data>
+      <data key="source_id">chunk-9f6ca9eaf8a7253d1038d29afd3aac4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867684</data>
+      <data key="truncate" />
+    </node>
+    <node id="User Question">
+      <data key="entity_id">User Question</data>
+      <data key="entity_type">other</data>
+      <data key="description">The User Question refers to a request made by a user for assistance regarding an uploaded file.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-4e18056c867fc71a13bcdcd46d3ffdbc&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867684</data>
+      <data key="truncate" />
+    </node>
+    <node id="Assistant Answer">
+      <data key="entity_id">Assistant Answer</data>
+      <data key="entity_type">other</data>
+      <data key="description">The Assistant Answer indicates the response provided by the assistant, which explains the inability to analyze uploaded files.</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-4e18056c867fc71a13bcdcd46d3ffdbc&lt;SEP&gt;chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867684</data>
+      <data key="truncate" />
+    </node>
+    <node id="Urban Street Scene (image)">
+      <data key="entity_id">Urban Street Scene (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">The image illustrates a bustling urban street scene with pedestrians, vehicles, and modern architecture, reflecting contemporary city life.</data>
+      <data key="source_id">chunk-0bcb3f8b0c8a7ea402958454c1106cab</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_151414_1.pdf</data>
+      <data key="created_at">1772867835</data>
+    </node>
+    <node id="Urban Street Scene (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">The image illustrates a bustling urban street scene with pedestrians, vehicles, and modern architecture, reflecting contemporary city life.</data>
+      <data key="source_id">image_asset:img-e6c9ed2504e5eda0c8824f9ebed95dcb</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00006\knowledge\multimodal\images\img-e6c9ed2504e5eda0c8824f9ebed95dcb.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_151414_1.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-db1f4b1807fad3e4440d22919aabbf9d</data>
+      <data key="created_at">1772867836</data>
+    </node>
+    <edge source="User" target="Assistant">
+      <data key="weight">2.0</data>
+      <data key="description">The User is asking the Assistant for help regarding the analysis of a file.&lt;SEP&gt;User asks Assistant for help with the analysis of an uploaded file, and Assistant responds apologetically.</data>
+      <data key="keywords">assistance,inquiry,questioning,response</data>
+      <data key="source_id">chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867691</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Assistant" target="File">
+      <data key="weight">1.0</data>
+      <data key="description">The Assistant expresses a limitation in analyzing the content of the File that cannot be viewed.</data>
+      <data key="keywords">analysis limitation,digital content</data>
+      <data key="source_id">chunk-1999a04971a832ea2f31f010612e0243&lt;SEP&gt;chunk-4d976a9bc8846be1a523aa19572aed4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772866430</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Serene Sunset Landscape (image)" target="Serene Sunset Landscape (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Serene Sunset Landscape (image)</data>
+      <data key="source_id">image_asset:img-fc26f9d4beb769fa5dc42d2f7da35774</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+    </edge>
+    <edge source="User Question" target="Assistant Answer">
+      <data key="weight">1.0</data>
+      <data key="description">The User Question prompted the Assistant Answer, addressing the user's request for help.</data>
+      <data key="keywords">response,user assistance</data>
+      <data key="source_id">chunk-b0fc34a86f588678d99a5c57b29d0b81&lt;SEP&gt;chunk-9f6ca9eaf8a7253d1038d29afd3aac4b</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772867691</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Urban Street Scene (image)" target="Urban Street Scene (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Urban Street Scene (image)</data>
+      <data key="source_id">image_asset:img-e6c9ed2504e5eda0c8824f9ebed95dcb</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述_20260307_151414_1.pdf</data>
+    </edge>
+  </graph>
+</graphml>

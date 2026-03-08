@@ -1,0 +1,215 @@
+{
+  "timestamp": "2026-03-07 03:59:35",
+  "results": [
+    {
+      "stage": "Stage1",
+      "test": "file_exists",
+      "passed": true,
+      "detail": "C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00004\\content\\mayun.txt"
+    },
+    {
+      "stage": "Stage1",
+      "test": "file_size_bytes",
+      "passed": true,
+      "detail": "902 bytes"
+    },
+    {
+      "stage": "Stage1",
+      "test": "bom_check",
+      "passed": true,
+      "detail": "UTF-8 BOM=False, UTF-16 LE=False, UTF-16 BE=False"
+    },
+    {
+      "stage": "Stage1",
+      "test": "utf8_strict_decode",
+      "passed": true,
+      "detail": "326 chars"
+    },
+    {
+      "stage": "Stage1",
+      "test": "utf8_ignore_decode",
+      "passed": true,
+      "detail": "324 chars"
+    },
+    {
+      "stage": "Stage1",
+      "test": "chars_dropped_by_ignore",
+      "passed": false,
+      "detail": "strict=326 vs ignore=324, dropped=2"
+    },
+    {
+      "stage": "Stage1",
+      "test": "cjk_char_count",
+      "passed": true,
+      "detail": "253 CJK characters"
+    },
+    {
+      "stage": "Stage1",
+      "test": "first_100_bytes_hex",
+      "passed": true,
+      "detail": "e9 a9 ac e4 ba 91 e7 a5 96 e7 b1 8d e6 b5 99 e6 b1 9f e7 9c 81 e5 b5 8a e5 b7 9e e5 b8 82 ef bc 88 e5 8e 9f e5 b5 8a e5 8e bf ef bc 89 e8 b0 b7 e6 9d a5 e9 95 87 ef bc 8c e5 90 8e e7 88 b6 e6 af 8d e7 a7 bb e5 b1 85 e6 9d ad e5 b7 9e e3 80 82 e5 b9 bc e5 b9 b4 e6 97 b6 e5 b0 b1 e8 af bb e4 ba 8e e6"
+    },
+    {
+      "stage": "Stage1",
+      "test": "first_100_chars_escaped",
+      "passed": true,
+      "detail": "\\u9a6c\\u4e91\\u7956\\u7c4d\\u6d59\\u6c5f\\u7701\\u5d4a\\u5dde\\u5e02\\uff08\\u539f\\u5d4a\\u53bf\\uff09\\u8c37\\u6765\\u9547\\uff0c\\u540e\\u7236\\u6bcd\\u79fb\\u5c45\\u676d\\u5dde\\u3002\\u5e7c\\u5e74\\u65f6\\u5c31\\u8bfb\\u4e8e\\u676d\\u5dde\\u5e02\\u4e2d\\u5317\\u4e8c\\u5c0f\\u5b66\\uff08\\u73b0\\u957f\\u5bff\\u6865\\u5c0f\\u5b66\\uff09\\u3002\\u540e\\u5728\\u676d\\u5dde\\u5e02\\u5929\\u6c34\\u4e2d\\u5b66\\u77ed\\u671f\\u5c31\\u8bfb\\u30021982\\u5e74\\uff0c\\u9a6c\\u4e91\\u9ad8\\u4e2d\\u6bd5\\u4e1a\\u540e\\uff0c\\u53c2\\u52a0\\u7b2c\\u4e00\\u6b21\\u9ad8\\u8003\\uff0c\\u6570\\u5b66\\u8003\\u4e869\\u5206\\u30021983\\u5e74\\uff0c\\u7b2c"
+    },
+    {
+      "stage": "Stage2",
+      "test": "pillow_import",
+      "passed": true,
+      "detail": "PIL imported"
+    },
+    {
+      "stage": "Stage2",
+      "test": "default_font_type",
+      "passed": true,
+      "detail": "FreeTypeFont"
+    },
+    {
+      "stage": "Stage2",
+      "test": "default_font_ink_pixels",
+      "passed": true,
+      "detail": "837 ink pixels for default font rendering"
+    },
+    {
+      "stage": "Stage2",
+      "test": "default_font_cjk_vs_ascii",
+      "passed": false,
+      "detail": "ink pixels: 'A'=24, '马'=31, diff=7\n(if diff<=10, default font renders CJK as tiny boxes similar to ASCII)"
+    },
+    {
+      "stage": "Stage2",
+      "test": "cjk_font_found",
+      "passed": true,
+      "detail": "font=('Microsoft YaHei', 'Regular')"
+    },
+    {
+      "stage": "Stage2",
+      "test": "cjk_font_ink_pixels",
+      "passed": true,
+      "detail": "3321 ink pixels (vs default: 837)"
+    },
+    {
+      "stage": "Stage2",
+      "test": "comparison_images_saved",
+      "passed": true,
+      "detail": "default: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00004\\knowledge\\quick_qa\\diag/render_default_font.png\nCJK:     C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00004\\knowledge\\quick_qa\\diag/render_cjk_font.png"
+    },
+    {
+      "stage": "Stage2",
+      "test": "server_code_uses_cjk",
+      "passed": true,
+      "detail": "_find_cjk_font=True, load_default=True\n(if _find_cjk_font=False, the fix has NOT been applied to the running code!)"
+    },
+    {
+      "stage": "Stage3",
+      "test": "default_font_full_render",
+      "passed": true,
+      "detail": "saved: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00004\\knowledge\\quick_qa\\diag\\full_render_DEFAULT.png\nink pixels: 9650, size: 1200x200"
+    },
+    {
+      "stage": "Stage3",
+      "test": "cjk_font_full_render",
+      "passed": true,
+      "detail": "saved: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00004\\knowledge\\quick_qa\\diag\\full_render_CJK.png\nink pixels: 35577, size: 1200x222"
+    },
+    {
+      "stage": "Stage3",
+      "test": "cjk_has_more_ink",
+      "passed": true,
+      "detail": "CJK ink=35577 vs Default ink=9650, ratio=3.7x\n(CJK should have significantly more ink if rendering real glyphs)"
+    },
+    {
+      "stage": "Stage3",
+      "test": "old_production_image",
+      "passed": true,
+      "detail": "mayun_quick_qa.png: ink=9650, total=240000, ratio=0.0402\nsize: 1200x200\n(ratio<0.02 means the production image is garbled and VLM sees boxes)"
+    },
+    {
+      "stage": "Stage3",
+      "test": "server_render_function",
+      "passed": true,
+      "detail": "saved: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00004\\knowledge\\quick_qa\\diag\\server_code_test_quick_qa.png\nink=35577, ratio=0.1335, size=1200x222\n(this is what the ACTUAL server code produces)"
+    },
+    {
+      "stage": "Stage4",
+      "test": "api_key_present",
+      "passed": true,
+      "detail": "key=***EYkE"
+    },
+    {
+      "stage": "Stage4",
+      "test": "vlm_endpoint",
+      "passed": true,
+      "detail": "https://api.bltcy.ai/v1, model=qwen3-vl-235b-a22b"
+    },
+    {
+      "stage": "Stage4",
+      "test": "old_image_vlm_response",
+      "passed": true,
+      "detail": "[14.2s] VLM says about OLD image:\nThe image you provided contains lines of text that appear to be heavily corrupted or obfuscated—likely due to encoding errors, font rendering issues, or intentional distortion. The characters are mostly **unreadable**, consisting of:\n\n- Repeated blocks of symbols like `■`, `█`, `●`, `◆`, and other Unicode box/drawing characters.\n- Intermixed with some digits (e.g., `1982`, `1983`, `1994`, `1995`, "
+    },
+    {
+      "stage": "Stage4",
+      "test": "old_image_is_garbled",
+      "passed": true,
+      "detail": "garbled detected=True (expected: True, confirming the bug)"
+    },
+    {
+      "stage": "Stage4",
+      "test": "cjk_image_vlm_response",
+      "passed": true,
+      "detail": "[2.7s] VLM says about CJK image:\n"
+    },
+    {
+      "stage": "Stage4",
+      "test": "cjk_image_readable",
+      "passed": false,
+      "detail": "garbled=False, has_content=False\n(expected: garbled=False, has_content=True)"
+    },
+    {
+      "stage": "Stage4",
+      "test": "direct_text_to_llm",
+      "passed": true,
+      "detail": "[7.6s] LLM response (text-only, no image):\n该文档简要叙述了马云的早年教育经历与早期职业轨迹，主要内容包括：\n\n- **籍贯与童年**：祖籍浙江嵊州谷来镇，后随父母迁居杭州；就读于杭州市中北二小学（今长寿桥小学）及天水中学。\n- **高考经历**：1982–1984年三次参加高考，前两次因数学成绩低（9分、19分）落榜；第三次数学考89分，最终考入杭州师范学院外语系外语外贸专业（专科）。\n- **大学与学位**：1988年毕业于杭州师范学院（现杭州师范大学）英语专业，获学士学位。\n- **早期工作**：毕业后分配至杭州电子工业学院（现杭州电子科技大学）任英语教师；1994年调任外事办公室主任；1995年6月1日正式辞职——为其后续创业（如创办中国黄页、阿里巴巴）埋下伏笔。\n\n整体而言，文档聚焦于马云在创立阿里巴巴之前的求学与教职阶段，突出其 perseverance（坚持）与转折点（三次高考、辞职创业）。"
+    },
+    {
+      "stage": "Stage5",
+      "test": "architecture_analysis",
+      "passed": true,
+      "detail": "Current flow: txt -> render_to_image -> VLM (vision model)\nProblem: rendering CJK text to image requires CJK font\nBetter flow: txt -> send text directly to LLM (no image needed)"
+    },
+    {
+      "stage": "Stage5",
+      "test": "routes_to_fast_qa: '这个文档讲了什么'",
+      "passed": true,
+      "detail": "result=True"
+    },
+    {
+      "stage": "Stage5",
+      "test": "routes_to_fast_qa: '告诉我马云的祖籍'",
+      "passed": true,
+      "detail": "result=False"
+    },
+    {
+      "stage": "Stage5",
+      "test": "routes_to_fast_qa: 'summarize this document'",
+      "passed": true,
+      "detail": "result=True"
+    },
+    {
+      "stage": "Stage5",
+      "test": "routes_to_fast_qa: 'what is in this file'",
+      "passed": true,
+      "detail": "result=True"
+    },
+    {
+      "stage": "Stage5",
+      "test": "RECOMMENDATION",
+      "passed": true,
+      "detail": "For .txt files, the fast_qa path should either:\n  Option A: Use CJK font for rendering (our fix)\n  Option B: Send raw text directly to LLM without image rendering\n  Option C: Fall through to normal RAG query for .txt files\nOption B is simplest and most robust - no font dependency at all"
+    }
+  ]
+}

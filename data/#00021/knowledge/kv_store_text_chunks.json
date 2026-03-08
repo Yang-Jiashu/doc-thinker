@@ -1,0 +1,132 @@
+{
+  "chunk-82a4eec21f70d677eb8374d1d4cf717d": {
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00021\\knowledge\\output\\pdf_9c8a48b86bc313dd_zjl5qf7v\\pdf_9c8a48b86bc313dd\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image displays a printed scientific or engineering chart, likely from a journal article or technical paper. The chart occupies the central area of the image and features a Cartesian coordinate system with clearly labeled axes. The horizontal axis is labeled with the letter 'x' and is accompanied by numbers that increase from left to right, denoting the variable's values. The vertical axis is labeled 'y' and has a similar numeric scale increasing upwards. Within the plot area, there are multiple data series represented by distinct markers and lines. One data series is plotted with black square markers connected by a solid black line, while a second series is shown with open circular markers joined by a dashed line. The data points for each series correspond with the numerical scales on the axes. A legend in the upper right corner identifies the marker types and the variables or experimental conditions they represent, using succinct short labels such as 'A' and 'B'. The chart has a white background and uses black and gray for lines and text, with good contrast and easy readability. The text is a standard sans-serif font, sized appropriately for clarity. No color besides grayscale is present. Outside the chart, the image border contains no other visual elements, text, or decorations. The chart composition is balanced and professional, with adequate whitespace around the plot.",
+    "tokens": 383,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "chunk_order_index": 0,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:57a2a8a7035eae498f463142a9ba44e3",
+      "default:extract:fe3d0a47aecc07fd4f93c730595c16ff"
+    ],
+    "is_multimodal": true,
+    "modal_entity_name": "Grayscale Dual-Series Scientific Line Chart with Labeled Axes (image)",
+    "original_type": "image",
+    "page_idx": 0,
+    "create_time": 1772887005,
+    "update_time": 1772887027,
+    "_id": "chunk-82a4eec21f70d677eb8374d1d4cf717d"
+  },
+  "chunk-72b32a28064def695e4b9b7d9b2696bd": {
+    "content": "Footer Content Analysis:\nContent: {'type': 'footer', 'text': '', 'bbox': [466, 986, 531, 992], 'page_idx': 0}\n\nAnalysis: The analyzed footer content is minimalistic and structurally underdeveloped. It consists of a structural declaration ({'type': 'footer'}), but lacks any substantive textual information ('text': ''). The bounding box coordinates ([466, 986, 531, 992]) indicate a small, specific region near the bottom of the page (page_idx: 0), which is typical for footers. However, no branding, copyright, navigation, contact details, legal disclaimers, or supplementary elements are present. The absence of informational elements suggests this is either a placeholder footer or an unpopulated template section. No explicit relationships or hierarchy within the footer are discernible. For knowledge retrieval, it is important to note the lack of content so as not to misattribute significance or information to this region. The context signifies either a template state or omission during content population.",
+    "tokens": 213,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "chunk_order_index": 1,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:ad07a9d249eb07b6e17c6be4c9fa9a6e",
+      "default:extract:92ab4d90da1fb0de3298241c42c423c8"
+    ],
+    "is_multimodal": true,
+    "modal_entity_name": "Empty Structural Footer Placeholder (footer)",
+    "original_type": "footer",
+    "page_idx": 0,
+    "create_time": 1772887005,
+    "update_time": 1772887025,
+    "_id": "chunk-72b32a28064def695e4b9b7d9b2696bd"
+  },
+  "chunk-5657a885ab3549bf57ad1a7f98311a9a": {
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00021\\knowledge\\output\\pdf_9c8a48b86bc313dd_zjl5qf7v\\pdf_9c8a48b86bc313dd\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image appears to be a technical diagram or schematic. The layout is primarily horizontal, with several rectangular boxes arranged in a sequence, connected by arrows that indicate flow or direction. Each box contains short textual labels, possibly referencing specific components, stages, or processes. There are at least five main boxes, evenly spaced from left to right, each separated by arrows pointing from the leftmost box towards the rightmost box. The arrows are straight, black, and uniform in thickness, creating a clear visual pathway indicating progression through the stages. The boxes are white with black borders and contain black sans-serif text. The background of the image is white and uncluttered, enhancing the legibility of the diagram. No people, photographs, or decorative elements are present. The visual style is utilitarian and minimalist, focusing on clarity and information delivery. Lighting is even, with no shadows or gradients. Technical elements include not only directional arrows but potentially input/output indicators at the start and end positions of the flow. The purpose of the image seems to be illustrating a workflow, process pipeline, or stepwise progression through a series of discrete phases.",
+    "tokens": 348,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "chunk_order_index": 0,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:f6db96aeecb72baef3782e4442b66065",
+      "default:extract:c1218172b0f4004f0896c0e24c13e059"
+    ],
+    "is_multimodal": true,
+    "modal_entity_name": "horizontal_process_flow_diagram_with_labeled_boxes (image)",
+    "original_type": "image",
+    "page_idx": 0,
+    "create_time": 1772887033,
+    "update_time": 1772887053,
+    "_id": "chunk-5657a885ab3549bf57ad1a7f98311a9a"
+  },
+  "chunk-f7d29b1d8f2865bd7874dc29842c24e3": {
+    "content": "Footer Content Analysis:\nContent: {'type': 'footer', 'text': '', 'bbox': [466, 986, 531, 992], 'page_idx': 0}\n\nAnalysis: This footer instance is minimal and structurally sparse, characterized by an absence of textual content (i.e., an empty 'text' field). The organizational structure includes only basic metadata: a 'type' property specifying the element as a footer, a 'bbox' property indicating the footer's position via bounding box coordinates ([466, 986, 531, 992]), and a 'page_idx' property designating its placement on the first page (index 0). No visible information, such as copyright, company names, navigational links, or disclaimers, is present. The primary components pertain solely to spatial and contextual metadata rather than semantic content. The relationships are simple: the bounding box defines a specific but narrow area at the bottom of page 0, reserved as the footer region, but it remains unoccupied by actual data. In context, this footer acts as either a placeholder for future content generation or a demarcated region for document formatting consistency. For knowledge retrieval, this instance should be indexed as a structural (non-informational) footer, distinguishable from functional or content-rich footers.",
+    "tokens": 264,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "chunk_order_index": 1,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:3fb104f111b8af766bd80dddc72c1f8a",
+      "default:extract:f053a5960dc8be45eb279839ed7389d6"
+    ],
+    "is_multimodal": true,
+    "modal_entity_name": "Minimal Placeholder Footer (Empty Content, Page 0) (footer)",
+    "original_type": "footer",
+    "page_idx": 0,
+    "create_time": 1772887033,
+    "update_time": 1772887046,
+    "_id": "chunk-f7d29b1d8f2865bd7874dc29842c24e3"
+  },
+  "chunk-81cf2c17976f9f498f7cf65e14edb6aa": {
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00021\\knowledge\\output\\pdf_9c8a48b86bc313dd_zjl5qf7v\\pdf_9c8a48b86bc313dd\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image depicts a modern, open office environment viewed from a slightly elevated perspective. The layout features several workstations arranged in clusters, each separated by low, light-gray partition panels. Each workstation includes a computer monitor, keyboard, mouse, desk lamp, and a standard office chair with black upholstery and metallic legs. A variety of office supplies such as notepads, stationery holders, and water bottles are neatly placed on the desks. In the midground, a large whiteboard dominates one wall, partially filled with hand-written notes in various colors and a few printed documents attached via magnets. A potted green plant is placed in the left corner of the room, adding a touch of natural color. On the opposite side, a tall bookshelf contains a mix of binders, books, and decorative items such as a globe and framed photographs. Four people are present: two individuals are seated at their desks, focused on their screens; one person, dressed in a navy blazer and khaki slacks, is standing beside a peer, appearing to discuss or point at something on a computer monitor; another person in a red sweater and jeans is writing on the whiteboard, engaged in brainstorming. The color palette is dominated by neutral tones—greys, whites, and blacks—with splashes of color from clothing, office items, and the greenery. Natural daylight streams through large windows covered with translucent blinds, creating a bright and inviting ambiance with soft, diffuse lighting. The overall visual style is contemporary and professional, suggesting a collaborative and productive work environment. There are no overtly personal or distracting items, emphasizing the businesslike atmosphere.",
+    "tokens": 446,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "chunk_order_index": 0,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:be0e3218f884a52ba8202c303f05d284",
+      "default:extract:09c49f1a79e462ff306c763992ca55a8"
+    ],
+    "is_multimodal": true,
+    "modal_entity_name": "contemporary collaborative office workspace overview (image)",
+    "original_type": "image",
+    "page_idx": 0,
+    "create_time": 1772887061,
+    "update_time": 1772887084,
+    "_id": "chunk-81cf2c17976f9f498f7cf65e14edb6aa"
+  },
+  "chunk-cbb84f935e713904e739b2fe25e32637": {
+    "content": "Footer Content Analysis:\nContent: {'type': 'footer', 'text': '', 'bbox': [466, 986, 531, 992], 'page_idx': 0}\n\nAnalysis: This footer instance is characterized by an absence of textual content, as indicated by the 'text' field being empty. Structurally, the footer is minimally specified, present only by spatial coordinates (bounding box: [466, 986, 531, 992]) on page index 0, likely denoting its location near the bottom of the document page. There are no visible elements such as page numbers, copyright notices, organizational logos, navigation links, or contact information—elements that typically define informational or navigational roles in footers. The organization is thus limited to its positional metadata, with no internal structure or visual hierarchy. The relationship between components is non-existent due to the absence of distinct elements or content blocks. Contextually, this serves as a placeholder or an intentionally blank footer space, potentially as part of a minimalist design or as a byproduct of auto-generated document formatting. For knowledge retrieval, the key detail is the existence of a footer area at a specific page region that does not contribute informational value beyond signaling document sectioning or template usage.",
+    "tokens": 252,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "chunk_order_index": 1,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [
+      "default:extract:35b2865bdeb4eca62118edd64fa7eb91",
+      "default:extract:8a6c14502b1de713c4a0b1213fafef3a"
+    ],
+    "is_multimodal": true,
+    "modal_entity_name": "Blank Minimal Footer on Page 0 (footer)",
+    "original_type": "footer",
+    "page_idx": 0,
+    "create_time": 1772887061,
+    "update_time": 1772887079,
+    "_id": "chunk-cbb84f935e713904e739b2fe25e32637"
+  },
+  "chunk-df9d823233dfeaf94a9922d5d169f621": {
+    "tokens": 414,
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00021\\knowledge\\output\\pdf_9c8a48b86bc313dd_zjl5qf7v\\pdf_9c8a48b86bc313dd\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image features a standard document page layout with a predominantly white background. Centrally located on the page is a complex, multi-colored flowchart or diagram created with thin, precise lines and text labels. The chart is composed of various geometric shapes—rectangles, ovals, and arrows—arranged in a mostly horizontal format, with elements connected by directional lines suggesting process flow. The main colors used in the diagram are shades of blue, green, orange, and gray, each likely representing different categories or processes. The largest shape, located slightly upper-middle, is a blue rectangle containing concise text with a larger font size than surrounding elements. Several secondary rectangles and ovals, each with contrasting fill colors, branch out horizontally and vertically from the main shape, creating a layered effect reminiscent of an organizational chart or a workflow diagram. Each shape contains a few words of legible, black sans-serif text, likely denoting titles or steps. Arrows are used to indicate directionality between boxes, and some arrows converge or diverge, indicating decision points or the merging of parallel processes. The diagram is centered within ample page margins and is framed by thin, gray border lines. There are no photographic images, people, or decorative graphics. There is no visible title, caption, or page number present. The lighting is even with no visible shadows, and the style is consistent with technical documentation or instructional presentations—clean, minimalist, and focused on conveying structured information.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "create_time": 1772887097,
+    "update_time": 1772887097,
+    "_id": "chunk-df9d823233dfeaf94a9922d5d169f621"
+  },
+  "chunk-9d5786786b3a9686cea5ccde078fa857": {
+    "tokens": 245,
+    "content": "Footer Content Analysis:\nContent: {'type': 'footer', 'text': '', 'bbox': [466, 986, 531, 992], 'page_idx': 0}\n\nAnalysis: The provided footer content is minimalistic and lacks substantive textual content, as indicated by the empty 'text' field. The structure comprises basic metadata, including a defined 'type' explicitly set as 'footer', spatial coordinates specified by the 'bbox' array ([466, 986, 531, 992]), and an associated 'page_idx' of 0, which identifies its placement on the first page. Key elements—such as traditional navigational links, copyright statements, company information, or contact details—are absent. The relationship between components mainly serves to position the footer spatially within the document layout, suggesting a placeholder or default footer region rather than a content-rich section. Contextually, this footer appears to serve as a physical delimiter or reserved space at the bottom of the page instead of conveying informational or navigational utility. For knowledge retrieval, this instance is significant in recognizing designated footer zones even in the absence of explicit content, which can inform document structure parsing and automated footer identification for further content enrichment or templating.",
+    "chunk_order_index": 1,
+    "full_doc_id": "doc-1e43a4e394c11f0cebe284763824bebb",
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "create_time": 1772887122,
+    "update_time": 1772887122,
+    "_id": "chunk-9d5786786b3a9686cea5ccde078fa857"
+  }
+}

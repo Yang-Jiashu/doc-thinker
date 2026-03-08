@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException, Body
@@ -5,6 +6,8 @@ from fastapi import APIRouter, HTTPException, Body
 from ..schemas import EntityRelationshipRequest, RelationshipRequest
 from ..state import state
 from ..memory import get_session_memory_engine
+from docthinker.kg_expansion import ExpandedNodeManager
+from docthinker.image_assets import is_image_node, resolve_graph_node_color
 
 
 router = APIRouter()
@@ -38,6 +41,77 @@ async def _get_session_rag_or_raise(session_id: Optional[str]):
         raise
     except Exception as e:
         raise HTTPException(status_code=404, detail=f"Session not found: {e}")
+
+
+def _get_expanded_node_manager_or_raise(session_id: Optional[str]) -> ExpandedNodeManager:
+    if not state.session_manager:
+        raise HTTPException(status_code=500, detail="Session manager not initialized")
+    if not session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+
+    session = state.session_manager.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail=f"Session not found: {session_id}")
+
+    metadata = session.get("metadata") or {}
+    knowledge_dir = metadata.get("knowledge_dir") or session.get("knowledge_dir")
+    if not knowledge_dir:
+        raise HTTPException(status_code=500, detail="knowledge_dir not found in session metadata")
+
+    if not hasattr(state, "expanded_node_managers") or state.expanded_node_managers is None:
+        state.expanded_node_managers = {}
+    if not hasattr(state, "expanded_node_lock") or state.expanded_node_lock is None:
+        from threading import RLock
+
+        state.expanded_node_lock = RLock()
+
+    storage_path = Path(str(knowledge_dir)) / "expanded_nodes.json"
+    lock = state.expanded_node_lock
+    with lock:
+        mgr = state.expanded_node_managers.get(session_id)
+        if mgr is None:
+            mgr = ExpandedNodeManager(storage_path=storage_path)
+            state.expanded_node_managers[session_id] = mgr
+        return mgr
+
+
+def _pick_root_entity_ids(
+    nodes_data: List[Dict[str, Any]],
+    edges_data: List[Dict[str, Any]],
+    *,
+    limit: int = 6,
+) -> List[str]:
+    degree: Dict[str, int] = {}
+    for edge in edges_data:
+        src = str(edge.get("source") or "").strip()
+        tgt = str(edge.get("target") or "").strip()
+        if src:
+            degree[src] = degree.get(src, 0) + 1
+        if tgt:
+            degree[tgt] = degree.get(tgt, 0) + 1
+
+    candidates = []
+    for n in nodes_data:
+        entity = str(n.get("id") or n.get("entity_id") or "").strip()
+        if not entity:
+            continue
+        is_expanded = str(n.get("source_id") or "").strip() == "llm_expansion" or str(
+            n.get("is_expanded") or ""
+        ).strip() in {"1", "true", "True"}
+        if is_expanded:
+            continue
+        candidates.append((degree.get(entity, 0), entity))
+
+    candidates.sort(key=lambda x: (-x[0], x[1]))
+    return [entity for _, entity in candidates[: max(1, int(limit))]]
+
+
+def _is_expanded_node(node_data: Dict[str, Any]) -> bool:
+    ie = node_data.get("is_expanded")
+    if ie is not None and ie != "":
+        if ie == 1 or ie == "1" or str(ie).strip() == "1":
+            return True
+    return str(node_data.get("source_id") or "").strip() == "llm_expansion"
 
 
 @router.post("/config")
@@ -161,29 +235,25 @@ async def get_graph_data(session_id: Optional[str] = None):
         edges = []
         max_nodes = 1000  # 提高上限，支持 500+ 节点图谱
         # 优先保留扩展节点（黄色）：is_expanded=1 或 source_id=llm_expansion
-        def _is_expanded(n: dict) -> bool:
-            ie = n.get("is_expanded")
-            if ie is not None and ie != "":
-                if ie == 1 or ie == "1" or str(ie).strip() == "1":
-                    return True
-            sid = str(n.get("source_id") or "").strip()
-            return sid == "llm_expansion"
-        expanded_nodes = [n for n in nodes_data if _is_expanded(n)]
-        other_nodes = [n for n in nodes_data if not _is_expanded(n)]
+        expanded_nodes = [n for n in nodes_data if _is_expanded_node(n)]
+        other_nodes = [n for n in nodes_data if not _is_expanded_node(n)]
         nodes_to_use = expanded_nodes + other_nodes[: max(0, max_nodes - len(expanded_nodes))]
         for node_info in nodes_to_use:
             node_id = node_info.get("id") or node_info.get("entity_id") or ""
             if not node_id:
                 continue
-            is_expanded = _is_expanded(node_info)
+            is_expanded = _is_expanded_node(node_info)
             nodes.append(
                 {
                     "id": node_id,
                     "label": node_id,
                     "type": node_info.get("entity_type", "unknown"),
                     "size": 20,
-                    "color": "#FFD700" if is_expanded else "#3498db",
+                    "color": resolve_graph_node_color(
+                        node_info, is_expanded=is_expanded
+                    ),
                     "is_expanded": is_expanded,
+                    "is_image_node": is_image_node(node_info),
                 }
             )
 
@@ -204,12 +274,14 @@ async def get_graph_data(session_id: Optional[str] = None):
                 )
 
         expanded_in_response = sum(1 for x in nodes if x.get("is_expanded"))
+        image_nodes_in_response = sum(1 for x in nodes if x.get("is_image_node"))
         meta = {
             "total_nodes": len(nodes_data),
             "total_edges": len(edges_data),
             "session_id": session_id,
             "nodes_returned": len(nodes),
             "expanded_in_response": expanded_in_response,
+            "image_nodes_in_response": image_nodes_in_response,
         }
         if hasattr(G, "_graphml_xml_file"):
             meta["graph_file"] = str(getattr(G, "_graphml_xml_file", ""))
@@ -228,6 +300,7 @@ async def expand_knowledge_graph(payload: Dict[str, Any] = Body(default={})):
     session_id = payload.get("session_id")
     angle_indices = payload.get("angle_indices")
     apply = payload.get("apply", True)
+    root_entity_ids = payload.get("root_entity_ids")
     if not state.rag_instance or not state.session_manager:
         raise HTTPException(status_code=500, detail="Service not initialized")
     if not session_id:
@@ -276,7 +349,24 @@ async def expand_knowledge_graph(payload: Dict[str, Any] = Body(default={})):
             apply_to_graph=G if apply else None,
             session_id=session_id,
         )
-        return {"success": True, **result}
+        manager = _get_expanded_node_manager_or_raise(session_id)
+        if isinstance(root_entity_ids, list) and root_entity_ids:
+            root_ids = [str(x).strip() for x in root_entity_ids if str(x).strip()]
+        else:
+            root_ids = _pick_root_entity_ids(nodes_data, edges_data)
+
+        lifecycle = manager.upsert_candidates(
+            [*(result.get("added") or []), *(result.get("suggested") or [])],
+            default_root_ids=root_ids,
+            source="llm_expansion",
+        )
+
+        return {
+            "success": True,
+            **result,
+            "root_entity_ids": root_ids,
+            "lifecycle": lifecycle,
+        }
     except Exception as e:
         err = str(e)
         raise HTTPException(status_code=500, detail=err or "Expansion failed")
@@ -308,13 +398,6 @@ async def debug_expanded_nodes(session_id: Optional[str] = None):
             await target_rag._ensure_graphcore_initialized()
         G = target_rag.graphcore.chunk_entity_relation_graph
         nodes_data = await G.get_all_nodes()
-
-        def _is_expanded_node(n: dict) -> bool:
-            ie = n.get("is_expanded")
-            if ie is not None and ie != "":
-                if ie == 1 or ie == "1" or str(ie).strip() == "1":
-                    return True
-            return str(n.get("source_id") or "").strip() == "llm_expansion"
 
         expanded = [
             {"id": n.get("id") or n.get("entity_id"), "is_expanded": n.get("is_expanded")}
@@ -365,6 +448,48 @@ async def get_knowledge_graph_stats(session_id: Optional[str] = None):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/knowledge-graph/expanded-nodes")
+async def list_expanded_nodes(
+    session_id: Optional[str] = None,
+    status: Optional[str] = None,
+    limit: int = 200,
+):
+    manager = _get_expanded_node_manager_or_raise(session_id)
+    nodes = manager.list_nodes(status=status, limit=limit)
+    return {
+        "session_id": session_id,
+        "status": status,
+        "count": len(nodes),
+        "nodes": nodes,
+    }
+
+
+@router.post("/knowledge-graph/expanded-nodes/match")
+async def match_expanded_nodes(payload: Dict[str, Any] = Body(default={})):
+    session_id = payload.get("session_id")
+    query = str(payload.get("query") or "").strip()
+    top_k = int(payload.get("top_k") or 2)
+    memory_terms = payload.get("memory_terms") or []
+    if not query:
+        raise HTTPException(status_code=400, detail="query is required")
+    manager = _get_expanded_node_manager_or_raise(session_id)
+    matches = manager.match_nodes(
+        query=query,
+        top_k=max(1, top_k),
+        memory_terms=memory_terms if isinstance(memory_terms, list) else [],
+    )
+    if matches:
+        manager.mark_hits([m.get("entity", "") for m in matches])
+    instruction = manager.build_forced_instruction(matches, limit=min(2, max(1, top_k)))
+    return {
+        "session_id": session_id,
+        "query": query,
+        "count": len(matches),
+        "matches": matches,
+        "instruction": instruction,
+    }
 
 
 @router.post("/knowledge-graph/entity")

@@ -166,21 +166,21 @@ class DocThinkerConfig:
     """If false, skip HyperGraphRAG chunk ingestion/extraction and rely on GraphCore graph."""
 
     bltcy_api_key: str = field(default=get_env_value("BLTCY_API_KEY", "", str))
-    """API key used for https://api.bltcy.ai calls."""
+    """API key used for OpenAI-compatible chat completion calls."""
 
     bltcy_api_base: str = field(
         default=get_env_value(
             "BLTCY_API_BASE",
-            "https://api.siliconflow.cn/v1/chat/completions",
+            "https://api.openai.com/v1",
             str,
         )
     )
-    """Endpoint base for the SiliconFlow compatible API."""
+    """Endpoint base for an OpenAI-compatible API."""
 
     bltcy_model: str = field(
-        default=get_env_value("BLTCY_MODEL", "Qwen/Qwen2.5-VL-72B-Instruct", str)
+        default=get_env_value("BLTCY_MODEL", "gpt-4o-mini", str)
     )
-    """Model name used when calling the SiliconFlow API."""
+    """Model name used when calling the OpenAI-compatible API."""
 
     # Knowledge Graph Configuration
     # ---

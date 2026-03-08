@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="马云">
+      <data key="entity_id">马云</data>
+      <data key="entity_type">person</data>
+      <data key="description">马云is a prominent figure who was born in浙江省嵊州市, later relocated to杭州, and has a significant background in education and English teaching which laid a foundation for his future career.&lt;SEP&gt;马云is a notable figure who graduated from杭州师范学院, receiving a bachelor's degree in English and later engaged in English teaching.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a&lt;SEP&gt;chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <node id="浙江省嵊州市">
+      <data key="entity_id">浙江省嵊州市</data>
+      <data key="entity_type">location</data>
+      <data key="description">浙江省嵊州市is the birthplace of马云, where he spent part of his early childhood.&lt;SEP&gt;浙江省嵊州市is the birthplace of马云before he moved to杭州.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a&lt;SEP&gt;chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <node id="杭州">
+      <data key="entity_id">杭州</data>
+      <data key="entity_type">location</data>
+      <data key="description">杭州is the city where马云moved later in his life and pursued his education.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820320</data>
+      <data key="truncate" />
+    </node>
+    <node id="杭州师范学院">
+      <data key="entity_id">杭州师范学院</data>
+      <data key="entity_type">organization</data>
+      <data key="description">杭州师范学院was the institution where马云studied Foreign Languages and graduated with a Bachelor's degree in English in 1988.&lt;SEP&gt;杭州师范学院is the educational institution where马云studied, now known as杭州师范大学.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a&lt;SEP&gt;chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <node id="杭州电子工业学院">
+      <data key="entity_id">杭州电子工业学院</data>
+      <data key="entity_type">organization</data>
+      <data key="description">杭州电子工业学院(now杭州电子科技大学) is the institution where马云worked as an English teacher after graduation.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820320</data>
+      <data key="truncate" />
+    </node>
+    <node id="党政办公室">
+      <data key="entity_id">党政办公室</data>
+      <data key="entity_type">organization</data>
+      <data key="description">党政办公室is an office within which马云worked as the Director of the Foreign Affairs Office after starting his career in education.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820320</data>
+      <data key="truncate" />
+    </node>
+    <node id="英语教学">
+      <data key="entity_id">英语教学</data>
+      <data key="entity_type">concept</data>
+      <data key="description">英语教学is a field in which马云participated after graduating, highlighting his expertise in English education.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820320</data>
+      <data key="truncate" />
+    </node>
+    <node id="高考">
+      <data key="entity_id">高考</data>
+      <data key="entity_type">event</data>
+      <data key="description">高考refers to the national college entrance examination in China, which马云took multiple times with varying results.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820320</data>
+      <data key="truncate" />
+    </node>
+    <node id="Zhejiang Province">
+      <data key="entity_id">Zhejiang Province</data>
+      <data key="entity_type">location</data>
+      <data key="description">Zhejiang Province is the birthplace of Ma Yun, specifically in Shengzhou, a city within the province.&lt;SEP&gt;Zhejiang Province is the region in China where Ma Yun was born before moving to Hangzhou.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a&lt;SEP&gt;chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820373</data>
+      <data key="truncate" />
+    </node>
+    <node id="Shengzhou">
+      <data key="entity_id">Shengzhou</data>
+      <data key="entity_type">location</data>
+      <data key="description">Shengzhou is a city in Zhejiang Province, noted as Ma Yun's ancestral hometown.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820322</data>
+      <data key="truncate" />
+    </node>
+    <node id="Hangzhou">
+      <data key="entity_id">Hangzhou</data>
+      <data key="entity_type">location</data>
+      <data key="description">Hangzhou is the city to which Ma Yun's parents moved and where he later pursued his education.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820322</data>
+      <data key="truncate" />
+    </node>
+    <node id="Hangzhou Normal University">
+      <data key="entity_id">Hangzhou Normal University</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Hangzhou Normal University, previously known as Hangzhou Normal College, is where Ma Yun graduated with a Bachelor's degree in English.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820322</data>
+      <data key="truncate" />
+    </node>
+    <node id="Hangzhou Electronic Industry College">
+      <data key="entity_id">Hangzhou Electronic Industry College</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Hangzhou Electronic Industry College is where Ma Yun worked as an English teacher after graduation.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820322</data>
+      <data key="truncate" />
+    </node>
+    <node id="Foreign Affairs Office">
+      <data key="entity_id">Foreign Affairs Office</data>
+      <data key="entity_type">organization</data>
+      <data key="description">The Foreign Affairs Office is an office Ma Yun was appointed to as a director after his teaching role.</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820322</data>
+      <data key="truncate" />
+    </node>
+    <node id="Ma Yun">
+      <data key="entity_id">Ma Yun</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a&lt;SEP&gt;chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="description">Ma Yun was born in Zhejiang Province, specifically in Shengzhou.&lt;SEP&gt;Ma Yun is an individual who graduated from Hangzhou Normal College (now Hangzhou Normal University) with a Bachelor's degree in English.</data>
+      <data key="entity_type">person</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <node id="Jack Ma">
+      <data key="entity_id">Jack Ma</data>
+      <data key="entity_type">person</data>
+      <data key="description">Jack Ma is a prominent Chinese entrepreneur known for co-founding Alibaba Group and is originally from Hefei, Anhui Province, China.</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820350</data>
+      <data key="truncate" />
+    </node>
+    <node id="China">
+      <data key="entity_id">China</data>
+      <data key="entity_type">location</data>
+      <data key="description">China is the country of Jack Ma's ancestral home.</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820350</data>
+      <data key="truncate" />
+    </node>
+    <node id="Anhui Province">
+      <data key="entity_id">Anhui Province</data>
+      <data key="entity_type">location</data>
+      <data key="description">Anhui Province is a region in China where Jack Ma's ancestral home is located.</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820350</data>
+      <data key="truncate" />
+    </node>
+    <node id="Hefei City">
+      <data key="entity_id">Hefei City</data>
+      <data key="entity_type">location</data>
+      <data key="description">Hefei City is the specific city in Anhui Province that is Jack Ma's ancestral home.</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820350</data>
+      <data key="truncate" />
+    </node>
+    <node id="Hefei">
+      <data key="entity_id">Hefei</data>
+      <data key="entity_type">location</data>
+      <data key="description">Hefei is a city in Anhui Province, China, recognized as the ancestral hometown of Jack Ma.</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820350</data>
+      <data key="truncate" />
+    </node>
+    <node id="杭州师范大学">
+      <data key="entity_id">杭州师范大学</data>
+      <data key="entity_type">organization</data>
+      <data key="description">杭州师范大学is the current name of the institution where马云graduated with a degree in English.</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <node id="外语系">
+      <data key="entity_id">外语系</data>
+      <data key="entity_type">department</data>
+      <data key="description">外语系is the department at杭州师范学院where马云completed his studies.</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <node id="Hangzhou Normal College">
+      <data key="entity_id">Hangzhou Normal College</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Hangzhou Normal College, now known as Hangzhou Normal University, is where Ma Yun completed his education in English.</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <node id="1995">
+      <data key="entity_id">1995</data>
+      <data key="entity_type">year</data>
+      <data key="description">In 1995, Ma Yun resigned from his teaching position after working as an English teacher following his graduation.</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820371</data>
+      <data key="truncate" />
+    </node>
+    <edge source="马云" target="浙江省嵊州市">
+      <data key="weight">2.0</data>
+      <data key="description">马云was born in浙江省嵊州市and considers it his place of origin.&lt;SEP&gt;马云was born in浙江省嵊州市before relocating to杭州.</data>
+      <data key="keywords">birthplace,early life,origin</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a&lt;SEP&gt;chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820378</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="马云" target="杭州师范学院">
+      <data key="weight">1.0</data>
+      <data key="description">马云graduated from杭州师范学院, earning a bachelor's degree in English.</data>
+      <data key="keywords">education,graduation</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820374</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="马云" target="杭州师范大学">
+      <data key="weight">1.0</data>
+      <data key="description">马云is an alumnus of杭州师范大学, reflecting his educational background.</data>
+      <data key="keywords">education,graduation</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820376</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="马云" target="外语系">
+      <data key="weight">1.0</data>
+      <data key="description">马云studied in the外语系at杭州师范学院, where he completed his degree.</data>
+      <data key="keywords">academic department,studies</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820380</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Zhejiang Province" target="Ma Yun">
+      <data key="weight">2.0</data>
+      <data key="description">Ma Yun was born in Zhejiang Province, specifically in Shengzhou.&lt;SEP&gt;Ma Yun was born in Zhejiang Province before relocating to Hangzhou.</data>
+      <data key="keywords">birthplace,origin</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a&lt;SEP&gt;chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820376</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Hangzhou" target="Ma Yun">
+      <data key="weight">1.0</data>
+      <data key="description">Ma Yun relocated to Hangzhou after his parents moved there.</data>
+      <data key="keywords">family relocation,residence</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820337</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Hangzhou Normal University" target="Ma Yun">
+      <data key="weight">1.0</data>
+      <data key="description">Ma Yun graduated from Hangzhou Normal University with a degree in English.</data>
+      <data key="keywords">education,graduation</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820339</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Hangzhou Electronic Industry College" target="Ma Yun">
+      <data key="weight">1.0</data>
+      <data key="description">After graduation, Ma Yun worked as an English teacher at Hangzhou Electronic Industry College.</data>
+      <data key="keywords">employment,teaching</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820340</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Foreign Affairs Office" target="Ma Yun">
+      <data key="weight">1.0</data>
+      <data key="description">Ma Yun was appointed as the director of the Foreign Affairs Office after working at the college.</data>
+      <data key="keywords">career advancement,job transition</data>
+      <data key="source_id">chunk-edd212a91e12d7f60e0a2e2e522d7d8a</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820342</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Ma Yun" target="Hangzhou Normal College">
+      <data key="weight">1.0</data>
+      <data key="description">Ma Yun graduated from Hangzhou Normal College with a Bachelor's degree in English.</data>
+      <data key="keywords">educational background,graduation</data>
+      <data key="source_id">chunk-56b4ae22b980586a294dd6f90fb464e3</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820374</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Jack Ma" target="Hefei City">
+      <data key="weight">1.0</data>
+      <data key="description">Jack Ma's ancestral home is located in Hefei City.</data>
+      <data key="keywords">ancestral origin,birthplace</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820353</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Jack Ma" target="China">
+      <data key="weight">1.0</data>
+      <data key="description">Jack Ma is originally from China.</data>
+      <data key="keywords">country,national origin</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820355</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Jack Ma" target="Hefei">
+      <data key="weight">1.0</data>
+      <data key="description">Jack Ma's ancestral hometown is Hefei, Anhui Province, China, influencing his identity and background.</data>
+      <data key="keywords">ancestry,origin</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820356</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="China" target="Anhui Province">
+      <data key="weight">1.0</data>
+      <data key="description">Anhui Province is a province within the country of China.</data>
+      <data key="keywords">provincial area,regional relationship</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820357</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Anhui Province" target="Hefei City">
+      <data key="weight">1.0</data>
+      <data key="description">Hefei City is situated in Anhui Province, China.</data>
+      <data key="keywords">city in province,location relationship</data>
+      <data key="source_id">chunk-387d0462d3b3d2df5ccc68284d97f96f</data>
+      <data key="file_path">unknown_source</data>
+      <data key="created_at">1772820355</data>
+      <data key="truncate" />
+    </edge>
+  </graph>
+</graphml>

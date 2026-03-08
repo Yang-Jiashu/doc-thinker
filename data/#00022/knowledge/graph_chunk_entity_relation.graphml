@@ -1,0 +1,1218 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="I/O System">
+      <data key="entity_id">I/O System</data>
+      <data key="entity_type">concept</data>
+      <data key="description">The I/O System refers to the subsystem responsible for managing input and output operations and devices within a computing environment.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Device">
+      <data key="entity_id">I/O Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Device includes both input and output devices that communicate data between the computer and external environment.&lt;SEP&gt;The I/O Device is a generic label for computer peripherals connected to the I/O interface, including units like Keyboard, Mouse, Display, Printer, and Disk.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Interface">
+      <data key="entity_id">I/O Interface</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Interface defines the medium and rules by which I/O devices connect and communicate with a computer system, including parallel and serial interfaces.&lt;SEP&gt;The I/O Interface represents the circuitry that enables communication between the I/O Controller and external I/O devices.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Controller">
+      <data key="entity_id">I/O Controller</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Controller is a device or circuit that manages data exchange and control signals between the computer system and I/O devices, including general and special purpose types.&lt;SEP&gt;The I/O Controller is a functional hardware unit positioned below the CPU, managing the coordination and execution of input/output operations.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Channel">
+      <data key="entity_id">I/O Channel</data>
+      <data key="entity_type">concept</data>
+      <data key="description">I/O Channel is a dedicated pathway or subsystem for managing data transfers between memory and peripheral devices, including selection channels and multiplex channels.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Port">
+      <data key="entity_id">I/O Port</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Port serves as a physical connection point for input or output signals to enter or leave a system.&lt;SEP&gt;The I/O Port serves as an access point between the I/O Interface and I/O Devices, facilitating communication and data transfer.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Buffer">
+      <data key="entity_id">I/O Buffer</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">I/O Buffer is an area of memory used to temporarily store data during transfer between the CPU and I/O devices.&lt;SEP&gt;The I/O Buffer is an intermediate storage block between the I/O Interface and I/O Devices, providing temporary data buffering.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Instruction">
+      <data key="entity_id">I/O Instruction</data>
+      <data key="entity_type">concept</data>
+      <data key="description">I/O Instruction is a command in a computer system that initiates an input or output operation.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Operation">
+      <data key="entity_id">I/O Operation</data>
+      <data key="entity_type">method</data>
+      <data key="description">I/O Operation is the process or sequence of steps for performing input or output actions in a computer system.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O Mode">
+      <data key="entity_id">I/O Mode</data>
+      <data key="entity_type">concept</data>
+      <data key="description">I/O Mode refers to the method by which data transfer is managed in the I/O System, including program polling, interrupt, DMA, and channel modes.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Parallel Interface">
+      <data key="entity_id">Parallel Interface</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Parallel Interface is a type of I/O Interface that transfers multiple bits simultaneously.&lt;SEP&gt;The Parallel Interface is a specific type of I/O interface that enables parallel communication with certain external devices.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Serial Interface">
+      <data key="entity_id">Serial Interface</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Serial Interface is a type of I/O interface that transmits data one bit at a time, sequentially.&lt;SEP&gt;The Serial Interface is a specific type of I/O interface that enables serial communication with external devices.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Data Register">
+      <data key="entity_id">Data Register</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Data Register is a component of an I/O interface used to hold data being transferred to or from a device.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Status Register">
+      <data key="entity_id">Status Register</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Status Register is a component of an I/O interface that holds information about the current state of the device or operation.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Control Register">
+      <data key="entity_id">Control Register</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Control Register is a part of the I/O interface used to manage and configure the operations of a connected I/O device.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Data Buffer Register">
+      <data key="entity_id">Data Buffer Register</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Data Buffer Register is used to temporarily store data during the transfer between the CPU and an I/O device.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="General Controller">
+      <data key="entity_id">General Controller</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">General Controller is a type of I/O Controller designed for use with a range of I/O devices.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Dedicated Controller">
+      <data key="entity_id">Dedicated Controller</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Dedicated Controller is an I/O Controller specialized for a specific device or operation.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Selector Channel">
+      <data key="entity_id">Selector Channel</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Selector Channel is an I/O Channel that can manage data transfer for one device at a time with high speed.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Multiplexer Channel">
+      <data key="entity_id">Multiplexer Channel</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Multiplexer Channel is an I/O Channel that allows multiple devices to share the same channel for I/O transfers concurrently.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Input Port">
+      <data key="entity_id">Input Port</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Input Port is a type of I/O port dedicated to receiving incoming data from an external source.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Output Port">
+      <data key="entity_id">Output Port</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Output Port is a type of I/O port dedicated to sending data to an external device.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Bidirectional Port">
+      <data key="entity_id">Bidirectional Port</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Bidirectional Port is a type of I/O Port capable of both input and output operations.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Input Buffer">
+      <data key="entity_id">Input Buffer</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Input Buffer is a type of I/O buffer used for temporarily storing incoming data.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Output Buffer">
+      <data key="entity_id">Output Buffer</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Output Buffer is a type of I/O buffer used for temporarily storing outgoing data.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Bidirectional Buffer">
+      <data key="entity_id">Bidirectional Buffer</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Bidirectional Buffer is a type of I/O Buffer that can store both incoming and outgoing data.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Input Instruction">
+      <data key="entity_id">Input Instruction</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Input Instruction is an I/O command for receiving data from an input device.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Output Instruction">
+      <data key="entity_id">Output Instruction</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Output Instruction is an I/O instruction used to write data from the system to a device.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Status Instruction">
+      <data key="entity_id">Status Instruction</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Status Instruction is an I/O instruction used to check or report the current state of an I/O device or operation.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Control Instruction">
+      <data key="entity_id">Control Instruction</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Control Instruction is an I/O instruction that manages or changes the behavior of an I/O device.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Program Polling Mode">
+      <data key="entity_id">Program Polling Mode</data>
+      <data key="entity_type">method</data>
+      <data key="description">Program Polling Mode is an I/O Mode where the CPU repeatedly checks device status to manage I/O.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="Interrupt Mode">
+      <data key="entity_id">Interrupt Mode</data>
+      <data key="entity_type">method</data>
+      <data key="description">Interrupt Mode is an I/O Mode where the device interrupts the CPU to request service.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889445</data>
+      <data key="truncate" />
+    </node>
+    <node id="DMA Mode">
+      <data key="entity_id">DMA Mode</data>
+      <data key="entity_type">method</data>
+      <data key="description">DMA Mode (Direct Memory Access Mode) is an I/O method allowing peripherals to communicate with memory without CPU intervention.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889446</data>
+      <data key="truncate" />
+    </node>
+    <node id="Channel Mode">
+      <data key="entity_id">Channel Mode</data>
+      <data key="entity_type">method</data>
+      <data key="description">Channel Mode is an I/O method that utilizes dedicated I/O channels for data transfer, freeing the CPU from direct control.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Input Device">
+      <data key="entity_id">Input Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Input Device is a type of I/O device used for providing data and instructions to a computer system, including examples such as keyboards, mice, scanners, and cameras.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Output Device">
+      <data key="entity_id">Output Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Output Device is a type of I/O device used to display or produce results from computer processing, examples include monitors, printers, and plotters.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Keyboard">
+      <data key="entity_id">Keyboard</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Keyboard is an input device used to enter data and commands into a computer system.&lt;SEP&gt;The Keyboard is an input device connected to the I/O interface for user data entry.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Mouse">
+      <data key="entity_id">Mouse</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Mouse is an input device used to interact with a computer through cursor movement and clicking.&lt;SEP&gt;The Mouse is an input device connected to the I/O interface, used for pointer input and control.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Scanner">
+      <data key="entity_id">Scanner</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Scanner is an input device for digitizing physical documents into electronic form.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Camera">
+      <data key="entity_id">Camera</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Camera is an input device used to capture visual information and input it into a computer system.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Monitor">
+      <data key="entity_id">Monitor</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Monitor is an output device that visually displays data and information from the computer.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Printer">
+      <data key="entity_id">Printer</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Printer is an output device that produces physical (printed) copies of digital documents.&lt;SEP&gt;The Printer is an output device connected to the I/O interface, used to produce paper copies of digital content.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Plotter">
+      <data key="entity_id">Plotter</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Plotter is an output device designed for printing vector graphics and technical drawings.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Input/Output Device">
+      <data key="entity_id">Input/Output Device</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Input/Output Device refers to devices that are capable of both sending data to and receiving data from a computer system.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="General Purpose Controller">
+      <data key="entity_id">General Purpose Controller</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">General Purpose Controller is an I/O controller capable of managing diverse types of I/O devices.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Special Purpose Controller">
+      <data key="entity_id">Special Purpose Controller</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Special Purpose Controller is an I/O controller dedicated to managing specific I/O operations for a particular class of devices.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Selection Channel">
+      <data key="entity_id">Selection Channel</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Selection Channel is a type of I/O channel used for managing single high-speed data transfers.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Multiplex Channel">
+      <data key="entity_id">Multiplex Channel</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Multiplex Channel is a type of I/O channel that allows multiple simultaneous data transfers.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Programmed I/O Mode">
+      <data key="entity_id">Programmed I/O Mode</data>
+      <data key="entity_type">method</data>
+      <data key="description">Programmed I/O Mode is an I/O method where the CPU actively monitors and controls every data transfer.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Interrupt I/O Mode">
+      <data key="entity_id">Interrupt I/O Mode</data>
+      <data key="entity_type">method</data>
+      <data key="description">Interrupt I/O Mode is an I/O method where the device interrupts the CPU to initiate or complete data transfers.</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889447</data>
+      <data key="truncate" />
+    </node>
+    <node id="Computer IO System Block Diagram (image)">
+      <data key="entity_id">Computer IO System Block Diagram (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This diagram visualizes the logical structure of a computer I/O system, depicting the relationships between the CPU, I/O controllers, interfaces, and devices, directly illustrating terms and concepts discussed in Chapter 7's context on I/O architecture.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889462</data>
+    </node>
+    <node id="Empty footer placeholder for I/O系统教材首页 (footer)">
+      <data key="entity_id">Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="entity_type">footer</data>
+      <data key="description">This entity is an unpopulated footer on page 0 of an I/O systems textbook, acting as a structural marker for the document. While it contains no text content, it establishes a reserved space for possible future information and aids in page organization.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889462</data>
+    </node>
+    <node id="Computer IO System Block Diagram (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This diagram visualizes the logical structure of a computer I/O system, depicting the relationships between the CPU, I/O controllers, interfaces, and devices, directly illustrating terms and concepts discussed in Chapter 7's context on I/O architecture.</data>
+      <data key="source_id">image_asset:img-8defcdd2c345af3648ad934cd3e8df14</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\knowledge\multimodal\images\img-8defcdd2c345af3648ad934cd3e8df14.jpg</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-5b672c45b6959e2a30f4505f12cd16dd</data>
+      <data key="created_at">1772889465</data>
+    </node>
+    <node id="Central Processing Unit">
+      <data key="entity_id">Central Processing Unit</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The Central Processing Unit (CPU) is the main processor block at the top of the schematic diagram, responsible for sending commands and control signals to I/O operations.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Display">
+      <data key="entity_id">Display</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The Display is an output device connected to the I/O interface, responsible for visual output.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Disk">
+      <data key="entity_id">Disk</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The Disk is a peripheral device supporting both input and output operations, typically used for data storage.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Data Flow">
+      <data key="entity_id">Data Flow</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Data Flow represents the directional movement of data among the CPU, I/O Controller, Interfaces, Buffers, and Devices.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Control Signal">
+      <data key="entity_id">Control Signal</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Control Signal refers to the lines that carry command and coordination information among components in the I/O system.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O System Structure Diagram">
+      <data key="entity_id">I/O System Structure Diagram</data>
+      <data key="entity_type">content</data>
+      <data key="description">The I/O System Structure Diagram is a schematic block diagram illustrating the organization and relationships of I/O subsystems as discussed in Chapter 7.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Chapter 7">
+      <data key="entity_id">Chapter 7</data>
+      <data key="entity_type">content</data>
+      <data key="description">Chapter 7 contains textual content describing and analyzing the architecture of computer I/O systems.</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Footer">
+      <data key="entity_id">Footer</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Footer is a designated region at the bottom of a document page, identified by type and bounding box, typically marking page division or providing auxiliary details in technical or educational documents.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Bounding Box [466, 986, 531, 992]">
+      <data key="entity_id">Bounding Box [466, 986, 531, 992]</data>
+      <data key="entity_type">data</data>
+      <data key="description">Bounding Box [466, 986, 531, 992] specifies the positional coordinates of the footer on the first page of the document.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="First Page">
+      <data key="entity_id">First Page</data>
+      <data key="entity_type">location</data>
+      <data key="description">First Page refers to the initial page in the document, as indicated by the page index 0.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O System Structure and Components">
+      <data key="entity_id">I/O System Structure and Components</data>
+      <data key="entity_type">content</data>
+      <data key="description">I/O System Structure and Components refers to the surrounding document context that discusses the organization, types, functions, and examples related to computer architecture input/output systems.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Technical Document">
+      <data key="entity_id">Technical Document</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Technical Document is a multi-section text, such as an educational document or textbook, that organizes content with features like footers for navigation or structural support.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Empty Text String">
+      <data key="entity_id">Empty Text String</data>
+      <data key="entity_type">data</data>
+      <data key="description">Empty Text String refers to the absence of rendered text in the footer's content field, indicating the footer is a placeholder without visible elements.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <node id="Page Division">
+      <data key="entity_id">Page Division</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Page Division is a concept referring to the segmentation or separation of content within a technical document, typically supported by footers or other markers.</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889488</data>
+      <data key="truncate" />
+    </node>
+    <edge source="I/O System" target="I/O Device">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Devices are components of the I/O System responsible for input and output operations.</data>
+      <data key="keywords">data transfer,system component</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889449</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Interface">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Interface connects devices to the I/O System and facilitates communication.</data>
+      <data key="keywords">device connectivity,system architecture</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889449</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Controller">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Controller manages the operation of devices within the I/O System.</data>
+      <data key="keywords">control,system management</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889450</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Channel">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Channel handles data transfer paths within the I/O System.</data>
+      <data key="keywords">data flow,system organization</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889450</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Port">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Ports serve as connection points for data transfer in the I/O System.</data>
+      <data key="keywords">input/output connection,interface</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889451</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Buffer">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Buffers temporarily store data during input and output processes in the I/O System.</data>
+      <data key="keywords">data management,temporary storage</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889451</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Instruction">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Instructions are issued for performing input/output operations through the I/O System.</data>
+      <data key="keywords">command execution,device operation</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889452</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Operation">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Operations constitute the actions carried out by the I/O System to facilitate data exchange.</data>
+      <data key="keywords">process,system functionality</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889453</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System" target="I/O Mode">
+      <data key="weight">1.0</data>
+      <data key="description">I/O Mode defines the method by which the I/O System handles data transfer tasks.</data>
+      <data key="keywords">management,operational method</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889453</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Input Device">
+      <data key="weight">1.0</data>
+      <data key="description">Input Device is a category of I/O Device dedicated to providing input to a computer system.</data>
+      <data key="keywords">classification,device type</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889449</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Output Device">
+      <data key="weight">1.0</data>
+      <data key="description">Output Device is a category of I/O Device dedicated to output functions.</data>
+      <data key="keywords">classification,device type</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889450</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Input/Output Device">
+      <data key="weight">1.0</data>
+      <data key="description">Input/Output Device refers to devices capable of both input and output, classified under I/O Devices.</data>
+      <data key="keywords">device type,dual function</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889450</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="I/O System Structure Diagram">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O System Structure Diagram displays various I/O Devices linked to I/O Interfaces.</data>
+      <data key="keywords">peripheral connection,visualization</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889492</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Keyboard">
+      <data key="weight">1.0</data>
+      <data key="description">The Keyboard is an instance of an I/O Device functioning as an input peripheral.</data>
+      <data key="keywords">input device,instance</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889493</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Mouse">
+      <data key="weight">1.0</data>
+      <data key="description">The Mouse is an instance of an I/O Device functioning as an input peripheral.</data>
+      <data key="keywords">input device,instance</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889493</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Display">
+      <data key="weight">1.0</data>
+      <data key="description">The Display is an instance of an I/O Device functioning as an output peripheral.</data>
+      <data key="keywords">instance,output device</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889494</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Printer">
+      <data key="weight">1.0</data>
+      <data key="description">The Printer is an instance of an I/O Device functioning as an output peripheral.</data>
+      <data key="keywords">instance,output device</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889494</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Disk">
+      <data key="weight">1.0</data>
+      <data key="description">The Disk is an instance of an I/O Device capable of both input and output operations.</data>
+      <data key="keywords">input-output device,instance</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889495</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="I/O Port">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O Port allows the I/O Device to communicate with the system through the I/O Interface.</data>
+      <data key="keywords">data transfer,peripheral access</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889495</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Data Flow">
+      <data key="weight">1.0</data>
+      <data key="description">Data Flow represents the transmission of information between the system and I/O Devices.</data>
+      <data key="keywords">data transmission,peripheral communication</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889496</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="I/O Buffer">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O Buffer temporarily stores data for I/O Devices during transfer operations.</data>
+      <data key="keywords">data buffering,peripheral connection</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889496</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Device" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Device belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889497</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Parallel Interface">
+      <data key="weight">2.0</data>
+      <data key="description">Parallel Interface is a type of I/O Interface that transmits data in multiple bit streams simultaneously.&lt;SEP&gt;The Parallel Interface is a specific variant of the I/O Interface supporting parallel communication.</data>
+      <data key="keywords">communication method,data transfer,interface type,type specification</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889492</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Serial Interface">
+      <data key="weight">2.0</data>
+      <data key="description">Serial Interface is a type of I/O Interface that transmits data one bit at a time.&lt;SEP&gt;The Serial Interface is a specific variant of the I/O Interface supporting serial communication.</data>
+      <data key="keywords">communication method,data transfer,interface type,type specification</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf&lt;SEP&gt;chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889493</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Data Register">
+      <data key="weight">1.0</data>
+      <data key="description">Data Register is a component of the I/O Interface used for data storage during transfers.</data>
+      <data key="keywords">data latching,interface component</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889451</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Status Register">
+      <data key="weight">1.0</data>
+      <data key="description">Status Register is a part of the I/O Interface used for holding operational state</data>
+      <data key="keywords">interface component,status monitoring</data>
+      <data key="source_id">chunk-d8545ba2c852169e269183de89d6c5bf</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889451</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="I/O System Structure Diagram">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O System Structure Diagram shows multiple I/O Interface blocks linked to the I/O Controller.</data>
+      <data key="keywords">communication,visualization</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889491</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="I/O Buffer">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O Buffer is positioned between the I/O Interface and I/O Devices, providing temporary data storage.</data>
+      <data key="keywords">data transmission,intermediate storage</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889493</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="I/O Port">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O Port serves as the access point for data transfer between the I/O Interface and I/O Devices.</data>
+      <data key="keywords">access facilitation,data transfer</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889494</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="I/O Controller">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O Interface is responsible for exchanging data and control information with the I/O Controller.</data>
+      <data key="keywords">component connection,data transfer</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889494</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Interface" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Interface belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889495</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Controller" target="I/O System Structure Diagram">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O System Structure Diagram illustrates the I/O Controller as a key component beneath the CPU.</data>
+      <data key="keywords">system structure,visualization</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889491</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Controller" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Controller belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889495</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Controller" target="Central Processing Unit">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O Controller is connected to the Central Processing Unit via a command and control path, establishing a hierarchical relationship.</data>
+      <data key="keywords">command flow,system hierarchy</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889495</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Port" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Port belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889501</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O Buffer" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O Buffer belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889501</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Parallel Interface" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Parallel Interface belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889496</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Serial Interface" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Serial Interface belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889497</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Keyboard" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Keyboard belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889498</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Mouse" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Mouse belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889498</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Printer" target="Computer IO System Block Diagram (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Printer belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889499</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="Computer IO System Block Diagram (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Computer IO System Block Diagram (image)</data>
+      <data key="source_id">image_asset:img-8defcdd2c345af3648ad934cd3e8df14</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="Display">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Display belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889499</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="Disk">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Disk belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889500</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="Data Flow">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Data Flow belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889502</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="Control Signal">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Control Signal belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889502</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="I/O System Structure Diagram">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O System Structure Diagram belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889503</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="Chapter 7">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Chapter 7 belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889503</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Computer IO System Block Diagram (image)" target="Central Processing Unit">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Central Processing Unit belongs to Computer IO System Block Diagram (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889504</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Empty footer placeholder for I/O系统教材首页 (footer)" target="Footer">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Footer belongs to Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889497</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Empty footer placeholder for I/O系统教材首页 (footer)" target="Bounding Box [466, 986, 531, 992]">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Bounding Box [466, 986, 531, 992] belongs to Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889497</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Empty footer placeholder for I/O系统教材首页 (footer)" target="First Page">
+      <data key="weight">10.0</data>
+      <data key="description">Entity First Page belongs to Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889498</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Empty footer placeholder for I/O系统教材首页 (footer)" target="I/O System Structure and Components">
+      <data key="weight">10.0</data>
+      <data key="description">Entity I/O System Structure and Components belongs to Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889498</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Empty footer placeholder for I/O系统教材首页 (footer)" target="Technical Document">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Technical Document belongs to Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889499</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Empty footer placeholder for I/O系统教材首页 (footer)" target="Page Division">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Page Division belongs to Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889499</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Empty footer placeholder for I/O系统教材首页 (footer)" target="Empty Text String">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Empty Text String belongs to Empty footer placeholder for I/O系统教材首页 (footer)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00022\content\Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889500</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Central Processing Unit" target="I/O System Structure Diagram">
+      <data key="weight">1.0</data>
+      <data key="description">The I/O System Structure Diagram visually represents the Central Processing Unit as the main processing block.</data>
+      <data key="keywords">system structure,visualization</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889490</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Central Processing Unit" target="Data Flow">
+      <data key="weight">1.0</data>
+      <data key="description">Data flows from the Central Processing Unit through the I/O Controller and Interfaces to the connected devices.</data>
+      <data key="keywords">data movement,system process</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889496</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Central Processing Unit" target="Control Signal">
+      <data key="weight">1.0</data>
+      <data key="description">The Central Processing Unit sends control signals to I/O subsystem components to coordinate I/O operations.</data>
+      <data key="keywords">control coordination,system operation</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889497</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="I/O System Structure Diagram" target="Chapter 7">
+      <data key="weight">1.0</data>
+      <data key="description">Chapter 7 provides detailed discussion and uses the I/O System Structure Diagram to clarify concepts in I/O architecture.</data>
+      <data key="keywords">educational content,illustration</data>
+      <data key="source_id">chunk-19270e62cbd06938de14ab5cb2085199</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889493</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Footer" target="Bounding Box [466, 986, 531, 992]">
+      <data key="weight">1.0</data>
+      <data key="description">Footer is located at the lower margin of the page as defined by Bounding Box [466, 986, 531, 992].</data>
+      <data key="keywords">page layout,structural placement</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889493</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Footer" target="First Page">
+      <data key="weight">1.0</data>
+      <data key="description">Footer belongs to the first page of the document, as indicated by page_idx: 0.</data>
+      <data key="keywords">content organization,page association</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889494</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Footer" target="Technical Document">
+      <data key="weight">1.0</data>
+      <data key="description">Footer serves an organizational role in the technical document by marking page division and providing space for auxiliary details.</data>
+      <data key="keywords">auxiliary content,document structure</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889494</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Footer" target="I/O System Structure and Components">
+      <data key="weight">1.0</data>
+      <data key="description">Footer is present in the same document as content detailing I/O system structure and components, supporting navigation and reference.</data>
+      <data key="keywords">contextual relevance,document navigation</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889495</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Footer" target="Empty Text String">
+      <data key="weight">1.0</data>
+      <data key="description">Footer contains an empty text string, serving as a placeholder without any rendered visible elements.</data>
+      <data key="keywords">absence of content,placeholder</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889496</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Footer" target="Page Division">
+      <data key="weight">1.0</data>
+      <data key="description">Footer supports page division in the technical document by marking the boundary at the bottom of the page.</data>
+      <data key="keywords">organizational support,structural function</data>
+      <data key="source_id">chunk-1282a5027096728e67e18ff8158e4d57</data>
+      <data key="file_path">Chap1 计算机系统概述.pdf</data>
+      <data key="created_at">1772889496</data>
+      <data key="truncate" />
+    </edge>
+  </graph>
+</graphml>

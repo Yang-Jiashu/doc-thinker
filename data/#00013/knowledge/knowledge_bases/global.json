@@ -1,0 +1,40 @@
+{
+  "name": "global",
+  "type": "global",
+  "entries": {
+    "9ecdbe3e-6148-4edb-be50-a5c5981eeeac": {
+      "id": "9ecdbe3e-6148-4edb-be50-a5c5981eeeac",
+      "content": "请分析上传的文件",
+      "type": "question",
+      "metadata": {
+        "query_mode": "hybrid",
+        "vlm_enhanced": false,
+        "timestamp": "2026-03-07 15:49:32.210686"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T15:49:32.210686",
+      "updated_at": "2026-03-07T15:49:32.210686"
+    },
+    "d719387a-4d01-4f81-8b56-3f6059aa6f93": {
+      "id": "d719387a-4d01-4f81-8b56-3f6059aa6f93",
+      "content": "很抱歉，我没有足够的信息来分析您提到的上传文件。如果您能提供更多细节或文件内容，我将非常乐意帮助您。",
+      "type": "answer",
+      "metadata": {
+        "question_id": "9ecdbe3e-6148-4edb-be50-a5c5981eeeac",
+        "timestamp": "2026-03-07 15:49:32.211828"
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-07T15:49:32.211828",
+      "updated_at": "2026-03-07T15:49:32.211828"
+    }
+  },
+  "metadata": {},
+  "created_at": "2026-03-07T15:47:48.992888",
+  "updated_at": "2026-03-07T15:49:32.211828"
+}

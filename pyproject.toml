@@ -23,6 +23,7 @@ classifiers = [
 dependencies = [
     "huggingface_hub",
     "mineru[core]",
+    "shapely>=2.0.0",
     "tqdm",
     "rank-bm25",
 ]

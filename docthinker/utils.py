@@ -11,7 +11,7 @@ import json
 import os
 from typing import Dict, List, Any, Tuple
 from pathlib import Path
-from urllib import request as urllib_request, error as urllib_error
+import aiohttp
 
 from graphcore.coregraph.utils import logger
 
@@ -87,6 +87,10 @@ def separate_content(
                 else:
                     text_parts.append(text)
         else:
+            # Skip empty footers/headers — they waste LLM calls for zero value
+            if content_type in ("footer", "header") and not (item.get("text") or "").strip():
+                logger.debug(f"  Skipping empty {content_type} block (page {item.get('page_idx', '?')})")
+                continue
             # Multimodal content (image, table, equation, etc.)
             multimodal_items.append(item)
 
@@ -342,28 +346,6 @@ def get_processor_supports(proc_type: str) -> List[str]:
     return supports_map.get(proc_type, ["Basic processing"])
 
 
-def _post_json(
-    url: str,
-    payload: Dict[str, Any],
-    headers: Dict[str, str],
-    timeout: int,
-) -> Dict[str, Any]:
-    """
-    Helper to send a JSON POST request using the standard library.
-    """
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib_request.Request(
-        url,
-        data=data,
-        headers=headers,
-        method="POST",
-    )
-    with urllib_request.urlopen(req, timeout=timeout) as resp:
-        charset = resp.headers.get_content_charset("utf-8")
-        body = resp.read().decode(charset)
-    return json.loads(body)
-
-
 def create_bltcy_rerank_func(
     api_key: str | None = None,
     base_url: str | None = None,
@@ -372,13 +354,13 @@ def create_bltcy_rerank_func(
     timeout: int = 60,
 ):
     """
-    Create a rerank function that calls the SiliconFlow-compatible rerank endpoint.
+    Create a rerank function that calls an OpenAI-compatible rerank endpoint.
 
     Args:
         api_key: Optional API key. If omitted, falls back to environment variables
                  (LLM_BINDING_API_KEY, OPENAI_API_KEY).
         base_url: Optional base URL. Defaults to RERANK_HOST, EMBEDDING_BINDING_HOST,
-                  LLM_BINDING_HOST, or https://api.bltcy.ai/v1.
+                  LLM_BINDING_HOST, OPENAI_BASE_URL, or https://api.openai.com/v1.
         model_name: Rerank model name (default: BAAI/bge-reranker-v2-m3).
         separator: Separator between query and document when forming rerank inputs.
         timeout: Request timeout in seconds.
@@ -386,35 +368,54 @@ def create_bltcy_rerank_func(
     Returns:
         Callable suitable for GraphCore's rerank_model_func or None when API key is missing.
     """
-    resolved_api_key = (
-        api_key
-        or os.getenv("RERANK_API_KEY")
-        or os.getenv("LLM_BINDING_API_KEY")
-        or os.getenv("OPENAI_API_KEY")
-    )
+    resolved_api_key = api_key or os.getenv("RERANK_API_KEY")
     if not resolved_api_key:
         logger.warning(
-            "Rerank function could not be created because no API key was found."
+            "Rerank is disabled because RERANK_API_KEY is not set."
         )
         return None
 
-    default_base = "https://api.siliconflow.cn/v1"
+    default_base = "https://api.openai.com/v1"
     resolved_base = (
         base_url
         or os.getenv("RERANK_HOST")
         or os.getenv("EMBEDDING_BINDING_HOST")
         or os.getenv("LLM_BINDING_HOST")
+        or os.getenv("OPENAI_BASE_URL")
         or default_base
     )
-    resolved_model = model_name or os.getenv(
-        "RERANK_MODEL", "BAAI/bge-reranker-v2-m3"
+    resolved_model = (
+        model_name
+        if model_name is not None
+        else os.getenv("RERANK_MODEL")
     )
+    if not resolved_model:
+        logger.info("Rerank is disabled because RERANK_MODEL is empty.")
+        return None
     base_for_endpoint = resolved_base.rstrip("/")
     if base_for_endpoint.endswith("/chat/completions"):
         base_for_endpoint = base_for_endpoint[: -len("/chat/completions")]
+    if "api.openai.com" in base_for_endpoint.lower():
+        logger.info(
+            "Rerank is disabled for OpenAI base URL; /rerank is not guaranteed on this endpoint."
+        )
+        return None
     endpoint = base_for_endpoint + "/rerank"
 
-    def rerank(query: str, documents: List[str], **kwargs) -> List[float]:
+    session: aiohttp.ClientSession | None = None
+    session_lock = asyncio.Lock()
+
+    async def _get_session() -> aiohttp.ClientSession:
+        nonlocal session
+        async with session_lock:
+            if session and not session.closed:
+                return session
+            timeout_cfg = aiohttp.ClientTimeout(total=timeout)
+            connector = aiohttp.TCPConnector(limit=80, limit_per_host=40, ttl_dns_cache=300)
+            session = aiohttp.ClientSession(timeout=timeout_cfg, connector=connector)
+            return session
+
+    async def rerank(query: str, documents: List[str], **kwargs) -> List[Dict[str, float]]:
         if not documents:
             return []
 
@@ -457,16 +458,14 @@ def create_bltcy_rerank_func(
                 payload["top_n"] = min(int(kwargs["top_n"]), len(batch_docs))
 
             try:
-                response_json = _post_json(endpoint, payload, headers, timeout)
-            except urllib_error.HTTPError as exc:
-                error_body = exc.read().decode("utf-8", errors="ignore")
-                logger.error(
-                    "Rerank request failed with status %s: %s",
-                    getattr(exc, "code", "UNKNOWN"),
-                    error_body,
-                )
-                raise
-            except urllib_error.URLError as exc:
+                client = await _get_session()
+                async with client.post(endpoint, headers=headers, data=json.dumps(payload)) as resp:
+                    if resp.status >= 400:
+                        body = await resp.text()
+                        logger.error("Rerank request failed with status %s: %s", resp.status, body)
+                        raise RuntimeError(f"Rerank HTTP {resp.status}")
+                    response_json = await resp.json()
+            except Exception as exc:
                 logger.error("Rerank request failed: %s", exc)
                 raise
 
@@ -495,7 +494,18 @@ def create_bltcy_rerank_func(
                 if global_index < len(scores):
                     scores[global_index] = float(score)
 
-        return scores
+        ranked = [
+            {"index": idx, "relevance_score": float(score)}
+            for idx, score in enumerate(scores)
+        ]
+        ranked.sort(key=lambda x: x["relevance_score"], reverse=True)
+        top_n = kwargs.get("top_n")
+        if top_n is not None:
+            try:
+                return ranked[: max(1, int(top_n))]
+            except Exception:
+                return ranked
+        return ranked
 
     logger.info(
         "Rerank function configured with model '%s' at '%s'",

@@ -1,0 +1,32 @@
+{
+  "chunk-ffd93595031426edcb22d13885849cee": {
+    "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00018\\knowledge\\output\\pdf_b90c4afde582858b_q35n9yx6\\pdf_b90c4afde582858b\\hybrid_auto\\images\\3ff6c76ac2932f1d69eac8416d261c3d5200808177df66cc767a15db03e03b23.jpg\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image features a vibrant outdoor scene with a clear blue sky dotted with fluffy white clouds. In the foreground, there is a lush green meadow filled with colorful wildflowers, prominently displaying shades of yellow, purple, and red. Towards the center of the image, a wooden picnic table is set, adorned with a classic red-and-white checkered tablecloth. A large wicker picnic basket rests on the table, partially opened, revealing an assortment of fruits and sandwiches. To the left of the table, a group of four people—two adults and two children—are gathered around, engaging in what appears to be a joyful picnic. The adults are smiling and conversing, while one child is reaching into the basket for a snack. The lighting is warm and sunny, which casts soft shadows on the grass, enhancing the cheerful atmosphere of the scene. The overall composition conveys a sense of leisure and enjoyment in nature, highlighting the relationship between the people and their setting as they share a communal meal.",
+    "tokens": 315,
+    "full_doc_id": "doc-adb71e9a639b03c510af1066f2187691",
+    "chunk_order_index": 0,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "is_multimodal": true,
+    "modal_entity_name": "Sunny Picnic Gathering (image)",
+    "original_type": "image",
+    "page_idx": 0,
+    "create_time": 1772871044,
+    "update_time": 1772871044,
+    "_id": "chunk-ffd93595031426edcb22d13885849cee"
+  },
+  "chunk-683d66fdadc00ba56ad6e3dbed7f2f41": {
+    "content": "Footer Content Analysis:\nContent: {'type': 'footer', 'text': '', 'bbox': [466, 986, 531, 992], 'page_idx': 0}\n\nAnalysis: The analyzed footer content lacks textual information, indicating that it may serve primarily as a structural element in the web page layout rather than a source of informative content. The content structure is organized to fit within the bounding box defined by coordinates [466, 986, 531, 992], suggesting its physical presence on the page is intended for visual or navigational purposes. Given the absence of key textual elements, there are no discernible relationships or contextual significance, and no relevant details can be retrieved. The footer does not provide any links, copyright information, contact details, or navigation elements typically expected in footer content.",
+    "tokens": 162,
+    "full_doc_id": "doc-adb71e9a639b03c510af1066f2187691",
+    "chunk_order_index": 1,
+    "file_path": "Chap1 计算机系统概述.pdf",
+    "llm_cache_list": [],
+    "is_multimodal": true,
+    "modal_entity_name": "Empty Footer (footer)",
+    "original_type": "footer",
+    "page_idx": 0,
+    "create_time": 1772871044,
+    "update_time": 1772871044,
+    "_id": "chunk-683d66fdadc00ba56ad6e3dbed7f2f41"
+  }
+}
