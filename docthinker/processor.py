@@ -864,7 +864,9 @@ class ProcessorMixin:
         chunk_ids = list(coregraph_chunks.keys())
 
         extraction_mode = (self.config.relation_extraction_mode or "coregraph").lower()
-        if extraction_mode not in {"coregraph", "hypergraph"}:
+        if extraction_mode in {"graphcore", "coregraph"}:
+            extraction_mode = "coregraph"
+        elif extraction_mode != "hypergraph":
             self.logger.warning(
                 "Unknown relation_extraction_mode '%s', falling back to CoreGraph.",
                 extraction_mode,
@@ -1208,14 +1210,17 @@ class ProcessorMixin:
                 break
 
         candidate_vectors: List[Optional[List[float]]] = []
+        _EMBED_BATCH = int(os.environ.get("EMBEDDING_BATCH_NUM", "10"))
         if candidate_texts and self.embedding_func is not None:
             try:
-                raw_vecs = await self.embedding_func(candidate_texts)
-                if hasattr(raw_vecs, "tolist"):
-                    raw_vecs = raw_vecs.tolist()
-                if isinstance(raw_vecs, list):
-                    for vec in raw_vecs:
-                        candidate_vectors.append(self._vector_to_list(vec))
+                for i in range(0, len(candidate_texts), _EMBED_BATCH):
+                    batch = candidate_texts[i : i + _EMBED_BATCH]
+                    raw_vecs = await self.embedding_func(batch)
+                    if hasattr(raw_vecs, "tolist"):
+                        raw_vecs = raw_vecs.tolist()
+                    if isinstance(raw_vecs, list):
+                        for vec in raw_vecs:
+                            candidate_vectors.append(self._vector_to_list(vec))
             except Exception as exc:
                 self.logger.warning(
                     f"Failed to compute candidate embeddings for image links: {exc}"
@@ -1460,7 +1465,7 @@ class ProcessorMixin:
                         model_name = (
                             os.getenv("EXTRACTION_LLM_MODEL")
                             or os.getenv("LLM_MODEL")
-                            or "gpt-4o-mini"
+                            or "qwen-plus"
                         )
                         kwargs.pop("extra_body", None)
                         return await openai_complete_if_cache(
@@ -1911,7 +1916,8 @@ class ProcessorMixin:
         img_output_dir.mkdir(parents=True, exist_ok=True)
 
         new_blocks: List[Dict[str, Any]] = []
-        semaphore = asyncio.Semaphore(4)
+        vlm_concurrency = int(os.environ.get("VLM_MAX_ASYNC", "16"))
+        semaphore = asyncio.Semaphore(vlm_concurrency)
 
         async def _extract_page(page_num: int) -> Optional[List[Dict[str, Any]]]:
             """Return [text_block, image_block] for one page — single attempt."""
@@ -2079,6 +2085,18 @@ class ProcessorMixin:
     # ------------------------------------------------------------------
     # PDF dual-path processing (MinerU + GPT Vision)
     # ------------------------------------------------------------------
+    @staticmethod
+    def _get_pdf_page_count(file_path: str) -> int:
+        """Get PDF page count using PyMuPDF (fast, no full parsing)."""
+        try:
+            import fitz
+            doc = fitz.open(file_path)
+            count = len(doc)
+            doc.close()
+            return count
+        except Exception:
+            return 0
+
     async def _process_pdf_dual_path(
         self,
         file_path: str,
@@ -2088,14 +2106,31 @@ class ProcessorMixin:
     ) -> tuple:
         """Run the modular PDF pipeline and return (text_content, multimodal_items, doc_id).
 
-        Uses ``PDFPipelineOrchestrator`` from ``docthinker.pdf_pipeline``.
+        Routing logic (``PDF_PARSE_MODE`` env):
+          - ``auto`` (default): ≤15 pages → VLM only; >15 pages → MinerU only
+          - ``vision_only`` / ``fast`` / ``full``: explicit override
         """
         from docthinker.pdf_pipeline import PDFPipelineOrchestrator
         from docthinker.pdf_pipeline.mineru_extractor import MineruExtractor
         from docthinker.pdf_pipeline.vision_extractor import VisionExtractor
 
-        pdf_mode = os.environ.get("PDF_PARSE_MODE", "full")
+        VLM_PAGE_THRESHOLD = int(os.environ.get("PDF_VLM_PAGE_THRESHOLD", "15"))
+
+        pdf_mode = os.environ.get("PDF_PARSE_MODE", "auto")
         vision_func = getattr(self, "vision_model_func", None)
+
+        if pdf_mode == "auto":
+            page_count = self._get_pdf_page_count(file_path)
+            if page_count > 0 and page_count <= VLM_PAGE_THRESHOLD and vision_func:
+                pdf_mode = "vision_only"
+                self.logger.info(
+                    f"[PDFPipeline] auto: {page_count} pages <= {VLM_PAGE_THRESHOLD} -> VLM only"
+                )
+            else:
+                pdf_mode = "fast"
+                self.logger.info(
+                    f"[PDFPipeline] auto: {page_count} pages > {VLM_PAGE_THRESHOLD} -> MinerU only"
+                )
 
         output_dir_path = Path(str(output_dir))
         if not output_dir_path.is_absolute():

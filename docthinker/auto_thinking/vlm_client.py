@@ -20,7 +20,7 @@ class VLMClient:
         api_key: str,
         *,
         api_base: str = "https://api.openai.com/v1",
-        model: str = "gpt-4o",
+        model: str = "qwen-vl-max",
         timeout: float = 240.0,
     ) -> None:
         self.api_key = api_key
@@ -157,16 +157,58 @@ class VLMClient:
                 raise
         raise last_error
 
-    @staticmethod
-    def _encode_image(path_like: str) -> dict:
-        """Encode image file as the API expects."""
+    _MAX_LONG_EDGE = 4096
+    _MAX_PIXELS = 16_000_000
+
+    @classmethod
+    def _encode_image(cls, path_like: str) -> dict:
+        """Encode image file as the API expects, resizing if too large."""
         path = Path(path_like)
         if not path.exists():
             raise FileNotFoundError(f"Image file not found: {path_like}")
 
-        encoded = base64.b64encode(path.read_bytes()).decode("utf-8")
+        raw = path.read_bytes()
         mime, _ = mimetypes.guess_type(path_like)
         if not mime:
             mime = "image/png"
+
+        raw, mime = cls._maybe_resize(raw, mime)
+
+        encoded = base64.b64encode(raw).decode("utf-8")
         data_uri = f"data:{mime};base64,{encoded}"
         return {"type": "image_url", "image_url": {"url": data_uri}}
+
+    @classmethod
+    def _maybe_resize(cls, raw: bytes, mime: str) -> tuple:
+        """Downscale image if it exceeds VLM API size limits."""
+        try:
+            from PIL import Image
+            import io
+        except ImportError:
+            return raw, mime
+
+        Image.MAX_IMAGE_PIXELS = None
+        img = Image.open(io.BytesIO(raw))
+        w, h = img.size
+        long_edge = max(w, h)
+        total_px = w * h
+
+        if long_edge <= cls._MAX_LONG_EDGE and total_px <= cls._MAX_PIXELS:
+            return raw, mime
+
+        scale = 1.0
+        if long_edge > cls._MAX_LONG_EDGE:
+            scale = min(scale, cls._MAX_LONG_EDGE / long_edge)
+        if total_px > cls._MAX_PIXELS:
+            scale = min(scale, (cls._MAX_PIXELS / total_px) ** 0.5)
+
+        new_w = max(1, int(w * scale))
+        new_h = max(1, int(h * scale))
+
+        img = img.resize((new_w, new_h), Image.LANCZOS)
+        buf = io.BytesIO()
+        out_fmt = "JPEG" if mime.endswith("jpeg") else "PNG"
+        if out_fmt == "JPEG":
+            img = img.convert("RGB")
+        img.save(buf, format=out_fmt)
+        return buf.getvalue(), mime

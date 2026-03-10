@@ -17,7 +17,7 @@ class AppSettings(BaseModel):
     embed_api_key: str
     embed_base_url: str
     embed_model: str
-    embed_dim: int = 3072
+    embed_dim: int = 1024
     rerank_api_key: str
     rerank_base_url: str
     rerank_model: str
@@ -30,12 +30,14 @@ class AppSettings(BaseModel):
 
 
 def load_settings() -> AppSettings:
+    _dashscope_base = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+
     llm_api_key = os.getenv("LLM_BINDING_API_KEY") or os.getenv("OPENAI_API_KEY") or "EMPTY"
     embed_api_key = os.getenv("EMBEDDING_BINDING_API_KEY") or os.getenv("OPENAI_API_KEY") or llm_api_key or "EMPTY"
-    llm_model = os.getenv("LLM_MODEL") or "gpt-4o-mini"
+    llm_model = os.getenv("LLM_MODEL") or "qwen-plus"
     llm_models_raw = os.getenv("LLM_MODELS") or llm_model
     llm_models = [x.strip() for x in llm_models_raw.split(",") if x.strip()]
-    openai_base = os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1"
+    openai_base = os.getenv("OPENAI_BASE_URL") or _dashscope_base
 
     return AppSettings(
         llm_api_key=llm_api_key,
@@ -47,15 +49,15 @@ def load_settings() -> AppSettings:
         llm_model=llm_model,
         llm_models=llm_models,
         llm_router_max_concurrency=int(os.getenv("LLM_ROUTER_MAX_CONCURRENCY") or 32),
-        vlm_model=os.getenv("VLM_MODEL") or "gpt-4o",
+        vlm_model=os.getenv("VLM_MODEL") or "qwen-vl-max",
         embed_api_key=embed_api_key,
         embed_base_url=(
             os.getenv("LLM_EMBED_HOST")
             or os.getenv("EMBEDDING_BINDING_HOST")
             or openai_base
         ),
-        embed_model=os.getenv("EMBEDDING_MODEL") or os.getenv("EMBED_MODEL") or "text-embedding-3-large",
-        embed_dim=int(os.getenv("EMBEDDING_DIM") or os.getenv("EMBED_DIM") or 3072),
+        embed_model=os.getenv("EMBEDDING_MODEL") or os.getenv("EMBED_MODEL") or "text-embedding-v3",
+        embed_dim=int(os.getenv("EMBEDDING_DIM") or os.getenv("EMBED_DIM") or 1024),
         rerank_api_key=os.getenv("RERANK_API_KEY") or "",
         rerank_base_url=(
             os.getenv("RERANK_HOST")

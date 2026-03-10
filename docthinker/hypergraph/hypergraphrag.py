@@ -158,7 +158,7 @@ class HyperGraphRAG:
 
     # LLM
     llm_model_func: callable = bltcy_gpt4o_mini_complete  # hf_model_complete#
-    llm_model_name: str = "gpt-4o-mini"
+    llm_model_name: str = "qwen-plus"
     llm_model_max_token_size: int = 32768
     llm_model_max_async: int = 12
     llm_model_kwargs: dict = field(default_factory=dict)

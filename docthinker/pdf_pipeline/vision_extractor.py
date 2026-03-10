@@ -9,6 +9,7 @@ downstream VLM queries.
 from __future__ import annotations
 
 import asyncio
+import io
 import logging
 import tempfile
 import time
@@ -19,6 +20,37 @@ from docthinker.pdf_pipeline import PDFExtractionResult
 
 logger = logging.getLogger(__name__)
 
+MAX_IMAGE_LONG_EDGE = 4096
+MAX_IMAGE_PIXELS = 16_000_000
+
+
+def _clamp_image(png_bytes: bytes, w: int, h: int) -> bytes:
+    """Resize if image exceeds VLM API limits; return PNG bytes."""
+    long_edge = max(w, h)
+    total_pixels = w * h
+
+    if long_edge <= MAX_IMAGE_LONG_EDGE and total_pixels <= MAX_IMAGE_PIXELS:
+        return png_bytes
+
+    from PIL import Image
+    Image.MAX_IMAGE_PIXELS = max(Image.MAX_IMAGE_PIXELS or 0, total_pixels + 1)
+
+    scale = 1.0
+    if long_edge > MAX_IMAGE_LONG_EDGE:
+        scale = min(scale, MAX_IMAGE_LONG_EDGE / long_edge)
+    if total_pixels > MAX_IMAGE_PIXELS:
+        scale = min(scale, (MAX_IMAGE_PIXELS / total_pixels) ** 0.5)
+
+    new_w = max(1, int(w * scale))
+    new_h = max(1, int(h * scale))
+    logger.info(f"[VisionExtractor] Resizing page image {w}x{h} -> {new_w}x{new_h}")
+
+    img = Image.open(io.BytesIO(png_bytes))
+    img = img.resize((new_w, new_h), Image.LANCZOS)
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    return buf.getvalue()
+
 
 class VisionExtractor:
     """Use GPT Vision to extract text and visual understanding from a PDF."""
@@ -26,7 +58,7 @@ class VisionExtractor:
     def __init__(
         self,
         vision_model_func: Optional[Callable] = None,
-        concurrency: int = 4,
+        concurrency: int = 16,
         dpi: int = 200,
     ):
         self.vision_model_func = vision_model_func
@@ -80,6 +112,9 @@ class VisionExtractor:
                     page = doc[page_num]
                     pix = page.get_pixmap(dpi=self.dpi)
                     img_bytes = pix.tobytes("png")
+                    w, h = pix.width, pix.height
+
+                    img_bytes = _clamp_image(img_bytes, w, h)
 
                     page_img = img_dir / f"page_{page_num + 1}.png"
                     page_img.write_bytes(img_bytes)

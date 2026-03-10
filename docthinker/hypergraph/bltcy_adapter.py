@@ -43,7 +43,7 @@ async def bltcy_gpt4o_mini_complete(
     api_base = api_base.rstrip("/")
     if not api_base.endswith("chat/completions"):
         api_base = api_base + "/chat/completions"
-    model = model or os.environ.get("BLTCY_MODEL", "gpt-4o-mini")
+    model = model or os.environ.get("BLTCY_MODEL", "qwen-plus")
 
     messages = []
     if system_prompt:

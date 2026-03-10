@@ -57,10 +57,25 @@ class NanoVectorDBStorage(BaseVectorStorage):
 
         self._max_batch_size = self.global_config["embedding_batch_num"]
 
-        self._client = NanoVectorDB(
-            self.embedding_func.embedding_dim,
-            storage_file=self._client_file_name,
-        )
+        try:
+            self._client = NanoVectorDB(
+                self.embedding_func.embedding_dim,
+                storage_file=self._client_file_name,
+            )
+        except (AssertionError, Exception) as exc:
+            if "dim mismatch" in str(exc).lower() or "embedding_dim" in str(exc).lower():
+                logger.warning(
+                    f"VDB dimension mismatch in {self._client_file_name}, "
+                    f"resetting to {self.embedding_func.embedding_dim}d"
+                )
+                if os.path.exists(self._client_file_name):
+                    os.remove(self._client_file_name)
+                self._client = NanoVectorDB(
+                    self.embedding_func.embedding_dim,
+                    storage_file=self._client_file_name,
+                )
+            else:
+                raise
 
     async def initialize(self):
         """Initialize storage data"""
@@ -83,10 +98,24 @@ class NanoVectorDBStorage(BaseVectorStorage):
                     f"[{self.workspace}] Process {os.getpid()} reloading {self.namespace} due to update by another process"
                 )
                 # Reload data
-                self._client = NanoVectorDB(
-                    self.embedding_func.embedding_dim,
-                    storage_file=self._client_file_name,
-                )
+                try:
+                    self._client = NanoVectorDB(
+                        self.embedding_func.embedding_dim,
+                        storage_file=self._client_file_name,
+                    )
+                except (AssertionError, Exception) as exc:
+                    if "dim mismatch" in str(exc).lower() or "embedding_dim" in str(exc).lower():
+                        logger.warning(
+                            f"VDB dimension mismatch on reload in {self._client_file_name}, resetting"
+                        )
+                        if os.path.exists(self._client_file_name):
+                            os.remove(self._client_file_name)
+                        self._client = NanoVectorDB(
+                            self.embedding_func.embedding_dim,
+                            storage_file=self._client_file_name,
+                        )
+                    else:
+                        raise
                 # Reset update flag
                 self.storage_updated.value = False
 

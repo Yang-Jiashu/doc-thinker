@@ -86,3 +86,4 @@ memory-bank/
 .claude/
 .cursor/
 CLAUDE.md
+context_dumps/

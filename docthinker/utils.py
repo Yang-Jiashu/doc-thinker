@@ -392,15 +392,24 @@ def create_bltcy_rerank_func(
     if not resolved_model:
         logger.info("Rerank is disabled because RERANK_MODEL is empty.")
         return None
-    base_for_endpoint = resolved_base.rstrip("/")
-    if base_for_endpoint.endswith("/chat/completions"):
-        base_for_endpoint = base_for_endpoint[: -len("/chat/completions")]
-    if "api.openai.com" in base_for_endpoint.lower():
-        logger.info(
-            "Rerank is disabled for OpenAI base URL; /rerank is not guaranteed on this endpoint."
-        )
-        return None
-    endpoint = base_for_endpoint + "/rerank"
+    resolved_base_stripped = resolved_base.rstrip("/")
+    is_dashscope_native = "services/rerank" in resolved_base_stripped.lower()
+    is_dashscope = "dashscope" in resolved_base_stripped.lower()
+
+    if is_dashscope_native:
+        endpoint = resolved_base_stripped
+    elif is_dashscope:
+        endpoint = resolved_base_stripped + "/reranks"
+    else:
+        base_for_endpoint = resolved_base_stripped
+        if base_for_endpoint.endswith("/chat/completions"):
+            base_for_endpoint = base_for_endpoint[: -len("/chat/completions")]
+        if "api.openai.com" in base_for_endpoint.lower():
+            logger.info(
+                "Rerank is disabled for OpenAI base URL; /rerank is not guaranteed on this endpoint."
+            )
+            return None
+        endpoint = base_for_endpoint + "/rerank"
 
     session: aiohttp.ClientSession | None = None
     session_lock = asyncio.Lock()
@@ -449,13 +458,22 @@ def create_bltcy_rerank_func(
         }
 
         for batch_index, batch_docs in enumerate(batches):
-            payload = {
-                "model": resolved_model,
-                "query": query,
-                "documents": batch_docs,
-            }
-            if "top_n" in kwargs and kwargs["top_n"] is not None:
-                payload["top_n"] = min(int(kwargs["top_n"]), len(batch_docs))
+            if is_dashscope_native:
+                payload = {
+                    "model": resolved_model,
+                    "input": {"query": query, "documents": batch_docs},
+                    "parameters": {},
+                }
+                if "top_n" in kwargs and kwargs["top_n"] is not None:
+                    payload["parameters"]["top_n"] = min(int(kwargs["top_n"]), len(batch_docs))
+            else:
+                payload = {
+                    "model": resolved_model,
+                    "query": query,
+                    "documents": batch_docs,
+                }
+                if "top_n" in kwargs and kwargs["top_n"] is not None:
+                    payload["top_n"] = min(int(kwargs["top_n"]), len(batch_docs))
 
             try:
                 client = await _get_session()
@@ -469,7 +487,10 @@ def create_bltcy_rerank_func(
                 logger.error("Rerank request failed: %s", exc)
                 raise
 
-            data_items = response_json.get("data", [])
+            if is_dashscope_native:
+                data_items = response_json.get("output", {}).get("results", [])
+            else:
+                data_items = response_json.get("data", [])
             if not data_items:
                 data_items = response_json.get("results", [])
             if len(data_items) != len(batch_docs):

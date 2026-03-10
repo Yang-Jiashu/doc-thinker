@@ -18,9 +18,9 @@ from ..state import state
 
 router = APIRouter()
 
-FAST_QA_TIMEOUT_SECONDS = 25
-SESSION_QUERY_TIMEOUT_SECONDS = 90
-FALLBACK_LLM_TIMEOUT_SECONDS = 30
+FAST_QA_TIMEOUT_SECONDS = 30
+SESSION_QUERY_TIMEOUT_SECONDS = 180
+FALLBACK_LLM_TIMEOUT_SECONDS = 60
 
 
 def _looks_like_file_question(question: str) -> bool:

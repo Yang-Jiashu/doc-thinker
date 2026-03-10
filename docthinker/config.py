@@ -178,7 +178,7 @@ class DocThinkerConfig:
     """Endpoint base for an OpenAI-compatible API."""
 
     bltcy_model: str = field(
-        default=get_env_value("BLTCY_MODEL", "gpt-4o-mini", str)
+        default=get_env_value("BLTCY_MODEL", "qwen-plus", str)
     )
     """Model name used when calling the OpenAI-compatible API."""
 

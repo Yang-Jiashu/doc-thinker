@@ -1291,12 +1291,12 @@ class TiktokenTokenizer(Tokenizer):
     A Tokenizer implementation using the tiktoken library.
     """
 
-    def __init__(self, model_name: str = "gpt-4o-mini"):
+    def __init__(self, model_name: str = "gpt-4o"):
         """
         Initializes the TiktokenTokenizer with a specified model name.
 
         Args:
-            model_name: The model name for the tiktoken tokenizer to use.  Defaults to "gpt-4o-mini".
+            model_name: The model name for the tiktoken tokenizer to use.  Defaults to "gpt-4o".
 
         Raises:
             ImportError: If tiktoken is not installed.

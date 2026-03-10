@@ -647,7 +647,7 @@ async def gpt_4o_complete(
     if history_messages is None:
         history_messages = []
     return await openai_complete_if_cache(
-        "gpt-4o",
+        "qwen-plus",
         prompt,
         system_prompt=system_prompt,
         history_messages=history_messages,
@@ -668,7 +668,7 @@ async def gpt_4o_mini_complete(
     if history_messages is None:
         history_messages = []
     return await openai_complete_if_cache(
-        "gpt-4o-mini",
+        "qwen-plus",
         prompt,
         system_prompt=system_prompt,
         history_messages=history_messages,
@@ -701,7 +701,7 @@ async def nvidia_openai_complete(
     return result
 
 
-@wrap_embedding_func_with_attrs(embedding_dim=1536, max_token_size=8192)
+@wrap_embedding_func_with_attrs(embedding_dim=1024, max_token_size=8192)
 @retry(
     stop=stop_after_attempt(3),
     wait=wait_exponential(multiplier=1, min=4, max=60),
@@ -713,7 +713,7 @@ async def nvidia_openai_complete(
 )
 async def openai_embed(
     texts: list[str],
-    model: str = "text-embedding-3-small",
+    model: str = "text-embedding-v3",
     base_url: str | None = None,
     api_key: str | None = None,
     embedding_dim: int | None = None,
@@ -881,7 +881,7 @@ async def azure_openai_complete(
     if history_messages is None:
         history_messages = []
     result = await azure_openai_complete_if_cache(
-        os.getenv("LLM_MODEL", "gpt-4o-mini"),
+        os.getenv("LLM_MODEL", "qwen-plus"),
         prompt,
         system_prompt=system_prompt,
         history_messages=history_messages,
@@ -891,7 +891,7 @@ async def azure_openai_complete(
     return result
 
 
-@wrap_embedding_func_with_attrs(embedding_dim=1536)
+@wrap_embedding_func_with_attrs(embedding_dim=1024)
 async def azure_openai_embed(
     texts: list[str],
     model: str | None = None,
@@ -942,7 +942,7 @@ async def azure_openai_embed(
     deployment = (
         os.getenv("AZURE_EMBEDDING_DEPLOYMENT")
         or model
-        or os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
+        or os.getenv("EMBEDDING_MODEL", "text-embedding-v3")
     )
     base_url = (
         base_url

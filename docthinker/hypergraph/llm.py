@@ -535,10 +535,10 @@ async def gpt_4o_complete(
     prompt, system_prompt=None, history_messages=[], keyword_extraction=False, **kwargs
 ) -> str:
     keyword_extraction = kwargs.pop("keyword_extraction", None)
-    if keyword_extraction and "qwen" not in "gpt-4o-mini":
+    if keyword_extraction and "qwen" not in "qwen-plus":
         kwargs["response_format"] = GPTKeywordExtractionFormat
     return await openai_complete_if_cache(
-        "gpt-4o",
+        "qwen-plus",
         prompt,
         system_prompt=system_prompt,
         history_messages=history_messages,
@@ -550,10 +550,10 @@ async def gpt_4o_mini_complete(
     prompt, system_prompt=None, history_messages=[], keyword_extraction=False, **kwargs
 ) -> str:
     keyword_extraction = kwargs.pop("keyword_extraction", None)
-    if keyword_extraction and "qwen" not in "gpt-4o":
+    if keyword_extraction and "qwen" not in "qwen-plus":
         kwargs["response_format"] = GPTKeywordExtractionFormat
     return await openai_complete_if_cache(
-        "gpt-4o-mini",
+        "qwen-plus",
         prompt,
         system_prompt=system_prompt,
         history_messages=history_messages,
@@ -808,7 +808,7 @@ async def zhipu_embedding(
     return np.array(embeddings)
 
 
-@wrap_embedding_func_with_attrs(embedding_dim=1536, max_token_size=8192)
+@wrap_embedding_func_with_attrs(embedding_dim=1024, max_token_size=8192)
 @retry(
     stop=stop_after_attempt(3),
     wait=wait_exponential(multiplier=1, min=4, max=60),
@@ -816,7 +816,7 @@ async def zhipu_embedding(
 )
 async def openai_embedding(
     texts: list[str],
-    model: str = "text-embedding-3-small",
+    model: str = "text-embedding-v3",
     base_url: str = None,
     api_key: str = None,
 ) -> np.ndarray:
@@ -834,11 +834,11 @@ async def openai_embedding(
     return np.array([dp.embedding for dp in response.data])
 
 
-@wrap_embedding_func_with_attrs(embedding_dim=3072, max_token_size=8192)
+@wrap_embedding_func_with_attrs(embedding_dim=1024, max_token_size=8192)
 async def openai_compatible_embedding(
     texts: list[str],
     *,
-    model: str = "text-embedding-3-large",
+    model: str = "text-embedding-v3",
     base_url: str | None = None,
     api_key: str | None = None,
     normalized: bool = True,
@@ -874,7 +874,7 @@ async def openai_compatible_embedding(
         resolved_base = resolved_base + "/embeddings"
 
     if model in (None, ""):
-        model = os.getenv("EMBEDDING_MODEL", "text-embedding-3-large")
+        model = os.getenv("EMBEDDING_MODEL", "text-embedding-v3")
 
     payload: Dict[str, Any] = {
         "model": model,
@@ -1013,7 +1013,7 @@ async def nvidia_openai_embedding(
     return np.array([dp.embedding for dp in response.data])
 
 
-@wrap_embedding_func_with_attrs(embedding_dim=1536, max_token_size=8191)
+@wrap_embedding_func_with_attrs(embedding_dim=1024, max_token_size=8191)
 @retry(
     stop=stop_after_attempt(3),
     wait=wait_exponential(multiplier=1, min=4, max=10),
@@ -1021,7 +1021,7 @@ async def nvidia_openai_embedding(
 )
 async def azure_openai_embedding(
     texts: list[str],
-    model: str = "text-embedding-3-small",
+    model: str = "text-embedding-v3",
     base_url: str = None,
     api_key: str = None,
     api_version: str = None,
@@ -1199,7 +1199,7 @@ class Model(BaseModel):
             This could include parameters such as the model name, API key, etc.
 
     Example usage:
-        Model(gen_func=openai_complete_if_cache, kwargs={"model": "gpt-4", "api_key": os.environ["OPENAI_API_KEY_1"]})
+        Model(gen_func=openai_complete_if_cache, kwargs={"model": "qwen-plus", "api_key": os.environ["OPENAI_API_KEY_1"]})
 
     In this example, 'openai_complete_if_cache' is the callable function that generates the response from the OpenAI model.
     The 'kwargs' dictionary contains the model name and API key to be passed to the function.
@@ -1229,11 +1229,11 @@ class MultiModel:
     Usage example:
         ```python
         models = [
-            Model(gen_func=openai_complete_if_cache, kwargs={"model": "gpt-4", "api_key": os.environ["OPENAI_API_KEY_1"]}),
-            Model(gen_func=openai_complete_if_cache, kwargs={"model": "gpt-4", "api_key": os.environ["OPENAI_API_KEY_2"]}),
-            Model(gen_func=openai_complete_if_cache, kwargs={"model": "gpt-4", "api_key": os.environ["OPENAI_API_KEY_3"]}),
-            Model(gen_func=openai_complete_if_cache, kwargs={"model": "gpt-4", "api_key": os.environ["OPENAI_API_KEY_4"]}),
-            Model(gen_func=openai_complete_if_cache, kwargs={"model": "gpt-4", "api_key": os.environ["OPENAI_API_KEY_5"]}),
+            Model(gen_func=openai_complete_if_cache, kwargs={"model": "qwen-plus", "api_key": os.environ["OPENAI_API_KEY_1"]}),
+            Model(gen_func=openai_complete_if_cache, kwargs={"model": "qwen-plus", "api_key": os.environ["OPENAI_API_KEY_2"]}),
+            Model(gen_func=openai_complete_if_cache, kwargs={"model": "qwen-plus", "api_key": os.environ["OPENAI_API_KEY_3"]}),
+            Model(gen_func=openai_complete_if_cache, kwargs={"model": "qwen-plus", "api_key": os.environ["OPENAI_API_KEY_4"]}),
+            Model(gen_func=openai_complete_if_cache, kwargs={"model": "qwen-plus", "api_key": os.environ["OPENAI_API_KEY_5"]}),
         ]
         multi_model = MultiModel(models)
         rag = HyperGraphRAG(

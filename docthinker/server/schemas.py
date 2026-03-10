@@ -9,7 +9,7 @@ class CreateSessionRequest(BaseModel):
 class QueryRequest(BaseModel):
     question: str
     mode: str = "hybrid"
-    enable_rerank: bool = False
+    enable_rerank: bool = True
     session_id: Optional[str] = None
     memory_mode: str = "session"
     retrieval_instruction: Optional[str] = None
@@ -25,7 +25,7 @@ class QueryRequest(BaseModel):
 class MultiDocumentQueryRequest(BaseModel):
     question: str
     mode: str = "hybrid"
-    enable_rerank: bool = False
+    enable_rerank: bool = True
     session_id: Optional[str] = None
 
 

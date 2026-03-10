@@ -236,8 +236,8 @@ class GraphCore:
     """
 
     # Use a tiktoken-supported model name for tokenizer mapping
-    tiktoken_model_name: str = field(default="gpt-4o-mini")
-    """Model name used for tokenization when chunking text with tiktoken. Defaults to `gpt-4o-mini`."""
+    tiktoken_model_name: str = field(default="gpt-4o")
+    """Model name used for tokenization when chunking text with tiktoken. Defaults to `gpt-4o`."""
 
     chunking_func: Callable[
         [
@@ -314,7 +314,7 @@ class GraphCore:
     llm_model_func: Callable[..., object] | None = field(default=None)
     """Function for interacting with the large language model (LLM). Must be set before use."""
 
-    llm_model_name: str = field(default="gpt-4.1")
+    llm_model_name: str = field(default="qwen-plus")
     """Name of the LLM model used for generating responses."""
 
     summary_max_tokens: int = field(
@@ -345,6 +345,19 @@ class GraphCore:
     default_llm_timeout: int = field(
         default=int(os.getenv("LLM_TIMEOUT", DEFAULT_LLM_TIMEOUT))
     )
+
+    # Entity Extraction Mode
+    # ---
+
+    entity_extraction_mode: str = field(
+        default_factory=lambda: os.getenv("ENTITY_EXTRACTION_MODE", "llm")
+    )
+    """``llm`` uses LLM-based extraction (default), ``ner`` uses SpacyNER (zero LLM cost)."""
+
+    ner_spacy_model: str = field(
+        default_factory=lambda: os.getenv("NER_SPACY_MODEL", "zh_core_web_sm")
+    )
+    """Spacy model for NER extraction (e.g. zh_core_web_sm, en_core_web_trf)."""
 
     # Rerank Configuration
     # ---
@@ -1886,14 +1899,22 @@ class GraphCore:
                             # Execute first stage tasks
                             await asyncio.gather(*first_stage_tasks)
 
-                            # Stage 2: Process entity relation graph (after text_chunks are saved)
-                            entity_relation_task = asyncio.create_task(
-                                self._process_extract_entities(
-                                    chunks, pipeline_status, pipeline_status_lock
+                            # Stage 2: Entity/relation extraction
+                            if self.entity_extraction_mode == "ner":
+                                await self._process_ner_extraction(
+                                    chunks, doc_id, file_path,
+                                    pipeline_status, pipeline_status_lock,
                                 )
-                            )
-                            chunk_results = await entity_relation_task
-                            file_extraction_stage_ok = True
+                                chunk_results = []
+                                file_extraction_stage_ok = True
+                            else:
+                                entity_relation_task = asyncio.create_task(
+                                    self._process_extract_entities(
+                                        chunks, pipeline_status, pipeline_status_lock
+                                    )
+                                )
+                                chunk_results = await entity_relation_task
+                                file_extraction_stage_ok = True
 
                         except Exception as e:
                             # Check if this is a user cancellation
@@ -1974,25 +1995,25 @@ class GraphCore:
                                             "User cancelled"
                                         )
 
-                                # Use chunk_results from entity_relation_task
-                                await merge_nodes_and_edges(
-                                    chunk_results=chunk_results,  # result collected from entity_relation_task
-                                    knowledge_graph_inst=self.chunk_entity_relation_graph,
-                                    entity_vdb=self.entities_vdb,
-                                    relationships_vdb=self.relationships_vdb,
-                                    global_config=asdict(self),
-                                    full_entities_storage=self.full_entities,
-                                    full_relations_storage=self.full_relations,
-                                    doc_id=doc_id,
-                                    pipeline_status=pipeline_status,
-                                    pipeline_status_lock=pipeline_status_lock,
-                                    llm_response_cache=self.llm_response_cache,
-                                    entity_chunks_storage=self.entity_chunks,
-                                    relation_chunks_storage=self.relation_chunks,
-                                    current_file_number=current_file_number,
-                                    total_files=total_files,
-                                    file_path=file_path,
-                                )
+                                if chunk_results:
+                                    await merge_nodes_and_edges(
+                                        chunk_results=chunk_results,
+                                        knowledge_graph_inst=self.chunk_entity_relation_graph,
+                                        entity_vdb=self.entities_vdb,
+                                        relationships_vdb=self.relationships_vdb,
+                                        global_config=asdict(self),
+                                        full_entities_storage=self.full_entities,
+                                        full_relations_storage=self.full_relations,
+                                        doc_id=doc_id,
+                                        pipeline_status=pipeline_status,
+                                        pipeline_status_lock=pipeline_status_lock,
+                                        llm_response_cache=self.llm_response_cache,
+                                        entity_chunks_storage=self.entity_chunks,
+                                        relation_chunks_storage=self.relation_chunks,
+                                        current_file_number=current_file_number,
+                                        total_files=total_files,
+                                        file_path=file_path,
+                                    )
 
                                 # Record processing end time
                                 processing_end_time = int(time.time())
@@ -2156,6 +2177,116 @@ class GraphCore:
                 )
                 pipeline_status["latest_message"] = log_message
                 pipeline_status["history_messages"].append(log_message)
+
+    async def _process_ner_extraction(
+        self,
+        chunks: dict[str, Any],
+        doc_id: str,
+        file_path: str,
+        pipeline_status=None,
+        pipeline_status_lock=None,
+    ) -> None:
+        """NER-based entity extraction — zero LLM cost.
+
+        Runs SpacyNER on chunks and stores results directly via
+        ``ainsert_custom_kg``-style logic (graph + VDB).
+        """
+        from .ner_extractor import NERExtractor
+
+        try:
+            ner = NERExtractor(spacy_model=self.ner_spacy_model)
+            custom_kg = ner.extract_from_chunks(chunks, file_path=file_path)
+            custom_kg.pop("chunks", None)
+
+            n_ent = len(custom_kg.get("entities", []))
+            n_rel = len(custom_kg.get("relationships", []))
+            msg = f"NER extracted {n_ent} entities, {n_rel} relations from {len(chunks)} chunks"
+            logger.info(msg)
+            if pipeline_status_lock and pipeline_status:
+                async with pipeline_status_lock:
+                    pipeline_status["latest_message"] = msg
+                    pipeline_status["history_messages"].append(msg)
+
+            for entity_data in custom_kg.get("entities", []):
+                entity_name = entity_data["entity_name"]
+                source_chunk_id = entity_data.get("source_id", "UNKNOWN")
+                node_data = {
+                    "entity_id": entity_name,
+                    "entity_type": entity_data.get("entity_type", "UNKNOWN"),
+                    "description": entity_data.get("description", entity_name),
+                    "source_id": source_chunk_id,
+                    "file_path": entity_data.get("file_path", file_path),
+                    "created_at": int(time.time()),
+                }
+                await self.chunk_entity_relation_graph.upsert_node(
+                    entity_name, node_data=node_data
+                )
+
+            for rel_data in custom_kg.get("relationships", []):
+                src_id, tgt_id = rel_data["src_id"], rel_data["tgt_id"]
+                for nid in (src_id, tgt_id):
+                    if not await self.chunk_entity_relation_graph.has_node(nid):
+                        await self.chunk_entity_relation_graph.upsert_node(
+                            nid,
+                            node_data={
+                                "entity_id": nid,
+                                "source_id": rel_data.get("source_id", "UNKNOWN"),
+                                "description": "UNKNOWN",
+                                "entity_type": "UNKNOWN",
+                                "file_path": file_path,
+                                "created_at": int(time.time()),
+                            },
+                        )
+                await self.chunk_entity_relation_graph.upsert_edge(
+                    src_id, tgt_id,
+                    edge_data={
+                        "weight": rel_data.get("weight", 1.0),
+                        "description": rel_data.get("description", ""),
+                        "keywords": rel_data.get("keywords", "co-occurrence"),
+                        "source_id": rel_data.get("source_id", "UNKNOWN"),
+                        "file_path": file_path,
+                        "created_at": int(time.time()),
+                    },
+                )
+
+            if custom_kg.get("entities"):
+                ent_vdb_data = {
+                    compute_mdhash_id(dp["entity_name"], prefix="ent-"): {
+                        "content": dp["entity_name"] + "\n" + dp.get("description", ""),
+                        "entity_name": dp["entity_name"],
+                        "source_id": dp.get("source_id", "UNKNOWN"),
+                        "description": dp.get("description", ""),
+                        "entity_type": dp.get("entity_type", "UNKNOWN"),
+                        "file_path": dp.get("file_path", file_path),
+                    }
+                    for dp in custom_kg["entities"]
+                }
+                await self.entities_vdb.upsert(ent_vdb_data)
+
+            if custom_kg.get("relationships"):
+                rel_vdb_data = {
+                    compute_mdhash_id(dp["src_id"] + dp["tgt_id"], prefix="rel-"): {
+                        "src_id": dp["src_id"],
+                        "tgt_id": dp["tgt_id"],
+                        "source_id": dp.get("source_id", "UNKNOWN"),
+                        "content": f"{dp.get('keywords', '')}\t{dp['src_id']}\n{dp['tgt_id']}\n{dp.get('description', '')}",
+                        "keywords": dp.get("keywords", "co-occurrence"),
+                        "description": dp.get("description", ""),
+                        "weight": dp.get("weight", 1.0),
+                        "file_path": dp.get("file_path", file_path),
+                    }
+                    for dp in custom_kg["relationships"]
+                }
+                await self.relationships_vdb.upsert(rel_vdb_data)
+
+        except Exception as e:
+            error_msg = f"NER extraction failed: {e}"
+            logger.error(error_msg)
+            if pipeline_status_lock and pipeline_status:
+                async with pipeline_status_lock:
+                    pipeline_status["latest_message"] = error_msg
+                    pipeline_status["history_messages"].append(error_msg)
+            raise
 
     async def _process_extract_entities(
         self, chunk: dict[str, Any], pipeline_status=None, pipeline_status_lock=None
