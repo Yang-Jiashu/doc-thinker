@@ -184,17 +184,15 @@ pdf:
 
 | 目录 | 说明 |
 |------|------|
-| `docthinker/` | **DocThinker 主库**：解析、入库、查询、知识图谱、超图、认知、UI、FastAPI 后端（`docthinker.server.app`）。 |
-| `graphcore/` | **图 RAG 引擎**：KG 与向量检索、LLM 绑定等，被 docthinker 调用。 |
-| `neuro_core/` | **类脑记忆（NeuroAgent）**：KG 构建、扩散激活、自动联想，供 `main.py` 交互/API 使用。 |
-| `neuro_memory/` | **类脑记忆（DocThinker 集成）**：与 docthinker 服务端集成的记忆引擎。 |
-| `perception/` | **感知层**：文档解析（PDF/MD）与对话输入。 |
-| `cognition/` | **认知层**：意图理解与任务规划。 |
-| `agent/` | **智能体编排**：Agent 逻辑与会话管理。 |
-| `retrieval/` | **检索层**：混合检索（图 + 向量）。 |
-| `api/` | **NeuroAgent 的 FastAPI**：`main.py --server` 时使用。 |
-
-**启动说明**：Web UI 使用 **DocThinker 后端** 时，请先启动 `python -m uvicorn docthinker.server.app:app --host 0.0.0.0 --port 8000`，再在另一终端运行 `python run_ui.py`；仅需 **NeuroAgent** 时使用 `python main.py` / `python main.py --server`。
+| `docthinker/` | **核心主库**：文档解析（`parser`、`pdf_pipeline/`）、知识图谱构建（`processor`）、查询引擎（`query`）、认知处理（`cognitive/`）、KG 扩展（`kg_expansion/`）、自动思维链（`auto_thinking/`）、FastAPI 后端（`server/`）、Flask UI（`ui/`）。 |
+| `graphcore/` | **图 RAG 引擎**：基于 CoreGraph 的知识图谱存储、向量检索、LLM 绑定、实体/关系提取。被 docthinker 作为底层图引擎调用。 |
+| `neuro_memory/` | **类脑记忆引擎**：扩散激活（Spreading Activation）、情节存储（Episode Store）、图存储（Graph Store），与 docthinker 服务端集成。 |
+| `linearrag_module/` | **LinearRAG 模块**（可选）：基于 NER 的无关系图 RAG 策略，作为可切换的备选接口保留。 |
+| `config/` | **配置文件**：`settings.yaml` 集中管理 PDF 处理、记忆系统、检索、认知等超参数。 |
+| `scripts/` | **工具脚本**：连通性测试、PDF 管线测试、配置检查等辅助脚本。 |
+| `tests/` | **单元测试**：各模块的自动化测试用例。 |
+| `docs/` | **项目文档**：系统流程说明、存储迁移指南、安全检查等。 |
+| `data/` | **运行时数据**：会话数据、知识图谱、向量库、多模态图片资产（运行时自动生成，不纳入版本控制）。 |
 
 ---
 
