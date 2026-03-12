@@ -387,6 +387,27 @@ def kg_stats_proxy():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+_IMG_MIME = {
+    ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+    ".webp": "image/webp", ".gif": "image/gif", ".bmp": "image/bmp",
+}
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+
+def _serve_kg_image(session_id, filename):
+    """Serve image files directly from the session's multimodal/images directory."""
+    from urllib.parse import unquote
+    sid = unquote(session_id)
+    safe_name = Path(unquote(filename)).name
+    img_path = _PROJECT_ROOT / "data" / sid / "knowledge" / "multimodal" / "images" / safe_name
+    if img_path.is_file():
+        mime = _IMG_MIME.get(img_path.suffix.lower(), "image/png")
+        return send_file(str(img_path), mimetype=mime)
+    return jsonify({"error": f"Image not found: {safe_name}", "path_checked": str(img_path)}), 404
+
+@app.route(f'{api_config.api_prefix}/knowledge-graph/image/<session_id>/<filename>', methods=['GET'])
+def kg_image_serve(session_id, filename):
+    return _serve_kg_image(session_id, filename)
+
 @app.route(f'{api_config.api_prefix}/knowledge-graph/stats-all', methods=['GET'])
 def kg_stats_all_proxy():
     """Diagnostic endpoint: aggregate graph stats for all sessions."""
@@ -499,7 +520,11 @@ def update_config_proxy():
 @app.route(f'{api_config.api_prefix}/<path:subpath>', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH'])
 def api_proxy(subpath):
     import requests
-    backend = f"http://127.0.0.1:8000{api_config.api_prefix}/{subpath}"
+    import re
+    m = re.match(r'^knowledge-graph/image/(.+)/([^/]+)$', subpath)
+    if m and request.method == 'GET':
+        return _serve_kg_image(m.group(1), m.group(2))
+    backend = f"http://127.0.0.1:8000{api_config.api_prefix}/{quote(subpath, safe='/')}"
     try:
         if request.method == 'GET':
             r = requests.get(backend, params=request.args, timeout=30)

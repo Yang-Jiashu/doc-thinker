@@ -87,6 +87,7 @@ graph TD
 
 ### 环境要求
 - Python 3.10+
+- [Anaconda](https://www.anaconda.com/download) 或 [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - Git
 
 ### 安装步骤
@@ -96,12 +97,9 @@ graph TD
 git clone https://github.com/Yang-Jiashu/doc-thinker.git
 cd doc-thinker
 
-# 2. 创建并激活虚拟环境
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux/macOS:
-# source .venv/bin/activate
+# 2. 创建并激活 Conda 虚拟环境
+conda create -n docthinker python=3.11 -y
+conda activate docthinker
 
 # 3. 安装依赖
 pip install -U pip
@@ -110,7 +108,7 @@ pip install -e .
 ```
 
 ### 配置
-复制示例配置文件并填入你的 API Key（支持 OpenAI, DashScope, SiliconFlow 等）：
+复制示例配置文件并填入你的 API Key（支持 OpenAI, DashScope/千问, SiliconFlow 等）：
 
 ```bash
 cp env.example .env
@@ -124,10 +122,61 @@ cp env.example .env
 python main.py
 ```
 
-**启动 API 服务：**
+**启动 Web UI（推荐）：**
+```bash
+# 终端 1：启动 FastAPI 后端
+python -m uvicorn docthinker.server.app:app --host 0.0.0.0 --port 8000
+
+# 终端 2：启动 Flask UI
+python run_ui.py
+```
+
+**仅启动 API 服务：**
 ```bash
 python main.py --server
 ```
+
+---
+
+## 🔍 查询模式说明
+
+DocThinker 提供三种查询模式，适用于不同场景：
+
+| 模式 | 检索策略 | 适用场景 | 说明 |
+|------|---------|---------|------|
+| ⚡ **快速模式** | 直接向量匹配（Naive） | 简单事实查询、快速问答 | 跳过扩散激活与深度推理，直接匹配文本块和节点，响应最快。 |
+| ⚖️ **标准模式** | 混合检索（Hybrid） | 日常使用（默认） | 结合向量检索与知识图谱结构化查询，平衡速度与答案质量。 |
+| 🧠 **深度模式** | 混合检索 + 扩散激活（Mix + Thinking） | 复杂分析、跨文档推理 | 在标准模式基础上启用**扩散激活**（Spreading Activation），沿知识图谱边向外扩散，发掘隐含关联；同时启用多步推理，答案更深入但耗时较长。 |
+
+---
+
+## 📄 PDF 处理配置
+
+PDF 解析模式通过 `config/settings.yaml` 配置：
+
+```yaml
+pdf:
+  parse_mode: "auto"     # "auto" | "vlm" | "mineru"
+  page_threshold: 15     # 仅 auto 模式生效
+```
+
+| 模式 | 说明 |
+|------|------|
+| `auto`（默认） | 自动路由：页数 ≤ `page_threshold` 使用云端 VLM 识别，页数 > `page_threshold` 使用 MinerU 框架进行 OCR 提取。 |
+| `vlm` | 强制使用云端 VLM（视觉语言模型）处理所有 PDF，适合短文档或需要图片内容理解的场景。 |
+| `mineru` | 强制使用 MinerU 框架处理所有 PDF，适合长文档，可精准提取文档结构、表格和布局信息。 |
+
+> 也可通过环境变量 `PDF_PARSE_MODE` 和 `PDF_VLM_PAGE_THRESHOLD` 覆盖 YAML 配置。
+
+---
+
+## 🌐 知识图谱扩展
+
+在知识图谱可视化页面，点击右上角的 **「扩展」** 按钮可以触发 **LLM 联想扩展**：
+
+- **功能**：系统调用大语言模型，从多个角度（如上下位概念、因果关系、应用场景等）对图谱中已有的核心实体进行联想推理，生成新的候选节点和关系，并自动写入知识图谱。
+- **效果**：扩展后的新节点以 **黄色** 显示，与原有节点（蓝/绿/粉色）区分。这些扩展节点补充了文档中未显式提及但逻辑上相关的知识。
+- **用途**：在深度模式查询时，扩展节点也会参与扩散激活和匹配，有助于系统理解更广泛的上下文，提升跨领域、跨概念的推理能力。
 
 ---
 

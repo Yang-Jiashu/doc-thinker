@@ -2097,6 +2097,40 @@ class ProcessorMixin:
         except Exception:
             return 0
 
+    @staticmethod
+    def _load_pdf_config() -> tuple:
+        """Load PDF parse mode and page threshold.
+
+        Priority: env vars > config/settings.yaml > defaults.
+        Returns (mode, page_threshold).
+        """
+        env_mode = os.environ.get("PDF_PARSE_MODE")
+        env_threshold = os.environ.get("PDF_VLM_PAGE_THRESHOLD")
+
+        if env_mode and env_threshold:
+            return env_mode, int(env_threshold)
+
+        yaml_mode = None
+        yaml_threshold = None
+        config_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "config", "settings.yaml",
+        )
+        if os.path.exists(config_path):
+            try:
+                import yaml
+                with open(config_path, "r", encoding="utf-8") as f:
+                    cfg = yaml.safe_load(f) or {}
+                pdf_cfg = cfg.get("pdf", {})
+                yaml_mode = pdf_cfg.get("parse_mode")
+                yaml_threshold = pdf_cfg.get("page_threshold")
+            except Exception:
+                pass
+
+        mode = env_mode or yaml_mode or "auto"
+        threshold = int(env_threshold or yaml_threshold or 15)
+        return mode, threshold
+
     async def _process_pdf_dual_path(
         self,
         file_path: str,
@@ -2106,30 +2140,35 @@ class ProcessorMixin:
     ) -> tuple:
         """Run the modular PDF pipeline and return (text_content, multimodal_items, doc_id).
 
-        Routing logic (``PDF_PARSE_MODE`` env):
-          - ``auto`` (default): ≤15 pages → VLM only; >15 pages → MinerU only
-          - ``vision_only`` / ``fast`` / ``full``: explicit override
+        Routing logic (config/settings.yaml ``pdf.parse_mode`` or ``PDF_PARSE_MODE`` env):
+          - ``auto`` (default): ≤page_threshold pages → VLM only; >page_threshold → MinerU only
+          - ``vlm``    / ``vision_only``: always use cloud VLM
+          - ``mineru`` / ``fast``       : always use MinerU
+          - ``full``                    : MinerU + VLM in parallel
         """
         from docthinker.pdf_pipeline import PDFPipelineOrchestrator
         from docthinker.pdf_pipeline.mineru_extractor import MineruExtractor
         from docthinker.pdf_pipeline.vision_extractor import VisionExtractor
 
-        VLM_PAGE_THRESHOLD = int(os.environ.get("PDF_VLM_PAGE_THRESHOLD", "15"))
-
-        pdf_mode = os.environ.get("PDF_PARSE_MODE", "auto")
+        pdf_mode, page_threshold = self._load_pdf_config()
         vision_func = getattr(self, "vision_model_func", None)
+
+        if pdf_mode in ("vlm",):
+            pdf_mode = "vision_only"
+        elif pdf_mode in ("mineru",):
+            pdf_mode = "fast"
 
         if pdf_mode == "auto":
             page_count = self._get_pdf_page_count(file_path)
-            if page_count > 0 and page_count <= VLM_PAGE_THRESHOLD and vision_func:
+            if page_count > 0 and page_count <= page_threshold and vision_func:
                 pdf_mode = "vision_only"
                 self.logger.info(
-                    f"[PDFPipeline] auto: {page_count} pages <= {VLM_PAGE_THRESHOLD} -> VLM only"
+                    f"[PDFPipeline] auto: {page_count} pages <= {page_threshold} -> VLM only"
                 )
             else:
                 pdf_mode = "fast"
                 self.logger.info(
-                    f"[PDFPipeline] auto: {page_count} pages > {VLM_PAGE_THRESHOLD} -> MinerU only"
+                    f"[PDFPipeline] auto: {page_count} pages > {page_threshold} -> MinerU only"
                 )
 
         output_dir_path = Path(str(output_dir))

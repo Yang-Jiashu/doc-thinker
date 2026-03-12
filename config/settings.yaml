@@ -1,56 +1,50 @@
-# NeuroAgent 配置文件
+# DocThinker 配置文件
 
-# 记忆系统配置
+# ─── PDF 处理超参数 ───────────────────────────────────────
+# pdf_parse_mode:
+#   "auto"   — 自动路由：<=page_threshold 页使用 VLM，>page_threshold 页使用 MinerU
+#   "vlm"    — 无论几页都使用云端 VLM 进行处理
+#   "mineru" — 无论几页都使用 MinerU 框架进行处理
+pdf:
+  parse_mode: "auto"
+  page_threshold: 15
+
+# ─── 记忆系统配置 ──────────────────────────────────────────
 memory:
   working_dir: "./neuro_agent_data"
-  consolidation_interval: 3600  # 巩固间隔（秒）
+  consolidation_interval: 3600
   max_episodes: 10000
-  
-  # 扩散激活配置
+
   spreading_activation:
     max_hops: 3
     decay_per_hop: 0.85
     min_activation: 1e-4
-  
-  # 类比检索配置
+
   analogical_retrieval:
     content_weight: 0.6
     structure_weight: 0.25
     salience_weight: 0.15
 
-# 检索配置
+# ─── 检索配置 ─────────────────────────────────────────────
 retrieval:
   vector_weight: 0.4
   graph_weight: 0.35
   analogy_weight: 0.25
   top_k: 10
 
-# 认知配置
+# ─── 认知配置 ─────────────────────────────────────────────
 cognition:
   context_window: 3
   max_tokens: 4000
 
-# LLM 配置
-llm:
-  model: "gpt-4o-mini"
-  temperature: 0.7
-  max_tokens: 2000
-  timeout: 60
-
-# Embedding 配置
-embedding:
-  model: "text-embedding-3-large"
-  dim: 3072
-  batch_size: 32
-
-# API 服务配置
+# ─── API 服务配置 ──────────────────────────────────────────
 server:
   host: "0.0.0.0"
   port: 8000
   cors_origins: ["http://localhost:3000", "http://localhost:8080"]
 
-# 会话配置
+# ─── 会话配置 ─────────────────────────────────────────────
 session:
   max_history: 100
-  cleanup_interval: 86400  # 清理间隔（秒）
+  cleanup_interval: 86400
   max_age_hours: 24

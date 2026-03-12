@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException, Body
+from fastapi.responses import FileResponse
 
 from ..schemas import EntityRelationshipRequest, RelationshipRequest
 from ..state import state
@@ -233,8 +234,26 @@ async def get_graph_data(session_id: Optional[str] = None):
 
         nodes = []
         edges = []
-        max_nodes = 1000  # 提高上限，支持 500+ 节点图谱
-        # 优先保留扩展节点（黄色）：is_expanded=1 或 source_id=llm_expansion
+        max_nodes = 5000
+
+        img_path_by_id: Dict[str, str] = {}
+        for n in nodes_data:
+            nid = n.get("id") or n.get("entity_id") or ""
+            raw = str(n.get("img_path") or "").strip()
+            if nid and raw and Path(raw).is_file():
+                img_path_by_id[nid] = raw
+
+        asset_img_for: Dict[str, str] = {}
+        for e in edges_data:
+            kw = str(e.get("keywords") or "").strip().lower()
+            if kw in {"image_asset_of", "image_related_to"}:
+                src = e.get("source", "")
+                tgt = e.get("target", "")
+                if src in img_path_by_id and tgt not in img_path_by_id:
+                    asset_img_for.setdefault(tgt, img_path_by_id[src])
+                elif tgt in img_path_by_id and src not in img_path_by_id:
+                    asset_img_for.setdefault(src, img_path_by_id[tgt])
+
         expanded_nodes = [n for n in nodes_data if _is_expanded_node(n)]
         other_nodes = [n for n in nodes_data if not _is_expanded_node(n)]
         nodes_to_use = expanded_nodes + other_nodes[: max(0, max_nodes - len(expanded_nodes))]
@@ -243,19 +262,26 @@ async def get_graph_data(session_id: Optional[str] = None):
             if not node_id:
                 continue
             is_expanded = _is_expanded_node(node_info)
-            nodes.append(
-                {
-                    "id": node_id,
-                    "label": node_id,
-                    "type": node_info.get("entity_type", "unknown"),
-                    "size": 20,
-                    "color": resolve_graph_node_color(
-                        node_info, is_expanded=is_expanded
-                    ),
-                    "is_expanded": is_expanded,
-                    "is_image_node": is_image_node(node_info),
-                }
-            )
+            _is_img = is_image_node(node_info)
+            node_entry: Dict[str, Any] = {
+                "id": node_id,
+                "label": node_id,
+                "type": node_info.get("entity_type", "unknown"),
+                "size": 20,
+                "color": resolve_graph_node_color(
+                    node_info, is_expanded=is_expanded
+                ),
+                "is_expanded": is_expanded,
+                "is_image_node": _is_img,
+            }
+            if _is_img:
+                resolved_path = img_path_by_id.get(node_id) or asset_img_for.get(node_id) or ""
+                if resolved_path:
+                    node_entry["has_image"] = True
+                    node_entry["image_file"] = Path(resolved_path).name
+                else:
+                    node_entry["has_image"] = False
+            nodes.append(node_entry)
 
         node_ids = set(n["id"] for n in nodes)
         for edge_info in edges_data:
@@ -268,6 +294,7 @@ async def get_graph_data(session_id: Optional[str] = None):
                         "source": u,
                         "target": v,
                         "label": edge_info.get("keywords", "related"),
+                        "description": edge_info.get("description", ""),
                         "color": "#95a5a6",
                         "width": 1,
                     }
@@ -292,6 +319,34 @@ async def get_graph_data(session_id: Optional[str] = None):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to extract graph data: {str(e)}")
+
+
+@router.get("/knowledge-graph/image/{session_id}/{filename}")
+async def serve_image_node(session_id: str, filename: str):
+    """Serve an image file from a session's multimodal/images directory."""
+    if not state.session_manager:
+        raise HTTPException(status_code=500, detail="Service not initialized")
+
+    session = state.session_manager.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    knowledge_dir = session.get("knowledge_dir") or ""
+    if not knowledge_dir:
+        raise HTTPException(status_code=404, detail="Knowledge dir not found")
+
+    safe_name = Path(filename).name
+    img_path = Path(knowledge_dir) / "multimodal" / "images" / safe_name
+
+    if not img_path.is_file():
+        raise HTTPException(status_code=404, detail=f"Image file not found: {safe_name}")
+
+    _MIME = {
+        ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+        ".webp": "image/webp", ".gif": "image/gif", ".bmp": "image/bmp",
+    }
+    mime = _MIME.get(img_path.suffix.lower(), "image/png")
+    return FileResponse(str(img_path), media_type=mime)
 
 
 @router.post("/knowledge-graph/expand")
