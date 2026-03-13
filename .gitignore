@@ -82,8 +82,13 @@ snapshots/
 # Cline files
 memory-bank/
 
+# Session data & runtime storage
+data/
+!data/_system/
+
 # AI
 .claude/
 .cursor/
 CLAUDE.md
 context_dumps/
+token_stats.jsonl

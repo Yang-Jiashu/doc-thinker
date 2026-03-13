@@ -2,19 +2,205 @@
 
 <img src="logo.png" alt="DocThinker Logo" width="220" />
 
-# 🧠 DocThinker
-### 具有类人脑记忆架构的智能个人知识助手
+# DocThinker
+
+**An Intelligent Personal Knowledge Assistant with Brain-Like Memory Architecture**
+**具有类人脑记忆架构的智能个人知识助手**
+
+*Beyond traditional retrieval — think and remember like a human.*
 *超越传统检索，像人类一样思考与记忆*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-green.svg)](https://www.python.org/downloads/)
 [![Status: Active](https://img.shields.io/badge/Status-Active%20Development-success)]()
 
-[核心特性](#-核心特性) • [架构设计](#-架构设计) • [快速开始](#-快速开始) • [项目结构](#-项目结构)
+[English](#-overview) | [中文](#-项目简介)
 
 </div>
 
 ---
+
+<details open>
+<summary><h2>English</h2></summary>
+
+## 📖 Overview
+
+**DocThinker** is a next-generation intelligent agent system designed to break through the limitations of traditional RAG (Retrieval-Augmented Generation). Instead of simply searching for similar text chunks, it builds a **structured, brain-like memory system**.
+
+In this system, knowledge is stored as interconnected Episodes, Concepts, and Entities. Like the human brain, it can understand complex documents, build knowledge graphs, and proactively associate related information.
+
+## ✨ Key Features
+
+### 1. KG-Based Memory Architecture
+DocThinker treats the Knowledge Graph (KG) as memory itself, not just an external database.
+- **Episode Nodes**: Every interaction (document reading, conversation, event) becomes a node in the graph.
+- **Entity & Concept**: Automatically extracted and linked to related episodes.
+- **Unified Storage**: Structured relationships and vector embeddings fused within the same graph.
+
+### 2. Auto-Association Mechanism
+The system doesn't just passively wait for queries — it thinks proactively.
+- **On-Insert Association**: When new knowledge is written, the system automatically discovers and connects to existing related memories.
+- **Spreading Activation**: The retrieval process simulates human cognition by activating concept nodes and spreading outward to find latent connections.
+- **Spontaneous Recall**: Proactively surfaces related memories based on context without explicit search.
+
+### 3. Multimodal Perception
+Powered by **MinerU** and **Docling**, DocThinker deeply understands documents.
+- **Deep Parsing**: Precise recognition of PDF layouts, tables, formulas, and images.
+- **Hierarchical Structure Preservation**: Fully retains the document's logical structure (Chapter → Section → Paragraph), beyond mere chunking.
+
+## 🏗 Architecture
+
+The system mirrors the human cognitive process: **Perception → Cognition → Memory → Application**.
+
+```mermaid
+graph TD
+    User[User / Document] --> Perception
+    subgraph Perception [Perception Layer]
+        Doc[Document Parser]
+        Chat[Dialog Understanding]
+    end
+    
+    Perception --> Cognition
+    subgraph Cognition [Cognition Layer]
+        Intent[Intent Recognition]
+        Reason[Reasoning & Planning]
+    end
+    
+    Cognition <--> Memory
+    subgraph Memory [Memory Core]
+        WM[Working Memory]
+        KG[KG Memory]
+        Vector[Vector Memory]
+        
+        KG -- Spreading Activation --> WM
+        Vector -- Semantic Retrieval --> WM
+    end
+    
+    Memory --> Application
+    subgraph Application [Application Layer]
+        QA[QA System]
+        Vis[Memory Visualization]
+        Agent[Agent Actions]
+    end
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.10+
+- [Anaconda](https://www.anaconda.com/download) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+- Git
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Yang-Jiashu/doc-thinker.git
+cd doc-thinker
+
+# 2. Create and activate a Conda environment
+conda create -n docthinker python=3.11 -y
+conda activate docthinker
+
+# 3. Install dependencies
+pip install -U pip
+pip install -r requirements.txt
+pip install -e .
+```
+
+### Configuration
+Copy the example config and fill in your API key (supports OpenAI, DashScope/Qwen, SiliconFlow, etc.):
+
+```bash
+cp env.example .env
+# Edit .env and fill in your API key
+```
+
+### Run
+
+**Start interactive chat:**
+```bash
+python main.py
+```
+
+**Start Web UI (recommended):**
+```bash
+# Terminal 1: Start FastAPI backend
+python -m uvicorn docthinker.server.app:app --host 0.0.0.0 --port 8000
+
+# Terminal 2: Start Flask UI
+python run_ui.py
+```
+
+**Start API server only:**
+```bash
+python main.py --server
+```
+
+## 🔍 Query Modes
+
+DocThinker offers three query modes for different use cases:
+
+| Mode | Retrieval Strategy | Use Case | Description |
+|------|-------------------|----------|-------------|
+| ⚡ **Fast** | Direct vector matching (Naive) | Simple fact queries, quick Q&A | Skips spreading activation and deep reasoning; directly matches text chunks and nodes for fastest response. |
+| ⚖️ **Standard** | Hybrid retrieval | Everyday use (default) | Combines vector retrieval with KG structured queries, balancing speed and answer quality. |
+| 🧠 **Deep** | Hybrid + Spreading Activation (Mix + Thinking) | Complex analysis, cross-document reasoning | Enables **spreading activation** along KG edges to uncover latent connections, plus multi-step reasoning for deeper but slower answers. |
+
+## 📄 PDF Processing
+
+PDF parsing mode is configured via `config/settings.yaml`:
+
+```yaml
+pdf:
+  parse_mode: "auto"     # "auto" | "vlm" | "mineru"
+  page_threshold: 15     # Only effective in auto mode
+```
+
+| Mode | Description |
+|------|-------------|
+| `auto` (default) | Auto-routing: pages ≤ `page_threshold` use cloud VLM recognition; pages > `page_threshold` use MinerU framework for OCR extraction. |
+| `vlm` | Force cloud VLM (Vision Language Model) for all PDFs. Best for short documents or when image content understanding is needed. |
+| `mineru` | Force MinerU framework for all PDFs. Best for long documents with precise structure, table, and layout extraction. |
+
+> Override YAML config via environment variables `PDF_PARSE_MODE` and `PDF_VLM_PAGE_THRESHOLD`.
+
+## 🌐 Knowledge Graph Expansion
+
+On the KG visualization page, click the **"Expand"** button in the top-right corner to trigger **LLM associative expansion**:
+
+- **Function**: The system invokes the LLM to reason about core entities from multiple perspectives (e.g., hypernyms/hyponyms, causal relations, application scenarios), generating new candidate nodes and relations that are automatically written into the KG.
+- **Effect**: Expanded nodes appear in **yellow**, distinguishing them from original nodes (blue/green/pink). These nodes supplement knowledge logically related but not explicitly mentioned in the documents.
+- **Usage**: In deep mode queries, expanded nodes participate in spreading activation and matching, helping the system understand broader context and improving cross-domain, cross-concept reasoning.
+
+## 📂 Project Structure
+
+| Directory | Description |
+|-----------|-------------|
+| `docthinker/` | **Core library**: document parsing (`parser`, `pdf_pipeline/`), KG construction (`processor`), query engine (`query`), cognitive processing (`cognitive/`), KG expansion (`kg_expansion/`), auto chain-of-thought (`auto_thinking/`), FastAPI backend (`server/`), Flask UI (`ui/`). |
+| `graphcore/` | **Graph RAG engine**: CoreGraph-based KG storage, vector retrieval, LLM binding, entity/relation extraction. Used by docthinker as the underlying graph engine. |
+| `neuro_memory/` | **Brain-like memory engine**: spreading activation, episode store, graph store, integrated with docthinker server. |
+| `linearrag_module/` | **LinearRAG module** (optional): NER-based graph-free RAG strategy, retained as a switchable alternative interface. |
+| `config/` | **Configuration**: `settings.yaml` centrally manages hyperparameters for PDF processing, memory system, retrieval, cognition, etc. |
+| `scripts/` | **Utility scripts**: connectivity tests, PDF pipeline tests, config checks, and other helper scripts. |
+| `tests/` | **Unit tests**: automated test cases for each module. |
+| `docs/` | **Documentation**: system flow descriptions, storage migration guides, security checks, etc. |
+| `data/` | **Runtime data**: session data, knowledge graphs, vector stores, multimodal image assets (auto-generated at runtime, not version-controlled). |
+
+## 🤝 Contributing
+
+Pull requests and issues are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is open-sourced under the [MIT License](LICENSE).
+
+</details>
+
+---
+
+<details open>
+<summary><h2>中文</h2></summary>
 
 ## 📖 项目简介
 
@@ -203,3 +389,5 @@ pdf:
 ## 📄 开源协议
 
 本项目采用 [MIT 协议](LICENSE) 开源。
+
+</details>

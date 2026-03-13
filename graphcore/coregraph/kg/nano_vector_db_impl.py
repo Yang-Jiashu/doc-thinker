@@ -147,9 +147,41 @@ class NanoVectorDBStorage(BaseVectorStorage):
             for i in range(0, len(contents), self._max_batch_size)
         ]
 
-        # Execute embedding outside of lock to avoid long lock times
-        embedding_tasks = [self.embedding_func(batch) for batch in batches]
-        embeddings_list = await asyncio.gather(*embedding_tasks)
+        num_batches = len(batches)
+        total_items = len(contents)
+        if num_batches <= 4:
+            embedding_tasks = [self.embedding_func(batch) for batch in batches]
+            embeddings_list = await asyncio.gather(*embedding_tasks)
+            if num_batches > 1:
+                logger.info(
+                    f"[embed {self.namespace}] {total_items}/{total_items} done (parallel)"
+                )
+        else:
+            import time as _time
+            _emb_t0 = _time.perf_counter()
+            embeddings_list = []
+            for idx, batch in enumerate(batches):
+                result = await self.embedding_func(batch)
+                embeddings_list.append(result)
+                done_items = min((idx + 1) * self._max_batch_size, total_items)
+                pct = done_items * 100 // total_items
+                elapsed = _time.perf_counter() - _emb_t0
+                if (idx + 1) % 10 == 0 or idx == num_batches - 1:
+                    remaining = total_items - done_items
+                    speed = done_items / max(elapsed, 0.01)
+                    eta = remaining / max(speed, 0.01)
+                    logger.info(
+                        f"[embed {self.namespace}] "
+                        f"{done_items}/{total_items} ({pct}%) | "
+                        f"batch {idx+1}/{num_batches} | "
+                        f"{elapsed:.1f}s elapsed, ~{eta:.0f}s remaining"
+                    )
+                if (idx + 1) % 5 == 0 and idx + 1 < num_batches:
+                    await asyncio.sleep(1.0)
+            logger.info(
+                f"[embed {self.namespace}] COMPLETE: {total_items} items, "
+                f"{num_batches} batches, {_time.perf_counter() - _emb_t0:.1f}s total"
+            )
 
         embeddings = np.concatenate(embeddings_list)
         if len(embeddings) == len(list_data):

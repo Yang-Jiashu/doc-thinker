@@ -433,6 +433,63 @@ def memory_graph_proxy():
         return jsonify({'nodes': [], 'edges': [], 'error': str(e)}), 500
 
 # Query endpoint - Connect to backend
+@app.route(f'{api_config.api_prefix}/query/stream', methods=['POST'])
+def query_stream():
+    """Streaming query endpoint - proxies SSE to FastAPI backend"""
+    import requests
+    from flask import Response, stream_with_context
+    
+    try:
+        data = request.get_json() or {}
+        
+        backend_url = "http://127.0.0.1:8000/api/v1/query/stream"
+        ui_mode = str(data.get('ui_mode', 'standard') or 'standard').lower()
+        mode_map = {
+            "standard": "hybrid",
+            "deep": "mix",
+            "quick": "naive",
+        }
+        
+        payload = {
+            "question": data.get('question', data.get('text', '')),
+            "memory_mode": data.get('memory_mode', 'session'),
+            "mode": mode_map.get(ui_mode, "hybrid"),
+            "enable_thinking": ui_mode == "deep",
+            "session_id": data.get('session_id')
+        }
+
+        # Make streaming request to backend
+        req = requests.post(backend_url, json=payload, stream=True, timeout=300)
+        
+        if req.status_code != 200:
+            return jsonify({
+                'success': False,
+                'response': f'后端错误 (状态码: {req.status_code}): {req.text}'
+            }), 500
+
+        def generate():
+            for line in req.iter_lines():
+                if line:
+                    yield f"{line.decode('utf-8')}\n\n"
+
+        return Response(stream_with_context(generate()), content_type='text/event-stream')
+            
+    except requests.exceptions.ConnectionError:
+        return jsonify({
+            'success': False,
+            'response': '无法连接到后端服务 (127.0.0.1:8000)。\n\n请确认后端已启动:\npython -m uvicorn docthinker.server.app:app --host 0.0.0.0 --port 8000'
+        }), 503
+    except requests.exceptions.ReadTimeout:
+        return jsonify({
+            'success': False,
+            'response': '后端处理超时（>300秒）。'
+        }), 504
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'response': f'发生未知错误: {str(e)}'
+        }), 500
+
 @app.route(f'{api_config.api_prefix}/query/text', methods=['POST'])
 def text_query():
     """Text query endpoint - connects to FastAPI backend on port 8000"""
@@ -466,7 +523,11 @@ def text_query():
                 'success': True,
                 'response': result.get('response', result.get('answer', 'No response')),
                 'sources': result.get('sources', []),
-                'reasoning': result.get('reasoning', '')
+                'reasoning': result.get('reasoning', ''),
+                'thinking_process': result.get('thinking_process', ''),
+                'answer_mode': result.get('answer_mode', ''),
+                'expanded_matches': result.get('expanded_matches', []),
+                'memory_summaries': result.get('memory_summaries', []),
             })
         else:
             return jsonify({
@@ -513,6 +574,22 @@ def update_config_proxy():
         backend_url = f"http://127.0.0.1:8000{api_config.api_prefix}/config"
         resp = requests.post(backend_url, json=data)
         return jsonify(resp.json()), resp.status_code
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+# Settings GET/POST — proxy to FastAPI /settings
+@app.route(f'{api_config.api_prefix}/settings', methods=['GET', 'POST'])
+def settings_proxy():
+    import requests as req_lib
+    backend_url = f"http://127.0.0.1:8000{api_config.api_prefix}/settings"
+    try:
+        if request.method == 'GET':
+            resp = req_lib.get(backend_url, timeout=10)
+        else:
+            resp = req_lib.post(backend_url, json=request.get_json(), timeout=10)
+        return jsonify(resp.json()), resp.status_code
+    except req_lib.exceptions.ConnectionError:
+        return jsonify({'success': False, 'message': '后端服务未启动'}), 503
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)}), 500
 

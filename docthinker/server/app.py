@@ -23,7 +23,7 @@ from docthinker.hypergraph import HyperGraphRAG
 
 from .state import state
 from .memory import save_all_memory_engines
-from .routers import health_router, sessions_router, ingest_router, query_router, graph_router
+from .routers import health_router, sessions_router, ingest_router, query_router, graph_router, settings_router
 
 
 class AsyncModelRouter:
@@ -141,18 +141,36 @@ def _create_rag_config() -> DocThinkerConfig:
 
 async def _get_embedding_func() -> Any:
     embed_client = get_embed_client(state.settings)
+    import logging as _logging
+    _embed_log = _logging.getLogger("docthinker.embedding")
 
     async def embedding_func_impl(texts: List[str]) -> Any:
-        resp = await embed_client.embeddings.create(
-            model=state.settings.embed_model,
-            input=texts,
-        )
-        vectors: List[List[float]] = []
-        for item in resp.data:
-            emb = getattr(item, "embedding", None)
-            if isinstance(emb, list):
-                vectors.append(emb)
-        return np.array(vectors, dtype=np.float32)
+        max_retries = 8
+        for attempt in range(max_retries):
+            try:
+                resp = await embed_client.embeddings.create(
+                    model=state.settings.embed_model,
+                    input=texts,
+                )
+                vectors: List[List[float]] = []
+                for item in resp.data:
+                    emb = getattr(item, "embedding", None)
+                    if isinstance(emb, list):
+                        vectors.append(emb)
+                return np.array(vectors, dtype=np.float32)
+            except Exception as e:
+                err_str = str(e)
+                if "429" in err_str or "rate" in err_str.lower() or "quota" in err_str.lower():
+                    wait = min(3 * (2 ** attempt), 60)
+                    _embed_log.warning(
+                        "[embedding] 429 rate limit (attempt %d/%d, %d texts), waiting %.0fs",
+                        attempt + 1, max_retries, len(texts), wait,
+                    )
+                    await asyncio.sleep(wait)
+                    if attempt == max_retries - 1:
+                        raise
+                else:
+                    raise
 
     return EmbeddingFunc(
         embedding_dim=state.settings.embed_dim,
@@ -170,10 +188,17 @@ async def _get_llm_model_func() -> Any:
         max_concurrency=state.settings.llm_router_max_concurrency,
     )
 
-    async def chat_complete(prompt: str, system_prompt: str | None = None, **_: Any) -> str:
+    async def chat_complete(
+        prompt: str,
+        system_prompt: str | None = None,
+        history_messages: List[dict] | None = None,
+        **_: Any,
+    ) -> str:
         messages = []
         if system_prompt:
             messages.append({"role": "system", "content": system_prompt})
+        if history_messages:
+            messages.extend(history_messages)
         messages.append({"role": "user", "content": prompt})
 
         resp = await model_router.chat_completion(messages=messages, max_tokens=2048, stream=False)
@@ -184,9 +209,91 @@ async def _get_llm_model_func() -> Any:
     return chat_complete
 
 
+async def _get_keyword_llm_func() -> Any:
+    """Lightweight LLM function for keyword extraction using a fast model (no extended thinking)."""
+    vlm_client = get_vlm_client(state.settings)
+    kw_model = state.settings.keyword_llm_model
+
+    async def keyword_complete(prompt: str, system_prompt: str | None = None, **_: Any) -> str:
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": prompt})
+        try:
+            resp = await vlm_client.chat.completions.create(
+                model=kw_model,
+                messages=messages,
+                max_tokens=512,
+                stream=False,
+            )
+            if hasattr(resp, "choices") and resp.choices:
+                return resp.choices[0].message.content
+            return str(resp)
+        except Exception:
+            return ""
+
+    return keyword_complete
+
+
+async def _get_entity_extraction_llm_func() -> Any:
+    """Lightweight LLM for entity extraction during ingestion (no extended thinking)."""
+    vlm_client = get_vlm_client(state.settings)
+    model = state.settings.entity_extraction_llm_model
+
+    async def entity_extract_complete(
+        prompt: str,
+        system_prompt: str | None = None,
+        history_messages: List[dict] | None = None,
+        **_: Any,
+    ) -> str:
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        if history_messages:
+            messages.extend(history_messages)
+        messages.append({"role": "user", "content": prompt})
+        try:
+            resp = await vlm_client.chat.completions.create(
+                model=model,
+                messages=messages,
+                max_tokens=4096,
+                stream=False,
+            )
+            if hasattr(resp, "choices") and resp.choices:
+                return resp.choices[0].message.content
+            return str(resp)
+        except Exception as e:
+            import logging
+            logging.getLogger("docthinker.entity_extract").warning(f"Entity extraction LLM failed: {e}")
+            return ""
+
+    return entity_extract_complete
+
+
+async def _warmup_llm_connection():
+    """Send a lightweight probe to establish API connection pool early."""
+    import logging
+    log = logging.getLogger("docthinker.warmup")
+    try:
+        vlm_client = get_vlm_client(state.settings)
+        kw_model = state.settings.keyword_llm_model
+        log.info(f"Warming up LLM connection with model: {kw_model}")
+        resp = await vlm_client.chat.completions.create(
+            model=kw_model,
+            messages=[{"role": "user", "content": "hi"}],
+            max_tokens=1,
+            stream=False,
+        )
+        log.info("LLM warmup completed successfully")
+    except Exception as e:
+        log.warning(f"LLM warmup failed (non-fatal): {e}")
+
+
 async def _initialize_rag() -> DocThinker:
     embedding_func = await _get_embedding_func()
     chat_complete = await _get_llm_model_func()
+    keyword_complete = await _get_keyword_llm_func()
+    entity_extract_complete = await _get_entity_extraction_llm_func()
     rerank_func = create_bltcy_rerank_func(
         api_key=state.settings.rerank_api_key,
         base_url=state.settings.rerank_base_url,
@@ -203,15 +310,25 @@ async def _initialize_rag() -> DocThinker:
 
     graphcore_kwargs = {
         "llm_model_max_async": state.settings.graphcore_llm_max_async,
-        "embedding_func_max_async": state.settings.graphcore_embedding_max_async,
+        "embedding_func_max_async": min(state.settings.graphcore_embedding_max_async, 2),
         "max_parallel_insert": state.settings.graphcore_max_parallel_insert,
     }
     if rerank_func:
         graphcore_kwargs["rerank_model_func"] = rerank_func
 
+    import logging
+    _init_log = logging.getLogger("docthinker.init")
+    _init_log.info(
+        f"LLM models: query={state.settings.llm_model}, "
+        f"entity_extraction={state.settings.entity_extraction_llm_model}, "
+        f"keyword={state.settings.keyword_llm_model}"
+    )
+
     return DocThinker(
         config=config,
         llm_model_func=chat_complete,
+        keyword_llm_model_func=keyword_complete,
+        entity_extraction_llm_model_func=entity_extract_complete,
         vision_model_func=vision_model_func,
         embedding_func=embedding_func,
         graphcore_kwargs=graphcore_kwargs,
@@ -226,6 +343,7 @@ async def lifespan(app: FastAPI):
     state.session_manager = SessionManager(base_storage_path=state.settings.workdir)
     _cleanup_global_graphcore_artifacts(state.settings.workdir)
 
+    await _warmup_llm_connection()
     state.rag_instance = await _initialize_rag()
     # Session isolation: do not initialize global GraphCore.
     state.kg_entity_ids = set()
@@ -348,7 +466,7 @@ def create_app() -> FastAPI:
             allow_headers=["*"],
         )
 
-    for r in [health_router, sessions_router, ingest_router, query_router, graph_router]:
+    for r in [health_router, sessions_router, ingest_router, query_router, graph_router, settings_router]:
         app.include_router(r, prefix=api_config.api_prefix)
 
     return app

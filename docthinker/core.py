@@ -64,6 +64,12 @@ class DocThinker(QueryMixin, ProcessorMixin, BatchMixin):
     llm_model_func: Optional[Callable] = field(default=None)
     """LLM model function for text analysis."""
 
+    keyword_llm_model_func: Optional[Callable] = field(default=None)
+    """Lightweight LLM for keyword extraction. Falls back to llm_model_func if None."""
+
+    entity_extraction_llm_model_func: Optional[Callable] = field(default=None)
+    """Lightweight LLM for entity extraction during ingestion. Falls back to llm_model_func if None."""
+
     vision_model_func: Optional[Callable] = field(default=None)
     """Vision model function for image analysis."""
 
@@ -333,12 +339,15 @@ class DocThinker(QueryMixin, ProcessorMixin, BatchMixin):
 
             from graphcore.coregraph.kg.shared_storage import initialize_pipeline_status
 
-            # Prepare GraphCore initialization parameters
             graphcore_params = {
                 "working_dir": self.working_dir,
                 "llm_model_func": self.llm_model_func,
                 "embedding_func": self.embedding_func,
             }
+            if self.keyword_llm_model_func is not None:
+                graphcore_params["keyword_llm_model_func"] = self.keyword_llm_model_func
+            if self.entity_extraction_llm_model_func is not None:
+                graphcore_params["entity_extraction_llm_model_func"] = self.entity_extraction_llm_model_func
 
             # Merge user-provided graphcore_kwargs, which can override defaults
             graphcore_params.update(self.graphcore_kwargs)

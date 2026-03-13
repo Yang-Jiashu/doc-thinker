@@ -204,18 +204,40 @@ Return JSON:
         return inferred, hypotheses
 
     async def _analyze_content(self, content: str, source_type: str) -> CognitiveInsight:
+        import time as _time
+        import logging
+        _log = logging.getLogger("docthinker.cognitive")
+        _t0 = _time.perf_counter()
+
         try:
+            _t1 = _time.perf_counter()
             understanding = await self._extract_understanding(content, source_type)
+            _log.info("[cognitive T+%.2fs] _extract_understanding done (%.2fs)",
+                      _time.perf_counter() - _t0, _time.perf_counter() - _t1)
             summary = understanding.get("summary", "")
             key_points = understanding.get("key_points", [])
             concepts = understanding.get("concepts", [])
             reasoning = understanding.get("reasoning", "")
             action_items = understanding.get("action_items", [])
+
+            _t2 = _time.perf_counter()
             entities = await self._extract_entities(content, concepts)
+            _log.info("[cognitive T+%.2fs] _extract_entities done (%.2fs) | %d entities",
+                      _time.perf_counter() - _t0, _time.perf_counter() - _t2, len(entities))
+
+            _t3 = _time.perf_counter()
             relations = await self._extract_relations(content, entities)
+            _log.info("[cognitive T+%.2fs] _extract_relations done (%.2fs) | %d relations",
+                      _time.perf_counter() - _t0, _time.perf_counter() - _t3, len(relations))
+
+            _t4 = _time.perf_counter()
             inferred_relations, hypotheses = await self._infer_relations(
                 summary, concepts, entities, relations
             )
+            _log.info("[cognitive T+%.2fs] _infer_relations done (%.2fs) | %d inferred",
+                      _time.perf_counter() - _t0, _time.perf_counter() - _t4, len(inferred_relations))
+            _log.info("[cognitive T+%.2fs] TOTAL (4 LLM calls)", _time.perf_counter() - _t0)
+
             return CognitiveInsight(
                 summary=summary,
                 key_points=key_points,
@@ -229,7 +251,7 @@ Return JSON:
                 hypotheses=hypotheses,
             )
         except Exception as e:
-            print(f"Cognitive Analysis Failed: {e}")
+            _log.error("[cognitive T+%.2fs] FAILED: %s", _time.perf_counter() - _t0, e)
             return CognitiveInsight(
                 summary="Analysis failed",
                 key_points=[],

@@ -14,6 +14,12 @@ class AppSettings(BaseModel):
     llm_router_max_concurrency: int = 32
     vlm_model: str
 
+    keyword_llm_model: str = "qwen-turbo"
+    """Lightweight model for keyword extraction (no extended thinking)."""
+
+    entity_extraction_llm_model: str = "qwen-turbo"
+    """Lightweight model for entity extraction during ingestion (no extended thinking)."""
+
     embed_api_key: str
     embed_base_url: str
     embed_model: str
@@ -50,6 +56,8 @@ def load_settings() -> AppSettings:
         llm_models=llm_models,
         llm_router_max_concurrency=int(os.getenv("LLM_ROUTER_MAX_CONCURRENCY") or 32),
         vlm_model=os.getenv("VLM_MODEL") or "qwen-vl-max",
+        keyword_llm_model=os.getenv("KEYWORD_LLM_MODEL") or "qwen-turbo",
+        entity_extraction_llm_model=os.getenv("ENTITY_EXTRACTION_LLM_MODEL") or "qwen-turbo",
         embed_api_key=embed_api_key,
         embed_base_url=(
             os.getenv("LLM_EMBED_HOST")

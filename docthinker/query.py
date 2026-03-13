@@ -9,7 +9,7 @@ import hashlib
 import re
 import os
 from datetime import datetime
-from typing import Dict, List, Any, Set, Tuple, Optional
+from typing import Dict, List, Any, Set, Tuple, Optional, AsyncIterator
 from pathlib import Path
 from graphcore.coregraph import QueryParam
 from graphcore.coregraph.utils import always_get_an_event_loop
@@ -211,6 +211,38 @@ class QueryMixin:
         self.logger.info("Text query completed")
         return result
     
+    async def aquery_stream(self, query: str, mode: str = "mix", **kwargs):
+        """
+        Stream text query - returns str or AsyncIterator[str] from GraphCore.
+
+        Unlike aquery(), this always requests stream=True so the caller
+        can iterate chunk-by-chunk for real-time UI updates.
+        Returns the raw result from graphcore.aquery() (str if the backend
+        didn't stream, AsyncIterator[str] otherwise).
+        """
+        if self.graphcore is None:
+            raise ValueError(
+                "No GraphCore instance available. Please process documents first or provide a pre-initialized GraphCore instance."
+            )
+
+        self._last_query_evidence = None
+
+        # Strip non-QueryParam keys before constructing QueryParam
+        kwargs.pop("enable_image_asset_activation", None)
+        kwargs.pop("image_activation_threshold", None)
+        kwargs.pop("image_activation_top_k", None)
+        kwargs.pop("vlm_enhanced", None)
+
+        kwargs["stream"] = True
+        query_param = QueryParam(mode=mode, **kwargs)
+
+        self.logger.info(f"Executing stream text query: {query[:100]}...")
+        self.logger.info(f"Query mode: {mode}")
+
+        result = await self.graphcore.aquery(query, param=query_param)
+        self._last_query_evidence = {"raw_prompt": None, "image_paths": []}
+        return result
+
     async def _execute_text_query(self, query: str, mode: str, **kwargs) -> str:
         """
         Execute a pure text query without knowledge base logging
