@@ -1,0 +1,50 @@
+{
+  "doc-7c38a573df76662c91d65cf745c83d09": {
+    "status": "processed",
+    "chunks_count": 7,
+    "chunks_list": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-f6b2736f01bc36e3d1371f9309a3ef7a",
+      "chunk-a5620b1fca659e335baa5d632dacaf7a",
+      "chunk-89fe41d130febd8488eedbf7569af292"
+    ],
+    "content_summary": "[page_idx:0] DETRs Beat YOLOs on Real-time Object Detection\n\nYian Zhao${}^{1,2\\dagger}$ Wenyu Lv${}^{1\\dagger\\ddagger}$ Shangliang Xu${}^{1}$ Jinman Wei${}^{1}$ Guanzhong Wang${}^{1}$ Qingqing Dang${}^{1}$ Yi Liu${}^{1}$ Jie Chen${}^{2\\boxtimes}$\n\n${...",
+    "content_length": 15503,
+    "created_at": "2026-03-14T20:05:45.686173+00:00",
+    "updated_at": "2026-03-15T04:07:39+00:00",
+    "file_path": "23rfewdq.pdf",
+    "track_id": "insert_20260315_040545_0c944e0d",
+    "metadata": {
+      "processing_start_time": 1773518745,
+      "processing_end_time": 1773518790
+    },
+    "multimodal_processed": true
+  },
+  "doc-557d4331f3c6b6f75c9aecbfbb1ef424": {
+    "status": "processed",
+    "chunks_count": 7,
+    "chunks_list": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3",
+      "chunk-9787ab1eef36eba4258be0a61d000c67",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c",
+      "chunk-d809e0e1bcdd4c9f8a94aed63c30ee41",
+      "chunk-e238e07664cabcd0111d4240219d3a67",
+      "chunk-d827c15f5e7f24992576a42cc0d70b86"
+    ],
+    "content_summary": "[page_idx:0] DETRs Beat YOLOs on Real-time Object Detection\n\nYian Zhao${}^{1,2\\dagger}$ Wenyu Lv${}^{1\\dagger\\ddagger}$ Shangliang Xu${}^{1}$ Jinman Wei${}^{1}$ Guanzhong Wang${}^{1}$ Qingqing Dang${}^{1}$ Yi Liu${}^{1}$ Jie Chen${}^{2\\boxtimes}$\n\n${...",
+    "content_length": 15542,
+    "created_at": "2026-03-14T20:26:38.924921+00:00",
+    "updated_at": "2026-03-15T04:29:02+00:00",
+    "file_path": "23rfewdq.pdf",
+    "track_id": "insert_20260315_042638_c27dedc3",
+    "metadata": {
+      "processing_start_time": 1773519998,
+      "processing_end_time": 1773520075
+    },
+    "multimodal_processed": true
+  }
+}

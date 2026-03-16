@@ -318,6 +318,13 @@ async def lifespan(app: FastAPI):
 
     yield
 
+    # Save tri-graph state on shutdown
+    for sid, mgr in getattr(state, "tri_graph_managers", {}).items():
+        try:
+            mgr.save_all()
+        except Exception:
+            pass
+
     save_all_memory_engines()
     for client_attr in ("auto_thinking_vlm_client", "vision_vlm_client"):
         client = getattr(state, client_attr, None)

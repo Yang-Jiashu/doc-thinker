@@ -1,0 +1,489 @@
+{
+  "doc-4b7fa06c25c1b7ba3965b31192d0d343": {
+    "relation_pairs": [
+      [
+        "Figure 1",
+        "YOLOv7"
+      ],
+      [
+        "Research Paper",
+        "YOLO Detectors"
+      ],
+      [
+        "End-to-End Object Detection",
+        "RT-DETR"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Real-Time Object Detectors"
+      ],
+      [
+        "Non-Maximum Suppression",
+        "Research Paper"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "Transformer"
+      ],
+      [
+        "Page 2",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Tokyo",
+        "World Athletics Championship"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "Yi Liu"
+      ],
+      [
+        "R18 Scaled",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Computational Redundancy",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Figure 1",
+        "Research Paper"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Section 2"
+      ],
+      [
+        "DETRs",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "DETRs",
+        "YOLOs"
+      ],
+      [
+        "RT-DETR",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Authors",
+        "Peking University"
+      ],
+      [
+        "Authors",
+        "Baidu Inc"
+      ],
+      [
+        "Abstract",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Related Work"
+      ],
+      [
+        "Authors",
+        "Research Paper"
+      ],
+      [
+        "FPS",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "Wenyu Lv"
+      ],
+      [
+        "R101",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "YOLOv8"
+      ],
+      [
+        "RT-DETR",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "RT-DETR",
+        "YOLO Detectors"
+      ],
+      [
+        "Academic Paper",
+        "Page 2"
+      ],
+      [
+        "RT-DETR",
+        "Research Paper"
+      ],
+      [
+        "Efficient Hybrid Encoder",
+        "RT-DETR"
+      ],
+      [
+        "100m Sprint Record",
+        "Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "YOLOs"
+      ],
+      [
+        "Abstract",
+        "Research Paper"
+      ],
+      [
+        "AP",
+        "RT-DETR-R50"
+      ],
+      [
+        "Figure 1",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "YOLOv6-v3.0"
+      ],
+      [
+        "Introduction",
+        "Research Paper"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "White Background"
+      ],
+      [
+        "Deformable-DETR",
+        "Related Work"
+      ],
+      [
+        "Carbon-Fiber Spikes",
+        "Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)"
+      ],
+      [
+        "Peking University",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Guanzhong Wang",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "RT-DETR",
+        "Uncertainty-Minimal Query Selection"
+      ],
+      [
+        "End-to-End Object Detection",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Black Serif Text",
+        "Image"
+      ],
+      [
+        "DETR",
+        "RT-DETR"
+      ],
+      [
+        "FPS",
+        "RT-DETR-R50"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Uncertainty-Minimal Query Selection"
+      ],
+      [
+        "Deformable-DETR",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Noah Carter",
+        "World Athletics Championship"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "RT-DETR-R50"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "YOLOv5"
+      ],
+      [
+        "Academic Paper",
+        "DETRs Beat YOLOs on Real-time Object Detection"
+      ],
+      [
+        "Real-Time Object Detectors",
+        "Related Work"
+      ],
+      [
+        "Black Serif Text",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Research Paper",
+        "Transformer"
+      ],
+      [
+        "100m Sprint Record",
+        "Noah Carter"
+      ],
+      [
+        "DETRs Beat YOLOs on Real-time Object Detection",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Introduction",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "YOLOv7"
+      ],
+      [
+        "COCO AP",
+        "Figure 1"
+      ],
+      [
+        "COCO AP",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "End-to-End Object Detectors",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "R50",
+        "RT-DETR"
+      ],
+      [
+        "Figure 1",
+        "PP-YOLOE"
+      ],
+      [
+        "Baidu Inc",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Carbon-Fiber Spikes",
+        "Noah Carter"
+      ],
+      [
+        "Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)",
+        "Tokyo"
+      ],
+      [
+        "Qingqing Dang",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Scientific Publications"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "Yian Zhao"
+      ],
+      [
+        "Efficient Hybrid Encoder",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "YOLO Detectors"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Yolo Detectors"
+      ],
+      [
+        "R50 Scaled",
+        "RT-DETR"
+      ],
+      [
+        "Image",
+        "White Background"
+      ],
+      [
+        "DAB-DETR",
+        "Related Work"
+      ],
+      [
+        "RT-DETR",
+        "Real-Time Object Detection"
+      ],
+      [
+        "Noah Carter",
+        "Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)"
+      ],
+      [
+        "Academic Paper",
+        "Section 2"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Real-Time Object Detection"
+      ],
+      [
+        "End-to-End Object Detectors",
+        "Related Work"
+      ],
+      [
+        "Related Work",
+        "Speed Tuning"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "Speed Tuning"
+      ],
+      [
+        "RT-DETR",
+        "Transformer"
+      ],
+      [
+        "DAB-DETR",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "DETR",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)",
+        "World Athletics Championship"
+      ],
+      [
+        "Academic Paper",
+        "Related Work"
+      ],
+      [
+        "DINO",
+        "Related Work"
+      ],
+      [
+        "Accuracy",
+        "DETR"
+      ],
+      [
+        "NMS",
+        "Related Work"
+      ],
+      [
+        "Legend",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Figure 1",
+        "YOLOv8"
+      ],
+      [
+        "Figure 1",
+        "RT-DETR"
+      ],
+      [
+        "Jinman Wei",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "PP-YOLOE",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "R50",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Academic Paper",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "DINO",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "NMS",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Figure 1",
+        "YOLOv6-v3.0"
+      ],
+      [
+        "R18 Scaled",
+        "RT-DETR"
+      ],
+      [
+        "Related Work",
+        "YOLOv1"
+      ],
+      [
+        "RT-DETR Paper Page 2 Text Column (image)",
+        "YOLOv1"
+      ],
+      [
+        "AP",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Jie Chen",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "DETR",
+        "RT-DETR-R50"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "Research Paper"
+      ],
+      [
+        "R50 Scaled",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Computational Redundancy",
+        "DETR"
+      ],
+      [
+        "RT-DETR Research Paper Page 1 (image)",
+        "Shangliang Xu"
+      ],
+      [
+        "End-to-end Latency T4 TensorRT FP16",
+        "Figure 1"
+      ],
+      [
+        "End-to-end Latency T4 TensorRT FP16",
+        "RT-DETR Research Paper Page 1 (image)"
+      ],
+      [
+        "Figure 1",
+        "YOLOv5"
+      ],
+      [
+        "R101",
+        "RT-DETR"
+      ],
+      [
+        "Figure 1",
+        "Legend"
+      ],
+      [
+        "Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)",
+        "World Athletics Federation"
+      ],
+      [
+        "Accuracy",
+        "RT-DETR Paper Page 2 Text Column (image)"
+      ],
+      [
+        "Non-Maximum Suppression",
+        "RT-DETR Research Paper Page 1 (image)"
+      ]
+    ],
+    "count": 120,
+    "update_time": 1773520756,
+    "_id": "doc-4b7fa06c25c1b7ba3965b31192d0d343"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "session_id": "#00043",
+  "title": "新对话",
+  "created_at": "2026-03-15T03:36:10.511849",
+  "updated_at": "2026-03-15T03:37:52.273709",
+  "messages": [
+    {
+      "id": "2bf75950-481c-44e1-ad12-acf0796b8313",
+      "role": "user",
+      "content": "请分析上传的文件",
+      "timestamp": "2026-03-15T03:37:51.479731"
+    },
+    {
+      "id": "b3e626d7-8cad-4deb-8560-29f22f151642",
+      "role": "assistant",
+      "content": "Sorry, I'm not able to provide an answer to that question.[no-context]",
+      "timestamp": "2026-03-15T03:37:52.273709"
+    }
+  ]
+}

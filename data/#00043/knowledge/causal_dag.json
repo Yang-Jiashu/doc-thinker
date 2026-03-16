@@ -1,0 +1,76 @@
+{
+  "nodes": {
+    "1999 年从普林斯顿大学本科毕业": {
+      "name": "1999 年从普林斯顿大学本科毕业",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517081.354101,
+      "updated_at": 1773517081.354101
+    },
+    "赴西藏研究一年藏药": {
+      "name": "赴西藏研究一年藏药",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517081.354101,
+      "updated_at": 1773517081.354101
+    },
+    "2000 年进入加州理工学院": {
+      "name": "2000 年进入加州理工学院",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517081.354101,
+      "updated_at": 1773517081.354101
+    },
+    "2005 年获得加州理工学院博士学位": {
+      "name": "2005 年获得加州理工学院博士学位",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517081.354101,
+      "updated_at": 1773517081.354101
+    },
+    "2005 年至 2006 年担任伊利诺伊大学厄巴纳 - 香槟分校电机系助理教授": {
+      "name": "2005 年至 2006 年担任伊利诺伊大学厄巴纳 - 香槟分校电机系助理教授",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517081.354101,
+      "updated_at": 1773517081.354101
+    }
+  },
+  "edges": [
+    {
+      "cause": "1999 年从普林斯顿大学本科毕业",
+      "effect": "赴西藏研究一年藏药",
+      "mechanism": "Completion of undergraduate studies enables post-graduation research activities",
+      "strength": 0.7,
+      "evidence": "李飞飞于 1999 年从普林斯顿大学本科毕业后赴西藏研究一年藏药",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773517081.354101
+    },
+    {
+      "cause": "2000 年进入加州理工学院",
+      "effect": "2005 年获得加州理工学院博士学位",
+      "mechanism": "Enrollment in a doctoral program leads to degree completion",
+      "strength": 0.85,
+      "evidence": "2000 年进入加州理工学院；2005 年获得加州理工学院博士学位",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773517081.354101
+    },
+    {
+      "cause": "2005 年获得加州理工学院博士学位",
+      "effect": "2005 年至 2006 年担任伊利诺伊大学厄巴纳 - 香槟分校电机系助理教授",
+      "mechanism": "Obtaining a PhD qualifies the individual for academic faculty positions",
+      "strength": 0.9,
+      "evidence": "2005 年获得加州理工学院博士学位；2005 年至 2006 年担任伊利诺伊大学厄巴纳 - 香槟分校电机系助理教授",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773517081.354101
+    }
+  ]
+}

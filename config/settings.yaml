@@ -1,6 +1,19 @@
 # NeuroAgent 配置文件
 
+<<<<<<< Updated upstream
 # 记忆系统配置
+=======
+# ─── PDF 处理超参数 ───────────────────────────────────────
+# pdf_parse_mode:
+#   "auto"   — 自动路由：<=page_threshold 页使用 VLM，>page_threshold 页使用 MinerU
+#   "vlm"    — 无论几页都使用云端 VLM 进行处理
+#   "mineru" — 无论几页都使用 MinerU 框架进行处理
+pdf:
+  parse_mode: "vlm"
+  page_threshold: 15
+
+# ─── 记忆系统配置 ──────────────────────────────────────────
+>>>>>>> Stashed changes
 memory:
   working_dir: "./neuro_agent_data"
   consolidation_interval: 3600  # 巩固间隔（秒）

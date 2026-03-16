@@ -1,0 +1,506 @@
+{
+  "nodes": {
+    "Reasonable trade-off between speed and accuracy in YOLO series": {
+      "name": "Reasonable trade-off between speed and accuracy in YOLO series",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "YOLO series became the most popular framework for real-time object detection": {
+      "name": "YOLO series became the most popular framework for real-time object detection",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Usage of NMS in YOLOs": {
+      "name": "Usage of NMS in YOLOs",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Speed and accuracy of YOLOs are negatively affected": {
+      "name": "Speed and accuracy of YOLOs are negatively affected",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "End-to-end Transformer-based detectors (DETRs)": {
+      "name": "End-to-end Transformer-based detectors (DETRs)",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Elimination of NMS": {
+      "name": "Elimination of NMS",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "High computational cost of DETRs": {
+      "name": "High computational cost of DETRs",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Limits practicality of DETRs": {
+      "name": "Limits practicality of DETRs",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Proposal of RT-DETR": {
+      "name": "Proposal of RT-DETR",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Addresses the dilemma of speed vs computational cost": {
+      "name": "Addresses the dilemma of speed vs computational cost",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Design of efficient hybrid encoder": {
+      "name": "Design of efficient hybrid encoder",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Improved speed in processing multi-scale features": {
+      "name": "Improved speed in processing multi-scale features",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "uncertainty-minimal query selection": {
+      "name": "uncertainty-minimal query selection",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "improving accuracy": {
+      "name": "improving accuracy",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "adjusting the number of decoder layers": {
+      "name": "adjusting the number of decoder layers",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "flexible speed tuning": {
+      "name": "flexible speed tuning",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "NMS post-processing algorithm": {
+      "name": "NMS post-processing algorithm",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "eliminate overlapping output boxes": {
+      "name": "eliminate overlapping output boxes",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "scores below the confidence threshold": {
+      "name": "scores below the confidence threshold",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "boxes are directly filtered out": {
+      "name": "boxes are directly filtered out",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "IoU of any two boxes exceeds the IoU threshold": {
+      "name": "IoU of any two boxes exceeds the IoU threshold",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "box with the lower score is discarded": {
+      "name": "box with the lower score is discarded",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "number of boxes and two thresholds": {
+      "name": "number of boxes and two thresholds",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "execution time of NMS": {
+      "name": "execution time of NMS",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Using YOLOv5 (anchor-based) model": {
+      "name": "Using YOLOv5 (anchor-based) model",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Larger number of remaining boxes compared to YOLOv8": {
+      "name": "Larger number of remaining boxes compared to YOLOv8",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Increasing confidence threshold": {
+      "name": "Increasing confidence threshold",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Decreasing number of boxes": {
+      "name": "Decreasing number of boxes",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Increasing IoU threshold": {
+      "name": "Increasing IoU threshold",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Increasing AP (%)": {
+      "name": "Increasing AP (%)",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Increasing NMS execution time": {
+      "name": "Increasing NMS execution time",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Decreasing AP (%)": {
+      "name": "Decreasing AP (%)",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Decreasing NMS execution time": {
+      "name": "Decreasing NMS execution time",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "Confidence thresholds": {
+      "name": "Confidence thresholds",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    },
+    "IoU thresholds": {
+      "name": "IoU thresholds",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520846.475438,
+      "updated_at": 1773520846.475438
+    }
+  },
+  "edges": [
+    {
+      "cause": "Reasonable trade-off between speed and accuracy in YOLO series",
+      "effect": "YOLO series became the most popular framework for real-time object detection",
+      "mechanism": "Performance balance drives adoption",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Usage of NMS in YOLOs",
+      "effect": "Speed and accuracy of YOLOs are negatively affected",
+      "mechanism": "Post-processing overhead and suppression errors",
+      "strength": 0.8,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "End-to-end Transformer-based detectors (DETRs)",
+      "effect": "Elimination of NMS",
+      "mechanism": "End-to-end architecture avoids post-processing steps",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "High computational cost of DETRs",
+      "effect": "Limits practicality of DETRs",
+      "mechanism": "Resource constraints prevent widespread deployment",
+      "strength": 0.85,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Proposal of RT-DETR",
+      "effect": "Addresses the dilemma of speed vs computational cost",
+      "mechanism": "First real-time end-to-end object detector",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Design of efficient hybrid encoder",
+      "effect": "Improved speed in processing multi-scale features",
+      "mechanism": "Decoupling intra-scale interaction and cross-scale fusion",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "uncertainty-minimal query selection",
+      "effect": "improving accuracy",
+      "mechanism": "providing high-quality initial queries to the decoder",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "adjusting the number of decoder layers",
+      "effect": "flexible speed tuning",
+      "mechanism": "adapting computation to scenarios without retraining",
+      "strength": 0.85,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "NMS post-processing algorithm",
+      "effect": "eliminate overlapping output boxes",
+      "mechanism": "filtering redundant detections",
+      "strength": 0.95,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "scores below the confidence threshold",
+      "effect": "boxes are directly filtered out",
+      "mechanism": "confidence thresholding",
+      "strength": 0.95,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "IoU of any two boxes exceeds the IoU threshold",
+      "effect": "box with the lower score is discarded",
+      "mechanism": "IoU thresholding and score suppression",
+      "strength": 0.95,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "number of boxes and two thresholds",
+      "effect": "execution time of NMS",
+      "mechanism": "iterative processing dependency",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Using YOLOv5 (anchor-based) model",
+      "effect": "Larger number of remaining boxes compared to YOLOv8",
+      "mechanism": "Architecture difference (anchor-based vs anchor-free)",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Increasing confidence threshold",
+      "effect": "Decreasing number of boxes",
+      "mechanism": "Higher threshold filters out lower confidence detections",
+      "strength": 0.95,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Increasing confidence threshold",
+      "effect": "Decreasing AP (%)",
+      "mechanism": "Higher threshold excludes valid detections",
+      "strength": 0.85,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Increasing confidence threshold",
+      "effect": "Decreasing NMS execution time",
+      "mechanism": "Fewer boxes remain to process during NMS",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Increasing IoU threshold",
+      "effect": "Increasing AP (%)",
+      "mechanism": "Stricter matching criteria impact accuracy metric",
+      "strength": 0.8,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Increasing IoU threshold",
+      "effect": "Increasing NMS execution time",
+      "mechanism": "Higher computational cost for stricter threshold",
+      "strength": 0.75,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Confidence thresholds",
+      "effect": "number of boxes and two thresholds",
+      "mechanism": "NMS filtering based on confidence scores",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "Confidence thresholds",
+      "effect": "Increasing NMS execution time",
+      "mechanism": "Processing load dependent on threshold",
+      "strength": 0.8,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "IoU thresholds",
+      "effect": "number of boxes and two thresholds",
+      "mechanism": "Suppression of overlapping detections",
+      "strength": 0.9,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    },
+    {
+      "cause": "IoU thresholds",
+      "effect": "Increasing NMS execution time",
+      "mechanism": "Computational cost of IoU calculations",
+      "strength": 0.8,
+      "evidence": "",
+      "source_id": "file_ingest",
+      "activation": 1.0,
+      "created_at": 1773520846.475438
+    }
+  ]
+}

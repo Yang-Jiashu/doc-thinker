@@ -1,0 +1,30 @@
+{
+  "name": "global",
+  "type": "global",
+  "entries": {
+    "6ed848dd-2047-41f2-be40-66e40ceca8df": {
+      "id": "6ed848dd-2047-41f2-be40-66e40ceca8df",
+      "content": "李飞飞于1999年从普林斯顿大学本科毕业后赴西藏研究一年藏药；2000年进入加州理工学院；2005年获得加州理工学院博士学位；2005年至2006年担任伊利诺伊大学厄巴纳-香槟分校电机系助理教授；2007年至2009年担任普林斯顿大学计算机科学系助理教授；",
+      "type": "memory",
+      "metadata": {
+        "source_type": "file",
+        "session_id": "#00042",
+        "summary": null,
+        "reasoning": null,
+        "key_points": [],
+        "concepts": [],
+        "hypotheses": [],
+        "action_items": []
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-14T19:06:46.188259",
+      "updated_at": "2026-03-14T19:06:46.188259"
+    }
+  },
+  "metadata": {},
+  "created_at": "2026-03-14T19:06:31.448080",
+  "updated_at": "2026-03-14T19:06:46.188259"
+}

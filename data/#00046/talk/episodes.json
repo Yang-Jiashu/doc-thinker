@@ -1,0 +1,25 @@
+{
+  "episodes": [
+    {
+      "episode_id": "ep-1ac6dda02d182b57",
+      "timestamp": 1773520083.8594182,
+      "source_type": "chat_turn",
+      "session_id": "#00046",
+      "summary": "用户问: 请分析上传的文件\n回答: # 上传文件分析\n\n根据提供的上下文信息，这是一篇关于**实时目标检测**的学术研究论文。以下是对该文件的详细分析：\n\n## 1. 论文基本信息\n\n| 项目 | 内容 |\n|------|------|\n| **论文标题** | DETRs Beat YOLOs on Real-time Object Detection |\n| **arXiv 编号** | arXiv:2304.08069v3 [cs.CV] |\n| **发表日期** | 2024 年 4 月 3 日 |\n| **作者** | Yian Zhao, Wenyu Lv, Shangliang Xu, Jinman Wei, G",
+      "key_points": [
+        "请分析上传的文件"
+      ],
+      "concepts": [
+        "请分析上传的",
+        "文件"
+      ],
+      "entity_ids": [],
+      "relation_triples": [],
+      "raw_text_refs": [],
+      "structure_description": "用户问: 请分析上传的文件\n回答: # 上传文件分析\n\n根据提供的上下文信息，这是一篇关于**实时目标检测**的学术研究论文。以下是对该文件的详细分析：\n\n## 1. 论文基本信息\n\n| 项目 | 内容 |\n|------|------|\n| **论文标题** | DETRs Beat YOLOs on Real-time Object Detection |\n| **arXiv 编号** | a",
+      "retrieval_count": 0,
+      "last_retrieved_at": null,
+      "metadata": {}
+    }
+  ]
+}

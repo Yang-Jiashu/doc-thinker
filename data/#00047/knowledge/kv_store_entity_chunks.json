@@ -1,0 +1,735 @@
+{
+  "DETRs": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "DETRs"
+  },
+  "YOLOs": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "YOLOs"
+  },
+  "Yian Zhao": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Yian Zhao"
+  },
+  "Wenyu Lv": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Wenyu Lv"
+  },
+  "Shangliang Xu": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Shangliang Xu"
+  },
+  "Jinman Wei": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Jinman Wei"
+  },
+  "Guanzhong Wang": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Guanzhong Wang"
+  },
+  "Qingqing Dang": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Qingqing Dang"
+  },
+  "Yi Liu": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Yi Liu"
+  },
+  "Jie Chen": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Jie Chen"
+  },
+  "Baidu Inc": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Baidu Inc"
+  },
+  "Peking University": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Peking University"
+  },
+  "Real-Time DEtection TRansformer": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 2,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Real-Time DEtection TRansformer"
+  },
+  "COCO": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "COCO"
+  },
+  "T4 GPU": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-f8619065465d075892731f2a8b8555e6",
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 3,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "T4 GPU"
+  },
+  "Objects365": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 2,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Objects365"
+  },
+  "Non-Maximum Suppression": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Non-Maximum Suppression"
+  },
+  "Transformer": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Transformer"
+  },
+  "Hybrid Encoder": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 2,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Hybrid Encoder"
+  },
+  "Uncertainty-Minimal Query Selection": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 2,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Uncertainty-Minimal Query Selection"
+  },
+  "Real-Time Object Detection": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Real-Time Object Detection"
+  },
+  "CNN-Based Architecture": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "CNN-Based Architecture"
+  },
+  "DINO-R50": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "DINO-R50"
+  },
+  "RT-DETR-R50": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "RT-DETR-R50"
+  },
+  "RT-DETR-R101": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "RT-DETR-R101"
+  },
+  "RT-DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "RT-DETR"
+  },
+  "Transformer Encoder": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Transformer Encoder"
+  },
+  "DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "DETR"
+  },
+  "YOLO Detectors": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "YOLO Detectors"
+  },
+  "COCO Val2017": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6",
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 2,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "COCO Val2017"
+  },
+  "NMS": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6",
+      "chunk-56050e109fbbcac2d20804a62750188c",
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 3,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "NMS"
+  },
+  "AP": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6",
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 2,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "AP"
+  },
+  "FPS": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "FPS"
+  },
+  "YOLOv1": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "YOLOv1"
+  },
+  "Deformable-DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "Deformable-DETR"
+  },
+  "DINO-Deformable-DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "DINO-Deformable-DETR"
+  },
+  "L": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "L"
+  },
+  "X": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "X"
+  },
+  "S": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520656,
+    "update_time": 1773520656,
+    "_id": "S"
+  },
+  "M": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "M"
+  },
+  "DETR Variants": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "DETR Variants"
+  },
+  "End-to-end Speed Benchmark": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "End-to-end Speed Benchmark"
+  },
+  "Group-DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "Group-DETR"
+  },
+  "Efficient DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "Efficient DETR"
+  },
+  "Sparse DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "Sparse DETR"
+  },
+  "Lite DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "Lite DETR"
+  },
+  "Conditional DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "Conditional DETR"
+  },
+  "Anchor DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "Anchor DETR"
+  },
+  "DAB-DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "DAB-DETR"
+  },
+  "DN-DETR": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "DN-DETR"
+  },
+  "Query Selection": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520657,
+    "update_time": 1773520657,
+    "_id": "Query Selection"
+  },
+  "Mixed Query Selection": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "Mixed Query Selection"
+  },
+  "NMS Post-processing": {
+    "chunk_ids": [
+      "chunk-f8619065465d075892731f2a8b8555e6"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "NMS Post-processing"
+  },
+  "YOLOv5": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c",
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 2,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "YOLOv5"
+  },
+  "YOLOv8": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c",
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 2,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "YOLOv8"
+  },
+  "COCO val2017": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "COCO val2017"
+  },
+  "TensorRT EfficientNMSPlugin": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "TensorRT EfficientNMSPlugin"
+  },
+  "FP16": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "FP16"
+  },
+  "Confidence Threshold": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "Confidence Threshold"
+  },
+  "IoU Threshold": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "IoU Threshold"
+  },
+  "NMS Execution Time": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520658,
+    "update_time": 1773520658,
+    "_id": "NMS Execution Time"
+  },
+  "End-to-End Speed": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "End-to-End Speed"
+  },
+  "EfficientNMS Kernel": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "EfficientNMS Kernel"
+  },
+  "Real-Time Detectors": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "Real-Time Detectors"
+  },
+  "EfficientNMSFilter": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "EfficientNMSFilter"
+  },
+  "RadixSort": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "RadixSort"
+  },
+  "End-to-End Speed Benchmark": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c",
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 2,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "End-to-End Speed Benchmark"
+  },
+  "Appendix": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "Appendix"
+  },
+  "False Positives": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "False Positives"
+  },
+  "False Negatives": {
+    "chunk_ids": [
+      "chunk-56050e109fbbcac2d20804a62750188c"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "False Negatives"
+  },
+  "TensorRT": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520659,
+    "update_time": 1773520659,
+    "_id": "TensorRT"
+  },
+  "YOLOv7": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "YOLOv7"
+  },
+  "PP-YOLOE": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "PP-YOLOE"
+  },
+  "YOLOv6": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "YOLOv6"
+  },
+  "NVIDIA": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "NVIDIA"
+  },
+  "EfficientNMSPlugin": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "EfficientNMSPlugin"
+  },
+  "I/O": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "I/O"
+  },
+  "MemoryCopy": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "MemoryCopy"
+  },
+  "Anchor-Based Detectors": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "Anchor-Based Detectors"
+  },
+  "Anchor-Free Detectors": {
+    "chunk_ids": [
+      "chunk-480c8136267783fba29416e2dcbc0522"
+    ],
+    "count": 1,
+    "create_time": 1773520660,
+    "update_time": 1773520660,
+    "_id": "Anchor-Free Detectors"
+  }
+}

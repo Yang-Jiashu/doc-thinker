@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Artificial Intelligence">
+      <data key="entity_id">Artificial Intelligence</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Artificial Intelligence is a branch of computer science that has undergone multiple development stages since 1956.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Computer Science">
+      <data key="entity_id">Computer Science</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Computer Science is the broader academic field of which Artificial Intelligence is a branch.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="1956 Dartmouth Conference">
+      <data key="entity_id">1956 Dartmouth Conference</data>
+      <data key="entity_type">event</data>
+      <data key="description">The 1956 Dartmouth Conference marks the beginning of the development stages of Artificial Intelligence.</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Alan Turing">
+      <data key="entity_id">Alan Turing</data>
+      <data key="entity_type">person</data>
+      <data key="description">Alan Turing is a person who proposed the Turing Test during the early stage of AI.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Turing Test">
+      <data key="entity_id">Turing Test</data>
+      <data key="entity_type">method</data>
+      <data key="description">The Turing Test is a method proposed by Alan Turing related to artificial intelligence.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="John McCarthy">
+      <data key="entity_id">John McCarthy</data>
+      <data key="entity_type">person</data>
+      <data key="description">John McCarthy is a person who coined the term Artificial Intelligence.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Expert Systems">
+      <data key="entity_id">Expert Systems</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Expert Systems are an important commercial application of AI during the knowledge engineering era.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="MYCIN System">
+      <data key="entity_id">MYCIN System</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The MYCIN System is an expert system capable of diagnosing blood infections.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Machine Learning">
+      <data key="entity_id">Machine Learning</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Machine Learning is a revolution phase in AI development.</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Deep Learning">
+      <data key="entity_id">Deep Learning</data>
+      <data key="entity_type">method</data>
+      <data key="description">Deep Learning is a breakthrough method that changed the AI field during the machine learning revolution.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="AlphaGo">
+      <data key="entity_id">AlphaGo</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">AlphaGo is an AI system that defeated the Go world champion in 2016.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Go">
+      <data key="entity_id">Go</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Go is a board game in which AlphaGo competed against Lee Sedol.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Lee Sedol">
+      <data key="entity_id">Lee Sedol</data>
+      <data key="entity_type">person</data>
+      <data key="description">Lee Sedol is a Go world champion who was defeated by AlphaGo in 2016.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="1956年达特茅斯会议">
+      <data key="entity_id">1956年达特茅斯会议</data>
+      <data key="entity_type">event</data>
+      <data key="description">The conference marking the beginning of Artificial Intelligence development stages since 1956.</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="李世石">
+      <data key="entity_id">李世石</data>
+      <data key="entity_type">person</data>
+      <data key="description">A Go world champion who was defeated by AlphaGo in 2016.</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Knowledge Engineering">
+      <data key="entity_id">Knowledge Engineering</data>
+      <data key="entity_type">concept</data>
+      <data key="description">A period in AI history where expert systems became important commercial applications.</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <node id="Blood Infection">
+      <data key="entity_id">Blood Infection</data>
+      <data key="entity_type">concept</data>
+      <data key="description">A medical condition that the MYCIN System was capable of diagnosing.</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </node>
+    <edge source="Artificial Intelligence" target="Computer Science">
+      <data key="weight">1.0</data>
+      <data key="description">Artificial Intelligence is described as a branch of Computer Science.</data>
+      <data key="keywords">academic discipline,field hierarchy</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Artificial Intelligence" target="1956 Dartmouth Conference">
+      <data key="weight">1.0</data>
+      <data key="description">The development of Artificial Intelligence is traced back to the 1956 Dartmouth Conference.</data>
+      <data key="keywords">event milestone,historical origin</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Artificial Intelligence" target="John McCarthy">
+      <data key="weight">1.0</data>
+      <data key="description">John McCarthy coined the term Artificial Intelligence.</data>
+      <data key="keywords">naming,terminology creation</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Artificial Intelligence" target="Expert Systems">
+      <data key="weight">1.0</data>
+      <data key="description">Expert Systems became an important commercial application of Artificial Intelligence.</data>
+      <data key="keywords">application,commercial use</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416219</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Artificial Intelligence" target="Deep Learning">
+      <data key="weight">1.0</data>
+      <data key="description">Deep Learning breakthroughs changed the Artificial Intelligence field.</data>
+      <data key="keywords">field transformation,technological impact</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416219</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Artificial Intelligence" target="1956年达特茅斯会议">
+      <data key="weight">1.0</data>
+      <data key="description">The development of Artificial Intelligence is traced back to the 1956年达特茅斯会议.</data>
+      <data key="keywords">event milestone,historical origin</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416219</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Alan Turing" target="Turing Test">
+      <data key="weight">1.0</data>
+      <data key="description">Alan Turing proposed the Turing Test during the early stage of AI.</data>
+      <data key="keywords">contribution,proposal</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Expert Systems" target="MYCIN System">
+      <data key="weight">1.0</data>
+      <data key="description">The MYCIN System is an example of an Expert System used for diagnosis.</data>
+      <data key="keywords">classification,instance</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Expert Systems" target="Knowledge Engineering">
+      <data key="weight">1.0</data>
+      <data key="description">Expert Systems became an important application during the Knowledge Engineering period.</data>
+      <data key="keywords">era association,historical period</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="MYCIN System" target="Blood Infection">
+      <data key="weight">1.0</data>
+      <data key="description">The MYCIN System is capable of diagnosing Blood Infection.</data>
+      <data key="keywords">diagnosis,medical application</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Machine Learning" target="Deep Learning">
+      <data key="weight">1.0</data>
+      <data key="description">Deep Learning is part of the Machine Learning revolution in AI.</data>
+      <data key="keywords">revolution,subfield</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="AlphaGo" target="Lee Sedol">
+      <data key="weight">1.0</data>
+      <data key="description">AlphaGo defeated Lee Sedol in 2016.</data>
+      <data key="keywords">competition,victory</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="AlphaGo" target="Go">
+      <data key="weight">1.0</data>
+      <data key="description">AlphaGo competed in the game of Go.</data>
+      <data key="keywords">game participation,skill demonstration</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416219</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="AlphaGo" target="李世石">
+      <data key="weight">1.0</data>
+      <data key="description">AlphaGo defeated李世石in 2016.</data>
+      <data key="keywords">competition,victory</data>
+      <data key="source_id">chunk-fd32af28df837d1f3fbb2592d37786a9&lt;SEP&gt;chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416219</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Go" target="Lee Sedol">
+      <data key="weight">1.0</data>
+      <data key="description">Lee Sedol is a world champion in the game of Go.</data>
+      <data key="keywords">expertise,profession</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Go" target="李世石">
+      <data key="weight">1.0</data>
+      <data key="description">李世石is a world champion in the game of Go.</data>
+      <data key="keywords">expertise,profession</data>
+      <data key="source_id">chunk-6d9e837d4b6a071f0f4492584a845e01</data>
+      <data key="file_path">test_timing.txt</data>
+      <data key="created_at">1773416218</data>
+      <data key="truncate" />
+    </edge>
+  </graph>
+</graphml>

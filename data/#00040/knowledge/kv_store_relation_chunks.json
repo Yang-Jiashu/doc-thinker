@@ -1,0 +1,758 @@
+{
+  "普林斯顿大学<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391831,
+    "update_time": 1773391831,
+    "_id": "普林斯顿大学<SEP>李飞飞"
+  },
+  "加州理工学院<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391831,
+    "update_time": 1773391831,
+    "_id": "加州理工学院<SEP>李飞飞"
+  },
+  "普林斯顿大学<SEP>计算机科学系": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391831,
+    "update_time": 1773391831,
+    "_id": "普林斯顿大学<SEP>计算机科学系"
+  },
+  "伊利诺伊大学厄巴纳-香槟分校<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391831,
+    "update_time": 1773391831,
+    "_id": "伊利诺伊大学厄巴纳-香槟分校<SEP>李飞飞"
+  },
+  "李飞飞<SEP>西藏": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391831,
+    "update_time": 1773391831,
+    "_id": "李飞飞<SEP>西藏"
+  },
+  "伊利诺伊大学厄巴纳-香槟分校<SEP>电机系": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391831,
+    "update_time": 1773391831,
+    "_id": "伊利诺伊大学厄巴纳-香槟分校<SEP>电机系"
+  },
+  "李飞飞<SEP>藏药": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "李飞飞<SEP>藏药"
+  },
+  "博士学位<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "博士学位<SEP>李飞飞"
+  },
+  "助理教授<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "助理教授<SEP>李飞飞"
+  },
+  "2005年<SEP>博士学位": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "2005年<SEP>博士学位"
+  },
+  "本科<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "本科<SEP>李飞飞"
+  },
+  "2000年<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "2000年<SEP>李飞飞"
+  },
+  "1999年<SEP>本科": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "1999年<SEP>本科"
+  },
+  "2007年<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391832,
+    "update_time": 1773391832,
+    "_id": "2007年<SEP>李飞飞"
+  },
+  "2009年<SEP>李飞飞": {
+    "chunk_ids": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "count": 1,
+    "create_time": 1773391833,
+    "update_time": 1773391833,
+    "_id": "2009年<SEP>李飞飞"
+  },
+  "Code Expert<SEP>GitHub Repository": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Code Expert<SEP>GitHub Repository"
+  },
+  "GPT<SEP>Qianwen": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "GPT<SEP>Qianwen"
+  },
+  "PDF<SEP>VLM": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "PDF<SEP>VLM"
+  },
+  "Diffusion Activation Strategy<SEP>Knowledge Graph": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Diffusion Activation Strategy<SEP>Knowledge Graph"
+  },
+  "Financial Reports<SEP>Function Call": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Financial Reports<SEP>Function Call"
+  },
+  "LinearRAG<SEP>Token": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "LinearRAG<SEP>Token"
+  },
+  "Chunk<SEP>Prompt": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Chunk<SEP>Prompt"
+  },
+  "Knowledge Graph<SEP>LLM": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Knowledge Graph<SEP>LLM"
+  },
+  "Deep Mode<SEP>Diffusion Activation Strategy": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Deep Mode<SEP>Diffusion Activation Strategy"
+  },
+  "Code Expert<SEP>User": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Code Expert<SEP>User"
+  },
+  "API Key<SEP>Qianwen": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "API Key<SEP>Qianwen"
+  },
+  "Quick Mode<SEP>VLM": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "Quick Mode<SEP>VLM"
+  },
+  "MinerU<SEP>PDF": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "MinerU<SEP>PDF"
+  },
+  "GitHub Repository<SEP>LinearRAG": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415008,
+    "update_time": 1773415008,
+    "_id": "GitHub Repository<SEP>LinearRAG"
+  },
+  "Knowledge Graph<SEP>PDF": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415009,
+    "update_time": 1773415009,
+    "_id": "Knowledge Graph<SEP>PDF"
+  },
+  "Image<SEP>Knowledge Graph": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415009,
+    "update_time": 1773415009,
+    "_id": "Image<SEP>Knowledge Graph"
+  },
+  "Diffusion Activation Strategy<SEP>Quick Mode": {
+    "chunk_ids": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "count": 1,
+    "create_time": 1773415009,
+    "update_time": 1773415009,
+    "_id": "Diffusion Activation Strategy<SEP>Quick Mode"
+  },
+  "人工智能<SEP>计算机科学": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415701,
+    "update_time": 1773415701,
+    "_id": "人工智能<SEP>计算机科学"
+  },
+  "Alan Turing<SEP>图灵测试": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415701,
+    "update_time": 1773415701,
+    "_id": "Alan Turing<SEP>图灵测试"
+  },
+  "MYCIN系统<SEP>专家系统": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415701,
+    "update_time": 1773415701,
+    "_id": "MYCIN系统<SEP>专家系统"
+  },
+  "日本<SEP>第五代计算机项目": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415701,
+    "update_time": 1773415701,
+    "_id": "日本<SEP>第五代计算机项目"
+  },
+  "Geoffrey Hinton<SEP>深度学习": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415701,
+    "update_time": 1773415701,
+    "_id": "Geoffrey Hinton<SEP>深度学习"
+  },
+  "AlphaGo<SEP>李世石": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416219,
+    "_id": "AlphaGo<SEP>李世石"
+  },
+  "GPT系列模型<SEP>大语言模型": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415701,
+    "update_time": 1773415701,
+    "_id": "GPT系列模型<SEP>大语言模型"
+  },
+  "Artificial Intelligence<SEP>Computer Science": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416218,
+    "_id": "Artificial Intelligence<SEP>Computer Science"
+  },
+  "Expert Systems<SEP>MYCIN System": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416218,
+    "_id": "Expert Systems<SEP>MYCIN System"
+  },
+  "Fifth Generation Computer Project<SEP>Japan": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415701,
+    "update_time": 1773415701,
+    "_id": "Fifth Generation Computer Project<SEP>Japan"
+  },
+  "Alan Turing<SEP>Turing Test": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416218,
+    "_id": "Alan Turing<SEP>Turing Test"
+  },
+  "人工智能<SEP>达特茅斯会议": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "人工智能<SEP>达特茅斯会议"
+  },
+  "Yann LeCun<SEP>深度学习": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Yann LeCun<SEP>深度学习"
+  },
+  "Deep Learning<SEP>Geoffrey Hinton": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Deep Learning<SEP>Geoffrey Hinton"
+  },
+  "GPT Series Models<SEP>Large Language Models": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "GPT Series Models<SEP>Large Language Models"
+  },
+  "Yoshua Bengio<SEP>深度学习": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Yoshua Bengio<SEP>深度学习"
+  },
+  "Three Giants of Deep Learning<SEP>Yann LeCun": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Three Giants of Deep Learning<SEP>Yann LeCun"
+  },
+  "Artificial Intelligence<SEP>Dartmouth Conference": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Artificial Intelligence<SEP>Dartmouth Conference"
+  },
+  "Blood Infection Diseases<SEP>MYCIN System": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Blood Infection Diseases<SEP>MYCIN System"
+  },
+  "Expert Systems<SEP>Knowledge Engineering Period": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Expert Systems<SEP>Knowledge Engineering Period"
+  },
+  "John McCarthy<SEP>人工智能": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "John McCarthy<SEP>人工智能"
+  },
+  "Deep Learning<SEP>Yann LeCun": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Deep Learning<SEP>Yann LeCun"
+  },
+  "Three Giants of Deep Learning<SEP>Yoshua Bengio": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Three Giants of Deep Learning<SEP>Yoshua Bengio"
+  },
+  "ELIZA<SEP>人工智能": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "ELIZA<SEP>人工智能"
+  },
+  "Artificial Intelligence<SEP>John McCarthy": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416218,
+    "_id": "Artificial Intelligence<SEP>John McCarthy"
+  },
+  "Deep Learning<SEP>Yoshua Bengio": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Deep Learning<SEP>Yoshua Bengio"
+  },
+  "Geoffrey Hinton<SEP>Three Giants of Deep Learning": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Geoffrey Hinton<SEP>Three Giants of Deep Learning"
+  },
+  "SHRDLU<SEP>人工智能": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "SHRDLU<SEP>人工智能"
+  },
+  "Deep Learning<SEP>Machine Learning Revolution": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415702,
+    "update_time": 1773415702,
+    "_id": "Deep Learning<SEP>Machine Learning Revolution"
+  },
+  "人工智能<SEP>深度学习": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "人工智能<SEP>深度学习"
+  },
+  "Natural Language Processing<SEP>SHRDLU": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "Natural Language Processing<SEP>SHRDLU"
+  },
+  "OpenAI<SEP>人工智能": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "OpenAI<SEP>人工智能"
+  },
+  "Google DeepMind<SEP>人工智能": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "Google DeepMind<SEP>人工智能"
+  },
+  "ELIZA<SEP>Natural Language Processing": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "ELIZA<SEP>Natural Language Processing"
+  },
+  "AlphaGo<SEP>人工智能": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "AlphaGo<SEP>人工智能"
+  },
+  "AlphaGo<SEP>Lee Sedol": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416218,
+    "_id": "AlphaGo<SEP>Lee Sedol"
+  },
+  "Artificial Intelligence<SEP>ELIZA": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "Artificial Intelligence<SEP>ELIZA"
+  },
+  "Artificial Intelligence<SEP>SHRDLU": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415703,
+    "update_time": 1773415703,
+    "_id": "Artificial Intelligence<SEP>SHRDLU"
+  },
+  "Artificial Intelligence<SEP>Deep Learning": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416219,
+    "_id": "Artificial Intelligence<SEP>Deep Learning"
+  },
+  "Artificial Intelligence<SEP>OpenAI": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415704,
+    "update_time": 1773415704,
+    "_id": "Artificial Intelligence<SEP>OpenAI"
+  },
+  "Artificial Intelligence<SEP>Google DeepMind": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415704,
+    "update_time": 1773415704,
+    "_id": "Artificial Intelligence<SEP>Google DeepMind"
+  },
+  "Artificial Intelligence<SEP>Early Stage": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415704,
+    "update_time": 1773415704,
+    "_id": "Artificial Intelligence<SEP>Early Stage"
+  },
+  "AlphaGo<SEP>Artificial Intelligence": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "count": 1,
+    "create_time": 1773415704,
+    "update_time": 1773415704,
+    "_id": "AlphaGo<SEP>Artificial Intelligence"
+  },
+  "AlphaGo<SEP>Go": {
+    "chunk_ids": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9",
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 2,
+    "update_time": 1773416219,
+    "_id": "AlphaGo<SEP>Go"
+  },
+  "Deep Learning<SEP>Machine Learning": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416218,
+    "update_time": 1773416218,
+    "_id": "Deep Learning<SEP>Machine Learning"
+  },
+  "Go<SEP>Lee Sedol": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416218,
+    "update_time": 1773416218,
+    "_id": "Go<SEP>Lee Sedol"
+  },
+  "1956 Dartmouth Conference<SEP>Artificial Intelligence": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416218,
+    "update_time": 1773416218,
+    "_id": "1956 Dartmouth Conference<SEP>Artificial Intelligence"
+  },
+  "Blood Infection<SEP>MYCIN System": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416218,
+    "update_time": 1773416218,
+    "_id": "Blood Infection<SEP>MYCIN System"
+  },
+  "Expert Systems<SEP>Knowledge Engineering": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416218,
+    "update_time": 1773416218,
+    "_id": "Expert Systems<SEP>Knowledge Engineering"
+  },
+  "Go<SEP>李世石": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416218,
+    "update_time": 1773416218,
+    "_id": "Go<SEP>李世石"
+  },
+  "Artificial Intelligence<SEP>Expert Systems": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416219,
+    "update_time": 1773416219,
+    "_id": "Artificial Intelligence<SEP>Expert Systems"
+  },
+  "1956年达特茅斯会议<SEP>Artificial Intelligence": {
+    "chunk_ids": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "count": 1,
+    "create_time": 1773416219,
+    "update_time": 1773416219,
+    "_id": "1956年达特茅斯会议<SEP>Artificial Intelligence"
+  }
+}

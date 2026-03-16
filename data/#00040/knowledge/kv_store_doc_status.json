@@ -1,0 +1,70 @@
+{
+  "doc-ccab72c6530160d3335b16207b953310": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-ccab72c6530160d3335b16207b953310"
+    ],
+    "content_summary": "李飞飞于1999年从普林斯顿大学本科毕业后赴西藏研究一年藏药；2000年进入加州理工学院；2005年获得加州理工学院博士学位；2005年至2006年担任伊利诺伊大学厄巴纳-香槟分校电机系助理教授；2007年至2009年担任普林斯顿大学计算机科学系助理教授；",
+    "content_length": 128,
+    "created_at": "2026-03-13T08:46:34.313842+00:00",
+    "updated_at": "2026-03-13T08:50:33.137557+00:00",
+    "file_path": "李飞飞.txt",
+    "track_id": "insert_20260313_164634_9bd64481",
+    "metadata": {
+      "processing_start_time": 1773391594,
+      "processing_end_time": 1773391833
+    }
+  },
+  "doc-d0daa1c79ecdf21a0cc01d422e60571c": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+    ],
+    "content_summary": "你是极其优秀的RAG和GrapgRAG 和大模型领域的代码专家，我现在的代码需要进行更新，你需要帮我实现以下的需求：\n\n第一优先级是把所有的模型全部替换成千问的相应模型，千问的api key是sk-98e5529ab7954bd592652e07c91f8826，你需要对现在的模型配置进行更新，确保所有的模型不再使用GPT，而是使用千问,可以兼容GPT的接口，让用户自己去配置，但是目前所有使用的模型必须使用千问，重排模型，VLM，LLM，等所有这个项目用到的大模型都使用千问。\n\n同时你需要解决一...",
+    "content_length": 1212,
+    "created_at": "2026-03-13T15:14:25.581216+00:00",
+    "updated_at": "2026-03-13T15:16:49.448413+00:00",
+    "file_path": "mustread.txt",
+    "track_id": "insert_20260313_231425_b6c97f47",
+    "metadata": {
+      "processing_start_time": 1773414865,
+      "processing_end_time": 1773415009
+    }
+  },
+  "doc-fd32af28df837d1f3fbb2592d37786a9": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-fd32af28df837d1f3fbb2592d37786a9"
+    ],
+    "content_summary": "人工智能的发展历程\n\n人工智能（Artificial Intelligence，简称AI）是计算机科学的一个分支，旨在创建能够模拟人类智能的系统。\n从1956年达特茅斯会议正式提出\"人工智能\"概念以来，AI经历了多个发展阶段。\n\n早期阶段（1956-1974）：\n在这个时期，研究者们充满乐观。Alan Turing提出了著名的\"图灵测试\"。\nJohn McCarthy创造了\"人工智能\"这个术语。早期的程序如ELIZA和SHRDLU展示了自然语言处理的可能性。\n\n知识工程时期（1980-1987）...",
+    "content_length": 498,
+    "created_at": "2026-03-13T15:24:11.788718+00:00",
+    "updated_at": "2026-03-13T15:28:25.069113+00:00",
+    "file_path": "test_timing.txt",
+    "track_id": "insert_20260313_232411_a38cb96c",
+    "metadata": {
+      "processing_start_time": 1773415451,
+      "processing_end_time": 1773415705
+    }
+  },
+  "doc-6d9e837d4b6a071f0f4492584a845e01": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-6d9e837d4b6a071f0f4492584a845e01"
+    ],
+    "content_summary": "人工智能的发展历程\n\n人工智能（AI）是计算机科学的分支。从1956年达特茅斯会议以来，AI经历了多个发展阶段。\n早期阶段：Alan Turing提出图灵测试。John McCarthy创造人工智能术语。\n知识工程时期：专家系统成为AI的重要商业应用。MYCIN系统能诊断血液感染。\n机器学习革命：深度学习突破改变了AI领域。AlphaGo在2016年击败围棋世界冠军李世石。",
+    "content_length": 188,
+    "created_at": "2026-03-13T15:33:43.373600+00:00",
+    "updated_at": "2026-03-13T15:36:59.526582+00:00",
+    "file_path": "test_timing.txt",
+    "track_id": "insert_20260313_233343_c5c2b4e1",
+    "metadata": {
+      "processing_start_time": 1773416023,
+      "processing_end_time": 1773416219
+    }
+  }
+}

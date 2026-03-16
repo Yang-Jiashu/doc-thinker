@@ -1,0 +1,693 @@
+{
+  "doc-7c38a573df76662c91d65cf745c83d09": {
+    "relation_pairs": [
+      [
+        "EfficientNMSFilter",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "doc"
+      ],
+      [
+        "Page 3",
+        "Technical Research Paper"
+      ],
+      [
+        "Document",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Black Text",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Introduction",
+        "Paper"
+      ],
+      [
+        "NMS",
+        "TensorRT EfficientNMSPlugin"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "Section 2"
+      ],
+      [
+        "Documents",
+        "GitHub"
+      ],
+      [
+        "DETR",
+        "Deformable-DETR"
+      ],
+      [
+        "Light Gray Grid",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "DETRs",
+        "YOLOs"
+      ],
+      [
+        "RT-DETR",
+        "Real-time Object Detectors"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "YOLOv5"
+      ],
+      [
+        "DETRs Beat YOLOs on Real-time Object Detection",
+        "arXiv:2304.08069v3"
+      ],
+      [
+        "Black Text",
+        "Image"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "YOLOv8"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "T4 GPU"
+      ],
+      [
+        "Number of Boxes",
+        "YOLOv5"
+      ],
+      [
+        "Black Text",
+        "White Background"
+      ],
+      [
+        "Anchor-Based Models",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Confidence Threshold",
+        "Number of Boxes"
+      ],
+      [
+        "Anchor-Free Models",
+        "YOLOv8"
+      ],
+      [
+        "Academic Research Paper",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "Real-time Object Detectors"
+      ],
+      [
+        "Image",
+        "page_2.png"
+      ],
+      [
+        "COCO val2017",
+        "Detector Speed"
+      ],
+      [
+        "NMS",
+        "YOLOv5"
+      ],
+      [
+        "DETR",
+        "End-to-end Object Detectors"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "Page 3"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "Section 3"
+      ],
+      [
+        "Figure 1",
+        "Light Gray Grid"
+      ],
+      [
+        "NMS",
+        "YOLOv8"
+      ],
+      [
+        "DAB-DETR",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "RT-DETR",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Non-Maximum Suppression",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "R18 Scaled",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "RT-DETR-R50"
+      ],
+      [
+        "DETRs Beat YOLOs on Real-time Object Detection",
+        "Figure 1"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "Yian Zhao"
+      ],
+      [
+        "Figure 1",
+        "S"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "Vision Pages"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "YOLOv6-v3.0"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "S"
+      ],
+      [
+        "Figure 1",
+        "YOLOv6-v3.0"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "Table 1"
+      ],
+      [
+        "Image Path",
+        "Page 3"
+      ],
+      [
+        "End-to-End Speed",
+        "Section 3"
+      ],
+      [
+        "DETRs Beat YOLOs on Real-time Object Detection",
+        "Yian Zhao"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "lqx94"
+      ],
+      [
+        "Figure 2",
+        "YOLOv5"
+      ],
+      [
+        "Number of Boxes",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "T4"
+      ],
+      [
+        "NMS",
+        "Table 1"
+      ],
+      [
+        "Anchor-Free Models",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "End-to-end Latency T4 TensorRT FP16",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "PP-YOLOE",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "DETR",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "RT-DETR",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "COCO val2017",
+        "End-to-End Speed"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "X"
+      ],
+      [
+        "NMS",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Black Text",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Number of Boxes",
+        "YOLOv8"
+      ],
+      [
+        "Image Path",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "End-to-End Speed",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Figure 1",
+        "R50"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "Two-Column Academic Format"
+      ],
+      [
+        "Image",
+        "Two-column Layout"
+      ],
+      [
+        "Deformable-DETR",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Documents",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Anchor-Based Models",
+        "YOLOv7"
+      ],
+      [
+        "Figure 1",
+        "R18 Scaled"
+      ],
+      [
+        "COCO AP",
+        "Figure 1"
+      ],
+      [
+        "Baidu Inc",
+        "DETRs Beat YOLOs on Real-time Object Detection"
+      ],
+      [
+        "Figure 2",
+        "Table 1"
+      ],
+      [
+        "NMS",
+        "T4 GPU"
+      ],
+      [
+        "Image",
+        "Paper"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "YOLOv7"
+      ],
+      [
+        "Figure 1",
+        "YOLOv7"
+      ],
+      [
+        "RT-DETR",
+        "Real-Time DEtection TRansformer"
+      ],
+      [
+        "COCO val2017",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "Wenyu Lv"
+      ],
+      [
+        "R50 Scaled",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "End-to-end Object Detectors",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Figure 2",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "L",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "knowledge"
+      ],
+      [
+        "GitHub",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "DETR",
+        "RT-DETR"
+      ],
+      [
+        "R101",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "RT-DETR",
+        "RT-DETR-R101"
+      ],
+      [
+        "DETRs Beat YOLOs on Real-time Object Detection",
+        "Wenyu Lv"
+      ],
+      [
+        "GitHub",
+        "lqx94"
+      ],
+      [
+        "Figure 1",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "M",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "Figure 2",
+        "YOLOv8"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "RT-DETR-R101"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "YOLOv7"
+      ],
+      [
+        "Peking University",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "Introduction",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Real-time Object Detectors",
+        "Section 2"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "White Background"
+      ],
+      [
+        "YOLOv5",
+        "YOLOv8"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "YOLO"
+      ],
+      [
+        "Page 3",
+        "Two-Column Academic Format"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "YOLOv6"
+      ],
+      [
+        "DETR",
+        "Non-Maximum Suppression"
+      ],
+      [
+        "Figure 1",
+        "X"
+      ],
+      [
+        "Paper",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "page_2.png"
+      ],
+      [
+        "Anchor-Free Models",
+        "YOLOv6"
+      ],
+      [
+        "Figure 1",
+        "R101"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "YOLOv5"
+      ],
+      [
+        "Figure 1",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "Confidence Threshold",
+        "NMS"
+      ],
+      [
+        "Confidence Threshold",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Figure 1",
+        "R50 Scaled"
+      ],
+      [
+        "R50",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "Computer Vision",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Figure 1",
+        "RT-DETR"
+      ],
+      [
+        "AP",
+        "IoU Threshold"
+      ],
+      [
+        "Figure 1",
+        "PP-YOLOE"
+      ],
+      [
+        "DAB-DETR",
+        "DETR"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "YOLOs"
+      ],
+      [
+        "Figure 1",
+        "L"
+      ],
+      [
+        "Image",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "White Background"
+      ],
+      [
+        "GitHub",
+        "knowledge"
+      ],
+      [
+        "DETRs Beat YOLOs on Real-time Object Detection",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "arXiv:2304.08069v3"
+      ],
+      [
+        "Baidu Inc",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "AP",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "GitHub",
+        "TensorRT EfficientNMSPlugin"
+      ],
+      [
+        "End-to-end Latency T4 TensorRT FP16",
+        "Figure 1"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "Technical Research Paper"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "Real-Time DEtection TRansformer"
+      ],
+      [
+        "GitHub Repository",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "IoU Threshold",
+        "NMS"
+      ],
+      [
+        "Image",
+        "White Background"
+      ],
+      [
+        "IoU Threshold",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "DETRs Beat YOLOs on Real-time Object Detection",
+        "Peking University"
+      ],
+      [
+        "Figure 1",
+        "M"
+      ],
+      [
+        "GitHub",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "Related Work"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "PP-YOLOE"
+      ],
+      [
+        "Object Detection Algorithms",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Execution Time",
+        "NMS"
+      ],
+      [
+        "DETRs",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "Non-Maximum Suppression",
+        "RT-DETR Paper Page 2 (image)"
+      ],
+      [
+        "GitHub",
+        "data"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "data"
+      ],
+      [
+        "RT-DETR",
+        "RT-DETR-R50"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "RadixSort"
+      ],
+      [
+        "Anchor-Free Models",
+        "PP-YOLOE"
+      ],
+      [
+        "AP",
+        "Confidence Threshold"
+      ],
+      [
+        "RT-DETR Paper Page 2 (image)",
+        "Two-column Layout"
+      ],
+      [
+        "Document",
+        "Page 3"
+      ],
+      [
+        "Anchor-Based Models",
+        "YOLOv5"
+      ],
+      [
+        "Object Detection NMS Analysis Page (image)",
+        "TensorRT EfficientNMSPlugin"
+      ],
+      [
+        "COCO AP",
+        "RT-DETR Performance Comparison Chart (image)"
+      ],
+      [
+        "Bar Chart",
+        "Object Detection NMS Analysis Page (image)"
+      ],
+      [
+        "Non-Maximum Suppression",
+        "YOLO"
+      ],
+      [
+        "Figure 1",
+        "YOLOv5"
+      ],
+      [
+        "RT-DETR Performance Comparison Chart (image)",
+        "YOLOv8"
+      ],
+      [
+        "NMS",
+        "RadixSort"
+      ],
+      [
+        "Figure 1",
+        "YOLOv8"
+      ],
+      [
+        "Paper",
+        "Related Work"
+      ],
+      [
+        "End-to-end Object Detectors",
+        "Section 2"
+      ],
+      [
+        "GitHub",
+        "doc"
+      ],
+      [
+        "EfficientNMSFilter",
+        "NMS"
+      ]
+    ],
+    "count": 171,
+    "update_time": 1773518859,
+    "_id": "doc-7c38a573df76662c91d65cf745c83d09"
+  }
+}

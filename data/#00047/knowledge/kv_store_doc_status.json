@@ -1,0 +1,26 @@
+{
+  "doc-4b7fa06c25c1b7ba3965b31192d0d343": {
+    "status": "processed",
+    "chunks_count": 7,
+    "chunks_list": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-f8619065465d075892731f2a8b8555e6",
+      "chunk-56050e109fbbcac2d20804a62750188c",
+      "chunk-480c8136267783fba29416e2dcbc0522",
+      "chunk-faafaa17742ca7c753025687b423a9a9",
+      "chunk-ef8c7ff567b0412204b7096eef345f02",
+      "chunk-28af5b45934b05fde5ec1892d56def9a"
+    ],
+    "content_summary": "[page_idx:0] DETRs Beat YOLOs on Real-time Object Detection\n\nYian Zhao${}^{1,2\\dagger}$ Wenyu Lv${}^{1\\dagger\\ddagger}$ Shangliang Xu${}^{1}$ Jinman Wei${}^{1}$ Guanzhong Wang${}^{1}$ Qingqing Dang${}^{1}$ Yi Liu${}^{1}$ Jie Chen${}^{2\\boxtimes}$\n\n${...",
+    "content_length": 15538,
+    "created_at": "2026-03-14T20:37:03.447183+00:00",
+    "updated_at": "2026-03-15T04:39:16+00:00",
+    "file_path": "23rfewdq.pdf",
+    "track_id": "insert_20260315_043703_67db22fb",
+    "metadata": {
+      "processing_start_time": 1773520623,
+      "processing_end_time": 1773520672
+    },
+    "multimodal_processed": true
+  }
+}

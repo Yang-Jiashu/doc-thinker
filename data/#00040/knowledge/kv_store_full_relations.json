@@ -1,0 +1,402 @@
+{
+  "doc-ccab72c6530160d3335b16207b953310": {
+    "relation_pairs": [
+      [
+        "李飞飞",
+        "藏药"
+      ],
+      [
+        "2000年",
+        "李飞飞"
+      ],
+      [
+        "普林斯顿大学",
+        "计算机科学系"
+      ],
+      [
+        "2005年",
+        "博士学位"
+      ],
+      [
+        "2007年",
+        "李飞飞"
+      ],
+      [
+        "伊利诺伊大学厄巴纳-香槟分校",
+        "李飞飞"
+      ],
+      [
+        "伊利诺伊大学厄巴纳-香槟分校",
+        "电机系"
+      ],
+      [
+        "本科",
+        "李飞飞"
+      ],
+      [
+        "1999年",
+        "本科"
+      ],
+      [
+        "博士学位",
+        "李飞飞"
+      ],
+      [
+        "普林斯顿大学",
+        "李飞飞"
+      ],
+      [
+        "加州理工学院",
+        "李飞飞"
+      ],
+      [
+        "2009年",
+        "李飞飞"
+      ],
+      [
+        "助理教授",
+        "李飞飞"
+      ],
+      [
+        "李飞飞",
+        "西藏"
+      ]
+    ],
+    "count": 15,
+    "create_time": 1773391833,
+    "update_time": 1773391833,
+    "_id": "doc-ccab72c6530160d3335b16207b953310"
+  },
+  "doc-d0daa1c79ecdf21a0cc01d422e60571c": {
+    "relation_pairs": [
+      [
+        "Code Expert",
+        "GitHub Repository"
+      ],
+      [
+        "Deep Mode",
+        "Diffusion Activation Strategy"
+      ],
+      [
+        "Diffusion Activation Strategy",
+        "Quick Mode"
+      ],
+      [
+        "PDF",
+        "VLM"
+      ],
+      [
+        "LinearRAG",
+        "Token"
+      ],
+      [
+        "MinerU",
+        "PDF"
+      ],
+      [
+        "Chunk",
+        "Prompt"
+      ],
+      [
+        "Quick Mode",
+        "VLM"
+      ],
+      [
+        "API Key",
+        "Qianwen"
+      ],
+      [
+        "Diffusion Activation Strategy",
+        "Knowledge Graph"
+      ],
+      [
+        "Code Expert",
+        "User"
+      ],
+      [
+        "Financial Reports",
+        "Function Call"
+      ],
+      [
+        "Knowledge Graph",
+        "LLM"
+      ],
+      [
+        "Knowledge Graph",
+        "PDF"
+      ],
+      [
+        "GitHub Repository",
+        "LinearRAG"
+      ],
+      [
+        "Image",
+        "Knowledge Graph"
+      ],
+      [
+        "GPT",
+        "Qianwen"
+      ]
+    ],
+    "count": 17,
+    "create_time": 1773415009,
+    "update_time": 1773415009,
+    "_id": "doc-d0daa1c79ecdf21a0cc01d422e60571c"
+  },
+  "doc-fd32af28df837d1f3fbb2592d37786a9": {
+    "relation_pairs": [
+      [
+        "Geoffrey Hinton",
+        "深度学习"
+      ],
+      [
+        "Artificial Intelligence",
+        "SHRDLU"
+      ],
+      [
+        "Expert Systems",
+        "Knowledge Engineering Period"
+      ],
+      [
+        "AlphaGo",
+        "Lee Sedol"
+      ],
+      [
+        "AlphaGo",
+        "人工智能"
+      ],
+      [
+        "Deep Learning",
+        "Yann LeCun"
+      ],
+      [
+        "人工智能",
+        "达特茅斯会议"
+      ],
+      [
+        "Geoffrey Hinton",
+        "Three Giants of Deep Learning"
+      ],
+      [
+        "Yann LeCun",
+        "深度学习"
+      ],
+      [
+        "Artificial Intelligence",
+        "Early Stage"
+      ],
+      [
+        "Artificial Intelligence",
+        "Google DeepMind"
+      ],
+      [
+        "MYCIN系统",
+        "专家系统"
+      ],
+      [
+        "日本",
+        "第五代计算机项目"
+      ],
+      [
+        "AlphaGo",
+        "Artificial Intelligence"
+      ],
+      [
+        "AlphaGo",
+        "李世石"
+      ],
+      [
+        "SHRDLU",
+        "人工智能"
+      ],
+      [
+        "Yoshua Bengio",
+        "深度学习"
+      ],
+      [
+        "OpenAI",
+        "人工智能"
+      ],
+      [
+        "Deep Learning",
+        "Yoshua Bengio"
+      ],
+      [
+        "Alan Turing",
+        "Turing Test"
+      ],
+      [
+        "Artificial Intelligence",
+        "Dartmouth Conference"
+      ],
+      [
+        "Alan Turing",
+        "图灵测试"
+      ],
+      [
+        "Artificial Intelligence",
+        "Computer Science"
+      ],
+      [
+        "Artificial Intelligence",
+        "OpenAI"
+      ],
+      [
+        "Artificial Intelligence",
+        "ELIZA"
+      ],
+      [
+        "Natural Language Processing",
+        "SHRDLU"
+      ],
+      [
+        "AlphaGo",
+        "Go"
+      ],
+      [
+        "Artificial Intelligence",
+        "John McCarthy"
+      ],
+      [
+        "Three Giants of Deep Learning",
+        "Yann LeCun"
+      ],
+      [
+        "人工智能",
+        "计算机科学"
+      ],
+      [
+        "Expert Systems",
+        "MYCIN System"
+      ],
+      [
+        "Deep Learning",
+        "Machine Learning Revolution"
+      ],
+      [
+        "Artificial Intelligence",
+        "Deep Learning"
+      ],
+      [
+        "Deep Learning",
+        "Geoffrey Hinton"
+      ],
+      [
+        "Three Giants of Deep Learning",
+        "Yoshua Bengio"
+      ],
+      [
+        "Blood Infection Diseases",
+        "MYCIN System"
+      ],
+      [
+        "GPT系列模型",
+        "大语言模型"
+      ],
+      [
+        "John McCarthy",
+        "人工智能"
+      ],
+      [
+        "人工智能",
+        "深度学习"
+      ],
+      [
+        "ELIZA",
+        "Natural Language Processing"
+      ],
+      [
+        "Fifth Generation Computer Project",
+        "Japan"
+      ],
+      [
+        "Google DeepMind",
+        "人工智能"
+      ],
+      [
+        "ELIZA",
+        "人工智能"
+      ],
+      [
+        "GPT Series Models",
+        "Large Language Models"
+      ]
+    ],
+    "count": 44,
+    "create_time": 1773415705,
+    "update_time": 1773415705,
+    "_id": "doc-fd32af28df837d1f3fbb2592d37786a9"
+  },
+  "doc-6d9e837d4b6a071f0f4492584a845e01": {
+    "relation_pairs": [
+      [
+        "Go",
+        "李世石"
+      ],
+      [
+        "AlphaGo",
+        "Go"
+      ],
+      [
+        "Artificial Intelligence",
+        "John McCarthy"
+      ],
+      [
+        "Go",
+        "Lee Sedol"
+      ],
+      [
+        "AlphaGo",
+        "Lee Sedol"
+      ],
+      [
+        "AlphaGo",
+        "李世石"
+      ],
+      [
+        "Blood Infection",
+        "MYCIN System"
+      ],
+      [
+        "1956年达特茅斯会议",
+        "Artificial Intelligence"
+      ],
+      [
+        "1956 Dartmouth Conference",
+        "Artificial Intelligence"
+      ],
+      [
+        "Expert Systems",
+        "Knowledge Engineering"
+      ],
+      [
+        "Alan Turing",
+        "Turing Test"
+      ],
+      [
+        "Expert Systems",
+        "MYCIN System"
+      ],
+      [
+        "Artificial Intelligence",
+        "Computer Science"
+      ],
+      [
+        "Deep Learning",
+        "Machine Learning"
+      ],
+      [
+        "Artificial Intelligence",
+        "Expert Systems"
+      ],
+      [
+        "Artificial Intelligence",
+        "Deep Learning"
+      ]
+    ],
+    "count": 16,
+    "create_time": 1773416219,
+    "update_time": 1773416219,
+    "_id": "doc-6d9e837d4b6a071f0f4492584a845e01"
+  }
+}

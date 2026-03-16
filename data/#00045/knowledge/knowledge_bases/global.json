@@ -1,0 +1,60 @@
+{
+  "name": "global",
+  "type": "global",
+  "entries": {
+    "a30573d7-2b63-4dae-b172-c560e55c2440": {
+      "id": "a30573d7-2b63-4dae-b172-c560e55c2440",
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00045\\knowledge\\vision_pages\\page_1.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image displays the first page of a research paper titled \"DETRs Beat YOLOs on Real-time Object Detection\". The layout is a standard two-column academic format with a prominent title at the top, followed by author names (Yian Zhao, Wenyu Lv, etc.) and affiliations (Baidu Inc, Peking University). On the left side, vertically oriented text indicates the arXiv identifier \"arXiv:2304.08069v3 [cs.CV] 3 Apr 2024\".\n\nThe main visual element is a scatter plot chart located in the upper right quadrant, labeled \"Figure 1. Compared to previously advanced real-time object detectors, our RT-DETR achieves state-of-the-art performance.\" The chart's Y-axis represents \"COCO AP (%)\" ranging from 44 to 54, and the X-axis represents \"End-to-end Latency T4 TensorRT FP16 (ms)\" ranging from 4 to 24. The plot compares various object detection models using different colored markers and lines:\n- Orange squares connected by a line represent \"YOLOv5\".\n- Yellow circles connected by a line represent \"PP-YOLOE\".\n- Black stars connected by a line represent \"YOLOv6-v3.0\".\n- Teal diamonds connected by a line represent \"YOLOv7\".\n- Purple inverted triangles connected by a line represent \"YOLOv8\".\n- Red circles connected by a line represent \"RT-DETR (Ours)\".\n\nSpecific data points are annotated with model sizes or versions, such as \"R18 Scaled\", \"R50 Scaled\", \"S\", \"M\", \"L\", \"X\", \"R50\", and \"R101\". The red RT-DETR curve is positioned towards the top-left of the graph, visually demonstrating lower latency and higher accuracy compared to the other curves, which generally trend towards higher latency for similar or lower accuracy levels. The background of the chart features a light gray grid.",
+      "type": "chunk",
+      "metadata": {
+        "chunk_id": "chunk-f6b2736f01bc36e3d1371f9309a3ef7a",
+        "doc_id": "doc-7c38a573df76662c91d65cf745c83d09",
+        "file_path": "23rfewdq.pdf",
+        "is_multimodal": true
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-15T04:07:14.410459",
+      "updated_at": "2026-03-15T04:07:14.410459"
+    },
+    "b816717d-efa6-4106-945f-66225e2349a1": {
+      "id": "b816717d-efa6-4106-945f-66225e2349a1",
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00045\\knowledge\\vision_pages\\page_2.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image displays a single page from an academic research paper, formatted in a standard two-column layout with black text on a white background. The content is the continuation of the Introduction and Related Work sections of a paper titled 'DETRs Beat YOLOs on Real-time Object Detection'. \n\nIn the left column, the text discusses the computational redundancy of multi-scale features in DETRs and proposes redesigning the encoder. It introduces the 'Real-Time DEtection TRansformer (RT-DETR)', highlighting its efficient hybrid encoder and uncertainty-minimal query selection. Specific performance metrics are cited: RT-DETR-R50 achieves 53.1% AP and 108 FPS, while RT-DETR-R101 achieves 54.3% AP and 74 FPS. A reference to 'Figure 1' is made regarding these results.\n\nThe right column begins by summarizing the main contributions: proposing the first real-time end-to-end object detector (RT-DETR), analyzing NMS impact, and supporting flexible speed tuning. Below this summary is Section 2, 'Related Work', which is divided into subsections. Subsection 2.1, 'Real-time Object Detectors', reviews the history of YOLO detectors and their reliance on Non-Maximum Suppression (NMS). Subsection 2.2, 'End-to-end Object Detectors', discusses Transformer-based models like DETR, Deformable-DETR, DAB-DETR, and others, noting their advantages (eliminating anchors/NMS) and disadvantages (slow convergence, high cost). The text ends mid-sentence at the bottom of the page.",
+      "type": "chunk",
+      "metadata": {
+        "chunk_id": "chunk-a5620b1fca659e335baa5d632dacaf7a",
+        "doc_id": "doc-7c38a573df76662c91d65cf745c83d09",
+        "file_path": "23rfewdq.pdf",
+        "is_multimodal": true
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-15T04:07:14.412740",
+      "updated_at": "2026-03-15T04:07:14.412740"
+    },
+    "a5de4306-a414-4823-8b73-24871ae43b2a": {
+      "id": "a5de4306-a414-4823-8b73-24871ae43b2a",
+      "content": "\nImage Content Analysis:\nImage Path: C:\\Users\\lqx94\\Documents\\GitHub\\doc\\data\\#00045\\knowledge\\vision_pages\\page_3.png\nCaptions: None\nFootnotes: None\n\nVisual Analysis: The image displays page 3 of a technical research paper focused on computer vision, specifically the optimization of object detection algorithms. The layout is a standard two-column academic format with black text on a white background.\n\nIn the upper left quadrant, there is a bar chart labeled 'Figure 2'. The vertical axis represents the 'Number of boxes' ranging from 0 to 10k, and the horizontal axis represents the 'Confidence threshold' with values 0.001, 0.005, 0.01, 0.05, 0.1, and 0.25. The chart compares two models: 'YOLOv5 (anchor-based)' represented by light blue bars, and 'YOLOv8 (anchor-free)' represented by light orange bars. The data shows that as the confidence threshold increases, the number of remaining boxes decreases for both models, with YOLOv5 consistently producing more boxes than YOLOv8 at lower thresholds.\n\nIn the upper right quadrant, there is a table labeled 'Table 1', titled 'The effect of IoU threshold and confidence threshold on accuracy and NMS execution time.' The table is divided into two sections. The left section analyzes 'IoU thr. (Conf=0.001)' against 'AP (%)' and 'NMS (ms)', showing that as IoU threshold increases from 0.5 to 0.8, AP increases slightly (52.1 to 52.8) while NMS time increases (2.24 to 2.46 ms). The right section analyzes 'Conf thr. (IoU=0.7)' against 'AP (%)' and 'NMS (ms)', showing that as confidence threshold increases from 0.001 to 0.05, AP decreases (52.9 to 51.2) while NMS time decreases significantly (2.36 to 1.06 ms).\n\nThe main body text is organized under Section 3, 'End-to-end Speed of Detectors'. Subsection 3.1, 'Analysis of NMS', discusses Non-Maximum Suppression (NMS) as a post-processing algorithm. It explains the dependency of NMS execution time on the number of boxes and thresholds. The text references Figure 2 and Table 1 to support the claim that higher confidence thresholds filter out more boxes, reducing NMS time. It mentions specific technologies like TensorRT efficientNMSPlugin, EfficientNMSFilter, RadixSort, and testing on a T4 GPU.\n\nSubsection 3.2, 'End-to-end Speed Benchmark', outlines the methodology for comparing detector speeds using the COCO val2017 dataset. It lists various detectors being tested, including anchor-based models (YOLOv5, YOLOv7) and anchor-free models (PP-YOLOE, YOLOv6, YOLOv8). A footnote at the bottom provides a GitHub URL related to the TensorRT plugin.",
+      "type": "chunk",
+      "metadata": {
+        "chunk_id": "chunk-89fe41d130febd8488eedbf7569af292",
+        "doc_id": "doc-7c38a573df76662c91d65cf745c83d09",
+        "file_path": "23rfewdq.pdf",
+        "is_multimodal": true
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-15T04:07:14.413822",
+      "updated_at": "2026-03-15T04:07:14.413822"
+    }
+  },
+  "metadata": {},
+  "created_at": "2026-03-15T04:05:14.687052",
+  "updated_at": "2026-03-15T04:07:14.413822"
+}

@@ -11,9 +11,10 @@ from fastapi import APIRouter, BackgroundTasks, HTTPException
 
 from docthinker.kg_expansion import ExpandedNodeManager, extract_entities_from_text
 
+
 from ..memory import get_session_memory_engine
 from ..schemas import MultiDocumentQueryRequest, QueryRequest
-from ..state import state
+from ..state import state, get_tri_graph_manager
 
 
 router = APIRouter()
@@ -504,6 +505,337 @@ async def _promote_expanded_nodes_in_background(
         return
 
 
+<<<<<<< Updated upstream
+=======
+from fastapi.responses import StreamingResponse
+import json
+
+
+async def _run_seal_evolution_background(
+    session_id: str,
+    question: str,
+    answer: str,
+) -> None:
+    """Background task: run SEAL self-iterative evolution after a deep-mode query."""
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        return
+    try:
+        await tri_mgr.post_query_evolution(
+            question=question,
+            answer=answer,
+        )
+    except Exception as exc:
+        _log.warning("[seal:bg] evolution failed for session %s: %s", session_id, exc)
+
+@router.post("/query/stream")
+async def query_stream(request: QueryRequest, background_tasks: BackgroundTasks):
+    """Stream a RAG-augmented response via SSE (Server-Sent Events).
+
+    Emits three event types: ``status`` (processing steps), ``meta`` (sources/memory),
+    and ``chunk`` (answer tokens).
+    """
+    _log.debug("Received stream query: %s, session_id: %s", request.question, request.session_id)
+    if not state.rag_instance or not state.session_manager:
+        raise HTTPException(status_code=500, detail="Service not initialized")
+    if not request.session_id:
+        raise HTTPException(status_code=400, detail="session_id is required; global knowledge is disabled")
+
+    session_rag = await _get_session_rag_or_raise(request.session_id)
+    effective_memory_mode = "session"
+
+    identity_keywords = ["who are you", "your name", "hello", "hi"]
+    question_lower = (request.question or "").lower()
+    is_identity_query = any(k in question_lower for k in identity_keywords) and len(request.question) < 40
+
+    try:
+        state.session_manager.add_message(request.session_id, "user", request.question)
+    except Exception as exc:
+        _log.warning("[query] add_message(user) failed: %s", exc)
+
+    async def generate():
+        import logging as _logging
+        _log = _logging.getLogger("docthinker.query_stream")
+        _t0 = time.time()
+
+        def _elapsed():
+            return round(time.time() - _t0, 2)
+
+        def yield_status(msg: str):
+            data = {"type": "status", "message": msg}
+            return f"data: {json.dumps(data, ensure_ascii=False)}\n\n"
+
+        def yield_meta(meta_dict: dict):
+            data = {"type": "meta", "data": meta_dict}
+            return f"data: {json.dumps(data, ensure_ascii=False)}\n\n"
+
+        def yield_chunk(text: str):
+            data = {"type": "chunk", "content": text}
+            return f"data: {json.dumps(data, ensure_ascii=False)}\n\n"
+
+        _log.info(f"[T+0.00s] query_stream start | mode={request.mode} enable_thinking={request.enable_thinking} q=\"{request.question[:60]}\"")
+
+        if _looks_like_file_question(request.question):
+            pending_files = _get_pending_session_files(request.session_id)
+            if pending_files:
+                pending_names = [str(x.get("filename") or "unknown") for x in pending_files[:3]]
+                suffix = " ..." if len(pending_files) > 3 else ""
+                ans = (
+                    "文件正在后台解析，请稍后再问。\n"
+                    f"当前待完成: {', '.join(pending_names)}{suffix}"
+                )
+                yield yield_chunk(ans)
+                return
+
+        expanded_matches = []
+        expanded_instruction = ""
+        merged_instruction = str(request.retrieval_instruction or "").strip()
+        expanded_manager = None
+        memory_summaries = []
+        analogies = []
+        answer_mode = "rag"
+
+        # Phase 1: Thinking (Deep mode only)
+        if request.enable_thinking and not is_identity_query:
+            answer_mode = "session_thinking"
+
+            _t_mem = time.time()
+            yield yield_status("正在检索历史对话记忆...")
+            memory_terms = []
+            memory_engine = get_session_memory_engine(request.session_id)
+            if memory_engine:
+                try:
+                    analogies = await memory_engine.retrieve_analogies(
+                        request.question, top_k=5, then_spread=True, spread_top_k=3
+                    )
+                    for ep, _, _ in analogies[:5]:
+                        memory_terms.extend(list(ep.concepts or [])[:6])
+                        memory_terms.extend(list(ep.entity_ids or [])[:6])
+
+                    _log.info(f"[T+{_elapsed()}s] memory retrieval done: {len(analogies)} analogies ({round(time.time()-_t_mem,2)}s)")
+
+                    if analogies:
+                        yield yield_status(f"发现 {len(analogies)} 条关联记忆，正在进行图谱扩散激活...")
+
+                    ep_ids = [ep.episode_id for ep, _, _ in analogies]
+                    kg_ids = getattr(state, "kg_entity_ids", set())
+                    ent_ids = [e for ep, _, _ in analogies for e in (ep.entity_ids or [])]
+                    ent_ids = [e for e in dict.fromkeys(ent_ids) if e and e in kg_ids]
+                    if ep_ids or ent_ids:
+                        try:
+                            memory_engine.record_co_activation(ep_ids, ent_ids)
+                            memory_engine.save()
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
+
+            memory_context = _build_memory_context(analogies)
+            memory_summaries = _build_memory_summaries(analogies)
+
+            if request.enable_expanded_matching:
+                _t_exp = time.time()
+                yield yield_status("正在匹配图谱扩展节点...")
+                expanded_manager = _get_expanded_node_manager(request.session_id)
+                if expanded_manager:
+                    refined = expanded_manager.match_nodes(
+                        query=request.question,
+                        top_k=max(1, request.expanded_top_k),
+                        memory_terms=memory_terms,
+                        min_score=max(0.0, request.expanded_min_score),
+                    )
+                    if refined:
+                        expanded_matches = refined
+                        expanded_manager.mark_hits([m.get("entity", "") for m in expanded_matches])
+                        expanded_instruction = expanded_manager.build_forced_instruction(
+                            expanded_matches, limit=min(2, max(1, request.expanded_top_k))
+                        )
+                        merged_instruction = _merge_retrieval_instruction(request.retrieval_instruction, expanded_instruction)
+                _log.info(f"[T+{_elapsed()}s] expanded matching done: {len(expanded_matches)} matches ({round(time.time()-_t_exp,2)}s)")
+
+            # C1-C4: Tri-Graph causal reasoning (deep mode)
+            causal_context = ""
+            tri_mgr = get_tri_graph_manager(request.session_id)
+            if tri_mgr is not None:
+                _t_tri = time.time()
+                yield yield_status("正在检索因果推理链...")
+                try:
+                    episodic_concepts = list(memory_terms)[:20]
+                    tri_result = await tri_mgr.deep_mode_query_context(
+                        question=request.question,
+                        episodic_concepts=episodic_concepts,
+                    )
+                    causal_context = tri_result.get("causal_context", "")
+                    if causal_context:
+                        yield yield_status(f"发现因果推理链，正在融合多图谱证据...")
+                    _log.info(f"[T+{_elapsed()}s] tri-graph context done: causal={bool(causal_context)} activated={tri_result.get('flow_activated',0)} ({round(time.time()-_t_tri,2)}s)")
+                except Exception as exc:
+                    _log.warning(f"[T+{_elapsed()}s] tri-graph context failed: {exc}")
+
+            merged_instruction = _merge_retrieval_instruction(merged_instruction, memory_context, causal_context)
+            yield yield_status("知识检索完毕，正在综合生成回答...")
+
+        elif not is_identity_query:
+            yield yield_status("正在检索图谱知识...")
+            if request.enable_expanded_matching:
+                expanded_manager = _get_expanded_node_manager(request.session_id)
+                if expanded_manager:
+                    expanded_matches = expanded_manager.match_nodes(
+                        query=request.question,
+                        top_k=max(1, request.expanded_top_k),
+                        min_score=max(0.0, request.expanded_min_score),
+                    )
+                    if expanded_matches:
+                        expanded_manager.mark_hits([m.get("entity", "") for m in expanded_matches])
+                        expanded_instruction = expanded_manager.build_forced_instruction(
+                            expanded_matches, limit=min(2, max(1, request.expanded_top_k))
+                        )
+                        merged_instruction = _merge_retrieval_instruction(request.retrieval_instruction, expanded_instruction)
+
+        _log.info(f"[T+{_elapsed()}s] phase1 (thinking/prep) done")
+
+        thinking_process = _format_thinking_process(
+            {
+                "memory_hits": len(analogies),
+                "mode": request.mode,
+                "expanded_hits": len(expanded_matches),
+                "memory_context_injected": bool(memory_summaries),
+            },
+            {
+                "memory_mode": effective_memory_mode,
+                "retrieval_instruction": merged_instruction,
+            },
+        )
+
+        yield yield_meta({
+            "thinking_process": thinking_process,
+            "answer_mode": answer_mode,
+            "expanded_matches": expanded_matches[: min(2, len(expanded_matches))],
+            "memory_summaries": memory_summaries,
+            "mode": request.mode
+        })
+
+        # Build conversation history for LLM context
+        conversation_history: List[Dict[str, str]] = []
+        try:
+            raw_history = state.session_manager.get_history(request.session_id)
+            for msg in raw_history[-6:]:
+                conversation_history.append({
+                    "role": msg.get("role", "user"),
+                    "content": msg.get("content", ""),
+                })
+        except Exception:
+            pass
+
+        # Phase 2: Generation (keyword extraction + retrieval + LLM)
+        full_answer = ""
+        _t_gen = time.time()
+        try:
+            if is_identity_query:
+                system_prompt = (
+                    "You are DocThinker, an assistant for document understanding, knowledge retrieval, and "
+                    "structured reasoning. Answer briefly and clearly."
+                )
+                llm_resp = await state.rag_instance.llm_model_func(
+                    f"{system_prompt}\n\nUser: {request.question}\nAssistant:"
+                )
+                yield yield_chunk(llm_resp)
+                full_answer = llm_resp
+            else:
+                _log.info(f"[T+{_elapsed()}s] phase2 start: aquery_stream (mode={request.mode}, history={len(conversation_history)} msgs)")
+                result = await asyncio.wait_for(
+                    session_rag.aquery_stream(
+                        query=request.question,
+                        mode=request.mode,
+                        enable_rerank=request.enable_rerank,
+                        enable_image_asset_activation=request.enable_image_asset_activation,
+                        image_activation_threshold=request.image_activation_threshold,
+                        image_activation_top_k=request.image_activation_top_k,
+                        user_prompt=merged_instruction or None,
+                        conversation_history=conversation_history,
+                    ),
+                    timeout=SESSION_QUERY_TIMEOUT_SECONDS,
+                )
+                _log.info(f"[T+{_elapsed()}s] aquery_stream returned (retrieval+LLM init done, {round(time.time()-_t_gen,2)}s)")
+
+                first_chunk_time = None
+                if isinstance(result, str):
+                    full_answer = result
+                    yield yield_chunk(result)
+                    _log.info(f"[T+{_elapsed()}s] non-streaming response yielded ({len(result)} chars)")
+                else:
+                    async for chunk in result:
+                        if first_chunk_time is None:
+                            first_chunk_time = time.time()
+                            _log.info(f"[T+{_elapsed()}s] first stream chunk received")
+                        full_answer += chunk
+                        yield yield_chunk(chunk)
+                    _log.info(f"[T+{_elapsed()}s] stream complete ({len(full_answer)} chars)")
+
+        except asyncio.TimeoutError:
+            _log.warning(f"[T+{_elapsed()}s] TIMEOUT in aquery_stream")
+            yield yield_chunk("抱歉，检索或生成超时。")
+        except Exception as e:
+            _log.error(f"[T+{_elapsed()}s] ERROR in aquery_stream: {e}")
+            yield yield_chunk(f"生成过程发生错误: {str(e)}")
+
+        _log.info(f"[T+{_elapsed()}s] phase2 (generation) total: {round(time.time()-_t_gen,2)}s")
+
+        # Post-generation
+        sources = []
+        if hasattr(session_rag, "get_last_query_evidence"):
+            evidence = session_rag.get_last_query_evidence()
+            sources = _build_sources_from_details({}, evidence)
+
+        yield yield_meta({"sources": sources})
+        _log.info(f"[T+{_elapsed()}s] query_stream TOTAL")
+        
+        # Save chat history
+        try:
+            state.session_manager.add_message(request.session_id, "assistant", full_answer)
+        except Exception as exc:
+            _log.warning("[query_stream] add_message(assistant) failed: %s", exc)
+
+        chat_turn_ts = time.time()
+
+        if full_answer and not is_identity_query:
+            try:
+                await _store_episodic_memory(
+                    request.question, full_answer, request.session_id, chat_turn_ts
+                )
+            except Exception as exc:
+                _log.warning("[query_stream] store_episodic_memory failed: %s", exc)
+
+        if _is_chat_turn_ingest_enabled():
+            background_tasks.add_task(
+                _ingest_chat_turn,
+                request.question,
+                full_answer,
+                request.session_id,
+                chat_turn_ts,
+            )
+        if expanded_matches:
+            background_tasks.add_task(
+                _promote_expanded_nodes_in_background,
+                request.session_id,
+                request.question,
+                full_answer,
+                expanded_matches,
+            )
+
+        # C5: SEAL evolution (background, deep mode only)
+        if request.enable_thinking and full_answer and tri_mgr is not None:
+            background_tasks.add_task(
+                _run_seal_evolution_background,
+                request.session_id,
+                request.question,
+                full_answer,
+            )
+
+    return StreamingResponse(generate(), media_type="text/event-stream")
+
+
+>>>>>>> Stashed changes
 @router.post("/query")
 async def query(request: QueryRequest, background_tasks: BackgroundTasks):
     print(f"DEBUG: Received query: {request.question}, session_id: {request.session_id}")
@@ -642,6 +974,24 @@ async def query(request: QueryRequest, background_tasks: BackgroundTasks):
                     )
                     merged_instruction = _merge_retrieval_instruction(request.retrieval_instruction, expanded_instruction)
 
+<<<<<<< Updated upstream
+=======
+            # C1-C4: Tri-Graph causal reasoning (deep mode, non-streaming)
+            causal_context_ns = ""
+            tri_mgr_ns = get_tri_graph_manager(request.session_id)
+            if tri_mgr_ns is not None:
+                try:
+                    tri_result_ns = await tri_mgr_ns.deep_mode_query_context(
+                        question=request.question,
+                        episodic_concepts=list(memory_terms)[:20],
+                    )
+                    causal_context_ns = tri_result_ns.get("causal_context", "")
+                except Exception as exc:
+                    _log.warning("[query] tri-graph context failed: %s", exc)
+
+            merged_instruction = _merge_retrieval_instruction(merged_instruction, memory_context, causal_context_ns)
+
+>>>>>>> Stashed changes
             try:
                 answer = await asyncio.wait_for(
                     session_rag.aquery(
@@ -737,6 +1087,17 @@ async def query(request: QueryRequest, background_tasks: BackgroundTasks):
                 answer,
                 expanded_matches,
             )
+
+        # C5: SEAL evolution (background, deep mode only)
+        if request.enable_thinking and answer and not is_identity_query:
+            tri_mgr_q = get_tri_graph_manager(request.session_id)
+            if tri_mgr_q is not None:
+                background_tasks.add_task(
+                    _run_seal_evolution_background,
+                    request.session_id,
+                    request.question,
+                    answer,
+                )
 
         if not sources and hasattr(session_rag, "get_last_query_evidence"):
             evidence = session_rag.get_last_query_evidence()

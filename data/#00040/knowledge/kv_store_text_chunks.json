@@ -1,0 +1,58 @@
+{
+  "chunk-ccab72c6530160d3335b16207b953310": {
+    "tokens": 98,
+    "content": "李飞飞于1999年从普林斯顿大学本科毕业后赴西藏研究一年藏药；2000年进入加州理工学院；2005年获得加州理工学院博士学位；2005年至2006年担任伊利诺伊大学厄巴纳-香槟分校电机系助理教授；2007年至2009年担任普林斯顿大学计算机科学系助理教授；",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-ccab72c6530160d3335b16207b953310",
+    "file_path": "李飞飞.txt",
+    "llm_cache_list": [
+      "default:extract:998ab74fede06c122d0935c0e74425b6",
+      "default:extract:b70a8ac20808eda38fe84f0c599bf899"
+    ],
+    "create_time": 1773391594,
+    "update_time": 1773391830,
+    "_id": "chunk-ccab72c6530160d3335b16207b953310"
+  },
+  "chunk-d0daa1c79ecdf21a0cc01d422e60571c": {
+    "tokens": 746,
+    "content": "你是极其优秀的RAG和GrapgRAG 和大模型领域的代码专家，我现在的代码需要进行更新，你需要帮我实现以下的需求：\n\n第一优先级是把所有的模型全部替换成千问的相应模型，千问的api key是sk-98e5529ab7954bd592652e07c91f8826，你需要对现在的模型配置进行更新，确保所有的模型不再使用GPT，而是使用千问,可以兼容GPT的接口，让用户自己去配置，但是目前所有使用的模型必须使用千问，重排模型，VLM，LLM，等所有这个项目用到的大模型都使用千问。\n\n同时你需要解决一下几个问题：\n1.目前的快速和深度的搜索测量没有很好的区分，你需要进行优化。\n\n快速模式下， 写一个路由，对于PDF，15页以内使用VLM，去进行提取，并建立知识图谱。txt的知识图谱建立暂时不修改，确保是linerRAG 即可，快速模式下，对于用户的提问来说，直接进行匹配，找到相应的chunk和节点，直接拼接上下文用现在的策略拼接进Prompt然后调用LLM进行回复即可，简单来说，快速模式下，不使用扩散激活。对于PDF超过15页，则不使用VLM，而是使用MinerU框架进行提取，得到文档结构和内容，建立知识图谱，无论是哪种，如果提取出来了图片，都需要对图片建立节点进行存储。\n\n深度模式下，上述的提取逻辑不变，对于用户的问题去检索匹配的时候，使用扩散激活策略，按照现在的扩散激活策略即可。\n\n按照我的需求对代码进行更改\n\n2.C:\\Users\\lqx94\\Documents\\GitHub\\doc\\LinearRAG是 Liner RAG的仓库，把这种算法和知识图谱的建立作为C:\\Users\\lqx94\\Documents\\GitHub\\doc这个项目的rag内核，你需要和我介绍一下什么是LinearRAG，我想要用它来去节省我的token，并把代码嵌入到当前的项目，不要改变我的扩展和类脑相关的策略。\n按照我的需求对代码进行更改\n\n3.在你做上述修改的时候，需要进行模块化设计和整理，每个函数的长度不要太长，注意工程化和项目化，注意好项目代码的尺度和边界，不要出现bug，确保你的代码别人可以很容易的维护。\n\n5.当你做完上述修改的时候，对每一步进行测试，找出问题所在，测试的文件可以较多进行校验，确保你写的项目可以直接用于使用，如果你的项目不能直接用于使用的话，我会对你的模型进行算力降低，放弃你并使用其他模型，请确保你的实践符合我的需求和要求，如果对哪里需求不明确的话，请询问我，而不是直接进行修改\n\n6.删除当前项目中多余和冗余的文件，删除不符合现在的工程以及无用的文件和相关的函数或者代码。\n\n0. function call做计算，你有什么比较好的建议吗，给我提一些建议，尤其对于财务报表之类的，我想要嵌入到我的项目中，如果你觉的不合适，就不嵌入，0号需求先不进行代码修改，先提出你的想法和建议即可。",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-d0daa1c79ecdf21a0cc01d422e60571c",
+    "file_path": "mustread.txt",
+    "llm_cache_list": [
+      "default:extract:713173c97ffa6b4b8a03e27e7496e301",
+      "default:extract:04e3105eff179165269ca8544f6dde30"
+    ],
+    "create_time": 1773414865,
+    "update_time": 1773415007,
+    "_id": "chunk-d0daa1c79ecdf21a0cc01d422e60571c"
+  },
+  "chunk-fd32af28df837d1f3fbb2592d37786a9": {
+    "tokens": 288,
+    "content": "人工智能的发展历程\n\n人工智能（Artificial Intelligence，简称AI）是计算机科学的一个分支，旨在创建能够模拟人类智能的系统。\n从1956年达特茅斯会议正式提出\"人工智能\"概念以来，AI经历了多个发展阶段。\n\n早期阶段（1956-1974）：\n在这个时期，研究者们充满乐观。Alan Turing提出了著名的\"图灵测试\"。\nJohn McCarthy创造了\"人工智能\"这个术语。早期的程序如ELIZA和SHRDLU展示了自然语言处理的可能性。\n\n知识工程时期（1980-1987）：\n专家系统成为AI的重要商业应用。MYCIN系统能够诊断血液感染疾病。\n日本启动了\"第五代计算机\"项目，推动了AI研究的国际竞争。\n\n机器学习革命（2006-至今）：\n深度学习的突破性进展彻底改变了AI领域。Geoffrey Hinton、Yann LeCun和Yoshua Bengio\n被称为\"深度学习三巨头\"。AlphaGo在2016年击败围棋世界冠军李世石，标志着AI的里程碑事件。\nGPT系列模型的出现推动了大语言模型的发展，OpenAI和Google DeepMind成为领军企业。",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-fd32af28df837d1f3fbb2592d37786a9",
+    "file_path": "test_timing.txt",
+    "llm_cache_list": [
+      "default:extract:e4eac34b1f4dd6f9dfe34f019c3d0700",
+      "default:extract:57fee66b7a933826527d50025d11c549"
+    ],
+    "create_time": 1773415451,
+    "update_time": 1773415699,
+    "_id": "chunk-fd32af28df837d1f3fbb2592d37786a9"
+  },
+  "chunk-6d9e837d4b6a071f0f4492584a845e01": {
+    "tokens": 110,
+    "content": "人工智能的发展历程\n\n人工智能（AI）是计算机科学的分支。从1956年达特茅斯会议以来，AI经历了多个发展阶段。\n早期阶段：Alan Turing提出图灵测试。John McCarthy创造人工智能术语。\n知识工程时期：专家系统成为AI的重要商业应用。MYCIN系统能诊断血液感染。\n机器学习革命：深度学习突破改变了AI领域。AlphaGo在2016年击败围棋世界冠军李世石。",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-6d9e837d4b6a071f0f4492584a845e01",
+    "file_path": "test_timing.txt",
+    "llm_cache_list": [
+      "default:extract:e9e35477ef556ffcd75d1ea9d202fbbe",
+      "default:extract:6e4753856773f7c09204ae11d3dab6a0"
+    ],
+    "create_time": 1773416023,
+    "update_time": 1773416218,
+    "_id": "chunk-6d9e837d4b6a071f0f4492584a845e01"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "doc_doc-f2da5ac22fd5ae335de864355bc39259",
+  "type": "document",
+  "entries": {
+    "fb4d4407-f56b-47b8-b125-02e54a9c733f": {
+      "id": "fb4d4407-f56b-47b8-b125-02e54a9c733f",
+      "content": "人工智能的发展历程\n\n人工智能（AI）是计算机科学的分支。从1956年达特茅斯会议以来，AI经历了多个发展阶段。\n早期阶段：Alan Turing提出图灵测试。John McCarthy创造人工智能术语。\n知识工程时期：专家系统成为AI的重要商业应用。MYCIN系统能诊断血液感染。\n机器学习革命：深度学习突破改变了AI领域。AlphaGo在2016年击败围棋世界冠军李世石。",
+      "type": "memory",
+      "metadata": {
+        "source_type": "file",
+        "session_id": "#00040",
+        "summary": null,
+        "reasoning": null,
+        "key_points": [],
+        "concepts": [],
+        "hypotheses": [],
+        "action_items": []
+      },
+      "relations": [],
+      "entity_links": [],
+      "confidence_score": 1.0,
+      "source": "manual",
+      "created_at": "2026-03-13T23:36:59.572678",
+      "updated_at": "2026-03-13T23:36:59.572678"
+    }
+  },
+  "metadata": {},
+  "created_at": "2026-03-13T23:36:59.570163",
+  "updated_at": "2026-03-13T23:36:59.572678"
+}

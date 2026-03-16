@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="李飞飞">
+      <data key="entity_id">李飞飞</data>
+      <data key="entity_type">person</data>
+      <data key="description">Li Feifei is a researcher who studied Tibetan medicine in Tibet and later pursued academic positions at various universities.</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486404</data>
+      <data key="truncate" />
+    </node>
+    <node id="普林斯顿大学">
+      <data key="entity_id">普林斯顿大学</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Princeton University is an educational institution where Li Feifei earned her undergraduate degree.</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486404</data>
+      <data key="truncate" />
+    </node>
+    <node id="西藏">
+      <data key="entity_id">西藏</data>
+      <data key="entity_type">location</data>
+      <data key="description">Tibet is a region in China where Li Feifei conducted research on traditional medicine.</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486404</data>
+      <data key="truncate" />
+    </node>
+    <node id="加州理工学院">
+      <data key="entity_id">加州理工学院</data>
+      <data key="entity_type">organization</data>
+      <data key="description">California Institute of Technology is an educational institution where Li Feifei obtained her doctoral degree.</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486404</data>
+      <data key="truncate" />
+    </node>
+    <node id="伊利诺伊大学厄巴纳-香槟分校">
+      <data key="entity_id">伊利诺伊大学厄巴纳-香槟分校</data>
+      <data key="entity_type">organization</data>
+      <data key="description">University of Illinois at Urbana-Champaign is an educational institution where Li Feifei served as an assistant professor.</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486404</data>
+      <data key="truncate" />
+    </node>
+    <node id="普林斯顿大学计算机科学系">
+      <data key="entity_id">普林斯顿大学计算机科学系</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Princeton University Computer Science Department is a department at Princeton University where Li Feifei worked as an assistant professor.</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486404</data>
+      <data key="truncate" />
+    </node>
+    <node id="电机系">
+      <data key="entity_id">电机系</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Electrical Engineering Department is a department at the University of Illinois at Urbana-Champaign where Li Feifei held a position.</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486404</data>
+      <data key="truncate" />
+    </node>
+    <edge source="李飞飞" target="普林斯顿大学">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei earned her undergraduate degree from Princeton University.</data>
+      <data key="keywords">academic background,education</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486405</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="西藏">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei conducted research on Tibetan medicine in Tibet.</data>
+      <data key="keywords">medicinal studies,research</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486405</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="加州理工学院">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei obtained her PhD from the California Institute of Technology.</data>
+      <data key="keywords">doctoral degree,education</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486405</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="伊利诺伊大学厄巴纳-香槟分校">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei served as an assistant professor in the Electrical Engineering Department at the University of Illinois at Urbana-Champaign.</data>
+      <data key="keywords">academic position,assistant professor</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486405</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="李飞飞" target="普林斯顿大学计算机科学系">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei worked as an assistant professor in the Computer Science Department at Princeton University.</data>
+      <data key="keywords">academic position,assistant professor</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486405</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="普林斯顿大学" target="普林斯顿大学计算机科学系">
+      <data key="weight">1.0</data>
+      <data key="description">The Computer Science Department is part of Princeton University.</data>
+      <data key="keywords">institutional affiliation</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486406</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="加州理工学院" target="伊利诺伊大学厄巴纳-香槟分校">
+      <data key="weight">1.0</data>
+      <data key="description">Li Feifei transitioned from the California Institute of Technology to the University of Illinois at Urbana-Champaign.</data>
+      <data key="keywords">academic transition</data>
+      <data key="source_id">chunk-ccab72c6530160d3335b16207b953310</data>
+      <data key="file_path">李飞飞.txt</data>
+      <data key="created_at">1773486405</data>
+      <data key="truncate" />
+    </edge>
+  </graph>
+</graphml>

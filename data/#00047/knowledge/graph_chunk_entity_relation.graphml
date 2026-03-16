@@ -1,0 +1,3011 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="truncate" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="keywords" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="description" for="edge" attr.name="description" attr.type="string" />
+  <key id="weight" for="edge" attr.name="weight" attr.type="double" />
+  <key id="doc_id" for="node" attr.name="doc_id" attr.type="string" />
+  <key id="page_idx" for="node" attr.name="page_idx" attr.type="long" />
+  <key id="img_path" for="node" attr.name="img_path" attr.type="string" />
+  <key id="is_image_node" for="node" attr.name="is_image_node" attr.type="long" />
+  <key id="truncate" for="node" attr.name="truncate" attr.type="string" />
+  <key id="created_at" for="node" attr.name="created_at" attr.type="long" />
+  <key id="file_path" for="node" attr.name="file_path" attr.type="string" />
+  <key id="source_id" for="node" attr.name="source_id" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="entity_type" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="entity_id" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="DETRs">
+      <data key="entity_id">DETRs</data>
+      <data key="entity_type">concept</data>
+      <data key="description">DETRs are end-to-end Transformer-based detectors that eliminate the need for Non-Maximum Suppression (NMS).&lt;SEP&gt;DETRs refers to a class of object detection models that use transformer architectures for end-to-end detection.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLOs">
+      <data key="entity_id">YOLOs</data>
+      <data key="entity_type">concept</data>
+      <data key="description">YOLOs are a series of real-time object detection frameworks known for their balance between speed and accuracy.&lt;SEP&gt;YOLOs are a family of real-time object detection models known for their speed and efficiency.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Yian Zhao">
+      <data key="entity_id">Yian Zhao</data>
+      <data key="entity_type">person</data>
+      <data key="description">Yian Zhao is a researcher affiliated with Baidu Inc and Peking University, contributing to the development of RT-DETR.&lt;SEP&gt;Yian Zhao is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Wenyu Lv">
+      <data key="entity_id">Wenyu Lv</data>
+      <data key="entity_type">person</data>
+      <data key="description">Wenyu Lv is a researcher affiliated with Baidu Inc and Peking University, contributing to the development of RT-DETR.&lt;SEP&gt;Wenyu Lv is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Shangliang Xu">
+      <data key="entity_id">Shangliang Xu</data>
+      <data key="entity_type">person</data>
+      <data key="description">Shangliang Xu is a researcher affiliated with Baidu Inc, contributing to the development of RT-DETR.&lt;SEP&gt;Shangliang Xu is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Jinman Wei">
+      <data key="entity_id">Jinman Wei</data>
+      <data key="entity_type">person</data>
+      <data key="description">Jinman Wei is a researcher affiliated with Baidu Inc, contributing to the development of RT-DETR.&lt;SEP&gt;Jinman Wei is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Guanzhong Wang">
+      <data key="entity_id">Guanzhong Wang</data>
+      <data key="entity_type">person</data>
+      <data key="description">Guanzhong Wang is a researcher affiliated with Baidu Inc, contributing to the development of RT-DETR.&lt;SEP&gt;Guanzhong Wang is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Qingqing Dang">
+      <data key="entity_id">Qingqing Dang</data>
+      <data key="entity_type">person</data>
+      <data key="description">Qingqing Dang is a researcher affiliated with Baidu Inc, contributing to the development of RT-DETR.&lt;SEP&gt;Qingqing Dang is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Yi Liu">
+      <data key="entity_id">Yi Liu</data>
+      <data key="entity_type">person</data>
+      <data key="description">Yi Liu is a researcher affiliated with Baidu Inc, contributing to the development of RT-DETR.&lt;SEP&gt;Yi Liu is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Jie Chen">
+      <data key="entity_id">Jie Chen</data>
+      <data key="entity_type">person</data>
+      <data key="description">Jie Chen is a researcher affiliated with Peking University, contributing to the development of RT-DETR.&lt;SEP&gt;Jie Chen is one of the authors of the research paper titled "DETRs Beat YOLOs on Real-time Object Detection".</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Baidu Inc">
+      <data key="entity_id">Baidu Inc</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Baidu Inc is a technology company based in Beijing, China, involved in the research and development of RT-DETR.&lt;SEP&gt;Baidu Inc is one of the affiliations of the authors of the research paper.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Peking University">
+      <data key="entity_id">Peking University</data>
+      <data key="entity_type">organization</data>
+      <data key="description">Peking University is an academic institution in Shenzhen, China, involved in the research and development of RT-DETR.&lt;SEP&gt;Peking University is one of the affiliations of the authors of the research paper.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Real-Time DEtection TRansformer">
+      <data key="entity_id">Real-Time DEtection TRansformer</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">RT-DETR is a real-time end-to-end object detector designed to address the limitations of YOLOs and DETRs.&lt;SEP&gt;Real-Time DEtection TRansformer is the full name of RT-DETR, an advanced object detection model.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="COCO">
+      <data key="entity_id">COCO</data>
+      <data key="entity_type">data</data>
+      <data key="description">COCO is a dataset used for evaluating object detection models, achieving 53.1% / 54.3% AP with RT-DETR.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="T4 GPU">
+      <data key="entity_id">T4 GPU</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">T4 GPU is a graphics processing unit used for testing model performance.&lt;SEP&gt;T4 GPU is a hardware platform used to evaluate the performance of RT-DETR, achieving 108 / 74 FPS.&lt;SEP&gt;T4 GPU is a hardware platform used to measure the inference speed of RT-DETR, achieving 108 FPS.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="Objects365">
+      <data key="entity_id">Objects365</data>
+      <data key="entity_type">data</data>
+      <data key="description">Objects365 is a pre-training dataset used to enhance the performance of RT-DETR, achieving 55.3% / 56.2% AP.&lt;SEP&gt;Objects365 is a large-scale dataset used for pre-training RT-DETR, leading to improved performance.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="Non-Maximum Suppression">
+      <data key="entity_id">Non-Maximum Suppression</data>
+      <data key="entity_type">concept</data>
+      <data key="description">NMS is a post-processing technique used in object detection that can slow down inference and introduce instability.&lt;SEP&gt;Non-Maximum Suppression (NMS) is a limitation of YOLO detectors discussed in the research paper.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Transformer">
+      <data key="entity_id">Transformer</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Transformer is a neural network architecture used in DETRs for end-to-end object detection.&lt;SEP&gt;Transformer is the underlying architecture of the proposed RT-DETR model.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Hybrid Encoder">
+      <data key="entity_id">Hybrid Encoder</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Hybrid encoder is an efficient design used in RT-DETR to process multi-scale features and improve inference speed.&lt;SEP&gt;The hybrid encoder is a component of RT-DETR designed to process multi-scale features efficiently.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="Uncertainty-Minimal Query Selection">
+      <data key="entity_id">Uncertainty-Minimal Query Selection</data>
+      <data key="entity_type">method</data>
+      <data key="description">Uncertainty-minimal query selection is a technique used in RT-DETR to select high-quality object queries based on localization confidence.&lt;SEP&gt;Uncertainty-minimal query selection is a technique used in RT-DETR to improve accuracy by selecting high-quality initial queries.&lt;SEP&gt;Uncertainty-Minimal Query Selection is a technique used in the RT-DETR model to reduce uncertainty in object detection.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="Real-Time Object Detection">
+      <data key="entity_id">Real-Time Object Detection</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Real-time object detection is a research area with applications in autonomous driving, video surveillance, and more.&lt;SEP&gt;Real-Time Object Detection refers to the ability of a model to detect objects quickly and efficiently.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="CNN-Based Architecture">
+      <data key="entity_id">CNN-Based Architecture</data>
+      <data key="entity_type">method</data>
+      <data key="description">CNN-based architecture is a common approach in real-time object detection, exemplified by YOLOs.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="DINO-R50">
+      <data key="entity_id">DINO-R50</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">DINO-R50 is a previous state-of-the-art model that RT-DETR outperforms in both accuracy and speed.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="RT-DETR-R50">
+      <data key="entity_id">RT-DETR-R50</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">RT-DETR-R50 is a version of RT-DETR that achieves 53.1% AP on COCO and 108 FPS on T4 GPU.&lt;SEP&gt;RT-DETR-R50 is a variant of the RT-DETR model with a ResNet-50 backbone, achieving 53.1% AP and 108 FPS.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="RT-DETR-R101">
+      <data key="entity_id">RT-DETR-R101</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">RT-DETR-R101 is a version of RT-DETR that achieves 54.3% AP on COCO and 74 FPS on T4 GPU.</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="RT-DETR">
+      <data key="entity_id">RT-DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">RT-DETR is a real-time end-to-end object detector proposed in the text, designed to improve speed and accuracy in object detection.&lt;SEP&gt;RT-DETR is a proposed Transformer-based solution for real-time object detection, introduced in the research paper.&lt;SEP&gt;RT-DETR is the proposed object detection model that achieves state-of-the-art performance according to Figure 1.&lt;SEP&gt;RT-DETR is a real-time end-to-end object detection model designed to improve accuracy and performance.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Transformer Encoder">
+      <data key="entity_id">Transformer Encoder</data>
+      <data key="entity_type">method</data>
+      <data key="description">Transformer encoder is a component of the DETR model that processes features but is replaced in RT-DETR with a hybrid encoder.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="DETR">
+      <data key="entity_id">DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">DETR is an end-to-end object detection model based on the Transformer architecture, which RT-DETR improves upon.&lt;SEP&gt;DETR is an object detection model that uses a transformer architecture for end-to-end detection.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLO Detectors">
+      <data key="entity_id">YOLO Detectors</data>
+      <data key="entity_type">concept</data>
+      <data key="description">YOLO detectors are a family of one-stage real-time object detection models that RT-DETR outperforms in both speed and accuracy.&lt;SEP&gt;YOLO detectors are a class of object detection models that have limitations in terms of Non-Maximum Suppression (NMS).</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="COCO Val2017">
+      <data key="entity_id">COCO Val2017</data>
+      <data key="entity_type">data</data>
+      <data key="description">COCO Val2017 is a benchmark dataset used for evaluating object detection models.&lt;SEP&gt;COCO Val2017 is a dataset used to evaluate the performance of RT-DETR, measuring its AP (Average Precision).</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="NMS">
+      <data key="entity_id">NMS</data>
+      <data key="entity_type">concept</data>
+      <data key="description">NMS (Non-Maximum Suppression) is a post-processing technique used in object detection to remove overlapping bounding boxes.&lt;SEP&gt;NMS is a post-processing algorithm used in object detection to eliminate overlapping output boxes by applying confidence and IoU thresholds.&lt;SEP&gt;NMS is a post-processing algorithm used in object detection to eliminate overlapping boxes, which RT-DETR eliminates.&lt;SEP&gt;NMS stands for Non-Maximum Suppression, a technique used in object detection to eliminate redundant detections.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-56050e109fbbcac2d20804a62750188c&lt;SEP&gt;chunk-480c8136267783fba29416e2dcbc0522&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="AP">
+      <data key="entity_id">AP</data>
+      <data key="entity_type">data</data>
+      <data key="description">AP stands for Average Precision, a metric used to evaluate the accuracy of object detection models.&lt;SEP&gt;AP refers to Average Precision, a metric used to evaluate the accuracy of object detection models like RT-DETR.&lt;SEP&gt;AP stands for Average Precision, a metric used to evaluate the performance of object detection models.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-56050e109fbbcac2d20804a62750188c&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="FPS">
+      <data key="entity_id">FPS</data>
+      <data key="entity_type">data</data>
+      <data key="description">FPS refers to Frames Per Second, a metric used to evaluate the speed of object detection models like RT-DETR.&lt;SEP&gt;FPS stands for Frames Per Second, a measure of how many frames a model can process in a second.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLOv1">
+      <data key="entity_id">YOLOv1</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">YOLOv1 is the first CNN-based one-stage object detector that achieved real-time performance.&lt;SEP&gt;YOLOv1 is an early version of the YOLO object detection model, known for its speed.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="Deformable-DETR">
+      <data key="entity_id">Deformable-DETR</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Deformable-DETR is a variant of DETR that improves training convergence with multi-scale features.&lt;SEP&gt;Deformable-DETR is a variant of DETR that improves efficiency through deformable attention mechanisms.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="DINO-Deformable-DETR">
+      <data key="entity_id">DINO-Deformable-DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">DINO-Deformable-DETR is a previous state-of-the-art object detection model that RT-DETR outperforms.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="L">
+      <data key="entity_id">L</data>
+      <data key="entity_type">concept</data>
+      <data key="description">L refers to a previously advanced YOLO detector model that RT-DETR outperforms in both speed and accuracy.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="X">
+      <data key="entity_id">X</data>
+      <data key="entity_type">concept</data>
+      <data key="description">X refers to a previously advanced YOLO detector model that RT-DETR outperforms in both speed and accuracy.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="S">
+      <data key="entity_id">S</data>
+      <data key="entity_type">concept</data>
+      <data key="description">S refers to a lighter YOLO detector model that scaled RT-DETRs outperform.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520656</data>
+      <data key="truncate" />
+    </node>
+    <node id="M">
+      <data key="entity_id">M</data>
+      <data key="entity_type">concept</data>
+      <data key="description">M refers to a lighter YOLO detector model that scaled RT-DETRs outperform.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="DETR Variants">
+      <data key="entity_id">DETR Variants</data>
+      <data key="entity_type">concept</data>
+      <data key="description">DETR variants include models like Deformable-DETR, DAB-DETR, DN-DETR, Group-DETR, Efficient DETR, Sparse DETR, Lite DETR, Conditional DETR, and Anchor DETR, each addressing specific limitations of the original DETR.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="End-to-end Speed Benchmark">
+      <data key="entity_id">End-to-end Speed Benchmark</data>
+      <data key="entity_type">concept</data>
+      <data key="description">End-to-end speed benchmark is a method introduced to test the inference speed of real-time object detectors.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Group-DETR">
+      <data key="entity_id">Group-DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Group-DETR is a variant of DETR that introduces group-wise one-to-many assignment to improve performance.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Efficient DETR">
+      <data key="entity_id">Efficient DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Efficient DETR is a variant of DETR that reduces computational cost by decreasing the number of encoder and decoder layers.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Sparse DETR">
+      <data key="entity_id">Sparse DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Sparse DETR is a variant of DETR that reduces computational cost by reducing the number of updated queries.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Lite DETR">
+      <data key="entity_id">Lite DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Lite DETR is a variant of DETR that enhances encoder efficiency by reducing the update frequency of low-level features.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Conditional DETR">
+      <data key="entity_id">Conditional DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Conditional DETR is a variant of DETR that decreases the optimization difficulty of queries.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Anchor DETR">
+      <data key="entity_id">Anchor DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Anchor DETR is a variant of DETR that introduces anchors to improve query optimization.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="DAB-DETR">
+      <data key="entity_id">DAB-DETR</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">DAB-DETR is a variant of DETR that improves performance through an iterative refinement scheme.&lt;SEP&gt;DAB-DETR is a variant of DETR that uses dynamic anchor boxes for improved detection.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="DN-DETR">
+      <data key="entity_id">DN-DETR</data>
+      <data key="entity_type">concept</data>
+      <data key="description">DN-DETR is a variant of DETR that improves performance through denoising training.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Query Selection">
+      <data key="entity_id">Query Selection</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Query selection refers to techniques used to initialize high-quality object queries in DETR models.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520657</data>
+      <data key="truncate" />
+    </node>
+    <node id="Mixed Query Selection">
+      <data key="entity_id">Mixed Query Selection</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Mixed query selection is a technique suggested by DINO to help better initialize queries in DETR models.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="NMS Post-processing">
+      <data key="entity_id">NMS Post-processing</data>
+      <data key="entity_type">concept</data>
+      <data key="description">NMS post-processing is a widely used algorithm in object detection to eliminate overlapping boxes, which RT-DETR eliminates.</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLOv5">
+      <data key="entity_id">YOLOv5</data>
+      <data key="entity_type">concept</data>
+      <data key="description">YOLOv5 is an anchor-based object detection model.&lt;SEP&gt;YOLOv5 is an anchor-based object detection model used for analysis in the text.&lt;SEP&gt;YOLOv5 is one of the object detection models compared in Figure 1.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c&lt;SEP&gt;chunk-480c8136267783fba29416e2dcbc0522&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLOv8">
+      <data key="entity_id">YOLOv8</data>
+      <data key="entity_type">concept</data>
+      <data key="description">YOLOv8 is an anchor-based object detection model.&lt;SEP&gt;YOLOv8 is an anchor-free object detection model used for analysis in the text.&lt;SEP&gt;YOLOv8 is one of the object detection models compared in Figure 1.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c&lt;SEP&gt;chunk-480c8136267783fba29416e2dcbc0522&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="COCO val2017">
+      <data key="entity_id">COCO val2017</data>
+      <data key="entity_type">data</data>
+      <data key="description">COCO val2017 is a benchmark dataset used for evaluating object detection models.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="TensorRT EfficientNMSPlugin">
+      <data key="entity_id">TensorRT EfficientNMSPlugin</data>
+      <data key="entity_type">method</data>
+      <data key="description">TensorRT EfficientNMSPlugin is a specialized NMS implementation that includes multiple kernels for efficient non-maximum suppression.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="FP16">
+      <data key="entity_id">FP16</data>
+      <data key="entity_type">data</data>
+      <data key="description">FP16 refers to the 16-bit floating-point precision used in tensor operations for faster computation.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="Confidence Threshold">
+      <data key="entity_id">Confidence Threshold</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Confidence threshold is a parameter used in NMS to filter out low-scoring prediction boxes.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="IoU Threshold">
+      <data key="entity_id">IoU Threshold</data>
+      <data key="entity_type">concept</data>
+      <data key="description">IoU threshold is a parameter used in NMS to determine when two bounding boxes are considered overlapping.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="NMS Execution Time">
+      <data key="entity_id">NMS Execution Time</data>
+      <data key="entity_type">data</data>
+      <data key="description">NMS Execution Time refers to the time required to perform non-maximum suppression on detected boxes.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520658</data>
+      <data key="truncate" />
+    </node>
+    <node id="End-to-End Speed">
+      <data key="entity_id">End-to-End Speed</data>
+      <data key="entity_type">concept</data>
+      <data key="description">End-to-End Speed refers to the total time taken for a detector to process an input image from start to finish, including NMS.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="EfficientNMS Kernel">
+      <data key="entity_id">EfficientNMS Kernel</data>
+      <data key="entity_type">method</data>
+      <data key="description">EfficientNMS Kernel is a specific component of the TensorRT EfficientNMSPlugin responsible for non-maximum suppression.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="Real-Time Detectors">
+      <data key="entity_id">Real-Time Detectors</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Real-Time Detectors are object detection models designed to process images quickly for real-time applications.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="EfficientNMSFilter">
+      <data key="entity_id">EfficientNMSFilter</data>
+      <data key="entity_type">method</data>
+      <data key="description">EfficientNMSFilter is a kernel within the TensorRT EfficientNMSPlugin used for filtering non-maximum suppression operations.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="RadixSort">
+      <data key="entity_id">RadixSort</data>
+      <data key="entity_type">method</data>
+      <data key="description">RadixSort is a kernel within the TensorRT EfficientNMSPlugin used for sorting operations during non-maximum suppression.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="End-to-End Speed Benchmark">
+      <data key="entity_id">End-to-End Speed Benchmark</data>
+      <data key="entity_type">concept</data>
+      <data key="description">The End-to-End Speed Benchmark is a methodology for comparing the real-time performance of object detectors.&lt;SEP&gt;End-to-End Speed Benchmark is a method for evaluating the total processing time of real-time detectors, including NMS.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c&lt;SEP&gt;chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="Appendix">
+      <data key="entity_id">Appendix</data>
+      <data key="entity_type">content</data>
+      <data key="description">Appendix refers to supplementary material that includes visualizations of YOLOv8 predictions under different NMS thresholds.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="False Positives">
+      <data key="entity_id">False Positives</data>
+      <data key="entity_type">concept</data>
+      <data key="description">False Positives are incorrect detections where the model identifies objects that are not present.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="False Negatives">
+      <data key="entity_id">False Negatives</data>
+      <data key="entity_type">concept</data>
+      <data key="description">False Negatives are missed detections where the model fails to identify objects that are present.</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="TensorRT">
+      <data key="entity_id">TensorRT</data>
+      <data key="entity_type">organization</data>
+      <data key="description">TensorRT is a deep learning inference optimizer and runtime developed by NVIDIA.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520659</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLOv7">
+      <data key="entity_id">YOLOv7</data>
+      <data key="entity_type">concept</data>
+      <data key="description">YOLOv7 is an anchor-based object detection model.&lt;SEP&gt;YOLOv7 is one of the object detection models compared in Figure 1.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="PP-YOLOE">
+      <data key="entity_id">PP-YOLOE</data>
+      <data key="entity_type">concept</data>
+      <data key="description">PP-YOLOE is an anchor-free object detection model.&lt;SEP&gt;PP-YOLOE is one of the object detection models compared in Figure 1.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522&lt;SEP&gt;chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLOv6">
+      <data key="entity_id">YOLOv6</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">YOLOv6 is an anchor-based object detection model.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520660</data>
+      <data key="truncate" />
+    </node>
+    <node id="NVIDIA">
+      <data key="entity_id">NVIDIA</data>
+      <data key="entity_type">organization</data>
+      <data key="description">NVIDIA is a technology company known for developing GPU and AI-related software and hardware.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520660</data>
+      <data key="truncate" />
+    </node>
+    <node id="EfficientNMSPlugin">
+      <data key="entity_id">EfficientNMSPlugin</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">EfficientNMSPlugin is a TensorRT plugin for optimizing Non-Maximum Suppression in object detection.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520660</data>
+      <data key="truncate" />
+    </node>
+    <node id="I/O">
+      <data key="entity_id">I/O</data>
+      <data key="entity_type">concept</data>
+      <data key="description">I/O refers to input/output operations, which are excluded from the end-to-end speed calculation in the benchmark.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520660</data>
+      <data key="truncate" />
+    </node>
+    <node id="MemoryCopy">
+      <data key="entity_id">MemoryCopy</data>
+      <data key="entity_type">concept</data>
+      <data key="description">MemoryCopy refers to memory copying operations, which are excluded from the end-to-end speed calculation in the benchmark.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520660</data>
+      <data key="truncate" />
+    </node>
+    <node id="Anchor-Based Detectors">
+      <data key="entity_id">Anchor-Based Detectors</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Anchor-Based Detectors are a category of object detection models that use predefined anchor boxes for bounding box prediction.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520660</data>
+      <data key="truncate" />
+    </node>
+    <node id="Anchor-Free Detectors">
+      <data key="entity_id">Anchor-Free Detectors</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Anchor-Free Detectors are a category of object detection models that do not rely on predefined anchor boxes for bounding box prediction.</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520660</data>
+      <data key="truncate" />
+    </node>
+    <node id="RT-DETR Research Paper Page 1 (image)">
+      <data key="entity_id">RT-DETR Research Paper Page 1 (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image is the first page of the academic paper introducing RT-DETR, a real-time end-to-end object detector. It features the title, author list, abstract, introduction, and Figure 1. Figure 1 is a critical performance comparison chart demonstrating that RT-DETR (red markers) outperforms existing YOLO series detectors (various colors) in both accuracy (COCO AP) and speed (latency) on a T4 GPU, validating the paper's central claim.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520711</data>
+    </node>
+    <node id="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="entity_id">RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image contains the left-hand text column of page 2 from the research paper introducing RT-DETR. It bridges the introduction and related work sections, detailing the technical innovations of the RT-DETR architecture (hybrid encoder, query selection) and its superior performance over YOLO and DINO models. The text also initiates a literature review on real-time and end-to-end object detectors, providing essential context for the study's contribution to computer vision.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520711</data>
+    </node>
+    <node id="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)">
+      <data key="entity_id">Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="entity_type">image</data>
+      <data key="description">This image captures page 3 of a scientific paper analyzing the end-to-end speed of object detectors. It features a bar chart comparing box counts for YOLOv5 and YOLOv8 across different confidence thresholds, and a table detailing the impact of IoU and confidence thresholds on Average Precision (AP) and Non-Maximum Suppression (NMS) execution time. The accompanying text discusses the computational costs of NMS, query initialization in DETR models, and establishes a benchmarking protocol using the COCO dataset.</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520711</data>
+    </node>
+    <node id="RT-DETR Research Paper Page 1 (image) [image_asset p0]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image is the first page of the academic paper introducing RT-DETR, a real-time end-to-end object detector. It features the title, author list, abstract, introduction, and Figure 1. Figure 1 is a critical performance comparison chart demonstrating that RT-DETR (red markers) outperforms existing YOLO series detectors (various colors) in both accuracy (COCO AP) and speed (latency) on a T4 GPU, validating the paper's central claim.</data>
+      <data key="source_id">image_asset:img-4dcbb819ce52d700124aadfa9b6567a8</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\knowledge\multimodal\images\img-4dcbb819ce52d700124aadfa9b6567a8.png</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="page_idx">0</data>
+      <data key="doc_id">doc-4b7fa06c25c1b7ba3965b31192d0d343</data>
+      <data key="created_at">1773520715</data>
+    </node>
+    <node id="RT-DETR Paper Page 2 Text Column (image) [image_asset p1]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image contains the left-hand text column of page 2 from the research paper introducing RT-DETR. It bridges the introduction and related work sections, detailing the technical innovations of the RT-DETR architecture (hybrid encoder, query selection) and its superior performance over YOLO and DINO models. The text also initiates a literature review on real-time and end-to-end object detectors, providing essential context for the study's contribution to computer vision.</data>
+      <data key="source_id">image_asset:img-d609f52da44d3f9c5e51d1ec3970a231</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\knowledge\multimodal\images\img-d609f52da44d3f9c5e51d1ec3970a231.png</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="page_idx">1</data>
+      <data key="doc_id">doc-4b7fa06c25c1b7ba3965b31192d0d343</data>
+      <data key="created_at">1773520715</data>
+    </node>
+    <node id="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image) [image_asset p2]">
+      <data key="entity_type">image_asset</data>
+      <data key="description">This image captures page 3 of a scientific paper analyzing the end-to-end speed of object detectors. It features a bar chart comparing box counts for YOLOv5 and YOLOv8 across different confidence thresholds, and a table detailing the impact of IoU and confidence thresholds on Average Precision (AP) and Non-Maximum Suppression (NMS) execution time. The accompanying text discusses the computational costs of NMS, query initialization in DETR models, and establishes a benchmarking protocol using the COCO dataset.</data>
+      <data key="source_id">image_asset:img-60da39d1cc04a13757a6d4e6c9ac4dfa</data>
+      <data key="is_image_node">1</data>
+      <data key="img_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\knowledge\multimodal\images\img-60da39d1cc04a13757a6d4e6c9ac4dfa.png</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="page_idx">2</data>
+      <data key="doc_id">doc-4b7fa06c25c1b7ba3965b31192d0d343</data>
+      <data key="created_at">1773520716</data>
+    </node>
+    <node id="Research Paper">
+      <data key="entity_id">Research Paper</data>
+      <data key="entity_type">content</data>
+      <data key="description">The research paper titled "DETRs Beat YOLOs on Real-time Object Detection" presents a new approach to real-time object detection using a Transformer-based model.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Abstract">
+      <data key="entity_id">Abstract</data>
+      <data key="entity_type">content</data>
+      <data key="description">The abstract summarizes the proposal of RT-DETR and discusses the limitations of YOLO detectors regarding Non-Maximum Suppression (NMS).</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Introduction">
+      <data key="entity_id">Introduction</data>
+      <data key="entity_type">content</data>
+      <data key="description">The introduction section of the research paper provides background information and outlines the problem with YOLO detectors.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Figure 1">
+      <data key="entity_id">Figure 1</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">Figure 1 is a scatter plot comparing the performance of various object detection models, including RT-DETR.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="COCO AP">
+      <data key="entity_id">COCO AP</data>
+      <data key="entity_type">data</data>
+      <data key="description">COCO AP is a metric used to evaluate the performance of object detection models, displayed on the Y-axis of Figure 1.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="End-to-end Latency T4 TensorRT FP16">
+      <data key="entity_id">End-to-end Latency T4 TensorRT FP16</data>
+      <data key="entity_type">data</data>
+      <data key="description">End-to-end latency measured in milliseconds using T4 TensorRT FP16 is displayed on the X-axis of Figure 1.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="YOLOv6-v3.0">
+      <data key="entity_id">YOLOv6-v3.0</data>
+      <data key="entity_type">concept</data>
+      <data key="description">YOLOv6-v3.0 is one of the object detection models compared in Figure 1.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="R18 Scaled">
+      <data key="entity_id">R18 Scaled</data>
+      <data key="entity_type">data</data>
+      <data key="description">R18 Scaled is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="R50 Scaled">
+      <data key="entity_id">R50 Scaled</data>
+      <data key="entity_type">data</data>
+      <data key="description">R50 Scaled is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="R50">
+      <data key="entity_id">R50</data>
+      <data key="entity_type">data</data>
+      <data key="description">R50 is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="R101">
+      <data key="entity_id">R101</data>
+      <data key="entity_type">data</data>
+      <data key="description">R101 is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Legend">
+      <data key="entity_id">Legend</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">The legend in Figure 1 provides information about the different models and their representations in the scatter plot.</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Yolo Detectors">
+      <data key="entity_id">Yolo Detectors</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Yolo Detectors are a category of real-time object detection models known for their speed and efficiency.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520736</data>
+      <data key="truncate" />
+    </node>
+    <node id="Efficient Hybrid Encoder">
+      <data key="entity_id">Efficient Hybrid Encoder</data>
+      <data key="entity_type">method</data>
+      <data key="description">Efficient Hybrid Encoder is a component of the RT-DETR model that enhances performance through optimized encoding.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="Computational Redundancy">
+      <data key="entity_id">Computational Redundancy</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Computational Redundancy refers to unnecessary computations in object detection models that can be optimized.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="Accuracy">
+      <data key="entity_id">Accuracy</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Accuracy is a metric used to evaluate the effectiveness of object detection models.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="End-to-End Object Detection">
+      <data key="entity_id">End-to-End Object Detection</data>
+      <data key="entity_type">concept</data>
+      <data key="description">End-to-End Object Detection is a method where the entire detection process is handled by a single model.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="DINO">
+      <data key="entity_id">DINO</data>
+      <data key="entity_type">artifact</data>
+      <data key="description">DINO is a self-supervised object detection model that improves performance without labeled data.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520737</data>
+      <data key="truncate" />
+    </node>
+    <node id="Section 2">
+      <data key="entity_id">Section 2</data>
+      <data key="entity_type">content</data>
+      <data key="description">Section 2 is a part of the academic paper discussing related work on object detection models.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="Related Work">
+      <data key="entity_id">Related Work</data>
+      <data key="entity_type">content</data>
+      <data key="description">Related Work is a section in academic papers that reviews existing literature and prior research.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="Real-Time Object Detectors">
+      <data key="entity_id">Real-Time Object Detectors</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Real-Time Object Detectors are models designed to detect objects quickly and efficiently.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="End-to-End Object Detectors">
+      <data key="entity_id">End-to-End Object Detectors</data>
+      <data key="entity_type">concept</data>
+      <data key="description">End-to-End Object Detectors are models that handle the entire detection process within a single framework.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="Academic Paper">
+      <data key="entity_id">Academic Paper</data>
+      <data key="entity_type">content</data>
+      <data key="description">An academic paper is a formal document presenting research findings, often published in journals or conferences.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="Scientific Publications">
+      <data key="entity_id">Scientific Publications</data>
+      <data key="entity_type">content</data>
+      <data key="description">Scientific Publications are formal documents that present original research findings in scientific fields.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="Black Serif Text">
+      <data key="entity_id">Black Serif Text</data>
+      <data key="entity_type">naturalobject</data>
+      <data key="description">Black Serif Text refers to the style of text used in the image, characterized by bold, clear lettering.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="White Background">
+      <data key="entity_id">White Background</data>
+      <data key="entity_type">naturalobject</data>
+      <data key="description">White Background is the color of the background in the image, providing contrast to the text.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="Page 2">
+      <data key="entity_id">Page 2</data>
+      <data key="entity_type">content</data>
+      <data key="description">Page 2 is a specific page in the academic paper titled 'DETRs Beat YOLOs on Real-time Object Detection.'</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520738</data>
+      <data key="truncate" />
+    </node>
+    <node id="DETRs Beat YOLOs on Real-time Object Detection">
+      <data key="entity_id">DETRs Beat YOLOs on Real-time Object Detection</data>
+      <data key="entity_type">content</data>
+      <data key="description">DETRs Beat YOLOs on Real-time Object Detection is the title of the academic paper discussing object detection models.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="Speed Tuning">
+      <data key="entity_id">Speed Tuning</data>
+      <data key="entity_type">concept</data>
+      <data key="description">Speed Tuning refers to the adjustment of model parameters to balance performance and computational speed.</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="World Athletics Championship">
+      <data key="entity_id">World Athletics Championship</data>
+      <data key="entity_type">event</data>
+      <data key="description">The World Athletics Championship is a global sports competition featuring top athletes in track and field.</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="Tokyo">
+      <data key="entity_id">Tokyo</data>
+      <data key="entity_type">location</data>
+      <data key="description">Tokyo is the host city of the World Athletics Championship.</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="Noah Carter">
+      <data key="entity_id">Noah Carter</data>
+      <data key="entity_type">person</data>
+      <data key="description">Noah Carter is a sprinter who set a new record in the 100m sprint at the World Athletics Championship.</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520739</data>
+      <data key="truncate" />
+    </node>
+    <node id="100m Sprint Record">
+      <data key="entity_id">100m Sprint Record</data>
+      <data key="entity_type">category</data>
+      <data key="description">The 100m sprint record is a benchmark in athletics, recently broken by Noah Carter.</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520740</data>
+      <data key="truncate" />
+    </node>
+    <node id="Carbon-Fiber Spikes">
+      <data key="entity_id">Carbon-Fiber Spikes</data>
+      <data key="entity_type">equipment</data>
+      <data key="description">Carbon-fiber spikes are advanced sprinting shoes that provide enhanced speed and traction.</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520740</data>
+      <data key="truncate" />
+    </node>
+    <node id="World Athletics Federation">
+      <data key="entity_id">World Athletics Federation</data>
+      <data key="entity_type">organization</data>
+      <data key="description">The World Athletics Federation is the governing body overseeing the World Athletics Championship and record validations.</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520740</data>
+      <data key="truncate" />
+    </node>
+    <node id="Authors">
+      <data key="entity_id">Authors</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="description">The authors contributed to the research paper on RT-DETR.</data>
+      <data key="entity_type">UNKNOWN</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </node>
+    <node id="Image">
+      <data key="entity_id">Image</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="description">Black Serif Text is the style of text used in the image, characterized by bold, clear lettering.</data>
+      <data key="entity_type">UNKNOWN</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </node>
+    <edge source="DETRs" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR improves upon DETRs by addressing computational cost and real-time performance.</data>
+      <data key="keywords">improvement,object detection</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETRs" target="YOLOs">
+      <data key="weight">1.0</data>
+      <data key="description">DETRs and YOLOs are both object detection models, with DETRs being compared to YOLOs in terms of performance.</data>
+      <data key="keywords">object detection comparison,performance evaluation</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETRs" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity DETRs belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOs" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR outperforms YOLOs in both speed and accuracy for real-time object detection.</data>
+      <data key="keywords">object detection,performance comparison</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOs" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity YOLOs belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Yian Zhao" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Yian Zhao contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Yian Zhao" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Yian Zhao belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Wenyu Lv" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Wenyu Lv contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Wenyu Lv" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Wenyu Lv belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Shangliang Xu" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Shangliang Xu contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Shangliang Xu" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Shangliang Xu belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Jinman Wei" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Jinman Wei contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Jinman Wei" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Jinman Wei belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Guanzhong Wang" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Guanzhong Wang contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Guanzhong Wang" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Guanzhong Wang belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Qingqing Dang" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Qingqing Dang contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Qingqing Dang" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Qingqing Dang belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Yi Liu" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Yi Liu contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Yi Liu" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Yi Liu belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Jie Chen" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Jie Chen contributed to the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">model development,research contribution</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Jie Chen" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Jie Chen belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Baidu Inc" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Baidu Inc provided institutional support for the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">institutional affiliation,research support</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Baidu Inc" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Baidu Inc belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Baidu Inc" target="Authors">
+      <data key="weight">1.0</data>
+      <data key="description">Baidu Inc is one of the affiliations of the authors of the research paper.</data>
+      <data key="keywords">affiliation,organization</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Peking University" target="Real-Time DEtection TRansformer">
+      <data key="weight">1.0</data>
+      <data key="description">Peking University provided institutional support for the development of the Real-Time DEtection TRansformer (RT-DETR).</data>
+      <data key="keywords">institutional affiliation,research support</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Peking University" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Peking University belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Peking University" target="Authors">
+      <data key="weight">1.0</data>
+      <data key="description">Peking University is one of the affiliations of the authors of the research paper.</data>
+      <data key="keywords">affiliation,organization</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="Non-Maximum Suppression">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR eliminates the need for Non-Maximum Suppression (NMS) in real-time object detection.</data>
+      <data key="keywords">elimination,object detection</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="COCO">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR achieves 53.1% / 54.3% AP on COCO dataset.</data>
+      <data key="keywords">benchmark,performance evaluation</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="T4 GPU">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR achieves 108 / 74 FPS on T4 GPU.</data>
+      <data key="keywords">hardware evaluation,performance</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="Objects365">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR achieves improved performance after pre-training with Objects365.</data>
+      <data key="keywords">performance enhancement,pre-training dataset</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="Hybrid Encoder">
+      <data key="weight">1.0</data>
+      <data key="description">The hybrid encoder in RT-DETR improves processing efficiency by decoupling intra-scale interaction and cross-scale fusion.</data>
+      <data key="keywords">component,efficiency improvement</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="Uncertainty-Minimal Query Selection">
+      <data key="weight">1.0</data>
+      <data key="description">Uncertainty-minimal query selection in RT-DETR improves accuracy by selecting high-quality initial queries.</data>
+      <data key="keywords">accuracy improvement,component</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="DINO-R50">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR-R50 outperforms DINO-R50 in accuracy and speed.</data>
+      <data key="keywords">object detection,performance comparison</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time DEtection TRansformer" target="CNN-Based Architecture">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR improves upon CNN-based architectures like YOLOs in real-time object detection.</data>
+      <data key="keywords">comparison,object detection</data>
+      <data key="source_id">chunk-304395e843a4ed6d59b25d1e18f87724</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="T4 GPU" target="RT-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR achieves 108 FPS on T4 GPU, showing its speed performance.</data>
+      <data key="keywords">hardware benchmark,speed measurement</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="T4 GPU" target="NMS">
+      <data key="weight">1.0</data>
+      <data key="description">NMS is tested on the T4 GPU to assess its performance under different conditions.</data>
+      <data key="keywords">execution,hardware platform</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Objects365" target="RT-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR is pre-trained on Objects365, resulting in improved performance.</data>
+      <data key="keywords">performance improvement,pre-training</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Non-Maximum Suppression" target="Research Paper">
+      <data key="weight">1.0</data>
+      <data key="description">The research paper highlights Non-Maximum Suppression (NMS) as a technical challenge in YOLO detectors.</data>
+      <data key="keywords">issue,technical challenge</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Non-Maximum Suppression" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Non-Maximum Suppression belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520746</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Transformer" target="RT-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR uses a Transformer-based architecture for real-time object detection.</data>
+      <data key="keywords">architecture,method</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Transformer" target="Research Paper">
+      <data key="weight">1.0</data>
+      <data key="description">The research paper proposes a Transformer-based architecture for RT-DETR.</data>
+      <data key="keywords">architecture,methodology</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Transformer" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Transformer belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Hybrid Encoder" target="RT-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR uses a hybrid encoder to efficiently process multi-scale features and improve speed.</data>
+      <data key="keywords">architecture,efficiency</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Uncertainty-Minimal Query Selection" target="RT-DETR">
+      <data key="weight">2.0</data>
+      <data key="description">RT-DETR employs uncertainty-minimal query selection to provide high-quality initial queries to the decoder, increasing accuracy.&lt;SEP&gt;The RT-DETR model uses uncertainty-minimal query selection to improve detection accuracy.</data>
+      <data key="keywords">accuracy improvement,design feature,model component,query optimization</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Uncertainty-Minimal Query Selection" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Uncertainty-Minimal Query Selection belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time Object Detection" target="RT-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR is designed for real-time object detection, making it suitable for applications requiring fast processing.</data>
+      <data key="keywords">model application,real-time capability</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time Object Detection" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Real-Time Object Detection belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR-R50" target="AP">
+      <data key="weight">1.0</data>
+      <data key="description">AP is a performance metric used to evaluate the RT-DETR-R50 model, achieving 53.1% AP.</data>
+      <data key="keywords">evaluation result,performance metric</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR-R50" target="DETR">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR-R50 is a variant of the DETR model that achieves specific performance metrics such as 53.1% AP and 108 FPS.</data>
+      <data key="keywords">model variant,performance metrics</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR-R50" target="FPS">
+      <data key="weight">1.0</data>
+      <data key="description">FPS is a performance metric used to evaluate the RT-DETR-R50 model, achieving 108 FPS.</data>
+      <data key="keywords">evaluation result,performance metric</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR-R50" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity RT-DETR-R50 belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR-R101" target="RT-DETR Research Paper Page 1 (image) [image_asset p0]">
+      <data key="keywords">image_related_to</data>
+      <data key="description">Image semantically related to RT-DETR-R101</data>
+      <data key="source_id">image_asset:img-4dcbb819ce52d700124aadfa9b6567a8</data>
+      <data key="weight">0.7312272787094116</data>
+      <data key="file_path">23rfewdq.pdf</data>
+    </edge>
+    <edge source="RT-DETR" target="Transformer Encoder">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR replaces the vanilla Transformer encoder with a hybrid encoder to improve inference speed.</data>
+      <data key="keywords">optimization,replacement</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="DETR">
+      <data key="weight">2.0</data>
+      <data key="description">RT-DETR improves upon the DETR model by eliminating NMS and enhancing speed and accuracy.&lt;SEP&gt;RT-DETR is an improved version of the DETR model, incorporating optimizations for real-time performance.</data>
+      <data key="keywords">improvement,model improvement,optimization,performance enhancement</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="YOLO Detectors">
+      <data key="weight">2.0</data>
+      <data key="description">RT-DETR outperforms previously advanced YOLO detectors in both speed and accuracy.&lt;SEP&gt;RT-DETR outperforms YOLO detectors in terms of accuracy and performance metrics.</data>
+      <data key="keywords">competition,model comparison,performance benchmark,performance comparison</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6&lt;SEP&gt;chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="COCO Val2017">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR achieves 53.1% AP on COCO Val2017, demonstrating its accuracy.</data>
+      <data key="keywords">accuracy measurement,evaluation</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="NMS">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR eliminates the need for NMS post-processing, improving real-time performance.</data>
+      <data key="keywords">efficiency improvement,elimination</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="FPS">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR achieves high FPS, indicating fast inference speed.</data>
+      <data key="keywords">performance evaluation,speed metric</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="AP">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR achieves high AP, indicating accurate object detection.</data>
+      <data key="keywords">accuracy metric,performance evaluation</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="DETR Variants">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR outperforms various DETR variants in terms of speed and accuracy.</data>
+      <data key="keywords">comparison,performance analysis</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="DINO-Deformable-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">DINO-Deformable-DETR is a previous model that RT-DETR outperforms in accuracy and speed.</data>
+      <data key="keywords">comparison,performance benchmark</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="L">
+      <data key="weight">1.0</data>
+      <data key="description">L is a previously advanced YOLO model that RT-DETR outperforms.</data>
+      <data key="keywords">comparison,performance benchmark</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="X">
+      <data key="weight">1.0</data>
+      <data key="description">X is a previously advanced YOLO model that RT-DETR outperforms.</data>
+      <data key="keywords">comparison,performance benchmark</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="S">
+      <data key="weight">1.0</data>
+      <data key="description">S is a lighter YOLO model that scaled RT-DETRs outperform.</data>
+      <data key="keywords">comparison,performance benchmark</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="M">
+      <data key="weight">1.0</data>
+      <data key="description">M is a lighter YOLO model that scaled RT-DETRs outperform.</data>
+      <data key="keywords">comparison,performance benchmark</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="End-to-end Speed Benchmark">
+      <data key="weight">1.0</data>
+      <data key="description">The end-to-end speed benchmark is used to evaluate the speed of real-time object detectors, including RT-DETR.</data>
+      <data key="keywords">methodology,performance evaluation</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="RT-DETR Research Paper Page 1 (image) [image_asset p0]">
+      <data key="keywords">image_related_to</data>
+      <data key="description">Image semantically related to RT-DETR</data>
+      <data key="source_id">image_asset:img-4dcbb819ce52d700124aadfa9b6567a8</data>
+      <data key="weight">0.7622876167297363</data>
+      <data key="file_path">23rfewdq.pdf</data>
+    </edge>
+    <edge source="RT-DETR" target="RT-DETR Paper Page 2 Text Column (image) [image_asset p1]">
+      <data key="keywords">image_related_to</data>
+      <data key="description">Image semantically related to RT-DETR</data>
+      <data key="source_id">image_asset:img-d609f52da44d3f9c5e51d1ec3970a231</data>
+      <data key="weight">0.7386149168014526</data>
+      <data key="file_path">23rfewdq.pdf</data>
+    </edge>
+    <edge source="RT-DETR" target="Research Paper">
+      <data key="weight">1.0</data>
+      <data key="description">The research paper introduces RT-DETR as a new approach to real-time object detection.</data>
+      <data key="keywords">innovation,introduction</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="R18 Scaled">
+      <data key="weight">1.0</data>
+      <data key="description">R18 Scaled is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="keywords">data point,performance</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="R50 Scaled">
+      <data key="weight">1.0</data>
+      <data key="description">R50 Scaled is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="keywords">data point,performance</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="R50">
+      <data key="weight">1.0</data>
+      <data key="description">R50 is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="keywords">data point,performance</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="R101">
+      <data key="weight">1.0</data>
+      <data key="description">R101 is one of the data points representing RT-DETR in Figure 1.</data>
+      <data key="keywords">data point,performance</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity RT-DETR belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="Figure 1">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR is evaluated against other models in Figure 1, showing its superior performance.</data>
+      <data key="keywords">benchmark,performance evaluation</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="Efficient Hybrid Encoder">
+      <data key="weight">1.0</data>
+      <data key="description">The RT-DETR model incorporates an efficient hybrid encoder to enhance its performance.</data>
+      <data key="keywords">design feature,model component</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="End-to-End Object Detection">
+      <data key="weight">1.0</data>
+      <data key="description">RT-DETR utilizes an end-to-end approach for object detection, simplifying the detection pipeline.</data>
+      <data key="keywords">detection method,model approach</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity RT-DETR belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520756</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="YOLOv1">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv1 is the first one-stage real-time object detector and influenced the development of other models.</data>
+      <data key="keywords">influence,precedent</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Deformable-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">Deformable-DETR is a variant of DETR that improves training convergence.</data>
+      <data key="keywords">improvement,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520664</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Group-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">Group-DETR is a variant of DETR that introduces group-wise one-to-many assignment to improve performance.</data>
+      <data key="keywords">improvement,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Efficient DETR">
+      <data key="weight">1.0</data>
+      <data key="description">Efficient DETR is a variant of DETR that reduces computational cost by decreasing encoder and decoder layers.</data>
+      <data key="keywords">optimization,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Sparse DETR">
+      <data key="weight">1.0</data>
+      <data key="description">Sparse DETR is a variant of DETR that reduces computational cost by reducing the number of updated queries.</data>
+      <data key="keywords">optimization,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Lite DETR">
+      <data key="weight">1.0</data>
+      <data key="description">Lite DETR is a variant of DETR that enhances encoder efficiency by reducing the update frequency of low-level features.</data>
+      <data key="keywords">efficiency,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Conditional DETR">
+      <data key="weight">1.0</data>
+      <data key="description">Conditional DETR is a variant of DETR that decreases the optimization difficulty of queries.</data>
+      <data key="keywords">optimization,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Anchor DETR">
+      <data key="weight">1.0</data>
+      <data key="description">Anchor DETR is a variant of DETR that introduces anchors to improve query optimization.</data>
+      <data key="keywords">enhancement,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="DAB-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">DAB-DETR is a variant of DETR that improves performance through an iterative refinement scheme.</data>
+      <data key="keywords">improvement,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="DN-DETR">
+      <data key="weight">1.0</data>
+      <data key="description">DN-DETR is a variant of DETR that improves performance through denoising training.</data>
+      <data key="keywords">enhancement,variant</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Query Selection">
+      <data key="weight">1.0</data>
+      <data key="description">Query selection is a technique used to initialize high-quality object queries in DETR models.</data>
+      <data key="keywords">initialization,technique</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Mixed Query Selection">
+      <data key="weight">1.0</data>
+      <data key="description">Mixed query selection is a technique suggested by DINO to help better initialize queries in DETR models.</data>
+      <data key="keywords">initialization,technique</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="NMS Post-processing">
+      <data key="weight">1.0</data>
+      <data key="description">NMS post-processing is a widely used algorithm in object detection to eliminate overlapping boxes, which RT-DETR eliminates.</data>
+      <data key="keywords">algorithm,elimination</data>
+      <data key="source_id">chunk-f8619065465d075892731f2a8b8555e6</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Computational Redundancy">
+      <data key="weight">1.0</data>
+      <data key="description">Computational redundancy is a target for optimization in DETR models to improve efficiency.</data>
+      <data key="keywords">efficiency improvement,optimization target</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="Accuracy">
+      <data key="weight">1.0</data>
+      <data key="description">Accuracy is a key performance metric used to evaluate DETR models.</data>
+      <data key="keywords">evaluation criterion,performance metric</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DETR" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity DETR belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520754</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLO Detectors" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity YOLO Detectors belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLO Detectors" target="Research Paper">
+      <data key="weight">1.0</data>
+      <data key="description">The research paper discusses the limitations of YOLO detectors and introduces RT-DETR as an improvement.</data>
+      <data key="keywords">comparison,limitation</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520743</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="COCO Val2017" target="End-to-End Speed Benchmark">
+      <data key="weight">1.0</data>
+      <data key="description">The End-to-End Speed Benchmark uses COCO Val2017 as the reference dataset for performance testing.</data>
+      <data key="keywords">benchmarking,dataset</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520671</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="YOLOv5">
+      <data key="weight">1.0</data>
+      <data key="description">NMS is applied as a post-processing step in YOLOv5 to refine detection results.</data>
+      <data key="keywords">algorithm application,object detection</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520665</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="YOLOv8">
+      <data key="weight">1.0</data>
+      <data key="description">NMS is applied as a post-processing step in YOLOv8 to refine detection results.</data>
+      <data key="keywords">algorithm application,object detection</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="COCO val2017">
+      <data key="weight">1.0</data>
+      <data key="description">NMS is evaluated on the COCO val2017 dataset to measure its performance.</data>
+      <data key="keywords">benchmark evaluation,dataset usage</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="TensorRT EfficientNMSPlugin">
+      <data key="weight">1.0</data>
+      <data key="description">NMS is implemented using the TensorRT EfficientNMSPlugin for improved efficiency.</data>
+      <data key="keywords">implementation,optimization</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="FP16">
+      <data key="weight">1.0</data>
+      <data key="description">NMS is executed using FP16 precision to optimize computational speed.</data>
+      <data key="keywords">execution,precision setting</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="Confidence Threshold">
+      <data key="weight">1.0</data>
+      <data key="description">NMS execution time is influenced by the confidence threshold, which filters out low-scoring boxes.</data>
+      <data key="keywords">filtering,parameter influence</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="IoU Threshold">
+      <data key="weight">1.0</data>
+      <data key="description">NMS execution time is influenced by the IoU threshold, which determines box overlap.</data>
+      <data key="keywords">filtering,parameter influence</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="AP">
+      <data key="weight">1.0</data>
+      <data key="description">NMS affects the AP metric, which measures detection accuracy.</data>
+      <data key="keywords">accuracy metric,evaluation</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="NMS Execution Time">
+      <data key="weight">1.0</data>
+      <data key="description">NMS execution time is a key performance metric for evaluating the efficiency of NMS.</data>
+      <data key="keywords">performance metric,timing</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="False Positives">
+      <data key="weight">1.0</data>
+      <data key="description">Inappropriate NMS thresholds can lead to false positives in object detection.</data>
+      <data key="keywords">accuracy,detection impact</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="False Negatives">
+      <data key="weight">1.0</data>
+      <data key="description">Inappropriate NMS thresholds can lead to false negatives in object detection.</data>
+      <data key="keywords">accuracy,detection impact</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="TensorRT">
+      <data key="weight">1.0</data>
+      <data key="description">TensorRT includes an NMS post-processing plugin for optimizing object detection workflows.</data>
+      <data key="keywords">software integration</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="End-to-End Speed Benchmark">
+      <data key="weight">1.0</data>
+      <data key="description">The End-to-End Speed Benchmark incorporates NMS as a key component for evaluating detector performance.</data>
+      <data key="keywords">methodology,performance evaluation</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520671</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="Related Work">
+      <data key="weight">1.0</data>
+      <data key="description">NMS is discussed in the Related Work section as a technique used in object detection.</data>
+      <data key="keywords">literature discussion,technique reference</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="NMS" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity NMS belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520755</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="AP" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity AP belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520756</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="FPS" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity FPS belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520756</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv1" target="Related Work">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv1 is cited in the Related Work section as an example of a real-time object detection model.</data>
+      <data key="keywords">literature citation,model reference</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv1" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity YOLOv1 belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Deformable-DETR" target="Related Work">
+      <data key="weight">1.0</data>
+      <data key="description">Deformable-DETR is cited in the Related Work section as a variant of DETR.</data>
+      <data key="keywords">literature citation,model reference</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Deformable-DETR" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Deformable-DETR belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520752</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DAB-DETR" target="Related Work">
+      <data key="weight">1.0</data>
+      <data key="description">DAB-DETR is cited in the Related Work section as a variant of DETR.</data>
+      <data key="keywords">literature citation,model reference</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DAB-DETR" target="RT-DETR Paper Page 2 Text Column (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity DAB-DETR belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520752</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv5" target="Anchor-Based Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv5 is classified as an anchor-based detector.</data>
+      <data key="keywords">model classification</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv5" target="End-to-End Speed Benchmark">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv5 is tested using the End-to-End Speed Benchmark to assess its performance.</data>
+      <data key="keywords">model evaluation</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520671</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv5" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity YOLOv5 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv5" target="Figure 1">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv5 is one of the models compared in Figure 1.</data>
+      <data key="keywords">benchmark,model comparison</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv8" target="EfficientNMS Kernel">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv8 integrates the EfficientNMS Kernel for efficient non-maximum suppression.</data>
+      <data key="keywords">component integration,optimization</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv8" target="COCO val2017">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv8 is evaluated on the COCO val2017 dataset to measure its performance.</data>
+      <data key="keywords">benchmarking,model evaluation</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv8" target="Appendix">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv8's predictions under different NMS thresholds are visualized in the Appendix.</data>
+      <data key="keywords">supplementary material,visualization</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv8" target="Anchor-Based Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv8 is classified as an anchor-based detector.</data>
+      <data key="keywords">model classification</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520670</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv8" target="End-to-End Speed Benchmark">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv8 is tested using the End-to-End Speed Benchmark to assess its performance.</data>
+      <data key="keywords">model evaluation</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520672</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv8" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity YOLOv8 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520746</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv8" target="Figure 1">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv8 is one of the models compared in Figure 1.</data>
+      <data key="keywords">benchmark,model comparison</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="TensorRT EfficientNMSPlugin" target="EfficientNMSFilter">
+      <data key="weight">1.0</data>
+      <data key="description">The TensorRT EfficientNMSPlugin includes the EfficientNMSFilter as a component for non-maximum suppression.</data>
+      <data key="keywords">component integration,optimization</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="TensorRT EfficientNMSPlugin" target="RadixSort">
+      <data key="weight">1.0</data>
+      <data key="description">The TensorRT EfficientNMSPlugin includes the RadixSort as a component for sorting operations during non-maximum suppression.</data>
+      <data key="keywords">component integration,optimization</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="End-to-End Speed" target="Real-Time Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">End-to-End Speed is used as a benchmark to compare the performance of real-time detectors.</data>
+      <data key="keywords">comparison,performance benchmark</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520666</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Real-Time Detectors" target="End-to-End Speed Benchmark">
+      <data key="weight">1.0</data>
+      <data key="description">The End-to-End Speed Benchmark is used to evaluate and compare the performance of real-time detectors.</data>
+      <data key="keywords">comparison,performance evaluation</data>
+      <data key="source_id">chunk-56050e109fbbcac2d20804a62750188c</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520667</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="End-to-End Speed Benchmark" target="YOLOv7">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv7 is tested using the End-to-End Speed Benchmark to assess its performance.</data>
+      <data key="keywords">model evaluation</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520671</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="End-to-End Speed Benchmark" target="PP-YOLOE">
+      <data key="weight">1.0</data>
+      <data key="description">PP-YOLOE is tested using the End-to-End Speed Benchmark to assess its performance.</data>
+      <data key="keywords">model evaluation</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520671</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="End-to-End Speed Benchmark" target="YOLOv6">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv6 is tested using the End-to-End Speed Benchmark to assess its performance.</data>
+      <data key="keywords">model evaluation</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520672</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="End-to-End Speed Benchmark" target="I/O">
+      <data key="weight">1.0</data>
+      <data key="description">The End-to-End Speed Benchmark excludes I/O operations when measuring the inference speed of detectors.</data>
+      <data key="keywords">exclusion,performance measurement</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520672</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="End-to-End Speed Benchmark" target="MemoryCopy">
+      <data key="weight">1.0</data>
+      <data key="description">The End-to-End Speed Benchmark excludes MemoryCopy operations when measuring the inference speed of detectors.</data>
+      <data key="keywords">exclusion,performance measurement</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520672</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="TensorRT" target="EfficientNMSPlugin">
+      <data key="weight">1.0</data>
+      <data key="description">TensorRT includes the EfficientNMSPlugin for enhancing NMS performance in object detection.</data>
+      <data key="keywords">software component</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="TensorRT" target="NVIDIA">
+      <data key="weight">1.0</data>
+      <data key="description">NVIDIA develops and maintains TensorRT, a deep learning inference platform.</data>
+      <data key="keywords">company,software development</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520668</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv7" target="Anchor-Based Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv7 is classified as an anchor-based detector.</data>
+      <data key="keywords">model classification</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv7" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity YOLOv7 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520746</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv7" target="Figure 1">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv7 is one of the models compared in Figure 1.</data>
+      <data key="keywords">benchmark,model comparison</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="PP-YOLOE" target="Anchor-Free Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">PP-YOLOE is classified as an anchor-free detector.</data>
+      <data key="keywords">model classification</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="PP-YOLOE" target="RT-DETR Research Paper Page 1 (image)">
+      <data key="weight">10.0</data>
+      <data key="description">Entity PP-YOLOE belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="PP-YOLOE" target="Figure 1">
+      <data key="weight">1.0</data>
+      <data key="description">PP-YOLOE is one of the models compared in Figure 1.</data>
+      <data key="keywords">benchmark,model comparison</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="YOLOv6" target="Anchor-Based Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv6 is classified as an anchor-based detector.</data>
+      <data key="keywords">model classification</data>
+      <data key="source_id">chunk-480c8136267783fba29416e2dcbc0522</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520669</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="RT-DETR Research Paper Page 1 (image) [image_asset p0]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for RT-DETR Research Paper Page 1 (image)</data>
+      <data key="source_id">image_asset:img-4dcbb819ce52d700124aadfa9b6567a8</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">23rfewdq.pdf</data>
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="Research Paper">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Research Paper belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="YOLOv6-v3.0">
+      <data key="weight">10.0</data>
+      <data key="description">Entity YOLOv6-v3.0 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520746</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="R18 Scaled">
+      <data key="weight">10.0</data>
+      <data key="description">Entity R18 Scaled belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="R50 Scaled">
+      <data key="weight">10.0</data>
+      <data key="description">Entity R50 Scaled belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="R50">
+      <data key="weight">10.0</data>
+      <data key="description">Entity R50 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="Abstract">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Abstract belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="R101">
+      <data key="weight">10.0</data>
+      <data key="description">Entity R101 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="Legend">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Legend belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="Introduction">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Introduction belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="COCO AP">
+      <data key="weight">10.0</data>
+      <data key="description">Entity COCO AP belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="End-to-end Latency T4 TensorRT FP16">
+      <data key="weight">10.0</data>
+      <data key="description">Entity End-to-end Latency T4 TensorRT FP16 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Research Paper Page 1 (image)" target="Figure 1">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Figure 1 belongs to RT-DETR Research Paper Page 1 (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="RT-DETR Paper Page 2 Text Column (image) [image_asset p1]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="source_id">image_asset:img-d609f52da44d3f9c5e51d1ec3970a231</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">23rfewdq.pdf</data>
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Yolo Detectors">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Yolo Detectors belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Efficient Hybrid Encoder">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Efficient Hybrid Encoder belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Computational Redundancy">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Computational Redundancy belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520752</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Section 2">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Section 2 belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520753</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="DINO">
+      <data key="weight">10.0</data>
+      <data key="description">Entity DINO belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520753</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Related Work">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Related Work belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520753</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Real-Time Object Detectors">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Real-Time Object Detectors belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520753</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="End-to-End Object Detectors">
+      <data key="weight">10.0</data>
+      <data key="description">Entity End-to-End Object Detectors belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520753</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Academic Paper">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Academic Paper belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520753</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Accuracy">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Accuracy belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520754</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Scientific Publications">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Scientific Publications belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520754</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Black Serif Text">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Black Serif Text belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520754</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="End-to-End Object Detection">
+      <data key="weight">10.0</data>
+      <data key="description">Entity End-to-End Object Detection belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520755</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="White Background">
+      <data key="weight">10.0</data>
+      <data key="description">Entity White Background belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520755</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Page 2">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Page 2 belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520755</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="DETRs Beat YOLOs on Real-time Object Detection">
+      <data key="weight">10.0</data>
+      <data key="description">Entity DETRs Beat YOLOs on Real-time Object Detection belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520755</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="RT-DETR Paper Page 2 Text Column (image)" target="Speed Tuning">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Speed Tuning belongs to RT-DETR Paper Page 2 Text Column (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520756</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)" target="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image) [image_asset p2]">
+      <data key="keywords">image_asset_of</data>
+      <data key="description">Image asset for Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="source_id">image_asset:img-60da39d1cc04a13757a6d4e6c9ac4dfa</data>
+      <data key="weight">1.0</data>
+      <data key="file_path">23rfewdq.pdf</data>
+    </edge>
+    <edge source="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)" target="World Athletics Championship">
+      <data key="weight">10.0</data>
+      <data key="description">Entity World Athletics Championship belongs to Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)" target="Tokyo">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Tokyo belongs to Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)" target="100m Sprint Record">
+      <data key="weight">10.0</data>
+      <data key="description">Entity 100m Sprint Record belongs to Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520752</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)" target="World Athletics Federation">
+      <data key="weight">10.0</data>
+      <data key="description">Entity World Athletics Federation belongs to Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520752</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)" target="Carbon-Fiber Spikes">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Carbon-Fiber Spikes belongs to Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520752</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)" target="Noah Carter">
+      <data key="weight">10.0</data>
+      <data key="description">Entity Noah Carter belongs to Page 3 of Research Paper on Object Detection Speed and NMS Analysis (image)</data>
+      <data key="keywords">belongs_to,contained_in,part_of</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">C:\Users\lqx94\Documents\GitHub\doc\data\#00047\content\23rfewdq.pdf</data>
+      <data key="created_at">1773520753</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Research Paper" target="Figure 1">
+      <data key="weight">1.0</data>
+      <data key="description">Figure 1 visually compares the performance of RT-DETR with other object detection models.</data>
+      <data key="keywords">comparison,visual representation</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Research Paper" target="Authors">
+      <data key="weight">1.0</data>
+      <data key="description">The authors contributed to the research paper on RT-DETR.</data>
+      <data key="keywords">authorship,contribution</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520744</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Research Paper" target="Abstract">
+      <data key="weight">1.0</data>
+      <data key="description">The abstract provides a summary of the research paper's content.</data>
+      <data key="keywords">overview,summary</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Research Paper" target="Introduction">
+      <data key="weight">1.0</data>
+      <data key="description">The introduction provides background information and outlines the problem with YOLO detectors.</data>
+      <data key="keywords">background,context</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520745</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Figure 1" target="YOLOv6-v3.0">
+      <data key="weight">1.0</data>
+      <data key="description">YOLOv6-v3.0 is one of the models compared in Figure 1.</data>
+      <data key="keywords">benchmark,model comparison</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Figure 1" target="COCO AP">
+      <data key="weight">1.0</data>
+      <data key="description">COCO AP is the metric used to evaluate the performance of models in Figure 1.</data>
+      <data key="keywords">evaluation,metric</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Figure 1" target="End-to-end Latency T4 TensorRT FP16">
+      <data key="weight">1.0</data>
+      <data key="description">End-to-end latency is the metric used to evaluate the speed of models in Figure 1.</data>
+      <data key="keywords">evaluation,metric</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Figure 1" target="Legend">
+      <data key="weight">1.0</data>
+      <data key="description">The legend in Figure 1 explains the symbols used to represent different models.</data>
+      <data key="keywords">explanation,reference</data>
+      <data key="source_id">chunk-faafaa17742ca7c753025687b423a9a9</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="DINO" target="Related Work">
+      <data key="weight">1.0</data>
+      <data key="description">DINO is cited in the Related Work section as a self-supervised object detection model.</data>
+      <data key="keywords">literature citation,model reference</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Section 2" target="Academic Paper">
+      <data key="weight">1.0</data>
+      <data key="description">Section 2 is a part of the academic paper that discusses related work on object detection models.</data>
+      <data key="keywords">content organization,section reference</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520746</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Related Work" target="Academic Paper">
+      <data key="weight">1.0</data>
+      <data key="description">Related Work is a section in the academic paper that reviews existing literature on object detection models.</data>
+      <data key="keywords">content section,literature review</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520746</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Related Work" target="Real-Time Object Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">Real-Time Object Detectors are a category of models discussed in the Related Work section of the paper.</data>
+      <data key="keywords">literature focus,model category</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Related Work" target="End-to-End Object Detectors">
+      <data key="weight">1.0</data>
+      <data key="description">End-to-End Object Detectors are a category of models discussed in the Related Work section of the paper.</data>
+      <data key="keywords">literature focus,model category</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520747</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Related Work" target="Speed Tuning">
+      <data key="weight">1.0</data>
+      <data key="description">Speed Tuning is discussed in the Related Work section as a feature of object detection models.</data>
+      <data key="keywords">feature reference,literature discussion</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520750</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Academic Paper" target="Page 2">
+      <data key="weight">1.0</data>
+      <data key="description">Page 2 is a specific page in the academic paper that contains the text under analysis.</data>
+      <data key="keywords">content location,page reference</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Academic Paper" target="DETRs Beat YOLOs on Real-time Object Detection">
+      <data key="weight">1.0</data>
+      <data key="description">The academic paper titled 'DETRs Beat YOLOs on Real-time Object Detection' focuses on comparing DETR and YOLO models.</data>
+      <data key="keywords">content focus,paper title</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Black Serif Text" target="Image">
+      <data key="weight">1.0</data>
+      <data key="description">Black Serif Text is the style of text used in the image, characterized by bold, clear lettering.</data>
+      <data key="keywords">text style,visual element</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520748</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="White Background" target="Image">
+      <data key="weight">1.0</data>
+      <data key="description">White Background is the color of the background in the image, providing contrast to the text.</data>
+      <data key="keywords">background color,visual element</data>
+      <data key="source_id">chunk-ef8c7ff567b0412204b7096eef345f02</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520749</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="World Athletics Championship" target="Tokyo">
+      <data key="weight">1.0</data>
+      <data key="description">The World Athletics Championship is being hosted in Tokyo.</data>
+      <data key="keywords">event location,international competition</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="World Athletics Championship" target="Noah Carter">
+      <data key="weight">1.0</data>
+      <data key="description">Noah Carter is competing at the World Athletics Championship.</data>
+      <data key="keywords">athlete participation,competition</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Noah Carter" target="100m Sprint Record">
+      <data key="weight">1.0</data>
+      <data key="description">Noah Carter set a new 100m sprint record at the championship.</data>
+      <data key="keywords">athlete achievement,record-breaking</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+    <edge source="Noah Carter" target="Carbon-Fiber Spikes">
+      <data key="weight">1.0</data>
+      <data key="description">Noah Carter used carbon-fiber spikes to enhance performance during the race.</data>
+      <data key="keywords">athletic equipment,performance boost</data>
+      <data key="source_id">chunk-28af5b45934b05fde5ec1892d56def9a</data>
+      <data key="file_path">23rfewdq.pdf</data>
+      <data key="created_at">1773520751</data>
+      <data key="truncate" />
+    </edge>
+  </graph>
+</graphml>

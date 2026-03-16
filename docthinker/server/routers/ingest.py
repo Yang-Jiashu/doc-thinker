@@ -9,7 +9,7 @@ import numpy as np
 from fastapi import APIRouter, BackgroundTasks, File, HTTPException, UploadFile, Form, Request
 
 from ..schemas import IngestRequest, SignalIngestRequest
-from ..state import state
+from ..state import state, get_tri_graph_manager
 from docthinker.hypergraph.utils import compute_mdhash_id
 from docthinker.utils import separate_content
 
@@ -17,6 +17,133 @@ from docthinker.utils import separate_content
 router = APIRouter()
 
 
+<<<<<<< Updated upstream
+=======
+def _collect_session_text_for_causal(session_id: str, max_chars: int = 6000) -> str:
+    """Read parsed text chunks from session's KV store for causal extraction.
+
+    After GraphCore processes any file (PDF, TXT, etc.), text chunks are
+    stored in ``kv_store_text_chunks.json``.  For long documents we sample
+    uniformly (head / middle / tail) so that causal chains spanning the
+    entire document have a chance of being captured.
+    """
+    if not state.session_manager:
+        return ""
+    session = state.session_manager.get_session(session_id)
+    if not session:
+        return ""
+    metadata = session.get("metadata") or {}
+    knowledge_dir = metadata.get("knowledge_dir") or session.get("knowledge_dir")
+    if not knowledge_dir:
+        return ""
+    chunks_path = Path(knowledge_dir) / "kv_store_text_chunks.json"
+    if not chunks_path.exists():
+        return ""
+    try:
+        with chunks_path.open("r", encoding="utf-8") as f:
+            chunks_data = json.load(f)
+
+        all_chunks = sorted(
+            [
+                (chunk.get("chunk_order_index", idx), (chunk.get("content") or "").strip())
+                for idx, chunk in enumerate(chunks_data.values())
+            ],
+            key=lambda x: x[0],
+        )
+        all_chunks = [(i, t) for i, t in all_chunks if t]
+        if not all_chunks:
+            return ""
+
+        total_chars = sum(len(t) for _, t in all_chunks)
+        if total_chars <= max_chars:
+            return "\n\n".join(t for _, t in all_chunks)
+
+        # Uniform sampling: take from head, middle, tail
+        n = len(all_chunks)
+        budget = max_chars // 3
+        head = _take_until(all_chunks, 0, budget)
+        mid_start = max(0, n // 2 - n // 6)
+        middle = _take_until(all_chunks, mid_start, budget)
+        tail = _take_until(all_chunks, max(0, n - n // 4), budget)
+
+        seen_idx: set = set()
+        parts: List[str] = []
+        for section in (head, middle, tail):
+            for idx, text in section:
+                if idx not in seen_idx:
+                    seen_idx.add(idx)
+                    parts.append(text)
+
+        _log.info("[causal] collected %d chars from %d/%d chunks (total %d chars)",
+                  sum(len(p) for p in parts), len(parts), n, total_chars)
+        return "\n\n".join(parts)
+    except Exception as exc:
+        _log.warning("[causal] failed to read text chunks for session %s: %s", session_id, exc)
+        return ""
+
+
+def _take_until(
+    chunks: List[tuple], start: int, budget: int,
+) -> List[tuple]:
+    """Take chunks starting at *start* until *budget* chars are filled."""
+    result: List[tuple] = []
+    used = 0
+    for idx, text in chunks[start:]:
+        if used + len(text) > budget:
+            remaining = budget - used
+            if remaining > 100:
+                result.append((idx, text[:remaining]))
+            break
+        result.append((idx, text))
+        used += len(text)
+    return result
+
+
+async def _build_causal_dag(text: str, session_id: str, source_id: str) -> Dict[str, Any]:
+    """Extract causal relations from ingested text and build DAG.
+
+    Returns a result dict or raises on failure. Caller is responsible for
+    catching exceptions and logging.
+    """
+    clean = (text or "").strip()
+    if len(clean) < 200:
+        _log.info("[causal:bg] skipped: text too short (%d chars) for session %s", len(clean), session_id)
+        return {"skipped": True, "reason": "text_too_short", "chars": len(clean)}
+
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        _log.info("[causal:bg] SKIPPED: get_tri_graph_manager returned None for session %s", session_id)
+        return {"skipped": True, "reason": "no_tri_graph_manager"}
+
+    _log.info("[causal:bg] starting causal extraction for session %s (%d chars)", session_id, len(clean))
+    result = await tri_mgr.build_causal_from_text(clean, source_id=source_id)
+    _log.info("[causal:bg] DAG result for session %s: %s", session_id, result)
+    return result
+
+
+async def _sync_kg_entity_ids(session_id: str) -> None:
+    """Sync KG entity IDs from session's GraphCore into state.kg_entity_ids for neuro_memory linkage."""
+    try:
+        if not state.ingestion_service or not state.session_manager:
+            return
+        config = state.ingestion_service.create_rag_config()
+        session_rag = state.session_manager.get_session_rag(session_id, config)
+        gc = getattr(session_rag, "graphcore", None)
+        if gc is None:
+            return
+        graph = getattr(gc, "chunk_entity_relation_graph", None)
+        if graph is None:
+            return
+        labels = await graph.get_all_labels()
+        if labels:
+            state.kg_entity_ids.update(labels)
+            _log.info("[kg_sync] synced %d entity IDs from session %s (total: %d)",
+                      len(labels), session_id, len(state.kg_entity_ids))
+    except Exception as e:
+        _log.warning("[kg_sync] failed for session %s: %s", session_id, e)
+
+
+>>>>>>> Stashed changes
 def _truncate_text(text: str, limit: int = 8000) -> str:
     if len(text) <= limit:
         return text
@@ -749,7 +876,15 @@ async def ingest_stream(request: IngestRequest, background_tasks: BackgroundTask
         except Exception:
             pass
 
-    background_tasks.add_task(_process_and_ingest, request.content, request.source_type, request.session_id)
+    async def _stream_ingest_and_causal(content: str, source_type: str, session_id: Optional[str]):
+        await _process_and_ingest(content, source_type, session_id)
+        if session_id and len((content or "").strip()) >= 200:
+            try:
+                await _build_causal_dag(content, session_id, "stream_ingest")
+            except Exception as exc:
+                _log.error("[causal:stream] extraction failed for session %s: %s", session_id, exc)
+
+    background_tasks.add_task(_stream_ingest_and_causal, request.content, request.source_type, request.session_id)
     return {"status": "processing", "message": "Stream accepted for cognitive processing"}
 
 
@@ -1006,6 +1141,29 @@ async def ingest_files(
                                 )
                         raise
 
+<<<<<<< Updated upstream
+=======
+                await _sync_kg_entity_ids(sid)
+                _log.info("[ingest T+%.2fs] file processing COMPLETE, starting causal extraction...",
+                          time.perf_counter() - _bg_t0)
+
+                # C2: Build Causal DAG from ALL ingested text (TXT, PDF, etc.)
+                causal_text = _collect_session_text_for_causal(sid)
+                _log.info("[causal] collected %d chars from session %s for causal extraction",
+                          len((causal_text or "").strip()), sid)
+                if causal_text and len(causal_text.strip()) >= 200:
+                    try:
+                        causal_result = await _build_causal_dag(causal_text, sid, "file_ingest")
+                        _log.info("[causal] extraction done for session %s: %s", sid, causal_result)
+                    except Exception as exc:
+                        _log.error("[causal] extraction FAILED for session %s: %s", sid, exc, exc_info=True)
+                else:
+                    _log.info("[causal] skipped: insufficient text (%d chars) for session %s",
+                              len((causal_text or "").strip()), sid)
+
+                _log.info("[ingest T+%.2fs] background processing COMPLETE (incl. causal)",
+                          time.perf_counter() - _bg_t0)
+>>>>>>> Stashed changes
             except Exception as e:
                 print(f"Background processing error: {e}")
                 for path_str in file_paths:

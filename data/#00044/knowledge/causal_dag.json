@@ -1,0 +1,84 @@
+{
+  "nodes": {
+    "普林斯顿大学本科毕业": {
+      "name": "普林斯顿大学本科毕业",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517706.014126,
+      "updated_at": 1773517706.014126
+    },
+    "具备开展跨学科前沿研究的基础学术能力": {
+      "name": "具备开展跨学科前沿研究的基础学术能力",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517706.014126,
+      "updated_at": 1773517706.014126
+    },
+    "西藏藏药研究": {
+      "name": "西藏藏药研究",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517706.014677,
+      "updated_at": 1773517706.014677
+    },
+    "确立了后续职业发展的核心专业方向与特色": {
+      "name": "确立了后续职业发展的核心专业方向与特色",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517706.014677,
+      "updated_at": 1773517706.014677
+    },
+    "早期教职经历": {
+      "name": "早期教职经历",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517706.014677,
+      "updated_at": 1773517706.014677
+    },
+    "积累了学术声誉并拓展了行业人脉网络": {
+      "name": "积累了学术声誉并拓展了行业人脉网络",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773517706.014677,
+      "updated_at": 1773517706.014677
+    }
+  },
+  "edges": [
+    {
+      "cause": "普林斯顿大学本科毕业",
+      "effect": "具备开展跨学科前沿研究的基础学术能力",
+      "mechanism": "顶尖学府的系统性科学训练提供了方法论支持与知识储备",
+      "strength": 0.85,
+      "evidence": "SEAL hypothesis: 语义实体明确记录'普林斯顿大学本科毕业'事实，与假设原因一致；现有因果边为空，无冲突；机制符合顶尖学府培养逻辑，虽文本未显式提及'跨学科能力'，但为合理推论。",
+      "source_id": "seal_evolution",
+      "activation": 1.0,
+      "created_at": 1773517706.014677
+    },
+    {
+      "cause": "西藏藏药研究",
+      "effect": "确立了后续职业发展的核心专业方向与特色",
+      "mechanism": "独特的实地研究经验转化为特定领域的差异化竞争优势",
+      "strength": 0.75,
+      "evidence": "SEAL hypothesis: 语义实体确认'西藏藏药研究'为关键时间节点，支持原因；但文本仅述及经历存在，'确立核心专业方向'的效果推断性较强，虽无冲突但证据力度略弱于事实陈述。",
+      "source_id": "seal_evolution",
+      "activation": 1.0,
+      "created_at": 1773517706.014677
+    },
+    {
+      "cause": "早期教职经历",
+      "effect": "积累了学术声誉并拓展了行业人脉网络",
+      "mechanism": "教学与指导活动促进了知识传播及同行间的认可与连接",
+      "strength": 0.8,
+      "evidence": "SEAL hypothesis: 语义实体明确涵盖'早期教职经历'，与假设原因一致；现有因果边为空，无冲突；机制符合学术职业发展常规逻辑，与实体描述的 career trajectory 一致。",
+      "source_id": "seal_evolution",
+      "activation": 1.0,
+      "created_at": 1773517706.014677
+    }
+  ]
+}

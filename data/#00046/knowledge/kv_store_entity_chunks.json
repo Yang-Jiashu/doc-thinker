@@ -1,0 +1,1012 @@
+{
+  "DETR": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 3,
+    "update_time": 1773520056,
+    "_id": "DETR"
+  },
+  "YOLO": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "YOLO"
+  },
+  "RT-DETR": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 4,
+    "update_time": 1773520056,
+    "_id": "RT-DETR"
+  },
+  "Non-Maximum Suppression": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Non-Maximum Suppression"
+  },
+  "Baidu Inc": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Baidu Inc"
+  },
+  "Peking University": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Peking University"
+  },
+  "COCO": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "COCO"
+  },
+  "Objects365": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 3,
+    "update_time": 1773520056,
+    "_id": "Objects365"
+  },
+  "Yian Zhao": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Yian Zhao"
+  },
+  "Wenyu Lv": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Wenyu Lv"
+  },
+  "Shangliang Xu": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Shangliang Xu"
+  },
+  "Jinman Wei": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Jinman Wei"
+  },
+  "Guanzhong Wang": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Guanzhong Wang"
+  },
+  "Qingqing Dang": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Qingqing Dang"
+  },
+  "Yi Liu": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Yi Liu"
+  },
+  "Jie Chen": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "Jie Chen"
+  },
+  "Transformer": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520065,
+    "_id": "Transformer"
+  },
+  "CNN": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724"
+    ],
+    "count": 1,
+    "update_time": 1773520056,
+    "_id": "CNN"
+  },
+  "Object Detection": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "Object Detection"
+  },
+  "Real-Time Object Detection": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "Real-Time Object Detection"
+  },
+  "T4 GPU": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 5,
+    "update_time": 1773520056,
+    "_id": "T4 GPU"
+  },
+  "DINO": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "DINO"
+  },
+  "Uncertainty-Minimal Query Selection": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 3,
+    "update_time": 1773520056,
+    "_id": "Uncertainty-Minimal Query Selection"
+  },
+  "Hybrid Encoder": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 3,
+    "update_time": 1773520056,
+    "_id": "Hybrid Encoder"
+  },
+  "Multi-Scale Features": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "Multi-Scale Features"
+  },
+  "Real-Time DEtection TRansformer": {
+    "chunk_ids": [
+      "chunk-304395e843a4ed6d59b25d1e18f87724",
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 3,
+    "update_time": 1773520056,
+    "_id": "Real-Time DEtection TRansformer"
+  },
+  "Transformer Encoder": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "Transformer Encoder"
+  },
+  "YOLO Detectors": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "YOLO Detectors"
+  },
+  "COCO val2017": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 3,
+    "update_time": 1773520060,
+    "_id": "COCO val2017"
+  },
+  "NMS": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3",
+      "chunk-9787ab1eef36eba4258be0a61d000c67",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 6,
+    "update_time": 1773520057,
+    "_id": "NMS"
+  },
+  "YOLOv1": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "YOLOv1"
+  },
+  "Deformable-DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "Deformable-DETR"
+  },
+  "DAB-DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "DAB-DETR"
+  },
+  "DN-DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520057,
+    "_id": "DN-DETR"
+  },
+  "Group-DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520057,
+    "_id": "Group-DETR"
+  },
+  "Efficient DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520057,
+    "_id": "Efficient DETR"
+  },
+  "Sparse DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520057,
+    "_id": "Sparse DETR"
+  },
+  "Lite DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520057,
+    "_id": "Lite DETR"
+  },
+  "Conditional DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520057,
+    "_id": "Conditional DETR"
+  },
+  "Anchor DETR": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520057,
+    "_id": "Anchor DETR"
+  },
+  "Figure 1": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520060,
+    "_id": "Figure 1"
+  },
+  "Figure 2": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520060,
+    "_id": "Figure 2"
+  },
+  "Confidence Threshold": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 4,
+    "update_time": 1773520057,
+    "_id": "Confidence Threshold"
+  },
+  "IoU Threshold": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 3,
+    "update_time": 1773520061,
+    "_id": "IoU Threshold"
+  },
+  "Multi-Layer Decoder Architecture": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520056,
+    "_id": "Multi-Layer Decoder Architecture"
+  },
+  "Anchor-Based": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520059,
+    "_id": "Anchor-Based"
+  },
+  "Anchor-Free": {
+    "chunk_ids": [
+      "chunk-901133dd8268b83119819931e3df4d8a",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 2,
+    "update_time": 1773520059,
+    "_id": "Anchor-Free"
+  },
+  "YOLOv5": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 4,
+    "update_time": 1773520060,
+    "_id": "YOLOv5"
+  },
+  "YOLOv8": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 4,
+    "update_time": 1773520060,
+    "_id": "YOLOv8"
+  },
+  "TensorRT EfficientNMSPlugin": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 2,
+    "update_time": 1773520060,
+    "_id": "TensorRT EfficientNMSPlugin"
+  },
+  "EfficientNMS": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 2,
+    "update_time": 1773520061,
+    "_id": "EfficientNMS"
+  },
+  "AP": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 2,
+    "update_time": 1773520061,
+    "_id": "AP"
+  },
+  "NMS Execution Time": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 2,
+    "update_time": 1773520061,
+    "_id": "NMS Execution Time"
+  },
+  "End-to-End Speed Benchmark": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 4,
+    "update_time": 1773520057,
+    "_id": "End-to-End Speed Benchmark"
+  },
+  "EfficientNMSFilter": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 2,
+    "update_time": 1773520061,
+    "_id": "EfficientNMSFilter"
+  },
+  "RadixSort": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9",
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 2,
+    "update_time": 1773520061,
+    "_id": "RadixSort"
+  },
+  "AP Results": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9"
+    ],
+    "count": 1,
+    "create_time": 1773518778,
+    "update_time": 1773518778,
+    "_id": "AP Results"
+  },
+  "End-to-End Speed": {
+    "chunk_ids": [
+      "chunk-fa4af6ae5dd3026673000e2a6ea963b9"
+    ],
+    "count": 1,
+    "create_time": 1773518778,
+    "update_time": 1773518778,
+    "_id": "End-to-End Speed"
+  },
+  "COCO Val2017": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-26cfae2ad2694995356b094cdbaad0e3",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 3,
+    "update_time": 1773520056,
+    "_id": "COCO Val2017"
+  },
+  "TensorRT": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520061,
+    "_id": "TensorRT"
+  },
+  "YOLOv7": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520061,
+    "_id": "YOLOv7"
+  },
+  "PP-YOLOE": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520062,
+    "_id": "PP-YOLOE"
+  },
+  "YOLOv6": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520062,
+    "_id": "YOLOv6"
+  },
+  "EfficientNMSPlugin": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520062,
+    "_id": "EfficientNMSPlugin"
+  },
+  "I/O": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520062,
+    "_id": "I/O"
+  },
+  "MemoryCopy": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520062,
+    "_id": "MemoryCopy"
+  },
+  "Ultralytics": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9"
+    ],
+    "count": 1,
+    "create_time": 1773518779,
+    "update_time": 1773518779,
+    "_id": "Ultralytics"
+  },
+  "PaddlePaddle": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9"
+    ],
+    "count": 1,
+    "create_time": 1773518779,
+    "update_time": 1773518779,
+    "_id": "PaddlePaddle"
+  },
+  "Alibaba": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9"
+    ],
+    "count": 1,
+    "create_time": 1773518779,
+    "update_time": 1773518779,
+    "_id": "Alibaba"
+  },
+  "NVIDIA": {
+    "chunk_ids": [
+      "chunk-dc05f1e79ad134acf9e30a544b6cc7d9",
+      "chunk-52ae1ab29b34a3bd4356efa630d2730c"
+    ],
+    "count": 2,
+    "update_time": 1773520062,
+    "_id": "NVIDIA"
+  },
+  "L Model": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520056,
+    "update_time": 1773520056,
+    "_id": "L Model"
+  },
+  "X Model": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520056,
+    "update_time": 1773520056,
+    "_id": "X Model"
+  },
+  "YOLO S Model": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520056,
+    "update_time": 1773520056,
+    "_id": "YOLO S Model"
+  },
+  "YOLO M Model": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520056,
+    "update_time": 1773520056,
+    "_id": "YOLO M Model"
+  },
+  "DINO-Deformable-DETR-R50": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520056,
+    "update_time": 1773520056,
+    "_id": "DINO-Deformable-DETR-R50"
+  },
+  "Query Selection": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520057,
+    "update_time": 1773520057,
+    "_id": "Query Selection"
+  },
+  "Mixed Query Selection": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520057,
+    "update_time": 1773520057,
+    "_id": "Mixed Query Selection"
+  },
+  "Intra-Scale Interaction": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Intra-Scale Interaction"
+  },
+  "Cross-Scale Fusion": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Cross-Scale Fusion"
+  },
+  "Decoder Layers": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Decoder Layers"
+  },
+  "Encoder Layers": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Encoder Layers"
+  },
+  "Feature Extraction": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Feature Extraction"
+  },
+  "Inference Speed": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Inference Speed"
+  },
+  "Accuracy": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Accuracy"
+  },
+  "Pre-Training": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Pre-Training"
+  },
+  "Post-Processing": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "Post-Processing"
+  },
+  "NMS Post-Processing": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520058,
+    "update_time": 1773520058,
+    "_id": "NMS Post-Processing"
+  },
+  "Speed Tuning": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Speed Tuning"
+  },
+  "Detector": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Detector"
+  },
+  "One-Stage Object Detector": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "One-Stage Object Detector"
+  },
+  "Two-Stage Object Detector": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Two-Stage Object Detector"
+  },
+  "Overlapping Boxes": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Overlapping Boxes"
+  },
+  "Bipartite Matching": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Bipartite Matching"
+  },
+  "Hand-Crafted Anchor": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Hand-Crafted Anchor"
+  },
+  "Iterative Refinement": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Iterative Refinement"
+  },
+  "Denoising Training": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Denoising Training"
+  },
+  "Group-Wise One-to-Many Assignment": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520059,
+    "update_time": 1773520059,
+    "_id": "Group-Wise One-to-Many Assignment"
+  },
+  "Attention Mechanism": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520060,
+    "update_time": 1773520060,
+    "_id": "Attention Mechanism"
+  },
+  "Low-Level Features": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520060,
+    "update_time": 1773520060,
+    "_id": "Low-Level Features"
+  },
+  "Update Frequency": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520060,
+    "update_time": 1773520060,
+    "_id": "Update Frequency"
+  },
+  "Interleaved Way": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520060,
+    "update_time": 1773520060,
+    "_id": "Interleaved Way"
+  },
+  "Optimization Difficulty": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520060,
+    "update_time": 1773520060,
+    "_id": "Optimization Difficulty"
+  },
+  "Appendix": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520060,
+    "update_time": 1773520060,
+    "_id": "Appendix"
+  },
+  "TensorRT FP16": {
+    "chunk_ids": [
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 1,
+    "create_time": 1773520061,
+    "update_time": 1773520061,
+    "_id": "TensorRT FP16"
+  },
+  "End-to-end Speed Benchmark": {
+    "chunk_ids": [
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 1,
+    "create_time": 1773520061,
+    "update_time": 1773520061,
+    "_id": "End-to-end Speed Benchmark"
+  },
+  "EfficientNMS Kernel": {
+    "chunk_ids": [
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 1,
+    "create_time": 1773520061,
+    "update_time": 1773520061,
+    "_id": "EfficientNMS Kernel"
+  },
+  "Real-time Detectors": {
+    "chunk_ids": [
+      "chunk-9787ab1eef36eba4258be0a61d000c67"
+    ],
+    "count": 1,
+    "create_time": 1773520061,
+    "update_time": 1773520061,
+    "_id": "Real-time Detectors"
+  },
+  "Scaled RT-DETRs": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520065,
+    "update_time": 1773520065,
+    "_id": "Scaled RT-DETRs"
+  },
+  "RT-DETR-R50": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520065,
+    "update_time": 1773520065,
+    "_id": "RT-DETR-R50"
+  },
+  "Decoder": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520065,
+    "update_time": 1773520065,
+    "_id": "Decoder"
+  },
+  "RT-DETR-R101": {
+    "chunk_ids": [
+      "chunk-26cfae2ad2694995356b094cdbaad0e3"
+    ],
+    "count": 1,
+    "create_time": 1773520067,
+    "update_time": 1773520067,
+    "_id": "RT-DETR-R101"
+  }
+}

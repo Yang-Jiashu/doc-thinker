@@ -4,10 +4,14 @@ from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, HTTPException, Body
 
 from ..schemas import EntityRelationshipRequest, RelationshipRequest
-from ..state import state
+from ..state import state, get_tri_graph_manager
 from ..memory import get_session_memory_engine
 from docthinker.kg_expansion import ExpandedNodeManager
 from docthinker.image_assets import is_image_node, resolve_graph_node_color
+
+import logging
+
+_log = logging.getLogger("docthinker.graph")
 
 
 router = APIRouter()
@@ -699,3 +703,97 @@ async def memory_decay_prune(
         return {"success": True, "session_id": session_id, **result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+# ── C2: Causal DAG endpoints ────────────────────────────────────────
+
+@router.get("/knowledge-graph/causal-data")
+async def get_causal_graph_data(session_id: Optional[str] = None):
+    """Return causal DAG nodes and edges for frontend visualization."""
+    if not session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        return {"nodes": [], "edges": [], "metadata": {"source": "causal_dag", "total_nodes": 0, "total_edges": 0, "session_id": session_id}}
+    try:
+        data = tri_mgr.causal_dag.to_graph_data()
+        data["metadata"]["session_id"] = session_id
+        return data
+    except Exception as e:
+        _log.warning("[causal] graph data failed: %s", e)
+        return {"nodes": [], "edges": [], "metadata": {"source": "causal_dag", "error": str(e), "session_id": session_id}}
+
+
+@router.get("/knowledge-graph/causal-stats")
+async def get_causal_stats(session_id: Optional[str] = None):
+    """Return causal DAG statistics."""
+    if not session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        return {"session_id": session_id, "nodes": 0, "edges": 0}
+    return {"session_id": session_id, **tri_mgr.causal_dag.stats()}
+
+
+@router.get("/knowledge-graph/trigraph-stats")
+async def get_trigraph_stats(session_id: Optional[str] = None):
+    """Return full tri-graph statistics (semantic, causal, flow, seal)."""
+    if not session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        return {"session_id": session_id, "enabled": False}
+    return {"session_id": session_id, "enabled": True, **tri_mgr.stats()}
+
+
+@router.post("/knowledge-graph/build-causal")
+async def build_causal_dag(payload: Dict[str, Any] = Body(default={})):
+    """Manually trigger causal DAG construction from existing session text."""
+    session_id = payload.get("session_id")
+    text = payload.get("text", "")
+    if not session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        raise HTTPException(status_code=500, detail="TriGraphManager not available")
+    if not text:
+        raise HTTPException(status_code=400, detail="text is required")
+    try:
+        result = await tri_mgr.build_causal_from_text(text, source_id="manual_build")
+        return {"success": True, "session_id": session_id, **result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/knowledge-graph/seal-evolve")
+async def trigger_seal_evolution(payload: Dict[str, Any] = Body(default={})):
+    """Manually trigger one SEAL evolution pass."""
+    session_id = payload.get("session_id")
+    if not session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        raise HTTPException(status_code=500, detail="TriGraphManager not available")
+    try:
+        result = await tri_mgr.post_query_evolution(
+            question=payload.get("question", ""),
+            answer=payload.get("answer", ""),
+        )
+        return {"success": True, "session_id": session_id, **result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/knowledge-graph/flow-activation")
+async def get_flow_activation(session_id: Optional[str] = None, top_k: int = 20):
+    """Return top activated nodes from knowledge flow dynamics."""
+    if not session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+    tri_mgr = get_tri_graph_manager(session_id)
+    if tri_mgr is None:
+        return {"session_id": session_id, "activations": []}
+    top = tri_mgr.flow_dynamics.get_top_activated(top_k)
+    return {
+        "session_id": session_id,
+        "activations": [{"node": name, "level": round(level, 4)} for name, level in top],
+    }
+

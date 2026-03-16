@@ -1,0 +1,110 @@
+{
+  "nodes": {
+    "学术界与工业界对高效视觉算法的共同需求": {
+      "name": "学术界与工业界对高效视觉算法的共同需求",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    },
+    "产生了关于实时目标检测的研究成果": {
+      "name": "产生了关于实时目标检测的研究成果",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    },
+    "百度公司与北京大学深圳研究生院的合作关系": {
+      "name": "百度公司与北京大学深圳研究生院的合作关系",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    },
+    "作者团队由双方研究人员共同组成": {
+      "name": "作者团队由双方研究人员共同组成",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    },
+    "文档解析或 OCR 识别过程中的边界切割错误": {
+      "name": "文档解析或 OCR 识别过程中的边界切割错误",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    },
+    "导致机构名称'北京大学深圳研究生院'被错误分裂为'北京大学深圳研究'和'生院'": {
+      "name": "导致机构名称'北京大学深圳研究生院'被错误分裂为'北京大学深圳研究'和'生院'",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    },
+    "论文元数据提取流程不完整": {
+      "name": "论文元数据提取流程不完整",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    },
+    "导致论文标题与具体内容分析之间缺乏因果关联": {
+      "name": "导致论文标题与具体内容分析之间缺乏因果关联",
+      "entity_type": "concept",
+      "description": "",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363,
+      "updated_at": 1773520244.9632363
+    }
+  },
+  "edges": [
+    {
+      "cause": "学术界与工业界对高效视觉算法的共同需求",
+      "effect": "产生了关于实时目标检测的研究成果",
+      "mechanism": "通过结合理论研究与工程实践优化检测模型",
+      "strength": 0.85,
+      "evidence": "SEAL hypothesis: 语义实体中包含'实时目标检测'、'百度公司'（工业界）及'北京大学深圳研究'（学术界），实体存在性强，逻辑符合产学研合作常识，虽无现有因果边验证，但语义一致性高。",
+      "source_id": "seal_evolution",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363
+    },
+    {
+      "cause": "百度公司与北京大学深圳研究生院的合作关系",
+      "effect": "作者团队由双方研究人员共同组成",
+      "mechanism": "通过联合实验室或项目合作形式共享资源与署名",
+      "strength": 0.8,
+      "evidence": "SEAL hypothesis: 语义实体中存在'作者'、'所属机构'、'百度公司'及'北京大学深圳研究'，支持双方合作及人员组成的假设，逻辑合理且与实体信息吻合。",
+      "source_id": "seal_evolution",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363
+    },
+    {
+      "cause": "文档解析或 OCR 识别过程中的边界切割错误",
+      "effect": "导致机构名称'北京大学深圳研究生院'被错误分裂为'北京大学深圳研究'和'生院'",
+      "mechanism": "文本处理算法未能识别完整的机构专有名词实体",
+      "strength": 0.95,
+      "evidence": "SEAL hypothesis: 提供的语义实体列表中明确存在'北京大学深圳研究'和'生院'这两个分裂的实体，直接证实了效应描述，与实体碎片化现象高度一致。",
+      "source_id": "seal_evolution",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363
+    },
+    {
+      "cause": "论文元数据提取流程不完整",
+      "effect": "导致论文标题与具体内容分析之间缺乏因果关联",
+      "mechanism": "元数据字段未与正文语义分析模块进行有效对齐",
+      "strength": 0.7,
+      "evidence": "SEAL hypothesis: 现有因果边列表为空（[]），且实体中包含'论文标题'、'内容'等独立字段，假设合理解释了为何缺乏因果连接，但属于对处理流程的推断，直接证据少于实体碎片化假设。",
+      "source_id": "seal_evolution",
+      "activation": 1.0,
+      "created_at": 1773520244.9632363
+    }
+  ]
+}
