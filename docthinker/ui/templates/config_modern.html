@@ -1,136 +1,361 @@
 {% extends "base_modern.html" %}
 
-{% block title %}设置 - NeuroAgent{% endblock %}
+{% block title %}设置 - DocThinker{% endblock %}
 
 {% block content %}
 <header class="bg-white border-b border-slate-200 px-6 py-4">
     <div>
         <h2 class="text-lg font-semibold text-slate-800">系统设置</h2>
-        <p class="text-sm text-slate-500">配置 API 密钥和系统参数</p>
+        <p class="text-sm text-slate-500">配置模型、API 密钥和系统参数</p>
     </div>
 </header>
 
 <div class="flex-1 overflow-y-auto p-6">
     <div class="max-w-2xl mx-auto space-y-6">
-        <!-- API Settings -->
-        <div class="card">
-            <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
-                <h3 class="font-semibold text-slate-700 flex items-center gap-2">
-                    <i class="fa-solid fa-key text-blue-500"></i>
-                    API 配置
-                </h3>
-            </div>
-            <div class="p-6 space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2">OpenAI API Key</label>
-                    <div class="relative">
-                        <input type="password" id="api-key" placeholder="sk-..." 
+
+        <!-- Loading state -->
+        <div id="settings-loading" class="text-center py-12 text-slate-500">
+            <i class="fa-solid fa-spinner fa-spin text-2xl mb-3 block"></i>
+            正在加载设置...
+        </div>
+
+        <!-- Settings form (hidden until loaded) -->
+        <div id="settings-form" class="space-y-6" style="display:none;">
+
+            <!-- LLM Configuration -->
+            <div class="card">
+                <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
+                    <h3 class="font-semibold text-slate-700 flex items-center gap-2">
+                        <i class="fa-solid fa-robot text-blue-500"></i>
+                        LLM 模型配置
+                    </h3>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">API Key</label>
+                        <div class="relative">
+                            <input type="password" id="s-llm-api-key" placeholder="sk-..."
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm pr-10">
+                            <button onclick="_toggleVis('s-llm-api-key')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1" id="s-llm-api-key-hint"></p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Base URL</label>
+                        <input type="text" id="s-llm-base-url" placeholder="https://dashscope.aliyuncs.com/compatible-mode/v1"
                             class="input-field w-full px-4 py-2 rounded-lg text-sm">
-                        <button onclick="toggleVisibility('api-key')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
                     </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2">模型选择</label>
-                    <select class="input-field w-full px-4 py-2 rounded-lg text-sm bg-white">
-                        <option>gpt-4</option>
-                        <option>gpt-4-turbo</option>
-                        <option>gpt-3.5-turbo</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Memory Settings -->
-        <div class="card">
-            <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
-                <h3 class="font-semibold text-slate-700 flex items-center gap-2">
-                    <i class="fa-solid fa-brain text-purple-500"></i>
-                    记忆设置
-                </h3>
-            </div>
-            <div class="p-6 space-y-4">
-                <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">LLM 模型</label>
+                            <input type="text" id="s-llm-model" placeholder="qwen3.5-plus"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                            <p class="text-xs text-slate-400 mt-1">多个模型用逗号分隔</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">VLM 模型</label>
+                            <input type="text" id="s-vlm-model" placeholder="qwen-vl-max"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                    </div>
                     <div>
-                        <p class="font-medium text-slate-700">层次化知识图谱</p>
-                        <p class="text-sm text-slate-500">启用 L1-L2-L3 三层结构</p>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">关键词提取模型</label>
+                        <input type="text" id="s-keyword-llm-model" placeholder="qwen-turbo"
+                            class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        <p class="text-xs text-slate-400 mt-1">轻量模型，用于快速关键词提取</p>
                     </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" checked class="sr-only peer">
-                        <div class="w-11 h-6 bg-slate-200 peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
-                    </label>
                 </div>
-                <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+            </div>
+
+            <!-- Embedding Configuration -->
+            <div class="card">
+                <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
+                    <h3 class="font-semibold text-slate-700 flex items-center gap-2">
+                        <i class="fa-solid fa-vector-square text-purple-500"></i>
+                        Embedding 配置
+                    </h3>
+                </div>
+                <div class="p-6 space-y-4">
                     <div>
-                        <p class="font-medium text-slate-700">自动关联</p>
-                        <p class="text-sm text-slate-500">自动建立知识关联</p>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">API Key</label>
+                        <div class="relative">
+                            <input type="password" id="s-embed-api-key" placeholder="与 LLM 相同则留空"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm pr-10">
+                            <button onclick="_toggleVis('s-embed-api-key')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1" id="s-embed-api-key-hint"></p>
                     </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" checked class="sr-only peer">
-                        <div class="w-11 h-6 bg-slate-200 peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Storage -->
-        <div class="card">
-            <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
-                <h3 class="font-semibold text-slate-700 flex items-center gap-2">
-                    <i class="fa-solid fa-database text-green-500"></i>
-                    存储
-                </h3>
-            </div>
-            <div class="p-6">
-                <div class="grid grid-cols-3 gap-4 mb-4">
-                    <div class="text-center p-4 bg-slate-50 rounded-lg">
-                        <p class="text-xl font-bold text-blue-600">128 MB</p>
-                        <p class="text-xs text-slate-500">知识库</p>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Base URL</label>
+                        <input type="text" id="s-embed-base-url"
+                            class="input-field w-full px-4 py-2 rounded-lg text-sm">
                     </div>
-                    <div class="text-center p-4 bg-slate-50 rounded-lg">
-                        <p class="text-xl font-bold text-purple-600">2.4 GB</p>
-                        <p class="text-xs text-slate-500">文档</p>
-                    </div>
-                    <div class="text-center p-4 bg-slate-50 rounded-lg">
-                        <p class="text-xl font-bold text-green-600">1,247</p>
-                        <p class="text-xs text-slate-500">实体</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Embedding 模型</label>
+                            <input type="text" id="s-embed-model" placeholder="text-embedding-v3"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">维度</label>
+                            <input type="number" id="s-embed-dim" placeholder="1024"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
                     </div>
                 </div>
-                <button onclick="clearCache()" class="w-full py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50 transition-colors text-sm">
-                    清空缓存
-                </button>
+            </div>
+
+            <!-- Rerank Configuration -->
+            <div class="card">
+                <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
+                    <h3 class="font-semibold text-slate-700 flex items-center gap-2">
+                        <i class="fa-solid fa-sort text-green-500"></i>
+                        Rerank 配置
+                    </h3>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Rerank 模型</label>
+                            <input type="text" id="s-rerank-model" placeholder="BAAI/bge-reranker-v2-m3"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Base URL</label>
+                            <input type="text" id="s-rerank-base-url"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">API Key</label>
+                        <div class="relative">
+                            <input type="password" id="s-rerank-api-key" placeholder="留空则使用 LLM Key"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm pr-10">
+                            <button onclick="_toggleVis('s-rerank-api-key')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1" id="s-rerank-api-key-hint"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Configuration -->
+            <div class="card">
+                <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
+                    <h3 class="font-semibold text-slate-700 flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high text-orange-500"></i>
+                        性能参数
+                    </h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">LLM 最大并发</label>
+                            <input type="number" id="s-llm-max-async" min="1" max="64"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Embedding 最大并发</label>
+                            <input type="number" id="s-embedding-max-async" min="1" max="64"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">最大并行文档插入</label>
+                            <input type="number" id="s-max-parallel-insert" min="1" max="32"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">模型路由并发</label>
+                            <input type="number" id="s-llm-router-concurrency" min="1" max="128"
+                                class="input-field w-full px-4 py-2 rounded-lg text-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Runtime Info -->
+            <div class="card">
+                <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 rounded-t-xl">
+                    <h3 class="font-semibold text-slate-700 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-slate-500"></i>
+                        运行状态
+                    </h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="p-3 bg-slate-50 rounded-lg">
+                            <p class="text-slate-500 mb-1">工作目录</p>
+                            <p class="font-mono text-slate-700 truncate" id="s-workdir">-</p>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg">
+                            <p class="text-slate-500 mb-1">后端状态</p>
+                            <p class="font-medium" id="s-backend-status">检查中...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <div class="flex justify-end gap-3 pb-6">
+                <button onclick="_resetForm()" class="btn-secondary px-6 py-2 rounded-lg text-sm">重新加载</button>
+                <button onclick="_saveSettings()" id="save-btn" class="btn-primary px-6 py-2 rounded-lg text-sm">保存设置</button>
             </div>
         </div>
-        
-        <!-- Save Button -->
-        <div class="flex justify-end gap-3">
-            <button onclick="resetSettings()" class="btn-secondary px-6 py-2 rounded-lg text-sm">重置</button>
-            <button onclick="saveSettings()" class="btn-primary px-6 py-2 rounded-lg text-sm">保存设置</button>
-        </div>
+
     </div>
 </div>
 
 <script>
-function toggleVisibility(id) {
-    const input = document.getElementById(id);
-    input.type = input.type === 'password' ? 'text' : 'password';
+let _originalSettings = null;
+
+const _FIELD_MAP = {
+    'llm_base_url':              's-llm-base-url',
+    'llm_model':                 's-llm-model',
+    'vlm_model':                 's-vlm-model',
+    'keyword_llm_model':         's-keyword-llm-model',
+    'embed_base_url':            's-embed-base-url',
+    'embed_model':               's-embed-model',
+    'embed_dim':                 's-embed-dim',
+    'rerank_model':              's-rerank-model',
+    'rerank_base_url':           's-rerank-base-url',
+    'llm_max_async':             's-llm-max-async',
+    'embedding_max_async':       's-embedding-max-async',
+    'max_parallel_insert':       's-max-parallel-insert',
+    'llm_router_max_concurrency':'s-llm-router-concurrency',
+};
+
+function _toggleVis(id) {
+    const el = document.getElementById(id);
+    el.type = el.type === 'password' ? 'text' : 'password';
 }
 
-function saveSettings() {
-    showToast('设置已保存', 'success');
-}
-
-function resetSettings() {
-    if (confirm('确定要重置所有设置吗？')) {
-        showToast('设置已重置', 'info');
+async function _loadSettings() {
+    try {
+        const resp = await fetch('/api/v1/settings');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const data = await resp.json();
+        _originalSettings = data;
+        _populateForm(data);
+        document.getElementById('settings-loading').style.display = 'none';
+        document.getElementById('settings-form').style.display = '';
+        document.getElementById('s-backend-status').textContent = '已连接';
+        document.getElementById('s-backend-status').className = 'font-medium text-green-600';
+    } catch (e) {
+        document.getElementById('settings-loading').innerHTML =
+            '<i class="fa-solid fa-triangle-exclamation text-2xl text-amber-500 mb-3 block"></i>' +
+            '<p class="text-slate-600">无法连接后端服务</p>' +
+            '<p class="text-xs text-slate-400 mt-1">' + e.message + '</p>' +
+            '<button onclick="_loadSettings()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">重试</button>';
     }
 }
 
-function clearCache() {
-    if (confirm('确定要清空缓存吗？')) {
-        showToast('缓存已清空', 'success');
+function _populateForm(data) {
+    for (const [key, elId] of Object.entries(_FIELD_MAP)) {
+        const el = document.getElementById(elId);
+        if (el && data[key] !== undefined && data[key] !== null) {
+            el.value = data[key];
+        }
+    }
+
+    if (data.llm_models && data.llm_models.length > 0) {
+        document.getElementById('s-llm-model').value = data.llm_models.join(', ');
+    }
+
+    const llmHint = document.getElementById('s-llm-api-key-hint');
+    if (data.llm_api_key_masked) {
+        llmHint.textContent = '当前: ' + data.llm_api_key_masked;
+    }
+
+    const embedHint = document.getElementById('s-embed-api-key-hint');
+    if (data.embed_api_key_masked) {
+        embedHint.textContent = '当前: ' + data.embed_api_key_masked;
+    }
+
+    const rerankHint = document.getElementById('s-rerank-api-key-hint');
+    if (data.rerank_api_key_masked) {
+        rerankHint.textContent = '当前: ' + data.rerank_api_key_masked;
+    }
+
+    if (data.workdir) {
+        document.getElementById('s-workdir').textContent = data.workdir;
     }
 }
+
+async function _saveSettings() {
+    const btn = document.getElementById('save-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i>保存中...';
+
+    const payload = {};
+
+    for (const [key, elId] of Object.entries(_FIELD_MAP)) {
+        const el = document.getElementById(elId);
+        if (!el) continue;
+        const val = el.value.trim();
+        if (!val) continue;
+
+        const orig = _originalSettings ? _originalSettings[key] : undefined;
+        if (el.type === 'number') {
+            const num = parseInt(val, 10);
+            if (!isNaN(num) && num !== orig) payload[key] = num;
+        } else {
+            if (val !== String(orig || '')) payload[key] = val;
+        }
+    }
+
+    const llmKey = document.getElementById('s-llm-api-key').value.trim();
+    if (llmKey) payload['llm_api_key'] = llmKey;
+
+    const embedKey = document.getElementById('s-embed-api-key').value.trim();
+    if (embedKey) payload['embed_api_key'] = embedKey;
+
+    const rerankKey = document.getElementById('s-rerank-api-key').value.trim();
+    if (rerankKey) payload['rerank_api_key'] = rerankKey;
+
+    if (Object.keys(payload).length === 0) {
+        showToast('没有变更需要保存', 'info');
+        btn.disabled = false;
+        btn.innerHTML = '保存设置';
+        return;
+    }
+
+    try {
+        const resp = await fetch('/api/v1/settings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
+        const data = await resp.json();
+        if (data.success) {
+            showToast('设置已保存 — ' + (data.changed || []).join(', '), 'success');
+            if (data.note) {
+                setTimeout(() => showToast(data.note, 'info'), 1500);
+            }
+            await _loadSettings();
+        } else {
+            showToast('保存失败: ' + (data.message || '未知错误'), 'error');
+        }
+    } catch (e) {
+        showToast('保存失败: ' + e.message, 'error');
+    }
+
+    btn.disabled = false;
+    btn.innerHTML = '保存设置';
+}
+
+function _resetForm() {
+    document.getElementById('s-llm-api-key').value = '';
+    document.getElementById('s-embed-api-key').value = '';
+    document.getElementById('s-rerank-api-key').value = '';
+    _loadSettings();
+    showToast('已重新加载服务器设置', 'info');
+}
+
+document.addEventListener('DOMContentLoaded', _loadSettings);
 </script>
 {% endblock %}

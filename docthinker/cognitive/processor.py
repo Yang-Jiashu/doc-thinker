@@ -208,8 +208,16 @@ Return JSON:
         return inferred, hypotheses
 
     async def _analyze_content(self, content: str, source_type: str) -> CognitiveInsight:
+        import time as _time
+        import logging
+        _log = logging.getLogger("docthinker.cognitive")
+        _t0 = _time.perf_counter()
+
         try:
+            _t1 = _time.perf_counter()
             understanding = await self._extract_understanding(content, source_type)
+            _log.info("[cognitive T+%.2fs] _extract_understanding done (%.2fs)",
+                      _time.perf_counter() - _t0, _time.perf_counter() - _t1)
             summary = understanding.get("summary", "")
             key_points = understanding.get("key_points", [])
             concepts = understanding.get("concepts", [])
@@ -217,13 +225,22 @@ Return JSON:
             action_items = understanding.get("action_items", [])
 
             # Run entity and relation extraction in parallel
+            _t2 = _time.perf_counter()
             entities_task = asyncio.create_task(self._extract_entities(content, concepts))
             relations_task = asyncio.create_task(self._extract_relations(content, []))
             entities, relations_raw = await asyncio.gather(entities_task, relations_task)
+            _log.info("[cognitive T+%.2fs] parallel extract done (%.2fs) | %d entities, %d relations",
+                      _time.perf_counter() - _t0, _time.perf_counter() - _t2,
+                      len(entities), len(relations_raw))
 
+            _t4 = _time.perf_counter()
             inferred_relations, hypotheses = await self._infer_relations(
                 summary, concepts, entities, relations_raw
             )
+            _log.info("[cognitive T+%.2fs] _infer_relations done (%.2fs) | %d inferred",
+                      _time.perf_counter() - _t0, _time.perf_counter() - _t4, len(inferred_relations))
+            _log.info("[cognitive T+%.2fs] TOTAL (4 LLM calls)", _time.perf_counter() - _t0)
+
             return CognitiveInsight(
                 summary=summary,
                 key_points=key_points,

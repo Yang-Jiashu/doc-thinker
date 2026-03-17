@@ -2819,7 +2819,58 @@ async def extract_entities(
     use_llm_func: callable = global_config.get("entity_extraction_llm_model_func") or global_config["llm_model_func"]
     entity_extract_max_gleaning = global_config["entity_extract_max_gleaning"]
 
-    ordered_chunks = list(chunks.items())
+    total_chars = sum(len(c.get("content", "")) for c in chunks.values())
+    if total_chars <= 3000 and entity_extract_max_gleaning > 0:
+        entity_extract_max_gleaning = 0
+        logger.info("[extract_entities] short text (%d chars) — gleaning disabled for speed", total_chars)
+
+    raw_chunks = list(chunks.items())
+
+    MIN_CHUNK_CHARS = 30
+    MERGE_TARGET_CHARS = 5000
+    MERGE_THRESHOLD = 50
+
+    if len(raw_chunks) > MERGE_THRESHOLD:
+        filtered = [(k, v) for k, v in raw_chunks if len(v.get("content", "").strip()) >= MIN_CHUNK_CHARS]
+        skipped = len(raw_chunks) - len(filtered)
+        if skipped > 0:
+            logger.info("[extract_entities] skipped %d trivial chunks (<%d chars)", skipped, MIN_CHUNK_CHARS)
+
+        merged: list[tuple[str, TextChunkSchema]] = []
+        buf_keys: list[str] = []
+        buf_text = ""
+        buf_meta: dict = {}
+
+        for key, val in filtered:
+            content = val.get("content", "")
+            if buf_text and len(buf_text) + len(content) > MERGE_TARGET_CHARS:
+                merge_key = buf_keys[0]
+                merged.append((merge_key, {**buf_meta, "content": buf_text, "_merged_from": buf_keys}))
+                buf_keys = []
+                buf_text = ""
+                buf_meta = {}
+
+            if not buf_text:
+                buf_meta = {k: v for k, v in val.items() if k != "content"}
+            buf_keys.append(key)
+            buf_text += ("\n\n" if buf_text else "") + content
+
+        if buf_text:
+            merged.append((buf_keys[0], {**buf_meta, "content": buf_text, "_merged_from": buf_keys}))
+
+        logger.info(
+            "[extract_entities] merged %d chunks → %d groups (%.1fx reduction, %d skipped trivial)",
+            len(raw_chunks), len(merged), len(raw_chunks) / max(len(merged), 1), skipped,
+        )
+
+        if entity_extract_max_gleaning > 0:
+            entity_extract_max_gleaning = 0
+            logger.info("[extract_entities] large doc (%d groups from %d chunks) — gleaning disabled for speed",
+                        len(merged), len(raw_chunks))
+
+        ordered_chunks = merged
+    else:
+        ordered_chunks = raw_chunks
     # add language and example number params to prompt
     language = global_config["addon_params"].get("language", DEFAULT_SUMMARY_LANGUAGE)
     entity_types = global_config["addon_params"].get(
@@ -2849,10 +2900,11 @@ async def extract_entities(
     total_chunks = len(ordered_chunks)
 
     async def _process_single_content(chunk_key_dp: tuple[str, TextChunkSchema]):
-        """Process a single chunk
+        """Process a single chunk (or merged group of chunks).
         Args:
             chunk_key_dp (tuple[str, TextChunkSchema]):
                 ("chunk-xxxxxx", {"tokens": int, "content": str, "full_doc_id": str, "chunk_order_index": int})
+                May include "_merged_from": list[str] for merged groups.
         Returns:
             tuple: (maybe_nodes, maybe_edges) containing extracted entities and relationships
         """
@@ -2860,13 +2912,16 @@ async def extract_entities(
         chunk_key = chunk_key_dp[0]
         chunk_dp = chunk_key_dp[1]
         content = chunk_dp["content"]
-        # Get file path from chunk data or use default
         file_path = chunk_dp.get("file_path", "unknown_source")
 
-        # Create cache keys collector for batch processing
+        merged_keys = chunk_dp.get("_merged_from")
+        effective_source_id = GRAPH_FIELD_SEP.join(merged_keys) if merged_keys else chunk_key
+
         cache_keys_collector = []
 
-        # Get initial extraction
+        import time as _time
+        _ext_t0 = _time.perf_counter()
+
         entity_extraction_system_prompt = PROMPTS[
             "entity_extraction_system_prompt"
         ].format(**{**context_base, "input_text": content})
@@ -2886,23 +2941,24 @@ async def extract_entities(
             chunk_id=chunk_key,
             cache_keys_collector=cache_keys_collector,
         )
+        logger.info("[entity_extract T+%.2fs] initial LLM call done for %s (%d chars)",
+                     _time.perf_counter() - _ext_t0, chunk_key[:20], len(content))
 
         history = pack_user_ass_to_openai_messages(
             entity_extraction_user_prompt, final_result
         )
 
-        # Process initial extraction with file path
         maybe_nodes, maybe_edges = await _process_extraction_result(
             final_result,
-            chunk_key,
+            effective_source_id,
             timestamp,
             file_path,
             tuple_delimiter=context_base["tuple_delimiter"],
             completion_delimiter=context_base["completion_delimiter"],
         )
 
-        # Process additional gleaning results only 1 time when entity_extract_max_gleaning is greater than zero.
         if entity_extract_max_gleaning > 0:
+            _glean_t0 = _time.perf_counter()
             glean_result, timestamp = await use_llm_func_with_cache(
                 entity_continue_extraction_user_prompt,
                 use_llm_func,
@@ -2913,11 +2969,12 @@ async def extract_entities(
                 chunk_id=chunk_key,
                 cache_keys_collector=cache_keys_collector,
             )
+            logger.info("[entity_extract T+%.2fs] gleaning LLM call done (%.2fs)",
+                         _time.perf_counter() - _ext_t0, _time.perf_counter() - _glean_t0)
 
-            # Process gleaning result separately with file path
             glean_nodes, glean_edges = await _process_extraction_result(
                 glean_result,
-                chunk_key,
+                effective_source_id,
                 timestamp,
                 file_path,
                 tuple_delimiter=context_base["tuple_delimiter"],
@@ -2967,7 +3024,14 @@ async def extract_entities(
         processed_chunks += 1
         entities_count = len(maybe_nodes)
         relations_count = len(maybe_edges)
-        log_message = f"Chunk {processed_chunks} of {total_chunks} extracted {entities_count} Ent + {relations_count} Rel {chunk_key}"
+        pct = processed_chunks * 100 // total_chunks
+        _ext_elapsed = _time.perf_counter() - _ext_t0
+        merge_info = f" (merged {len(merged_keys)})" if merged_keys else ""
+        log_message = (
+            f"Group {processed_chunks}/{total_chunks} ({pct}%) "
+            f"extracted {entities_count} Ent + {relations_count} Rel "
+            f"in {_ext_elapsed:.1f}s{merge_info} | {chunk_key[:20]}"
+        )
         logger.info(log_message)
         if pipeline_status is not None:
             async with pipeline_status_lock:
@@ -2977,9 +3041,12 @@ async def extract_entities(
         # Return the extracted nodes and edges for centralized processing
         return maybe_nodes, maybe_edges
 
-    # Get max async tasks limit from global_config
-    chunk_max_async = global_config.get("llm_model_max_async", 4)
+    base_max_async = global_config.get("llm_model_max_async", 4)
+    has_dedicated_extract_llm = global_config.get("entity_extraction_llm_model_func") is not None
+    chunk_max_async = max(base_max_async, 32) if has_dedicated_extract_llm else base_max_async
     semaphore = asyncio.Semaphore(chunk_max_async)
+    logger.info("[extract_entities] concurrency=%d (dedicated_model=%s, %d groups)",
+                chunk_max_async, has_dedicated_extract_llm, total_chunks)
 
     async def _process_with_semaphore(chunk):
         async with semaphore:
@@ -3055,6 +3122,11 @@ async def kg_query(
 
         Returns None when no relevant context could be constructed for the query.
     """
+    import time as _time
+    _kq_t0 = _time.time()
+    def _kq_elapsed():
+        return round(_time.time() - _kq_t0, 2)
+
     if not query:
         return QueryResult(content=PROMPTS["fail_response"])
 
@@ -3062,15 +3134,13 @@ async def kg_query(
         use_model_func = query_param.model_func
     else:
         use_model_func = global_config["llm_model_func"]
-        # Apply higher priority (5) to query relation LLM function
         use_model_func = partial(use_model_func, _priority=5)
 
+    _t_kw = _time.time()
     hl_keywords, ll_keywords = await get_keywords_from_query(
         query, query_param, global_config, hashing_kv
     )
-
-    logger.debug(f"High-level keywords: {hl_keywords}")
-    logger.debug(f"Low-level  keywords: {ll_keywords}")
+    logger.info(f"[kg_query T+{_kq_elapsed()}s] keyword extraction: {round(_time.time()-_t_kw,2)}s | hl={hl_keywords} ll={ll_keywords}")
 
     # Handle empty keywords
     if ll_keywords == [] and query_param.mode in ["local", "hybrid", "mix"]:
@@ -3087,7 +3157,7 @@ async def kg_query(
     ll_keywords_str = ", ".join(ll_keywords) if ll_keywords else ""
     hl_keywords_str = ", ".join(hl_keywords) if hl_keywords else ""
 
-    # Build query context (unified interface)
+    _t_ctx = _time.time()
     context_result = await _build_query_context(
         query,
         ll_keywords_str,
@@ -3099,6 +3169,7 @@ async def kg_query(
         query_param,
         chunks_vdb,
     )
+    logger.info(f"[kg_query T+{_kq_elapsed()}s] context building: {round(_time.time()-_t_ctx,2)}s")
 
     if context_result is None:
         logger.info("[kg_query] No query context could be built; returning no-result.")
@@ -3131,14 +3202,13 @@ async def kg_query(
         prompt_content = "\n\n".join([sys_prompt, "---User Query---", user_query])
         return QueryResult(content=prompt_content, raw_data=context_result.raw_data)
 
-    # Call LLM
     tokenizer: Tokenizer = global_config["tokenizer"]
     len_of_prompts = len(tokenizer.encode(query + sys_prompt))
-    logger.debug(
-        f"[kg_query] Sending to LLM: {len_of_prompts:,} tokens (Query: {len(tokenizer.encode(query))}, System: {len(tokenizer.encode(sys_prompt))})"
+    logger.info(
+        f"[kg_query T+{_kq_elapsed()}s] LLM prompt: {len_of_prompts:,} tokens (query={len(tokenizer.encode(query))}, system={len(tokenizer.encode(sys_prompt))})"
     )
 
-    # Handle cache
+    _t_llm = _time.time()
     args_hash = compute_args_hash(
         query_param.mode,
         query,
@@ -3159,9 +3229,9 @@ async def kg_query(
     )
 
     if cached_result is not None:
-        cached_response, _ = cached_result  # Extract content, ignore timestamp
+        cached_response, _ = cached_result
         logger.info(
-            " == LLM cache == Query cache hit, using cached response as query result"
+            f"[kg_query T+{_kq_elapsed()}s] LLM cache HIT ({round(_time.time()-_t_llm,2)}s)"
         )
         response = cached_response
     else:
@@ -3171,6 +3241,9 @@ async def kg_query(
             history_messages=query_param.conversation_history,
             enable_cot=True,
             stream=query_param.stream,
+        )
+        logger.info(
+            f"[kg_query T+{_kq_elapsed()}s] LLM generation done ({round(_time.time()-_t_llm,2)}s)"
         )
 
         if hashing_kv and hashing_kv.global_config.get("enable_llm_cache"):
@@ -3199,9 +3272,8 @@ async def kg_query(
                 ),
             )
 
-    # Return unified result based on actual response type
+    logger.info(f"[kg_query T+{_kq_elapsed()}s] kg_query TOTAL")
     if isinstance(response, str):
-        # Non-streaming response (string)
         if len(response) > len(sys_prompt):
             response = (
                 response.replace(sys_prompt, "")
@@ -3255,6 +3327,48 @@ async def get_keywords_from_query(
     return hl_keywords, ll_keywords
 
 
+def _fast_extract_keywords(text: str) -> tuple[list[str], list[str]] | None:
+    """
+    Fast keyword extraction for short queries — bypasses LLM entirely.
+    Uses the full query for embedding-based entity/relation search (which
+    is the primary retrieval mechanism). Only called for queries <= 40 chars.
+    Returns (hl_keywords, ll_keywords) or None if LLM fallback is needed.
+    """
+    import re
+    text = text.strip()
+    if len(text) > 40:
+        return None
+
+    _filler = {
+        "什么", "怎么", "如何", "为什么", "哪些", "哪个", "多少",
+        "可以", "能够", "应该", "需要", "请问", "一下", "讲讲",
+        "说说", "介绍", "告诉", "关于", "相关", "详细", "简单",
+        "一些", "这些", "那些", "帮我", "一份", "是什么",
+        "有什么", "哪里", "怎样", "是否",
+    }
+    cleaned = text
+    for w in sorted(_filler, key=len, reverse=True):
+        cleaned = cleaned.replace(w, " ")
+    cleaned = cleaned.strip()
+
+    segments = [s.strip() for s in re.split(r'[\s,，、。！？!?的和与]+', cleaned) if len(s.strip()) >= 2]
+    en_words = [w for w in re.findall(r'[a-zA-Z]{3,}', text)
+                if w.lower() not in {"the", "and", "for", "how", "what", "does", "this", "that"}]
+
+    seen = set()
+    ll_keywords = []
+    for kw in segments + en_words:
+        if kw not in seen:
+            ll_keywords.append(kw)
+            seen.add(kw)
+    if not ll_keywords:
+        ll_keywords = [text]
+    ll_keywords = ll_keywords[:6]
+
+    hl_keywords = [text]
+    return hl_keywords, ll_keywords
+
+
 async def extract_keywords_only(
     text: str,
     param: QueryParam,
@@ -3263,11 +3377,16 @@ async def extract_keywords_only(
 ) -> tuple[list[str], list[str]]:
     """
     Extract high-level and low-level keywords from the given 'text' using the LLM.
-    This method does NOT build the final RAG context or provide a final answer.
-    It ONLY extracts keywords (hl_keywords, ll_keywords).
+    For short queries (< 40 chars), uses fast regex extraction to avoid LLM latency.
     """
+    import time as _time
 
-    # 1. Handle cache if needed - add cache type for keywords
+    fast_result = _fast_extract_keywords(text)
+    if fast_result is not None:
+        hl, ll = fast_result
+        logger.info(f"[extract_keywords] fast path: hl={hl} ll={ll}")
+        return hl, ll
+
     args_hash = compute_args_hash(
         param.mode,
         text,
@@ -3276,7 +3395,7 @@ async def extract_keywords_only(
         hashing_kv, args_hash, text, param.mode, cache_type="keywords"
     )
     if cached_result is not None:
-        cached_response, _ = cached_result  # Extract content, ignore timestamp
+        cached_response, _ = cached_result
         try:
             keywords_data = json_repair.loads(cached_response)
             return keywords_data.get("high_level_keywords", []), keywords_data.get(
@@ -3287,12 +3406,9 @@ async def extract_keywords_only(
                 "Invalid cache format for keywords, proceeding with extraction"
             )
 
-    # 2. Build the examples
     examples = "\n".join(PROMPTS["keywords_extraction_examples"])
-
     language = global_config["addon_params"].get("language", DEFAULT_SUMMARY_LANGUAGE)
 
-    # 3. Build the keyword-extraction prompt
     kw_prompt = PROMPTS["keywords_extraction"].format(
         query=text,
         examples=examples,
@@ -3305,15 +3421,20 @@ async def extract_keywords_only(
         f"[extract_keywords] Sending to LLM: {len_of_prompts:,} tokens (Prompt: {len_of_prompts})"
     )
 
-    # 4. Call the LLM for keyword extraction
     if param.model_func:
         use_model_func = param.model_func
     else:
-        use_model_func = global_config["llm_model_func"]
-        # Apply higher priority (5) to query relation LLM function
-        use_model_func = partial(use_model_func, _priority=5)
+        kw_func = global_config.get("keyword_llm_model_func")
+        if kw_func:
+            use_model_func = partial(kw_func, _priority=5)
+            logger.info("[extract_keywords] using lightweight keyword model")
+        else:
+            use_model_func = global_config["llm_model_func"]
+            use_model_func = partial(use_model_func, _priority=5)
 
+    _t_kw_llm = _time.time()
     result = await use_model_func(kw_prompt, keyword_extraction=True)
+    logger.info(f"[extract_keywords] LLM keyword call: {round(_time.time()-_t_kw_llm,2)}s")
 
     # 5. Parse out JSON from the LLM response
     result = remove_think_tags(result)
@@ -4259,11 +4380,16 @@ async def _build_query_context(
     Returns unified QueryContextResult containing both context and raw_data.
     """
 
+    import time as _time
+    _bqc_t0 = _time.time()
+    def _bqc_el():
+        return round(_time.time() - _bqc_t0, 2)
+
     if not query:
         logger.warning("Query is empty, skipping context building")
         return None
 
-    # Stage 1: Pure search
+    _t1 = _time.time()
     search_result = await _perform_kg_search(
         query,
         ll_keywords,
@@ -4275,6 +4401,7 @@ async def _build_query_context(
         query_param,
         chunks_vdb,
     )
+    logger.info(f"[context T+{_bqc_el()}s] stage1 KG search: {round(_time.time()-_t1,2)}s")
 
     if not search_result["final_entities"] and not search_result["final_relations"]:
         if query_param.mode != "mix":
@@ -4283,14 +4410,15 @@ async def _build_query_context(
             if not search_result["chunk_tracking"]:
                 return None
 
-    # Stage 2: Apply token truncation for LLM efficiency
+    _t2 = _time.time()
     truncation_result = await _apply_token_truncation(
         search_result,
         query_param,
         text_chunks_db.global_config,
     )
+    logger.info(f"[context T+{_bqc_el()}s] stage2 truncation: {round(_time.time()-_t2,2)}s")
 
-    # Stage 3: Merge chunks using filtered entities/relations
+    _t3 = _time.time()
     merged_chunks = await _merge_all_chunks(
         filtered_entities=truncation_result["filtered_entities"],
         filtered_relations=truncation_result["filtered_relations"],
@@ -4303,6 +4431,7 @@ async def _build_query_context(
         chunk_tracking=search_result["chunk_tracking"],
         query_embedding=search_result["query_embedding"],
     )
+    logger.info(f"[context T+{_bqc_el()}s] stage3 chunk merge: {round(_time.time()-_t3,2)}s")
 
     if (
         not merged_chunks
@@ -4311,8 +4440,7 @@ async def _build_query_context(
     ):
         return None
 
-    # Stage 4: Build final LLM context with dynamic token processing
-    # _build_context_str now always returns tuple[str, dict]
+    _t4 = _time.time()
     context, raw_data = await _build_context_str(
         entities_context=truncation_result["entities_context"],
         relations_context=truncation_result["relations_context"],
@@ -4324,6 +4452,7 @@ async def _build_query_context(
         entity_id_to_original=truncation_result["entity_id_to_original"],
         relation_id_to_original=truncation_result["relation_id_to_original"],
     )
+    logger.info(f"[context T+{_bqc_el()}s] stage4 context build: {round(_time.time()-_t4,2)}s")
 
     # Convert keywords strings to lists and add complete metadata to raw_data
     hl_keywords_list = hl_keywords.split(", ") if hl_keywords else []
@@ -5056,6 +5185,11 @@ async def naive_query(
         Returns None when no relevant chunks are retrieved.
     """
 
+    import time as _time
+    _nq_t0 = _time.time()
+    def _nq_el():
+        return round(_time.time() - _nq_t0, 2)
+
     if not query:
         return QueryResult(content=PROMPTS["fail_response"])
 
@@ -5063,7 +5197,6 @@ async def naive_query(
         use_model_func = query_param.model_func
     else:
         use_model_func = global_config["llm_model_func"]
-        # Apply higher priority (5) to query relation LLM function
         use_model_func = partial(use_model_func, _priority=5)
 
     tokenizer: Tokenizer = global_config["tokenizer"]
@@ -5071,7 +5204,9 @@ async def naive_query(
         logger.error("Tokenizer not found in global configuration.")
         return QueryResult(content=PROMPTS["fail_response"])
 
+    _t_vec = _time.time()
     chunks = await _get_vector_context(query, chunks_vdb, query_param, None)
+    logger.info(f"[naive_query T+{_nq_el()}s] vector retrieval: {round(_time.time()-_t_vec,2)}s")
 
     if chunks is None or len(chunks) == 0:
         logger.info(
@@ -5212,10 +5347,11 @@ async def naive_query(
     cached_result = await handle_cache(
         hashing_kv, args_hash, user_query, query_param.mode, cache_type="query"
     )
+    _t_llm_n = _time.time()
     if cached_result is not None:
-        cached_response, _ = cached_result  # Extract content, ignore timestamp
+        cached_response, _ = cached_result
         logger.info(
-            " == LLM cache == Query cache hit, using cached response as query result"
+            f"[naive_query T+{_nq_el()}s] LLM cache HIT ({round(_time.time()-_t_llm_n,2)}s)"
         )
         response = cached_response
     else:
@@ -5225,6 +5361,9 @@ async def naive_query(
             history_messages=query_param.conversation_history,
             enable_cot=True,
             stream=query_param.stream,
+        )
+        logger.info(
+            f"[naive_query T+{_nq_el()}s] LLM generation done ({round(_time.time()-_t_llm_n,2)}s)"
         )
 
         if hashing_kv and hashing_kv.global_config.get("enable_llm_cache"):
@@ -5251,9 +5390,8 @@ async def naive_query(
                 ),
             )
 
-    # Return unified result based on actual response type
+    logger.info(f"[naive_query T+{_nq_el()}s] naive_query TOTAL")
     if isinstance(response, str):
-        # Non-streaming response (string)
         if len(response) > len(sys_prompt):
             response = (
                 response[len(sys_prompt) :]

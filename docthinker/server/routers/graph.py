@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException, Body
+from fastapi.responses import FileResponse
 
 from ..schemas import EntityRelationshipRequest, RelationshipRequest
 from ..state import state
@@ -315,6 +316,34 @@ async def get_graph_data(session_id: Optional[str] = None):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to extract graph data: {str(e)}")
+
+
+@router.get("/knowledge-graph/image/{session_id}/{filename}")
+async def serve_image_node(session_id: str, filename: str):
+    """Serve an image file from a session's multimodal/images directory."""
+    if not state.session_manager:
+        raise HTTPException(status_code=500, detail="Service not initialized")
+
+    session = state.session_manager.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    knowledge_dir = session.get("knowledge_dir") or ""
+    if not knowledge_dir:
+        raise HTTPException(status_code=404, detail="Knowledge dir not found")
+
+    safe_name = Path(filename).name
+    img_path = Path(knowledge_dir) / "multimodal" / "images" / safe_name
+
+    if not img_path.is_file():
+        raise HTTPException(status_code=404, detail=f"Image file not found: {safe_name}")
+
+    _MIME = {
+        ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+        ".webp": "image/webp", ".gif": "image/gif", ".bmp": "image/bmp",
+    }
+    mime = _MIME.get(img_path.suffix.lower(), "image/png")
+    return FileResponse(str(img_path), media_type=mime)
 
 
 @router.post("/knowledge-graph/expand")

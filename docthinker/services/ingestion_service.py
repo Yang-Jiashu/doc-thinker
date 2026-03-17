@@ -34,6 +34,8 @@ class IngestionService:
         except TypeError:
             session_rag = self.session_manager.get_session_rag(session_id, config)
         session_rag.llm_model_func = await self.get_llm_model_func()
+        session_rag.keyword_llm_model_func = getattr(self.rag_global, "keyword_llm_model_func", None)
+        session_rag.entity_extraction_llm_model_func = getattr(self.rag_global, "entity_extraction_llm_model_func", None)
         session_rag.embedding_func = await self.get_embedding_func()
         session_rag.vision_model_func = getattr(self.rag_global, "vision_model_func", None)
         await session_rag._ensure_graphcore_initialized()

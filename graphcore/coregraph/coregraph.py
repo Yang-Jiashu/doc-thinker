@@ -284,7 +284,7 @@ class GraphCore:
     """Token limit for embedding model. Set automatically from embedding_func.max_token_size in __post_init__."""
 
     embedding_batch_num: int = field(default=int(os.getenv("EMBEDDING_BATCH_NUM", 10)))
-    """Batch size for embedding computations."""
+    """Batch size for embedding computations. Keep <=10 for DashScope rate limits."""
 
     embedding_func_max_async: int = field(
         default=int(os.getenv("EMBEDDING_FUNC_MAX_ASYNC", 8))
@@ -313,6 +313,12 @@ class GraphCore:
 
     llm_model_func: Callable[..., object] | None = field(default=None)
     """Function for interacting with the large language model (LLM). Must be set before use."""
+
+    keyword_llm_model_func: Callable[..., object] | None = field(default=None)
+    """Optional lightweight LLM for keyword extraction. Falls back to llm_model_func if None."""
+
+    entity_extraction_llm_model_func: Callable[..., object] | None = field(default=None)
+    """Optional lightweight LLM for entity extraction during ingestion. Falls back to llm_model_func if None."""
 
     llm_model_name: str = field(default="qwen-plus")
     """Name of the LLM model used for generating responses."""
@@ -657,7 +663,6 @@ class GraphCore:
         # Directly use llm_response_cache, don't create a new object
         hashing_kv = self.llm_response_cache
 
-        # Get timeout from LLM model kwargs for dynamic timeout calculation
         self.llm_model_func = priority_limit_async_func_call(
             self.llm_model_max_async,
             llm_timeout=self.default_llm_timeout,
@@ -669,6 +674,33 @@ class GraphCore:
                 **self.llm_model_kwargs,
             )
         )
+
+        if self.keyword_llm_model_func is not None:
+            self.keyword_llm_model_func = priority_limit_async_func_call(
+                self.llm_model_max_async,
+                llm_timeout=60,
+                queue_name="Keyword LLM func",
+            )(
+                partial(
+                    self.keyword_llm_model_func,
+                    hashing_kv=hashing_kv,
+                    **self.llm_model_kwargs,
+                )
+            )
+
+        if self.entity_extraction_llm_model_func is not None:
+            entity_extract_max_async = max(self.llm_model_max_async, 32)
+            self.entity_extraction_llm_model_func = priority_limit_async_func_call(
+                entity_extract_max_async,
+                llm_timeout=180,
+                queue_name="Entity Extract LLM func",
+            )(
+                partial(
+                    self.entity_extraction_llm_model_func,
+                    hashing_kv=hashing_kv,
+                    **self.llm_model_kwargs,
+                )
+            )
 
         self._storages_status = StoragesStatus.CREATED
 
@@ -1176,15 +1208,28 @@ class GraphCore:
         Returns:
             str: tracking ID for monitoring processing status
         """
-        # Generate track_id if not provided
+        import time as _time
+        _ins_t0 = _time.perf_counter()
+
         if track_id is None:
             track_id = generate_track_id("insert")
 
+        input_len = len(input) if isinstance(input, str) else sum(len(s) for s in input)
+        logger.info("[ainsert] start | chars=%d track=%s", input_len, track_id)
+
+        _t_enq = _time.perf_counter()
         await self.apipeline_enqueue_documents(input, ids, file_paths, track_id)
+        logger.info("[ainsert T+%.2fs] enqueue done (%.2fs)",
+                    _time.perf_counter() - _ins_t0, _time.perf_counter() - _t_enq)
+
+        _t_proc = _time.perf_counter()
         await self.apipeline_process_enqueue_documents(
             split_by_character, split_by_character_only
         )
+        logger.info("[ainsert T+%.2fs] pipeline processing done (%.2fs)",
+                    _time.perf_counter() - _ins_t0, _time.perf_counter() - _t_proc)
 
+        logger.info("[ainsert T+%.2fs] TOTAL", _time.perf_counter() - _ins_t0)
         return track_id
 
     # TODO: deprecated, use insert instead
@@ -1855,7 +1900,14 @@ class GraphCore:
                                 if pipeline_status.get("cancellation_requested", False):
                                     raise PipelineCancelledException("User cancelled")
 
-                            # Process document in two stages
+                            import time as _time
+                            _doc_t0 = _time.perf_counter()
+                            logger.info(
+                                "[pipeline] doc %s: %d chunks → "
+                                "Stage 1/3 (embedding chunks)...",
+                                doc_id[:16], len(chunks),
+                            )
+
                             # Stage 1: Process text chunks and docs (parallel execution)
                             doc_status_task = asyncio.create_task(
                                 self.doc_status.upsert(
@@ -1865,7 +1917,7 @@ class GraphCore:
                                             "chunks_count": len(chunks),
                                             "chunks_list": list(
                                                 chunks.keys()
-                                            ),  # Save chunks list
+                                            ),
                                             "content_summary": status_doc.content_summary,
                                             "content_length": status_doc.content_length,
                                             "created_at": status_doc.created_at,
@@ -1873,7 +1925,7 @@ class GraphCore:
                                                 timezone.utc
                                             ).isoformat(),
                                             "file_path": file_path,
-                                            "track_id": status_doc.track_id,  # Preserve existing track_id
+                                            "track_id": status_doc.track_id,
                                             "metadata": {
                                                 "processing_start_time": processing_start_time
                                             },
@@ -1888,7 +1940,6 @@ class GraphCore:
                                 self.text_chunks.upsert(chunks)
                             )
 
-                            # First stage tasks (parallel execution)
                             first_stage_tasks = [
                                 doc_status_task,
                                 chunks_vdb_task,
@@ -1896,10 +1947,14 @@ class GraphCore:
                             ]
                             entity_relation_task = None
 
-                            # Execute first stage tasks
                             await asyncio.gather(*first_stage_tasks)
+                            logger.info(
+                                "[pipeline T+%.2fs] doc %s: Stage 1/3 done (embed+chunk store) → "
+                                "Stage 2/3 (entity extraction for %d chunks, auto-merged)...",
+                                _time.perf_counter() - _doc_t0, doc_id[:16], len(chunks),
+                            )
 
-                            # Stage 2: Entity/relation extraction
+                            _t_s2 = _time.perf_counter()
                             if self.entity_extraction_mode == "ner":
                                 await self._process_ner_extraction(
                                     chunks, doc_id, file_path,
@@ -1915,6 +1970,12 @@ class GraphCore:
                                 )
                                 chunk_results = await entity_relation_task
                                 file_extraction_stage_ok = True
+                            logger.info(
+                                "[pipeline T+%.2fs] doc %s: Stage 2/3 done (entity extraction, %.2fs) → "
+                                "Stage 3/3 (merge & persist)...",
+                                _time.perf_counter() - _doc_t0, doc_id[:16],
+                                _time.perf_counter() - _t_s2,
+                            )
 
                         except Exception as e:
                             # Check if this is a user cancellation
@@ -1983,10 +2044,8 @@ class GraphCore:
                                 }
                             )
 
-                        # Concurrency is controlled by keyed lock for individual entities and relationships
                         if file_extraction_stage_ok:
                             try:
-                                # Check for cancellation before merge
                                 async with pipeline_status_lock:
                                     if pipeline_status.get(
                                         "cancellation_requested", False
@@ -1995,6 +2054,7 @@ class GraphCore:
                                             "User cancelled"
                                         )
 
+                                _t_merge = _time.perf_counter()
                                 if chunk_results:
                                     await merge_nodes_and_edges(
                                         chunk_results=chunk_results,
@@ -2014,10 +2074,13 @@ class GraphCore:
                                         total_files=total_files,
                                         file_path=file_path,
                                     )
+                                logger.info("[pipeline T+%.2fs] doc %s: merge done (%.2fs)",
+                                            _time.perf_counter() - _doc_t0, doc_id[:16],
+                                            _time.perf_counter() - _t_merge)
 
-                                # Record processing end time
                                 processing_end_time = int(time.time())
 
+                                _t_persist = _time.perf_counter()
                                 await self.doc_status.upsert(
                                     {
                                         doc_id: {
@@ -2031,7 +2094,7 @@ class GraphCore:
                                                 timezone.utc
                                             ).isoformat(),
                                             "file_path": file_path,
-                                            "track_id": status_doc.track_id,  # Preserve existing track_id
+                                            "track_id": status_doc.track_id,
                                             "metadata": {
                                                 "processing_start_time": processing_start_time,
                                                 "processing_end_time": processing_end_time,
@@ -2040,8 +2103,12 @@ class GraphCore:
                                     }
                                 )
 
-                                # Call _insert_done after processing each file
                                 await self._insert_done()
+                                logger.info(
+                                    "[pipeline T+%.2fs] doc %s: Stage 3/3 done (persist %.2fs) ✓ ALL STAGES COMPLETE",
+                                    _time.perf_counter() - _doc_t0, doc_id[:16],
+                                    _time.perf_counter() - _t_persist,
+                                )
 
                                 async with pipeline_status_lock:
                                     log_message = f"Completed processing file {current_file_number}/{total_files}: {file_path}"

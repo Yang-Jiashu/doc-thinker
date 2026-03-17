@@ -84,6 +84,48 @@ def _get_pending_session_files(session_id: Optional[str]) -> List[Dict[str, Any]
     return pending
 
 
+def _build_memory_context(analogies: List[Tuple[Any, float, Optional[str]]]) -> str:
+    """Build a structured memory-context prompt from retrieved episodic memories."""
+    if not analogies:
+        return ""
+    lines = [
+        "---历史记忆关联---",
+        "以下是与当前问题相关的历史对话记忆。请在回答时自然地关联这些记忆"
+        "（如'根据之前的讨论...'、'这与之前提到的...相关'等），但不要生硬罗列：",
+    ]
+    count = 0
+    for i, (ep, score, hint) in enumerate(analogies[:3], 1):
+        summary = (ep.summary or "").strip()
+        if not summary:
+            continue
+        source = hint or "语义相似"
+        line = f"{i}. {summary}"
+        if ep.key_points:
+            line += f" (要点: {', '.join(ep.key_points[:3])})"
+        line += f" [关联方式: {source}, 置信度: {score:.2f}]"
+        lines.append(line)
+        count += 1
+    if count == 0:
+        return ""
+    return "\n".join(lines)
+
+
+def _build_memory_summaries(analogies: List[Tuple[Any, float, Optional[str]]]) -> List[Dict[str, Any]]:
+    """Extract structured memory summaries for frontend display."""
+    result: List[Dict[str, Any]] = []
+    for ep, score, hint in analogies[:5]:
+        summary = (ep.summary or "").strip()
+        if not summary:
+            continue
+        result.append({
+            "summary": summary,
+            "score": round(score, 2),
+            "hint": hint or "语义相似",
+            "concepts": list(ep.concepts or [])[:6],
+        })
+    return result
+
+
 def _format_thinking_process(details: Dict[str, Any], meta: Dict[str, Any]) -> str:
     lines: List[str] = []
     if meta.get("memory_mode"):
@@ -96,6 +138,8 @@ def _format_thinking_process(details: Dict[str, Any], meta: Dict[str, Any]) -> s
         lines.append(f"expanded_hits: {details['expanded_hits']}")
     if details.get("mode"):
         lines.append(f"mode: {details['mode']}")
+    if details.get("memory_context_injected"):
+        lines.append("memory_context: injected")
     return "\n".join(lines)
 
 
@@ -378,6 +422,7 @@ async def _get_session_rag_or_raise(session_id: Optional[str]):
     graphcore_kwargs = getattr(state.rag_instance, "graphcore_kwargs", {})
     session_rag = state.session_manager.get_session_rag(session_id, config, graphcore_kwargs)
     session_rag.llm_model_func = state.rag_instance.llm_model_func
+    session_rag.keyword_llm_model_func = getattr(state.rag_instance, "keyword_llm_model_func", None)
     session_rag.embedding_func = state.rag_instance.embedding_func
     await session_rag._ensure_graphcore_initialized()
     return session_rag
@@ -392,6 +437,44 @@ async def _ingest_chat_turn(question: str, answer: str, session_id: Optional[str
             await state.ingestion_service.ingest_text(text_to_ingest, session_id=session_id)
         except Exception:
             pass
+
+
+async def _store_episodic_memory(
+    question: str,
+    answer: str,
+    session_id: Optional[str],
+    timestamp: Optional[float] = None,
+) -> None:
+    """Write the current Q&A turn into the episodic memory engine so that
+    future deep-mode queries can retrieve it via `retrieve_analogies`."""
+    if not session_id:
+        return
+    memory_engine = get_session_memory_engine(session_id)
+    if memory_engine is None:
+        return
+
+    import logging
+    _log = logging.getLogger("docthinker.memory")
+
+    summary = f"用户问: {question}\n回答: {answer[:300]}"
+
+    concepts: List[str] = []
+    import re
+    cjk_runs = re.findall(r'[\u4e00-\u9fff]{2,6}', question)
+    concepts = list(dict.fromkeys(cjk_runs))[:10]
+
+    try:
+        await memory_engine.add_observation(
+            summary=summary,
+            key_points=[question],
+            concepts=concepts,
+            source_type="chat_turn",
+            session_id=session_id,
+            timestamp=timestamp or time.time(),
+        )
+        _log.info(f"[episodic] stored chat turn for session {session_id}: q=\"{question[:40]}\"")
+    except Exception as e:
+        _log.warning(f"[episodic] failed to store chat turn: {e}")
 
 
 def _get_expanded_node_manager(session_id: Optional[str]) -> Optional[ExpandedNodeManager]:
@@ -1025,6 +1108,7 @@ async def query(request: QueryRequest, background_tasks: BackgroundTasks):
                         image_activation_threshold=request.image_activation_threshold,
                         image_activation_top_k=request.image_activation_top_k,
                         user_prompt=merged_instruction or None,
+                        conversation_history=conversation_history,
                     ),
                     timeout=SESSION_QUERY_TIMEOUT_SECONDS,
                 )
@@ -1108,6 +1192,7 @@ async def query(request: QueryRequest, background_tasks: BackgroundTasks):
             "answer_mode": answer_mode,
             "expanded_matches": expanded_matches[:min(2, len(expanded_matches))],
             "retrieval_instruction_applied": bool(merged_instruction),
+            "memory_summaries": memory_summaries,
         }
     except Exception as e:
         err_msg = str(e).lower()

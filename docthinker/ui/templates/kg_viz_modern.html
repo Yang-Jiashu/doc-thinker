@@ -13,6 +13,20 @@
     .level-2 { fill: #3b82f6; }
     .level-1 { fill: #10b981; }
     .level-expanded { fill: #fbbf24; }
+    .level-image { fill: #8b5cf6; }
+    .dimmed { opacity: 0.08 !important; }
+    .highlighted circle { stroke: #f59e0b; stroke-width: 3; }
+    .detail-section { border-left: 3px solid #e2e8f0; padding-left: 12px; margin-bottom: 12px; }
+    .detail-section.edge-detail { border-left-color: #3b82f6; }
+    .detail-section.node-detail { border-left-color: #10b981; }
+    .relation-list-item { padding: 6px 8px; border-radius: 6px; background: #f8fafc; margin-bottom: 4px; font-size: 13px; }
+    .relation-list-item:hover { background: #eff6ff; }
+    .img-thumb { max-width: 100%; max-height: 160px; border-radius: 8px; border: 1px solid #e2e8f0; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; object-fit: contain; background: #f8fafc; }
+    .img-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+    .lightbox img { max-width: 92vw; max-height: 92vh; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); object-fit: contain; }
+    .lightbox-close { position: absolute; top: 16px; right: 24px; color: #fff; font-size: 28px; cursor: pointer; background: rgba(0,0,0,0.4); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
 </style>
 {% endblock %}
 
@@ -44,10 +58,9 @@
     <div class="flex-1 relative bg-slate-50">
         <div id="graph-container" class="absolute inset-0"></div>
         
-        <!-- Controls -->
         <div class="absolute top-4 left-4 space-y-3">
             <div class="card p-3">
-                <input type="text" id="search-input" placeholder="搜索节点..." 
+                <input type="text" id="search-input" placeholder="搜索节点（模糊匹配）..." 
                     class="input-field px-3 py-2 rounded-lg text-sm w-48"
                     oninput="searchNodes(this.value)">
             </div>
@@ -81,16 +94,15 @@
                 <p class="text-xs font-semibold text-slate-500 mb-2">调试</p>
                 <button onclick="checkExpandedNodes()" class="px-3 py-1.5 rounded text-xs bg-slate-100 hover:bg-slate-200 text-slate-600">检查扩展节点 (API)</button>
                 <p id="debug-result" class="text-xs text-slate-500 mt-2 break-all"></p>
-                <p class="text-xs text-slate-400 mt-1">API 返回 Not Found 时，请先启动后端：<code class="text-xs">python -m uvicorn docthinker.server.app:app --host 0.0.0.0 --port 8000</code></p>
             </div>
         </div>
     </div>
     
     <!-- Detail Panel -->
-    <div id="detail-panel" class="hidden w-80 bg-white border-l border-slate-200 overflow-y-auto">
+    <div id="detail-panel" class="hidden w-96 bg-white border-l border-slate-200 overflow-y-auto">
         <div class="p-5">
             <div class="flex items-center justify-between mb-4">
-                <h3 id="detail-name" class="font-semibold text-slate-800">节点名称</h3>
+                <h3 id="detail-title" class="font-semibold text-slate-800 text-base">详情</h3>
                 <button onclick="closePanel()" class="text-slate-400 hover:text-slate-600">
                     <i class="fa-solid fa-times"></i>
                 </button>
@@ -127,33 +139,15 @@ window.onload = initGraph;
 function getKgApiPrefix() {
     return (window.KG_API_PREFIX || '/api/v1').replace(/\/$/, '');
 }
-
-function getStoredSessionId() {
-    try {
-        return localStorage.getItem('current_session_id') || '';
-    } catch (_) {
-        return '';
-    }
-}
-
-function setStoredSessionId(sessionId) {
-    try {
-        if (sessionId) {
-            localStorage.setItem('current_session_id', String(sessionId));
-        }
-    } catch (_) {}
-}
+function getStoredSessionId() { try { return localStorage.getItem('current_session_id') || ''; } catch (_) { return ''; } }
+function setStoredSessionId(sid) { try { if (sid) localStorage.setItem('current_session_id', String(sid)); } catch (_) {} }
 
 async function fetchSessions() {
     try {
         const resp = await fetch(getKgApiPrefix() + '/sessions');
         const data = await resp.json();
-        if (resp.ok && Array.isArray(data.sessions)) {
-            return data.sessions;
-        }
-    } catch (e) {
-        console.warn('Fetch sessions failed:', e);
-    }
+        if (resp.ok && Array.isArray(data.sessions)) return data.sessions;
+    } catch (e) { console.warn('Fetch sessions failed:', e); }
     return [];
 }
 
@@ -161,73 +155,52 @@ function renderSessionSelector(sessions, selectedId) {
     const selector = document.getElementById('kg-session-selector');
     if (!selector) return;
     selector.innerHTML = '';
-
-    const normalizedSelected = selectedId ? String(selectedId) : '';
-    sessions.forEach((session) => {
-        const option = document.createElement('option');
-        option.value = String(session.id);
-        option.textContent = `${session.id} | ${session.title || '新对话'}`;
-        selector.appendChild(option);
+    sessions.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = String(s.id);
+        opt.textContent = `${s.id} | ${s.title || '新对话'}`;
+        selector.appendChild(opt);
     });
-
     if (sessions.length === 0) {
-        const option = document.createElement('option');
-        option.value = '';
-        option.textContent = '暂无会话';
-        selector.appendChild(option);
-        selector.value = '';
-        return;
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = '暂无会话';
+        selector.appendChild(opt);
     }
-
-    selector.value = normalizedSelected || String(sessions[0].id);
+    selector.value = (selectedId && sessions.find(s => String(s.id) === String(selectedId)))
+        ? String(selectedId) : (sessions.length ? String(sessions[0].id) : '');
 }
 
 async function ensureKgSessionReady() {
     const sessions = await fetchSessions();
-    if (sessions.length === 0) {
-        currentSessionId = '';
-        renderSessionSelector([], '');
-        return;
-    }
-
-    let targetId = getStoredSessionId();
-    if (!targetId || !sessions.find((s) => String(s.id) === String(targetId))) {
-        targetId = String(sessions[0].id);
-    }
-    currentSessionId = String(targetId);
+    if (!sessions.length) { currentSessionId = ''; renderSessionSelector([], ''); return; }
+    let tid = getStoredSessionId();
+    if (!tid || !sessions.find(s => String(s.id) === String(tid))) tid = String(sessions[0].id);
+    currentSessionId = String(tid);
     setStoredSessionId(currentSessionId);
     renderSessionSelector(sessions, currentSessionId);
 }
 
-async function handleKgSessionSwitch(sessionId) {
-    const sid = sessionId ? String(sessionId) : '';
+async function handleKgSessionSwitch(sid) {
+    sid = sid ? String(sid) : '';
     if (!sid || sid === currentSessionId) return;
     currentSessionId = sid;
     setStoredSessionId(currentSessionId);
+    focusedNodeId = null;
     await loadRealData();
 }
 
 async function initGraph() {
     const container = document.getElementById('graph-container');
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-
-    svg = d3.select('#graph-container').append('svg')
-        .attr('width', width).attr('height', height);
-
-    const zoom = d3.zoom().scaleExtent([0.1, 4]).on('zoom', (e) => {
-        currentTransform = e.transform;
-        g.attr('transform', e.transform);
-    });
+    const w = container.clientWidth, h = container.clientHeight;
+    svg = d3.select('#graph-container').append('svg').attr('width', w).attr('height', h);
+    const zoom = d3.zoom().scaleExtent([0.05, 6]).on('zoom', e => { currentTransform = e.transform; g.attr('transform', e.transform); });
     svg.call(zoom);
-
+    svg.on('click', function(e) { if (e.target === this || e.target.tagName === 'svg') resetHighlight(); });
     g = svg.append('g');
     await ensureKgSessionReady();
     await loadRealData();
-
-    window.addEventListener('resize', () => {
-        svg.attr('width', container.clientWidth).attr('height', container.clientHeight);
-    });
+    window.addEventListener('resize', () => { svg.attr('width', container.clientWidth).attr('height', container.clientHeight); });
 }
 
 function switchGraphView(viewType) {
@@ -252,7 +225,6 @@ async function loadRealData() {
         renderGraph();
         return;
     }
-
     try {
         let url;
         if (currentGraphView === 'causal') {
@@ -265,22 +237,15 @@ async function loadRealData() {
         const resp = await fetch(url);
         const text = await resp.text();
         let data;
-        try {
-            data = JSON.parse(text);
-        } catch (parseErr) {
-            throw new Error('JSON parse failed: ' + parseErr.message + ' (HTTP ' + resp.status + ')');
-        }
+        try { data = JSON.parse(text); } catch (pe) { throw new Error('JSON parse failed: ' + pe.message); }
 
         const meta = data.metadata || {};
         if (!resp.ok || meta.error || meta.hint) {
             document.getElementById('data-source-hint').textContent = ` | 会话 ${currentSessionId} | ` + (meta.hint || meta.error || ('HTTP ' + resp.status));
-            graphData = { nodes: [], links: [] };
-            renderGraph();
-            return;
+            graphData = { nodes: [], links: [] }; renderGraph(); return;
         }
 
-        const expandedCount = (data.nodes || []).filter(n => n.is_expanded === true || n.is_expanded === 1 || n.is_expanded === '1' || n.color === '#FFD700').length;
-        const backendExpanded = meta.expanded_in_response != null ? meta.expanded_in_response : expandedCount;
+        const expandedCount = (data.nodes || []).filter(n => n.is_expanded).length;
         const totalNodes = meta.total_nodes ?? (data.nodes?.length || 0);
         const viewLabels = { semantic: '语义KG', causal: '因果DAG', episodic: '情景记忆' };
         let hint = ` | ${viewLabels[currentGraphView] || '语义KG'} | 会话 ${currentSessionId} | ${totalNodes} 节点`;
@@ -289,7 +254,7 @@ async function loadRealData() {
         document.getElementById('data-source-hint').textContent = hint;
 
         if (data.nodes && data.nodes.length > 0) {
-            const levelMap = { 'field': 3, 'domain': 3, 'concept': 2, 'method': 2, 'artifact': 1, 'data': 1, 'person': 1, 'event': 1, 'location': 1, 'organization': 1, 'content': 1, 'naturalobject': 1 };
+            const levelMap = { 'field': 3, 'domain': 3, 'concept': 2, 'method': 2, 'artifact': 1, 'data': 1, 'person': 1, 'event': 1, 'location': 1, 'organization': 1, 'content': 1, 'naturalobject': 1, 'image': 2, 'image_asset': 2, 'figure': 2, 'diagram': 2 };
             graphData = {
                 nodes: data.nodes.map(n => ({
                     id: n.id,
@@ -298,7 +263,10 @@ async function loadRealData() {
                     type: n.type,
                     description: n.description || '',
                     connections: [],
-                    is_expanded: !!(n.is_expanded || n.is_expanded === 1 || n.is_expanded === '1' || n.color === '#FFD700'),
+                    is_expanded: !!n.is_expanded,
+                    is_image_node: !!n.is_image_node,
+                    has_image: !!n.has_image,
+                    image_file: n.image_file || '',
                     color: n.color
                 })),
                 links: (data.edges || []).map(e => ({
@@ -321,15 +289,12 @@ async function loadRealData() {
             renderGraph();
             return;
         }
-
         document.getElementById('data-source-hint').textContent = ` | 会话 ${currentSessionId} | 暂无节点`;
-        graphData = { nodes: [], links: [] };
-        renderGraph();
+        graphData = { nodes: [], links: [] }; renderGraph();
     } catch (e) {
         console.warn('Failed to load real data:', e);
-        document.getElementById('data-source-hint').textContent = ` | 会话 ${currentSessionId} | 加载失败: ` + (e.message || e);
-        graphData = { nodes: [], links: [] };
-        renderGraph();
+        document.getElementById('data-source-hint').textContent = ` | 加载失败: ` + (e.message || e);
+        graphData = { nodes: [], links: [] }; renderGraph();
     }
 }
 
@@ -346,6 +311,7 @@ function truncName(name, maxLen) {
 
 function renderGraph() {
     g.selectAll('*').remove();
+    focusedNodeId = null;
 
     const MAX_RENDER_NODES = 200;
     const isExpanded = n => !!(n.is_expanded || n.is_expanded === 1 || n.is_expanded === '1' || n.color === '#FFD700');
@@ -368,6 +334,8 @@ function renderGraph() {
     const height = container.clientHeight;
     const pad = 60;
 
+    const panelW = 400;
+    const effectiveW = w - panelW;
     simulation = d3.forceSimulation(visibleNodes)
         .force('link', d3.forceLink(visibleLinks).id(d => d.id).distance(120))
         .force('charge', d3.forceManyBody().strength(-350))
@@ -389,7 +357,7 @@ function renderGraph() {
     node = g.append('g').selectAll('g').data(visibleNodes)
         .enter().append('g').attr('class', 'node')
         .call(d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended))
-        .on('click', (e, d) => selectNode(d));
+        .on('click', (e, d) => { e.stopPropagation(); selectNode(d); });
 
     node.append('circle')
         .attr('r', d => nodeRadius(d))
@@ -438,6 +406,30 @@ function renderGraph() {
     });
 }
 
+/* ───────── BFS hop-level calculation ───────── */
+function computeHopLevels(startId, maxHops) {
+    const levels = {};
+    levels[startId] = 0;
+    let frontier = [startId];
+    for (let hop = 1; hop <= maxHops; hop++) {
+        const nextFrontier = [];
+        for (const nid of frontier) {
+            const nd = graphData.nodes.find(n => n.id === nid);
+            if (!nd) continue;
+            for (const cid of (nd.connections || [])) {
+                if (!(cid in levels)) {
+                    levels[cid] = hop;
+                    nextFrontier.push(cid);
+                }
+            }
+        }
+        frontier = nextFrontier;
+        if (!frontier.length) break;
+    }
+    return levels;
+}
+
+/* ───────── Node click: focus + hop levels ───────── */
 function selectNode(d) {
     selectedNode = d;
     document.getElementById('detail-panel').classList.remove('hidden');
@@ -509,6 +501,23 @@ function closePanel() {
     document.getElementById('detail-panel').classList.add('hidden');
 }
 
+function openLightbox(imgUrl) {
+    const existing = document.querySelector('.lightbox');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox';
+    overlay.innerHTML = `<span class="lightbox-close">&times;</span><img src="${imgUrl}" alt="图片">`;
+    overlay.addEventListener('click', () => overlay.remove());
+    document.body.appendChild(overlay);
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        const lb = document.querySelector('.lightbox');
+        if (lb) lb.remove();
+    }
+});
+
 function focusNode() {
     if (!selectedNode) return;
     const container = document.getElementById('graph-container');
@@ -519,14 +528,28 @@ function focusNode() {
     );
 }
 
-function toggleLevel(level) {
-    visibleLevels[level] = !visibleLevels[level];
-    renderGraph();
-}
+function toggleLevel(level) { visibleLevels[level] = !visibleLevels[level]; renderGraph(); }
+function toggleExpanded() { visibleLevels.expanded = !visibleLevels.expanded; renderGraph(); }
 
-function toggleExpanded() {
-    visibleLevels.expanded = !visibleLevels.expanded;
-    renderGraph();
+/* ───────── Fuzzy search (soft match) ───────── */
+function fuzzyScore(query, target) {
+    if (!query || !target) return 0;
+    const q = query.toLowerCase(), t = target.toLowerCase();
+    if (t.includes(q)) return 1.0;
+    if (t.startsWith(q[0])) {
+        let matched = 0;
+        let ti = 0;
+        for (let qi = 0; qi < q.length && ti < t.length; qi++) {
+            while (ti < t.length) {
+                if (t[ti] === q[qi]) { matched++; ti++; break; }
+                ti++;
+            }
+        }
+        return matched / q.length;
+    }
+    let matched = 0;
+    for (const ch of q) { if (t.includes(ch)) matched++; }
+    return matched / q.length * 0.5;
 }
 
 function searchNodes(query) {
@@ -549,34 +572,24 @@ function refreshGraph() {
 
 async function checkExpandedNodes() {
     const el = document.getElementById('debug-result');
-    if (!currentSessionId) {
-        el.textContent = '请先选择会话';
-        return;
-    }
+    if (!currentSessionId) { el.textContent = '请先选择会话'; return; }
     el.textContent = '检查中...';
     try {
-        const prefix = getKgApiPrefix();
-        const url = prefix + '/knowledge-graph/debug-expanded?session_id=' + encodeURIComponent(currentSessionId);
+        const url = getKgApiPrefix() + '/knowledge-graph/debug-expanded?session_id=' + encodeURIComponent(currentSessionId);
         const resp = await fetch(url);
         const data = await resp.json().catch(() => ({}));
         if (data.expanded_count !== undefined) {
-            el.textContent = `总节点: ${data.total_nodes || 0}, 扩展节点: ${data.expanded_count}。${data.storage_info?.graph_file ? ' 文件: ' + data.storage_info.graph_file : ''}`;
+            el.textContent = `总节点: ${data.total_nodes || 0}, 扩展: ${data.expanded_count}`;
         } else {
-            const err = data.detail || data.error || (resp.status ? 'HTTP ' + resp.status : '') || '请求失败';
-            el.textContent = err;
+            el.textContent = data.detail || data.error || ('HTTP ' + resp.status) || '请求失败';
         }
-    } catch (e) {
-        el.textContent = '错误: ' + e.message;
-    }
+    } catch (e) { el.textContent = '错误: ' + e.message; }
 }
 
 async function expandGraph() {
     const btn = document.getElementById('expand-btn');
     if (btn.disabled) return;
-    if (!currentSessionId) {
-        showToast('请先选择会话', 'warning');
-        return;
-    }
+    if (!currentSessionId) { showToast('请先选择会话', 'warning'); return; }
     btn.disabled = true;
     btn.textContent = '扩展中...';
     try {
@@ -594,19 +607,23 @@ async function expandGraph() {
             showToast(`扩展完成：+${nodes} 节点, +${edges} 边 (聚类=${clusters}, 校验通过=${validated})`, 'success');
             loadRealData();
         } else {
-            const msg = data.detail || data.error || '未知错误';
-            showToast('扩展失败: ' + msg, 'error');
+            showToast('扩展失败: ' + (data.detail || data.error || '未知错误'), 'error');
         }
-    } catch (err) {
-        showToast('扩展请求失败: ' + err.message, 'error');
-    }
+    } catch (err) { showToast('扩展请求失败: ' + err.message, 'error'); }
     btn.disabled = false;
     btn.textContent = '扩展';
 }
 
-function dragstarted(e, d) { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }
-function dragged(e, d) { d.fx = e.x; d.fy = e.y; }
-function dragended(e, d) { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }
+function dragstarted(e, d) {
+    if (!e.active) simulation.alphaTarget(0.15).restart();
+    d.fx = d.x; d.fy = d.y;
+}
+function dragged(e, d) {
+    d.fx = e.x; d.fy = e.y;
+}
+function dragended(e, d) {
+    if (!e.active) simulation.alphaTarget(0);
+    d.fx = null; d.fy = null;
+}
 </script>
 {% endblock %}
-

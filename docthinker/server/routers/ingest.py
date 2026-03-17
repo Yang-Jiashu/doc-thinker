@@ -479,8 +479,13 @@ async def _process_text_for_ingest(
         return processed_text, metadata
 
     if state.cognitive_processor:
+        t0 = time.perf_counter()
         try:
             insight = await state.cognitive_processor.process(content, source_type=source_type)
+            elapsed = time.perf_counter() - t0
+            _log.info("[cognitive] completed in %.2fs | entities=%d relations=%d",
+                      elapsed, len(insight.entities), len(insight.relations))
+
             link_names = ", ".join([l.name for l in insight.potential_links[:10]])
             entity_names = ", ".join([e.name for e in insight.entities[:20]])
             relation_pairs = ", ".join([f"{r.source}->{r.relation}->{r.target}" for r in insight.relations[:20]])
@@ -514,8 +519,9 @@ async def _process_text_for_ingest(
                     "action_items": insight.action_items,
                 }
             )
-        except Exception:
-            pass
+        except Exception as exc:
+            elapsed = time.perf_counter() - t0
+            _log.warning("[cognitive] failed after %.2fs: %s", elapsed, exc)
     return processed_text, metadata
 
 
@@ -1049,6 +1055,8 @@ async def ingest_files(
                 pass
 
         async def _background_file_processing(file_paths: List[str], sid: str):
+            _bg_t0 = time.perf_counter()
+            _log.info("[ingest] background processing started | files=%d sid=%s", len(file_paths), sid)
             try:
                 for path_str in file_paths:
                     try:
@@ -1169,22 +1177,33 @@ async def ingest_files(
                                 sid, img_path.name, "failed"
                             )
 
-                # 3) Plain text files — send raw text to GraphCore (no Cognitive pre-processing)
+                # 3) Plain text files — skip CognitiveProcessor (GraphCore handles entity extraction)
                 for txt_path in text_paths:
+                    _txt_t0 = time.perf_counter()
+                    _log.info("[TXT] start processing '%s' (%d chars)", txt_path.name, 0)
                     try:
                         content = txt_path.read_text(encoding="utf-8", errors="ignore")
-                        processed_text, metadata = await _process_text_for_ingest(content, "file")
+                        _log.info("[TXT] '%s' read: %d chars", txt_path.name, len(content))
+
+                        _t1 = time.perf_counter()
+                        processed_text, metadata = await _process_text_for_ingest(
+                            content, "file", skip_cognitive=True,
+                        )
+                        _log.info("[TXT T+%.2fs] cognitive/prep done", time.perf_counter() - _txt_t0)
+
+                        _t2 = time.perf_counter()
                         await state.ingestion_service.ingest_text(
                             content, session_id=sid, file_path=txt_path.name,
                         )
-                        await _update_local_knowledge_graph(processed_text, metadata, session_id=sid)
-                        await _update_local_knowledge_base(
-                            content,
-                            metadata,
-                            source_type="file",
-                            session_id=sid,
+                        _log.info("[TXT T+%.2fs] GraphCore ainsert done (%.2fs)",
+                                  time.perf_counter() - _txt_t0, time.perf_counter() - _t2)
+
+                        _t3 = time.perf_counter()
+                        kg_task = _update_local_knowledge_graph(processed_text, metadata, session_id=sid)
+                        kb_task = _update_local_knowledge_base(
+                            content, metadata, source_type="file", session_id=sid,
                         )
-                        await _write_session_code_snapshot(
+                        snap_task = _write_session_code_snapshot(
                             session_id=sid,
                             source_type="file",
                             source_name=txt_path.name,
@@ -1192,11 +1211,19 @@ async def ingest_files(
                             processed_text=processed_text,
                             metadata=metadata,
                         )
+                        await asyncio.gather(kg_task, kb_task, snap_task)
+                        _log.info("[TXT T+%.2fs] KG+KB+snapshot done (%.2fs)",
+                                  time.perf_counter() - _txt_t0, time.perf_counter() - _t3)
+
                         if state.session_manager:
                             state.session_manager.set_document_status(
                                 sid, txt_path.name, "processed"
                             )
-                    except Exception:
+                        _log.info("[TXT T+%.2fs] '%s' TOTAL processing complete",
+                                  time.perf_counter() - _txt_t0, txt_path.name)
+                    except Exception as exc:
+                        _log.error("[TXT T+%.2fs] '%s' FAILED: %s",
+                                   time.perf_counter() - _txt_t0, txt_path.name, exc)
                         if state.session_manager:
                             state.session_manager.set_document_status(
                                 sid, txt_path.name, "failed"
