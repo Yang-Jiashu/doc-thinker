@@ -246,6 +246,127 @@ async def _background_edge_discovery(sid: str) -> None:
         _log.warning("[edge_discovery:bg] failed for session %s (non-fatal): %s", sid, exc)
 
 
+async def _background_self_study(sid: str) -> None:
+    """Run KG self-study loop in the background after ingestion.
+
+    The self-study loop lets the LLM autonomously quiz and densify the KG,
+    improving retrieval quality before user queries arrive.
+    """
+    try:
+        if not state.session_manager or not state.rag_instance:
+            return
+        session = state.session_manager.get_session(sid)
+        if not session:
+            return
+
+        config = state.rag_instance.config
+        graphcore_kwargs = getattr(state.rag_instance, "graphcore_kwargs", {})
+        session_rag = state.session_manager.get_session_rag(sid, config, graphcore_kwargs)
+        session_rag.llm_model_func = state.rag_instance.llm_model_func
+        session_rag.embedding_func = state.rag_instance.embedding_func
+        await session_rag._ensure_graphcore_initialized()
+        gc = session_rag.graphcore
+        if gc is None:
+            return
+
+        graph = gc.chunk_entity_relation_graph
+        all_nodes = await graph.get_all_nodes()
+        all_edges = await graph.get_all_edges()
+
+        if len(all_nodes) < 5:
+            _log.info("[self_study] only %d nodes for session %s, skipping",
+                      len(all_nodes), sid)
+            return
+
+        llm_fn = getattr(session_rag, "llm_model_func", None)
+        if not llm_fn:
+            return
+
+        from docthinker.kg_self_study.orchestrator import (
+            SelfStudyConfig,
+            SelfStudyOrchestrator,
+        )
+
+        workdir = getattr(gc, "workspace", None) or "./data/_system"
+
+        async def kg_query_func(question: str):
+            try:
+                result = await gc.aquery_data(question)
+                return {
+                    "entities": result.get("entities", []),
+                    "relations": result.get("relations", []),
+                    "chunks": result.get("chunks", []),
+                }
+            except Exception:
+                return {"entities": [], "relations": [], "chunks": []}
+
+        async def kg_write_func(operations: dict):
+            for edge in operations.get("new_edges", []):
+                src = edge.get("source", "")
+                tgt = edge.get("target", "")
+                if not src or not tgt or src == tgt:
+                    continue
+                if await graph.has_edge(src, tgt):
+                    continue
+                await graph.upsert_edge(src, tgt, {
+                    "keywords": edge.get("keywords", edge.get("relation", "")),
+                    "description": edge.get("relation", ""),
+                    "weight": str(edge.get("confidence", 0.5)),
+                    "is_discovered": "1",
+                    "source_id": "self_study",
+                })
+
+            for upd in operations.get("entity_updates", []):
+                entity_name = upd.get("entity", "")
+                if not entity_name:
+                    continue
+                if upd.get("action") == "enrich_description":
+                    node = await graph.get_node(entity_name)
+                    if node:
+                        old_desc = node.get("description", "")
+                        new_content = upd.get("new_content", "")
+                        if new_content and new_content not in old_desc:
+                            node["description"] = f"{old_desc} | {new_content}"
+                            await graph.upsert_node(entity_name, node)
+
+            await graph.index_done_callback(force_save=True)
+
+        async def kg_read_nodes():
+            return await graph.get_all_nodes()
+
+        async def kg_read_edges():
+            return await graph.get_all_edges()
+
+        study_config = SelfStudyConfig(
+            max_rounds=3,
+            max_tokens=30000,
+            questions_per_round=2,
+            experience_store_path=f"{workdir}/experiences_{sid}.json",
+        )
+
+        orchestrator = SelfStudyOrchestrator(
+            llm_func=llm_fn,
+            kg_query_func=kg_query_func,
+            kg_write_func=kg_write_func,
+            kg_read_nodes_func=kg_read_nodes,
+            kg_read_edges_func=kg_read_edges,
+            config=study_config,
+        )
+
+        result = await orchestrator.run_session()
+        _log.info(
+            "[self_study:bg] session %s — %d rounds, %d new edges, "
+            "%d updates, %d experiences in %.1fs",
+            sid, len(result.rounds), result.total_new_edges,
+            result.total_entity_updates, result.total_experiences,
+            result.elapsed_seconds,
+        )
+
+    except Exception as exc:
+        _log.warning("[self_study:bg] failed for session %s (non-fatal): %s",
+                     sid, exc, exc_info=True)
+
+
 def _truncate_text(text: str, limit: int = 8000) -> str:
     if len(text) <= limit:
         return text
@@ -1292,6 +1413,9 @@ async def ingest_files(
                 # Fire-and-forget: discover latent edges in the background.
                 # This does NOT block the user — they can query immediately.
                 asyncio.create_task(_background_edge_discovery(sid))
+
+                # Fire-and-forget: KG self-study loop (test-time scaling on KG)
+                asyncio.create_task(_background_self_study(sid))
 
             except Exception as e:
                 _log.error("[ingest] background processing error: %s", e, exc_info=True)
